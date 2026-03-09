@@ -1,0 +1,16 @@
+# Environment variables
+.env
+.env.*
+*.env
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+
+# Node (if used later)
+node_modules/
+npm-debug.log
