@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Fellowship of the League</title>
+  <title>Head-to-Head — The Fellowship of the League</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -15,10 +15,10 @@
         <span></span><span></span><span></span>
       </button>
             <ul class="nav-links" id="navLinks">
-        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="index.html">Home</a></li>
         <li><a href="standings.html">Standings</a></li>
         <li><a href="records.html">Records</a></li>
-        <li><a href="h2h.html">Head-to-Head</a></li>
+        <li><a href="h2h.html" class="active">Head-to-Head</a></li>
                 <li class="nav-dropdown">
           <a href="team.html" class="dropdown-toggle">Teams &#9662;</a>
           <ul class="dropdown-menu dropdown-menu-scroll">
@@ -71,24 +71,25 @@
   </nav>
 
   <div class="page-wrapper">
+    <div class="page-header">
+      <h1>Head-to-Head Records</h1>
+      <p>All-time matchup records between every manager (regular season + playoffs)</p>
+    </div>
 
-    <!-- HERO -->
-    <div class="hero" id="hero">
+    <div style="margin-bottom:1rem;font-size:0.8rem;color:var(--text-secondary)">
+      Read as: <strong style="color:var(--text-primary)">ROW</strong> vs <strong style="color:var(--text-primary)">COLUMN</strong> &mdash;
+      <span style="color:var(--win)">■</span> winning record &nbsp;
+      <span style="color:var(--loss)">■</span> losing record &nbsp;
+      <span style="color:var(--text-muted)">■</span> even
+    </div>
+
+    <div class="h2h-wrap" id="h2hMatrix">
       <div class="loading"><div class="spinner"></div></div>
     </div>
 
-    <!-- CHAMPIONS -->
-    <div style="margin-bottom:2rem">
-      <div class="section-title">🏆 Champions</div>
-      <div class="champions-grid" id="championsGrid">
-        <div class="loading"><div class="spinner"></div></div>
-      </div>
-    </div>
-
-    <!-- FUN STATS -->
-    <div style="margin-bottom:2rem">
-      <div class="section-title">⚡ League Highlights</div>
-      <div class="fun-stats-grid" id="funStats">
+    <div style="margin-top:2rem">
+      <div class="section-title">📊 H2H Summary</div>
+      <div class="table-wrap" id="h2hSummary">
         <div class="loading"><div class="spinner"></div></div>
       </div>
     </div>
@@ -101,7 +102,7 @@
 
   <script src="js/leagueData.js"></script>
   <script src="js/utils.js"></script>
-  <script src="js/home.js"></script>
+  <script src="js/h2h.js"></script>
   <script>
     document.getElementById('navToggle').addEventListener('click', () => {
       document.getElementById('navLinks').classList.toggle('open');

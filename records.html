@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Fellowship of the League</title>
+  <title>Records — The Fellowship of the League</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -15,9 +15,9 @@
         <span></span><span></span><span></span>
       </button>
             <ul class="nav-links" id="navLinks">
-        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="index.html">Home</a></li>
         <li><a href="standings.html">Standings</a></li>
-        <li><a href="records.html">Records</a></li>
+        <li><a href="records.html" class="active">Records</a></li>
         <li><a href="h2h.html">Head-to-Head</a></li>
                 <li class="nav-dropdown">
           <a href="team.html" class="dropdown-toggle">Teams &#9662;</a>
@@ -71,24 +71,39 @@
   </nav>
 
   <div class="page-wrapper">
-
-    <!-- HERO -->
-    <div class="hero" id="hero">
-      <div class="loading"><div class="spinner"></div></div>
+    <div class="page-header">
+      <h1>League Records</h1>
+      <p>The best, worst, and wildest moments across all seasons</p>
     </div>
 
-    <!-- CHAMPIONS -->
+    <!-- Scoring Records -->
     <div style="margin-bottom:2rem">
-      <div class="section-title">🏆 Champions</div>
-      <div class="champions-grid" id="championsGrid">
+      <div class="section-title">📈 Scoring Records</div>
+      <div class="records-grid" id="scoringRecords">
         <div class="loading"><div class="spinner"></div></div>
       </div>
     </div>
 
-    <!-- FUN STATS -->
+    <!-- Season Records -->
     <div style="margin-bottom:2rem">
-      <div class="section-title">⚡ League Highlights</div>
-      <div class="fun-stats-grid" id="funStats">
+      <div class="section-title">📅 Season Records</div>
+      <div class="records-grid" id="seasonRecords">
+        <div class="loading"><div class="spinner"></div></div>
+      </div>
+    </div>
+
+    <!-- Streak Records -->
+    <div style="margin-bottom:2rem">
+      <div class="section-title">🔥 Streak Records</div>
+      <div class="records-grid" id="streakRecords">
+        <div class="loading"><div class="spinner"></div></div>
+      </div>
+    </div>
+
+    <!-- Top 10 Scores -->
+    <div style="margin-bottom:2rem">
+      <div class="section-title">🎯 Top 10 Single-Week Scores</div>
+      <div class="table-wrap" id="topScoresTable">
         <div class="loading"><div class="spinner"></div></div>
       </div>
     </div>
@@ -101,7 +116,7 @@
 
   <script src="js/leagueData.js"></script>
   <script src="js/utils.js"></script>
-  <script src="js/home.js"></script>
+  <script src="js/records.js"></script>
   <script>
     document.getElementById('navToggle').addEventListener('click', () => {
       document.getElementById('navLinks').classList.toggle('open');
