@@ -27,33 +27,33 @@
     year: m.year, week: m.week,
   })).sort((a, b) => b.margin - a.margin);
 
-  const closestGame = [...blowouts].sort((a, b) => a.margin - b.margin)[0];
+  const closestGame    = [...blowouts].sort((a, b) => a.margin - b.margin)[0];
   const biggestBlowout = blowouts[0];
 
   const scoringCards = [
     {
-      icon: '🔥',
+      icon: Icons.flame({ size: 22 }), color: 'gold',
       value: Utils.fmt(highScore.score),
       title: 'Highest Single-Week Score',
       holder: highScore.team,
       detail: `${Utils.shortOwner(highScore.owner)} — ${highScore.year}, Week ${highScore.week}`,
     },
     {
-      icon: '💀',
+      icon: Icons.skull({ size: 22 }), color: 'red',
       value: Utils.fmt(lowScore.score),
       title: 'Lowest Single-Week Score',
       holder: lowScore.team,
       detail: `${Utils.shortOwner(lowScore.owner)} — ${lowScore.year}, Week ${lowScore.week}`,
     },
     {
-      icon: '💥',
+      icon: Icons.zap({ size: 22 }), color: 'gold',
       value: `+${Utils.fmt(biggestBlowout.margin)}`,
       title: 'Biggest Blowout',
       holder: `${biggestBlowout.winner} def. ${biggestBlowout.loser}`,
       detail: `${Utils.fmt(biggestBlowout.winScore)} – ${Utils.fmt(biggestBlowout.loseScore)} — ${biggestBlowout.year}, Week ${biggestBlowout.week}`,
     },
     {
-      icon: '😬',
+      icon: Icons.target({ size: 22 }), color: 'blue',
       value: `+${Utils.fmt(closestGame.margin)}`,
       title: 'Closest Game',
       holder: `${closestGame.winner} def. ${closestGame.loser}`,
@@ -64,11 +64,11 @@
   document.getElementById('scoringRecords').innerHTML = scoringCards.map(renderRecord).join('');
 
   // ── SEASON RECORDS ────────────────────────────
-  let bestRecord  = { w: 0, l: 99, pct: 0, team: '', owner: '', year: '' };
-  let worstRecord = { w: 99, l: 0, pct: 1, team: '', owner: '', year: '' };
-  let mostPF      = { pf: 0, team: '', owner: '', year: '' };
-  let leastPF     = { pf: Infinity, team: '', owner: '', year: '' };
-  let mostPA      = { pa: 0, team: '', owner: '', year: '' };
+  let bestRecord  = { w: 0, l: 99, pct: 0,        team: '', owner: '', year: '' };
+  let worstRecord = { w: 99, l: 0, pct: 1,         team: '', owner: '', year: '' };
+  let mostPF      = { pf: 0,        team: '', owner: '', year: '' };
+  let leastPF     = { pf: Infinity,  team: '', owner: '', year: '' };
+  let mostPA      = { pa: 0,         team: '', owner: '', year: '' };
 
   for (const [year, season] of seasons) {
     for (const t of season.teams) {
@@ -95,35 +95,35 @@
 
   const seasonCards = [
     {
-      icon: '🏅',
+      icon: Icons.award({ size: 22 }), color: 'green',
       value: `${bestRecord.w}–${bestRecord.l}`,
       title: 'Best Regular Season Record',
       holder: bestRecord.team,
       detail: `${Utils.shortOwner(bestRecord.owner)} — ${bestRecord.year} (${(bestRecord.pct * 100).toFixed(1)}%)`,
     },
     {
-      icon: '😢',
+      icon: Icons.alert({ size: 22 }), color: 'red',
       value: `${worstRecord.w}–${worstRecord.l}`,
       title: 'Worst Regular Season Record',
       holder: worstRecord.team,
       detail: `${Utils.shortOwner(worstRecord.owner)} — ${worstRecord.year} (${(worstRecord.pct * 100).toFixed(1)}%)`,
     },
     {
-      icon: '📈',
+      icon: Icons.trendUp({ size: 22 }), color: 'green',
       value: Utils.fmt(mostPF.pf),
       title: 'Most Points in a Season',
       holder: mostPF.team,
       detail: `${Utils.shortOwner(mostPF.owner)} — ${mostPF.year}`,
     },
     {
-      icon: '📉',
+      icon: Icons.trendDown({ size: 22 }), color: 'red',
       value: Utils.fmt(leastPF.pf),
       title: 'Fewest Points in a Season',
       holder: leastPF.team,
       detail: `${Utils.shortOwner(leastPF.owner)} — ${leastPF.year}`,
     },
     {
-      icon: '🎯',
+      icon: Icons.shield({ size: 22 }), color: 'red',
       value: Utils.fmt(mostPA.pa),
       title: 'Most Points Scored Against',
       holder: mostPA.team,
@@ -134,8 +134,7 @@
   document.getElementById('seasonRecords').innerHTML = seasonCards.map(renderRecord).join('');
 
   // ── WIN STREAKS ───────────────────────────────
-  // Build per-owner weekly results in chronological order
-  const ownerResults = {}; // { owner: [{ year, week, win: bool }] }
+  const ownerResults = {};
   const regMatchups = matchups.filter(m => !m.is_playoff);
 
   for (const m of regMatchups) {
@@ -146,7 +145,6 @@
     }
   }
 
-  // Sort each owner's results chronologically
   for (const o of Object.keys(ownerResults)) {
     ownerResults[o].sort((a, b) => Number(a.year) - Number(b.year) || a.week - b.week);
   }
@@ -176,14 +174,14 @@
 
   const streakCards = [
     {
-      icon: '🔥',
+      icon: Icons.flame({ size: 22 }), color: 'green',
       value: `${longestWin.streak}W`,
       title: 'Longest Win Streak',
       holder: longestWin.owner,
       detail: longestWin.detail,
     },
     {
-      icon: '❄️',
+      icon: Icons.snowflake({ size: 22 }), color: 'red',
       value: `${longestLoss.streak}L`,
       title: 'Longest Losing Streak',
       holder: longestLoss.owner,
@@ -226,7 +224,7 @@
   function renderRecord(r) {
     return `
       <div class="record-card">
-        <div class="record-icon">${r.icon}</div>
+        <div class="icon-wrap iw-${r.color}">${r.icon}</div>
         <div class="card-title">${r.title}</div>
         <div class="record-value">${r.value}</div>
         <div class="record-holder">${r.holder}</div>

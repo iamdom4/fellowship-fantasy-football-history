@@ -10,7 +10,7 @@
 
   <nav class="navbar">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo">🏈 Fellowship <span>of the League</span></a>
+      <a href="index.html" class="nav-logo"><svg class="nav-logo-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><ellipse cx="12" cy="12" rx="10" ry="5.5" stroke="currentColor" stroke-width="1.5"/><line x1="12" y1="6.5" x2="12" y2="17.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="8.5" y1="9.5" x2="15.5" y2="9.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/><line x1="7.5" y1="12" x2="16.5" y2="12" stroke="currentColor" stroke-width="1" stroke-linecap="round"/><line x1="8.5" y1="14.5" x2="15.5" y2="14.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg> Fellowship <span>of the League</span></a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
@@ -78,7 +78,7 @@
 
     <!-- Scoring Records -->
     <div style="margin-bottom:2rem">
-      <div class="section-title">📈 Scoring Records</div>
+      <div class="section-title"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg> Scoring Records</div>
       <div class="records-grid" id="scoringRecords">
         <div class="loading"><div class="spinner"></div></div>
       </div>
@@ -86,7 +86,7 @@
 
     <!-- Season Records -->
     <div style="margin-bottom:2rem">
-      <div class="section-title">📅 Season Records</div>
+      <div class="section-title"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="4" rx="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg> Season Records</div>
       <div class="records-grid" id="seasonRecords">
         <div class="loading"><div class="spinner"></div></div>
       </div>
@@ -94,7 +94,7 @@
 
     <!-- Streak Records -->
     <div style="margin-bottom:2rem">
-      <div class="section-title">🔥 Streak Records</div>
+      <div class="section-title"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg> Streak Records</div>
       <div class="records-grid" id="streakRecords">
         <div class="loading"><div class="spinner"></div></div>
       </div>
@@ -102,7 +102,7 @@
 
     <!-- Top 10 Scores -->
     <div style="margin-bottom:2rem">
-      <div class="section-title">🎯 Top 10 Single-Week Scores</div>
+      <div class="section-title"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg> Top 10 Single-Week Scores</div>
       <div class="table-wrap" id="topScoresTable">
         <div class="loading"><div class="spinner"></div></div>
       </div>
@@ -116,6 +116,7 @@
 
   <script src="js/leagueData.js"></script>
   <script src="js/utils.js"></script>
+  <script src="js/icons.js"></script>
   <script src="js/records.js"></script>
   <script>
     document.getElementById('navToggle').addEventListener('click', () => {

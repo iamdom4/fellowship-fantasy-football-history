@@ -71,17 +71,17 @@
 
     const html = `
       <div class="bracket-section">
-        <div class="bracket-section-title">🏆 Championship Bracket</div>
+        <div class="bracket-section-title">${Icons.trophy({ size: 16 })} Championship Bracket</div>
         ${renderMainBracket(champRounds, year, champion)}
       </div>
       ${consolRounds.length ? `
       <div class="bracket-section" style="margin-top:2.5rem">
-        <div class="bracket-section-title">🥉 Consolation Bracket</div>
+        <div class="bracket-section-title">${Icons.medal({ size: 16 })} Consolation Bracket</div>
         ${renderLinearBracket(consolRounds, year, '3rd Place')}
       </div>` : ''}
       ${losersRounds.length ? `
       <div class="bracket-section" style="margin-top:2.5rem">
-        <div class="bracket-section-title">💀 Toilet Bowl</div>
+        <div class="bracket-section-title">${Icons.skull({ size: 16 })} Toilet Bowl</div>
         ${renderLinearBracket(losersRounds, year, 'Last Place')}
       </div>` : ''}
     `;
@@ -138,7 +138,7 @@
 
     return `
       <div class="bracket-match ${isFinal ? 'bracket-match-final' : ''}">
-        ${isFinal && isChamp ? '<div class="bracket-final-label">🏆 Championship</div>' : ''}
+        ${isFinal && isChamp ? `<div class="bracket-final-label">${Icons.trophy({ size: 12 })} Championship</div>` : ''}
         <div class="bracket-team ${homeWon ? 'bracket-winner' : isBye ? '' : 'bracket-loser'}">
           <span class="bracket-team-name" title="${homeTeam}">${homeTeam}</span>
           <span class="bracket-team-owner">${homeOwner}</span>

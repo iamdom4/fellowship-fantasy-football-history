@@ -100,7 +100,7 @@
 
   const isActive = Utils.isActive(activeOwner);
   const champBadges = champYears.length
-    ? champYears.map(y => `<span class="badge">🏆 ${y}</span>`).join(' ')
+    ? champYears.map(y => `<span class="badge">${Icons.trophy({ size: 11 })} ${y}</span>`).join(' ')
     : '<span style="color:var(--text-muted);font-size:0.85rem">No championships yet</span>';
 
   // Season table rows — most recent year first
@@ -109,7 +109,7 @@
     return `
       <tr>
         <td class="num">${r.year}</td>
-        <td>${t.team_name.trim()} ${r.isChamp ? '🏆' : ''}</td>
+        <td>${t.team_name.trim()} ${r.isChamp ? Icons.trophy({ size: 13, cls: 'icon-gold' }) : ''}</td>
         <td class="num" style="color:var(--win)">${t.wins}</td>
         <td class="num" style="color:var(--loss)">${t.losses}</td>
         <td class="num win-pct">${r.pct}%</td>
@@ -164,16 +164,16 @@
     <!-- SEASON HIGHLIGHTS -->
     <div class="grid-2" style="margin-bottom:2rem">
       <div>
-        <div class="section-title">🌟 Season Highlights</div>
+        <div class="section-title">${Icons.star({ size: 16 })} Season Highlights</div>
         <div class="grid-2">
-          ${highlightCard('Best Record', `${bestSeason.teamEntry.wins}–${bestSeason.teamEntry.losses}`, bestSeason.teamEntry.team_name.trim(), bestSeason.year, '🏅')}
-          ${highlightCard('Worst Record', `${worstSeason.teamEntry.wins}–${worstSeason.teamEntry.losses}`, worstSeason.teamEntry.team_name.trim(), worstSeason.year, '😬')}
-          ${highlightCard('Most Points', Utils.fmt(mostPFSeason.teamEntry.points_for), mostPFSeason.teamEntry.team_name.trim(), mostPFSeason.year, '📈')}
-          ${highlightCard('Fewest Points', Utils.fmt(leastPFSeason.teamEntry.points_for), leastPFSeason.teamEntry.team_name.trim(), leastPFSeason.year, '📉')}
+          ${highlightCard('Best Record', `${bestSeason.teamEntry.wins}–${bestSeason.teamEntry.losses}`, bestSeason.teamEntry.team_name.trim(), bestSeason.year, Icons.award({ size: 16 }), 'green')}
+          ${highlightCard('Worst Record', `${worstSeason.teamEntry.wins}–${worstSeason.teamEntry.losses}`, worstSeason.teamEntry.team_name.trim(), worstSeason.year, Icons.alert({ size: 16 }), 'red')}
+          ${highlightCard('Most Points', Utils.fmt(mostPFSeason.teamEntry.points_for), mostPFSeason.teamEntry.team_name.trim(), mostPFSeason.year, Icons.trendUp({ size: 16 }), 'green')}
+          ${highlightCard('Fewest Points', Utils.fmt(leastPFSeason.teamEntry.points_for), leastPFSeason.teamEntry.team_name.trim(), leastPFSeason.year, Icons.trendDown({ size: 16 }), 'red')}
         </div>
       </div>
       <div>
-        <div class="section-title">⚔️ Head-to-Head</div>
+        <div class="section-title">${Icons.swords({ size: 16 })} Head-to-Head</div>
         <div style="margin-bottom:0.5rem;font-size:0.75rem;color:var(--text-muted)">Best matchups</div>
         ${bestH2H.length ? bestH2H.map(r => h2hMiniCard(r, true)).join('') : '<p style="color:var(--text-muted);font-size:0.85rem">—</p>'}
         <div style="margin:0.75rem 0 0.5rem;font-size:0.75rem;color:var(--text-muted)">Toughest opponents</div>
@@ -183,7 +183,7 @@
 
     <!-- SEASON BY SEASON TABLE -->
     <div style="margin-bottom:2rem">
-      <div class="section-title">📅 Season-by-Season</div>
+      <div class="section-title">${Icons.calendar({ size: 16 })} Season-by-Season</div>
       <div class="table-wrap">
         <table>
           <thead>
@@ -206,7 +206,7 @@
 
     <!-- FULL H2H TABLE -->
     <div style="margin-bottom:2rem">
-      <div class="section-title">📊 All Head-to-Head Records</div>
+      <div class="section-title">${Icons.barChart({ size: 16 })} All Head-to-Head Records</div>
       <div class="table-wrap">
         <table>
           <thead>
@@ -235,10 +235,10 @@
     `;
   }
 
-  function highlightCard(label, value, team, year, icon) {
+  function highlightCard(label, value, team, year, iconHtml, color = 'gold') {
     return `
       <div class="team-highlight-card">
-        <div class="icon" style="font-size:1.2rem;margin-bottom:0.3rem">${icon}</div>
+        <div class="icon-wrap icon-wrap-sm iw-${color}">${iconHtml}</div>
         <div class="card-title">${label}</div>
         <div style="font-size:1.2rem;font-weight:800;color:var(--accent-gold)">${value}</div>
         <div style="font-size:0.75rem;color:var(--text-secondary);margin-top:0.2rem">${team}</div>

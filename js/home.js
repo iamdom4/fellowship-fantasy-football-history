@@ -36,30 +36,32 @@
   `;
 
   // ── CHAMPIONS ─────────────────────────────────
+  const ownerStatsList = Utils.getOwnerStats();
+  const ownerToLatestTeam = {};
+  ownerStatsList.forEach(s => { ownerToLatestTeam[s.owner] = s.latestTeam; });
+
   const champHtml = seasons.map(([year, season]) => {
     const champTeam = season.champion?.trim() || '—';
-    const champOwner = Utils.shortOwner(teamOwnerMap[`${year}_${champTeam}`] || '—');
-    const leagueName = season.settings?.league_name || '';
+    const champOwnerFull = teamOwnerMap[`${year}_${champTeam}`] || '—';
+    const champOwner = Utils.shortOwner(champOwnerFull);
+    const currentTeam = ownerToLatestTeam[champOwnerFull] || champTeam;
+    const showPrev = currentTeam !== champTeam && champTeam !== '—';
     return `
       <div class="champion-card">
         <div class="year-badge">${year}</div>
-        <div class="trophy">🏆</div>
-        <div class="champ-name">${champTeam}</div>
+        <div class="trophy-wrap">${Icons.trophy({ size: 26 })}</div>
+        <div class="champ-name">${currentTeam}</div>
         <div class="champ-owner">${champOwner}</div>
-        ${leagueName ? `<div class="champ-league">${leagueName}</div>` : ''}
+        ${showPrev ? `<div class="champ-prev-name">formerly ${champTeam}</div>` : ''}
       </div>
     `;
   }).join('');
   document.getElementById('championsGrid').innerHTML = champHtml;
 
   // ── FUN STATS ─────────────────────────────────
-  // Highest single-week score
-  let highScore = { score: 0, team: '', owner: '', year: '', week: 0 };
-  // Lowest score (filter out zeros/byes)
-  let lowScore  = { score: Infinity, team: '', owner: '', year: '', week: 0 };
-  // Biggest blowout
+  let highScore  = { score: 0,        team: '', owner: '', year: '', week: 0 };
+  let lowScore   = { score: Infinity,  team: '', owner: '', year: '', week: 0 };
   let bigBlowout = { margin: 0, winner: '', loser: '', year: '', week: 0 };
-  // Most total PF in a season
   let bestPFSeason = { pf: 0, team: '', owner: '', year: '' };
 
   for (const m of matchups) {
@@ -90,48 +92,45 @@
     }
   }
 
-  // Most championships
   const ownerStats = Utils.getOwnerStats();
   const mostTitles = ownerStats.sort((a, b) => b.titles - a.titles)[0];
-
-  // Avg score per week
   const avgScore = matchups.length
     ? (matchups.reduce((s, m) => s + m.home_score + m.away_score, 0) / (matchups.length * 2))
     : 0;
 
   const funStats = [
     {
-      icon: '🔥',
+      icon: Icons.flame({ size: 22 }), color: 'gold',
       value: Utils.fmt(highScore.score),
       label: 'Highest Single-Week Score',
       sub: `${highScore.team} — ${highScore.year} Wk ${highScore.week}`,
     },
     {
-      icon: '💀',
+      icon: Icons.skull({ size: 22 }), color: 'red',
       value: Utils.fmt(lowScore.score),
       label: 'Lowest Single-Week Score',
       sub: `${lowScore.team} — ${lowScore.year} Wk ${lowScore.week}`,
     },
     {
-      icon: '💥',
+      icon: Icons.zap({ size: 22 }), color: 'gold',
       value: `+${Utils.fmt(bigBlowout.margin)}`,
       label: 'Biggest Blowout',
       sub: `${bigBlowout.winner} def. ${bigBlowout.loser} — ${bigBlowout.year} Wk ${bigBlowout.week}`,
     },
     {
-      icon: '📈',
+      icon: Icons.trendUp({ size: 22 }), color: 'green',
       value: Utils.fmt(bestPFSeason.pf),
       label: 'Most Points in a Season',
       sub: `${bestPFSeason.team} (${Utils.shortOwner(bestPFSeason.owner)}) — ${bestPFSeason.year}`,
     },
     {
-      icon: '👑',
+      icon: Icons.crown({ size: 22 }), color: 'gold',
       value: mostTitles.titles,
       label: 'Most Championships',
       sub: `${Utils.shortOwner(mostTitles.owner)}`,
     },
     {
-      icon: '🎯',
+      icon: Icons.target({ size: 22 }), color: 'blue',
       value: Utils.fmt(avgScore),
       label: 'Average Weekly Score',
       sub: `Across all ${matchups.length} matchups`,
@@ -140,9 +139,9 @@
 
   document.getElementById('funStats').innerHTML = funStats.map(s => `
     <div class="fun-stat-card">
-      <div class="icon">${s.icon}</div>
-      <div class="card-title">${s.label}</div>
+      <div class="icon-wrap iw-${s.color}">${s.icon}</div>
       <div class="stat-number">${s.value}</div>
+      <div class="card-title">${s.label}</div>
       <div class="stat-sub">${s.sub}</div>
     </div>
   `).join('');

@@ -10,7 +10,7 @@
 
   <nav class="navbar">
     <div class="nav-inner">
-      <a href="index.html" class="nav-logo">🏈 Fellowship <span>of the League</span></a>
+      <a href="index.html" class="nav-logo"><svg class="nav-logo-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><ellipse cx="12" cy="12" rx="10" ry="5.5" stroke="currentColor" stroke-width="1.5"/><line x1="12" y1="6.5" x2="12" y2="17.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="8.5" y1="9.5" x2="15.5" y2="9.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/><line x1="7.5" y1="12" x2="16.5" y2="12" stroke="currentColor" stroke-width="1" stroke-linecap="round"/><line x1="8.5" y1="14.5" x2="15.5" y2="14.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg> Fellowship <span>of the League</span></a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
@@ -79,7 +79,7 @@
 
     <!-- CHAMPIONS -->
     <div style="margin-bottom:2rem">
-      <div class="section-title">🏆 Champions</div>
+      <div class="section-title"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg> Champions</div>
       <div class="champions-grid" id="championsGrid">
         <div class="loading"><div class="spinner"></div></div>
       </div>
@@ -87,7 +87,7 @@
 
     <!-- FUN STATS -->
     <div style="margin-bottom:2rem">
-      <div class="section-title">⚡ League Highlights</div>
+      <div class="section-title"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> League Highlights</div>
       <div class="fun-stats-grid" id="funStats">
         <div class="loading"><div class="spinner"></div></div>
       </div>
@@ -101,6 +101,7 @@
 
   <script src="js/leagueData.js"></script>
   <script src="js/utils.js"></script>
+  <script src="js/icons.js"></script>
   <script src="js/home.js"></script>
   <script>
     document.getElementById('navToggle').addEventListener('click', () => {
