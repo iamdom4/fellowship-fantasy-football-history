@@ -114,9 +114,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 118.0,
         "home_projected": 129.81,
+        "home_max_pf": 127.4,
         "away_team": "Sweet Victory",
         "away_score": 220.5,
         "away_projected": 138.23,
+        "away_max_pf": 234.0,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -125,9 +127,11 @@ const LEAGUE_DATA = {
         "home_team": "NOLA Dr. Who Dat",
         "home_score": 129.25,
         "home_projected": 134.42000000000002,
+        "home_max_pf": 151.85,
         "away_team": "Cat Diddlers",
         "away_score": 151.05,
         "away_projected": 145.35999999999999,
+        "away_max_pf": 160.9,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -136,9 +140,11 @@ const LEAGUE_DATA = {
         "home_team": "Wuhan Labs  JOKEVID-19",
         "home_score": 146.5,
         "home_projected": 138.13000000000002,
+        "home_max_pf": 161.9,
         "away_team": "Bodega Cat",
         "away_score": 143.85,
         "away_projected": 130.18,
+        "away_max_pf": 172.9,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -147,9 +153,11 @@ const LEAGUE_DATA = {
         "home_team": "The Comeback Kid",
         "home_score": 159.3,
         "home_projected": 120.67999999999999,
+        "home_max_pf": 165.25,
         "away_team": "Joe Smith State Jackrabbits ",
         "away_score": 63.0,
         "away_projected": 115.35000000000001,
+        "away_max_pf": 74.7,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -158,9 +166,11 @@ const LEAGUE_DATA = {
         "home_team": "Sweet Victory",
         "home_score": 149.85,
         "home_projected": 134.08,
+        "home_max_pf": 186.15,
         "away_team": "Cat Diddlers",
         "away_score": 127.1,
         "away_projected": 137.85,
+        "away_max_pf": 175.15,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -169,9 +179,11 @@ const LEAGUE_DATA = {
         "home_team": "NOLA Dr. Who Dat",
         "home_score": 150.55,
         "home_projected": 129.79,
+        "home_max_pf": 173.2,
         "away_team": "Haribo Lecter",
         "away_score": 139.8,
         "away_projected": 131.36,
+        "away_max_pf": 168.4,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -180,9 +192,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 176.7,
         "home_projected": 125.24000000000001,
+        "home_max_pf": 184.9,
         "away_team": "Joe Smith State Jackrabbits ",
         "away_score": 97.0,
         "away_projected": 115.71000000000001,
+        "away_max_pf": 126.7,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -191,9 +205,11 @@ const LEAGUE_DATA = {
         "home_team": "The Comeback Kid",
         "home_score": 120.7,
         "home_projected": 128.13,
+        "home_max_pf": 171.15,
         "away_team": "Wuhan Labs  JOKEVID-19",
         "away_score": 182.7,
         "away_projected": 136.67,
+        "away_max_pf": 182.7,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -202,9 +218,11 @@ const LEAGUE_DATA = {
         "home_team": "NOLA Dr. Who Dat",
         "home_score": 174.1,
         "home_projected": 132.88,
+        "home_max_pf": 177.7,
         "away_team": "Sweet Victory",
         "away_score": 145.75,
         "away_projected": 141.24000000000004,
+        "away_max_pf": 176.35,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -213,9 +231,11 @@ const LEAGUE_DATA = {
         "home_team": "Cat Diddlers",
         "home_score": 119.25,
         "home_projected": 128.91,
+        "home_max_pf": 130.35,
         "away_team": "Haribo Lecter",
         "away_score": 155.2,
         "away_projected": 127.50000000000001,
+        "away_max_pf": 165.2,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -224,9 +244,11 @@ const LEAGUE_DATA = {
         "home_team": "The Comeback Kid",
         "home_score": 119.05,
         "home_projected": 113.46000000000001,
+        "home_max_pf": 143.1,
         "away_team": "Bodega Cat",
         "away_score": 131.15,
         "away_projected": 134.22,
+        "away_max_pf": 158.95,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -235,9 +257,11 @@ const LEAGUE_DATA = {
         "home_team": "Joe Smith State Jackrabbits ",
         "home_score": 86.55,
         "home_projected": 98.46,
+        "home_max_pf": 131.65,
         "away_team": "Wuhan Labs  JOKEVID-19",
         "away_score": 157.6,
         "away_projected": 144.70999999999998,
+        "away_max_pf": 168.35,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -246,9 +270,11 @@ const LEAGUE_DATA = {
         "home_team": "Sweet Victory",
         "home_score": 162.1,
         "home_projected": 142.26,
+        "home_max_pf": 163.0,
         "away_team": "Bodega Cat",
         "away_score": 151.35,
         "away_projected": 138.53,
+        "away_max_pf": 182.05,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -257,9 +283,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 107.1,
         "home_projected": 116.08999999999999,
+        "home_max_pf": 112.1,
         "away_team": "Wuhan Labs  JOKEVID-19",
         "away_score": 129.25,
         "away_projected": 141.85,
+        "away_max_pf": 150.65,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -268,9 +296,11 @@ const LEAGUE_DATA = {
         "home_team": "Cat Diddlers",
         "home_score": 164.0,
         "home_projected": 133.52,
+        "home_max_pf": 171.6,
         "away_team": "Joe Smith State Jackrabbits ",
         "away_score": 116.05,
         "away_projected": 94.66,
+        "away_max_pf": 161.85,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -279,9 +309,11 @@ const LEAGUE_DATA = {
         "home_team": "NOLA Dr. Who Dat",
         "home_score": 137.2,
         "home_projected": 138.51,
+        "home_max_pf": 164.9,
         "away_team": "The Comeback Kid",
         "away_score": 120.0,
         "away_projected": 126.25,
+        "away_max_pf": 141.1,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -290,9 +322,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 120.3,
         "home_projected": 130.77,
+        "home_max_pf": 143.2,
         "away_team": "Haribo Lecter",
         "away_score": 126.3,
         "away_projected": 122.44,
+        "away_max_pf": 136.8,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -301,9 +335,11 @@ const LEAGUE_DATA = {
         "home_team": "Wuhan Labs  JOKEVID-19",
         "home_score": 123.6,
         "home_projected": 144.05,
+        "home_max_pf": 148.6,
         "away_team": "Cat Diddlers",
         "away_score": 136.5,
         "away_projected": 143.58,
+        "away_max_pf": 155.9,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -312,9 +348,11 @@ const LEAGUE_DATA = {
         "home_team": "Joe Smith State Jackrabbits ",
         "home_score": 96.2,
         "home_projected": 85.89000000000001,
+        "home_max_pf": 127.6,
         "away_team": "NOLA Dr. Who Dat",
         "away_score": 147.15,
         "away_projected": 132.81,
+        "away_max_pf": 157.65,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -323,9 +361,11 @@ const LEAGUE_DATA = {
         "home_team": "The Comeback Kid",
         "home_score": 148.25,
         "home_projected": 130.76,
+        "home_max_pf": 176.15,
         "away_team": "Sweet Victory",
         "away_score": 179.65,
         "away_projected": 145.28,
+        "away_max_pf": 195.05,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -334,9 +374,11 @@ const LEAGUE_DATA = {
         "home_team": "Cat Diddlers",
         "home_score": 153.25,
         "home_projected": 148.81999999999996,
+        "home_max_pf": 185.45,
         "away_team": "Bodega Cat",
         "away_score": 70.5,
         "away_projected": 132.98,
+        "away_max_pf": 91.2,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -345,9 +387,11 @@ const LEAGUE_DATA = {
         "home_team": "NOLA Dr. Who Dat",
         "home_score": 121.35,
         "home_projected": 125.57000000000002,
+        "home_max_pf": 131.85,
         "away_team": "Wuhan Labs  JOKEVID-19",
         "away_score": 159.6,
         "away_projected": 146.31,
+        "away_max_pf": 167.4,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -356,9 +400,11 @@ const LEAGUE_DATA = {
         "home_team": "Sweet Victory",
         "home_score": 126.05,
         "home_projected": 136.43,
+        "home_max_pf": 130.35,
         "away_team": "Joe Smith State Jackrabbits ",
         "away_score": 69.45,
         "away_projected": 84.77999999999999,
+        "away_max_pf": 123.25,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -367,9 +413,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 148.15,
         "home_projected": 126.28,
+        "home_max_pf": 186.45,
         "away_team": "The Comeback Kid",
         "away_score": 115.4,
         "away_projected": 133.89999999999998,
+        "away_max_pf": 126.6,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -378,9 +426,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 117.15,
         "home_projected": 131.13,
+        "home_max_pf": 138.45,
         "away_team": "NOLA Dr. Who Dat",
         "away_score": 119.95,
         "away_projected": 133.83,
+        "away_max_pf": 134.45,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -389,9 +439,11 @@ const LEAGUE_DATA = {
         "home_team": "Wuhan Labs  JOKEVID-19",
         "home_score": 148.5,
         "home_projected": 146.74,
+        "home_max_pf": 191.2,
         "away_team": "Sweet Victory",
         "away_score": 121.9,
         "away_projected": 139.5,
+        "away_max_pf": 151.1,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -400,9 +452,11 @@ const LEAGUE_DATA = {
         "home_team": "Joe Smith State Jackrabbits ",
         "home_score": 58.05,
         "home_projected": 52.98,
+        "home_max_pf": 146.95,
         "away_team": "Haribo Lecter",
         "away_score": 95.5,
         "away_projected": 127.21000000000001,
+        "away_max_pf": 165.95,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -411,9 +465,11 @@ const LEAGUE_DATA = {
         "home_team": "The Comeback Kid",
         "home_score": 153.0,
         "home_projected": 133.23000000000002,
+        "home_max_pf": 179.45,
         "away_team": "Cat Diddlers",
         "away_score": 131.9,
         "away_projected": 143.74,
+        "away_max_pf": 158.55,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -422,9 +478,11 @@ const LEAGUE_DATA = {
         "home_team": "Sweet Victory",
         "home_score": 154.55,
         "home_projected": 142.38000000000002,
+        "home_max_pf": 165.45,
         "away_team": "Haribo Lecter",
         "away_score": 133.8,
         "away_projected": 128.74,
+        "away_max_pf": 157.4,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -433,9 +491,11 @@ const LEAGUE_DATA = {
         "home_team": "Cat Diddlers",
         "home_score": 116.2,
         "home_projected": 146.70000000000005,
+        "home_max_pf": 122.1,
         "away_team": "NOLA Dr. Who Dat",
         "away_score": 150.95,
         "away_projected": 134.09,
+        "away_max_pf": 179.5,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -444,9 +504,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 137.35,
         "home_projected": 124.28999999999999,
+        "home_max_pf": 137.35,
         "away_team": "Wuhan Labs  JOKEVID-19",
         "away_score": 112.85,
         "away_projected": 136.59,
+        "away_max_pf": 124.85,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -455,9 +517,11 @@ const LEAGUE_DATA = {
         "home_team": "Joe Smith State Jackrabbits ",
         "home_score": 37.75,
         "home_projected": 62.25,
+        "home_max_pf": 76.15,
         "away_team": "The Comeback Kid",
         "away_score": 152.55,
         "away_projected": 140.34,
+        "away_max_pf": 159.6,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -466,9 +530,11 @@ const LEAGUE_DATA = {
         "home_team": "Cat Diddlers",
         "home_score": 135.2,
         "home_projected": 136.58,
+        "home_max_pf": 155.45,
         "away_team": "Sweet Victory",
         "away_score": 142.4,
         "away_projected": 154.24,
+        "away_max_pf": 150.4,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -477,9 +543,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 74.8,
         "home_projected": 98.19000000000001,
+        "home_max_pf": 100.7,
         "away_team": "NOLA Dr. Who Dat",
         "away_score": 144.05,
         "away_projected": 129.85,
+        "away_max_pf": 145.05,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -488,9 +556,11 @@ const LEAGUE_DATA = {
         "home_team": "Joe Smith State Jackrabbits ",
         "home_score": 44.8,
         "home_projected": 56.1,
+        "home_max_pf": 78.4,
         "away_team": "Bodega Cat",
         "away_score": 104.8,
         "away_projected": 126.33000000000001,
+        "away_max_pf": 146.25,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -499,9 +569,11 @@ const LEAGUE_DATA = {
         "home_team": "Wuhan Labs  JOKEVID-19",
         "home_score": 136.45,
         "home_projected": 144.9,
+        "home_max_pf": 165.75,
         "away_team": "The Comeback Kid",
         "away_score": 146.9,
         "away_projected": 131.62,
+        "away_max_pf": 163.2,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -510,9 +582,11 @@ const LEAGUE_DATA = {
         "home_team": "Sweet Victory",
         "home_score": 159.0,
         "home_projected": 142.97,
+        "home_max_pf": 170.4,
         "away_team": "NOLA Dr. Who Dat",
         "away_score": 134.15,
         "away_projected": 128.91,
+        "away_max_pf": 157.65,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -521,9 +595,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 98.05,
         "home_projected": 122.42,
+        "home_max_pf": 144.65,
         "away_team": "Cat Diddlers",
         "away_score": 147.9,
         "away_projected": 122.56,
+        "away_max_pf": 170.7,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -532,9 +608,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 105.15,
         "home_projected": 136.47,
+        "home_max_pf": 130.75,
         "away_team": "The Comeback Kid",
         "away_score": 80.65,
         "away_projected": 129.79000000000002,
+        "away_max_pf": 114.65,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -543,9 +621,11 @@ const LEAGUE_DATA = {
         "home_team": "Wuhan Labs  JOKEVID-19",
         "home_score": 97.15,
         "home_projected": 136.70000000000002,
+        "home_max_pf": 117.75,
         "away_team": "Joe Smith State Jackrabbits ",
         "away_score": 90.0,
         "away_projected": 95.30000000000001,
+        "away_max_pf": 122.7,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -554,9 +634,11 @@ const LEAGUE_DATA = {
         "home_team": "Sweet Victory",
         "home_score": 160.55,
         "home_projected": 144.57,
+        "home_max_pf": 168.15,
         "away_team": "Bodega Cat",
         "away_score": 161.5,
         "away_projected": 142.26,
+        "away_max_pf": 184.65,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -565,9 +647,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 107.8,
         "home_projected": 110.72000000000001,
+        "home_max_pf": 121.6,
         "away_team": "Wuhan Labs  JOKEVID-19",
         "away_score": 153.35,
         "away_projected": 140.53,
+        "away_max_pf": 164.25,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -576,9 +660,11 @@ const LEAGUE_DATA = {
         "home_team": "Cat Diddlers",
         "home_score": 104.6,
         "home_projected": 136.33,
+        "home_max_pf": 121.0,
         "away_team": "Joe Smith State Jackrabbits ",
         "away_score": 78.75,
         "away_projected": 92.56,
+        "away_max_pf": 114.05,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -587,9 +673,11 @@ const LEAGUE_DATA = {
         "home_team": "NOLA Dr. Who Dat",
         "home_score": 168.0,
         "home_projected": 129.39,
+        "home_max_pf": 173.8,
         "away_team": "The Comeback Kid",
         "away_score": 101.55,
         "away_projected": 131.32000000000002,
+        "away_max_pf": 128.15,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -598,9 +686,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 142.55,
         "home_projected": 140.85,
+        "home_max_pf": 168.05,
         "away_team": "Haribo Lecter",
         "away_score": 134.3,
         "away_projected": 127.23,
+        "away_max_pf": 154.8,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -609,9 +699,11 @@ const LEAGUE_DATA = {
         "home_team": "Wuhan Labs  JOKEVID-19",
         "home_score": 122.3,
         "home_projected": 138.31,
+        "home_max_pf": 164.75,
         "away_team": "Cat Diddlers",
         "away_score": 140.6,
         "away_projected": 132.47,
+        "away_max_pf": 146.9,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -620,9 +712,11 @@ const LEAGUE_DATA = {
         "home_team": "Joe Smith State Jackrabbits ",
         "home_score": 80.15,
         "home_projected": 97.49,
+        "home_max_pf": 169.15,
         "away_team": "NOLA Dr. Who Dat",
         "away_score": 200.1,
         "away_projected": 135.52,
+        "away_max_pf": 222.6,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -631,9 +725,11 @@ const LEAGUE_DATA = {
         "home_team": "The Comeback Kid",
         "home_score": 88.45,
         "home_projected": 126.94999999999999,
+        "home_max_pf": 138.65,
         "away_team": "Sweet Victory",
         "away_score": 119.1,
         "away_projected": 146.54000000000002,
+        "away_max_pf": 132.9,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -642,9 +738,11 @@ const LEAGUE_DATA = {
         "home_team": "Cat Diddlers",
         "home_score": 151.5,
         "home_projected": 132.29,
+        "home_max_pf": 169.55,
         "away_team": "Bodega Cat",
         "away_score": 178.65,
         "away_projected": 145.35000000000002,
+        "away_max_pf": 187.95,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -653,9 +751,11 @@ const LEAGUE_DATA = {
         "home_team": "NOLA Dr. Who Dat",
         "home_score": 130.95,
         "home_projected": 134.46,
+        "home_max_pf": 150.65,
         "away_team": "Wuhan Labs  JOKEVID-19",
         "away_score": 125.45,
         "away_projected": 126.94999999999999,
+        "away_max_pf": 143.15,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -664,9 +764,11 @@ const LEAGUE_DATA = {
         "home_team": "Sweet Victory",
         "home_score": 133.35,
         "home_projected": 148.62,
+        "home_max_pf": 148.55,
         "away_team": "Joe Smith State Jackrabbits ",
         "away_score": 48.45,
         "away_projected": 76.67999999999999,
+        "away_max_pf": 93.85,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -675,9 +777,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 94.45,
         "home_projected": 131.38,
+        "home_max_pf": 135.45,
         "away_team": "The Comeback Kid",
         "away_score": 126.65,
         "away_projected": 126.75000000000001,
+        "away_max_pf": 149.45,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -686,9 +790,11 @@ const LEAGUE_DATA = {
         "home_team": "NOLA Dr. Who Dat",
         "home_score": 112.55,
         "home_projected": 137.85999999999999,
+        "home_max_pf": 135.05,
         "away_team": "Joe Smith State Jackrabbits ",
         "away_score": 73.3,
         "away_projected": 68.44999999999999,
+        "away_max_pf": 120.8,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -697,9 +803,11 @@ const LEAGUE_DATA = {
         "home_team": "Sweet Victory",
         "home_score": 131.9,
         "home_projected": 143.67000000000002,
+        "home_max_pf": 165.2,
         "away_team": "Bodega Cat",
         "away_score": 154.2,
         "away_projected": 151.04,
+        "away_max_pf": 182.35,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -708,9 +816,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 136.75,
         "home_projected": 120.11,
+        "home_max_pf": 154.35,
         "away_team": "The Comeback Kid",
         "away_score": 119.4,
         "away_projected": 135.69,
+        "away_max_pf": 161.5,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -719,9 +829,11 @@ const LEAGUE_DATA = {
         "home_team": "Cat Diddlers",
         "home_score": 135.45,
         "home_projected": 132.04,
+        "home_max_pf": 140.85,
         "away_team": "Wuhan Labs  JOKEVID-19",
         "away_score": 140.6,
         "away_projected": 133.7,
+        "away_max_pf": 153.3,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -730,9 +842,11 @@ const LEAGUE_DATA = {
         "home_team": "NOLA Dr. Who Dat",
         "home_score": 132.35,
         "home_projected": 125.85,
+        "home_max_pf": 144.85,
         "away_team": "N/A",
         "away_score": 0,
         "away_projected": 0,
+        "away_max_pf": 0.0,
         "is_playoff": true,
         "matchup_type": "WINNERS_BRACKET"
       },
@@ -741,9 +855,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 142.65,
         "home_projected": 144.32,
+        "home_max_pf": 158.25,
         "away_team": "Cat Diddlers",
         "away_score": 148.2,
         "away_projected": 133.71,
+        "away_max_pf": 168.95,
         "is_playoff": true,
         "matchup_type": "WINNERS_BRACKET"
       },
@@ -752,9 +868,11 @@ const LEAGUE_DATA = {
         "home_team": "Sweet Victory",
         "home_score": 160.25,
         "home_projected": 149.01999999999998,
+        "home_max_pf": 185.1,
         "away_team": "The Comeback Kid",
         "away_score": 119.05,
         "away_projected": 131.93000000000004,
+        "away_max_pf": 145.95,
         "is_playoff": true,
         "matchup_type": "WINNERS_BRACKET"
       },
@@ -763,9 +881,11 @@ const LEAGUE_DATA = {
         "home_team": "Wuhan Labs  JOKEVID-19",
         "home_score": 119.7,
         "home_projected": 120.18999999999998,
+        "home_max_pf": 143.7,
         "away_team": "N/A",
         "away_score": 0,
         "away_projected": 0,
+        "away_max_pf": 0.0,
         "is_playoff": true,
         "matchup_type": "WINNERS_BRACKET"
       },
@@ -774,9 +894,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 140.7,
         "home_projected": 132.4,
+        "home_max_pf": 169.3,
         "away_team": "Joe Smith State Jackrabbits ",
         "away_score": 54.1,
         "away_projected": 58.459999999999994,
+        "away_max_pf": 76.8,
         "is_playoff": true,
         "matchup_type": "LOSERS_CONSOLATION_LADDER"
       },
@@ -785,9 +907,11 @@ const LEAGUE_DATA = {
         "home_team": "NOLA Dr. Who Dat",
         "home_score": 146.6,
         "home_projected": 132.53000000000003,
+        "home_max_pf": 180.0,
         "away_team": "Cat Diddlers",
         "away_score": 125.1,
         "away_projected": 140.85,
+        "away_max_pf": 167.0,
         "is_playoff": true,
         "matchup_type": "WINNERS_BRACKET"
       },
@@ -796,9 +920,11 @@ const LEAGUE_DATA = {
         "home_team": "Wuhan Labs  JOKEVID-19",
         "home_score": 125.25,
         "home_projected": 138.13,
+        "home_max_pf": 173.8,
         "away_team": "Sweet Victory",
         "away_score": 176.9,
         "away_projected": 149.73000000000002,
+        "away_max_pf": 212.0,
         "is_playoff": true,
         "matchup_type": "WINNERS_BRACKET"
       },
@@ -807,9 +933,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 126.45,
         "home_projected": 143.31,
+        "home_max_pf": 142.05,
         "away_team": "The Comeback Kid",
         "away_score": 169.45,
         "away_projected": 129.0,
+        "away_max_pf": 197.45,
         "is_playoff": true,
         "matchup_type": "WINNERS_CONSOLATION_LADDER"
       },
@@ -818,9 +946,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 126.85,
         "home_projected": 128.61,
+        "home_max_pf": 131.0,
         "away_team": "Joe Smith State Jackrabbits ",
         "away_score": 52.1,
         "away_projected": 46.940000000000005,
+        "away_max_pf": 70.4,
         "is_playoff": true,
         "matchup_type": "LOSERS_CONSOLATION_LADDER"
       },
@@ -829,9 +959,11 @@ const LEAGUE_DATA = {
         "home_team": "NOLA Dr. Who Dat",
         "home_score": 159.55,
         "home_projected": 159.55,
+        "home_max_pf": 186.05,
         "away_team": "Sweet Victory",
         "away_score": 138.15,
         "away_projected": 138.15,
+        "away_max_pf": 164.85,
         "is_playoff": true,
         "matchup_type": "WINNERS_BRACKET"
       },
@@ -840,9 +972,11 @@ const LEAGUE_DATA = {
         "home_team": "Wuhan Labs  JOKEVID-19",
         "home_score": 185.15,
         "home_projected": 185.15,
+        "home_max_pf": 227.15,
         "away_team": "Cat Diddlers",
         "away_score": 152.55,
         "away_projected": 152.55,
+        "away_max_pf": 152.55,
         "is_playoff": true,
         "matchup_type": "WINNERS_CONSOLATION_LADDER"
       },
@@ -851,9 +985,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 147.9,
         "home_projected": 147.9,
+        "home_max_pf": 165.4,
         "away_team": "The Comeback Kid",
         "away_score": 97.3,
         "away_projected": 97.3,
+        "away_max_pf": 99.2,
         "is_playoff": true,
         "matchup_type": "WINNERS_CONSOLATION_LADDER"
       },
@@ -862,9 +998,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 124.3,
         "home_projected": 124.3,
+        "home_max_pf": 193.8,
         "away_team": "Joe Smith State Jackrabbits ",
         "away_score": 17.6,
         "away_projected": 17.6,
+        "away_max_pf": 71.4,
         "is_playoff": true,
         "matchup_type": "LOSERS_CONSOLATION_LADDER"
       }
@@ -1127,14 +1265,14 @@ const LEAGUE_DATA = {
         "pick": 5,
         "team": "Haribo Lecter",
         "player_name": "Dak Prescott",
-        "position": "N/A"
+        "position": "QB"
       },
       {
         "round": 5,
         "pick": 6,
         "team": "The Comeback Kid",
         "player_name": "Drew Brees",
-        "position": "N/A"
+        "position": "QB"
       },
       {
         "round": 5,
@@ -1176,7 +1314,7 @@ const LEAGUE_DATA = {
         "pick": 4,
         "team": "Haribo Lecter",
         "player_name": "Jared Cook",
-        "position": "N/A"
+        "position": "TE"
       },
       {
         "round": 6,
@@ -1190,7 +1328,7 @@ const LEAGUE_DATA = {
         "pick": 6,
         "team": "NOLA Dr. Who Dat",
         "player_name": "Odell Beckham Jr.",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 6,
@@ -1204,7 +1342,7 @@ const LEAGUE_DATA = {
         "pick": 8,
         "team": "Cat Diddlers",
         "player_name": "Todd Gurley II",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 7,
@@ -1288,7 +1426,7 @@ const LEAGUE_DATA = {
         "pick": 4,
         "team": "Haribo Lecter",
         "player_name": "Patriots D/ST",
-        "position": "N/A"
+        "position": "D/ST"
       },
       {
         "round": 8,
@@ -1344,7 +1482,7 @@ const LEAGUE_DATA = {
         "pick": 4,
         "team": "Sweet Victory",
         "player_name": "Raheem Mostert",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 9,
@@ -1372,14 +1510,14 @@ const LEAGUE_DATA = {
         "pick": 8,
         "team": "Bodega Cat",
         "player_name": "Mark Ingram II",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 10,
         "pick": 1,
         "team": "Bodega Cat",
         "player_name": "DJ Chark Jr.",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 10,
@@ -1400,14 +1538,14 @@ const LEAGUE_DATA = {
         "pick": 4,
         "team": "Haribo Lecter",
         "player_name": "Tarik Cohen",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 10,
         "pick": 5,
         "team": "Sweet Victory",
         "player_name": "Will Fuller V",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 10,
@@ -1421,21 +1559,21 @@ const LEAGUE_DATA = {
         "pick": 7,
         "team": "Wuhan Labs  JOKEVID-19",
         "player_name": "Michael Gallup",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 10,
         "pick": 8,
         "team": "Cat Diddlers",
         "player_name": "A.J. Green",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 11,
         "pick": 1,
         "team": "Cat Diddlers",
         "player_name": "J.K. Dobbins",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 11,
@@ -1456,14 +1594,14 @@ const LEAGUE_DATA = {
         "pick": 4,
         "team": "Sweet Victory",
         "player_name": "Marquise Brown",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 11,
         "pick": 5,
         "team": "Haribo Lecter",
         "player_name": "Tyler Higbee",
-        "position": "N/A"
+        "position": "TE"
       },
       {
         "round": 11,
@@ -1484,7 +1622,7 @@ const LEAGUE_DATA = {
         "pick": 8,
         "team": "Bodega Cat",
         "player_name": "Jamison Crowder",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 12,
@@ -1505,7 +1643,7 @@ const LEAGUE_DATA = {
         "pick": 3,
         "team": "The Comeback Kid",
         "player_name": "Rob Gronkowski",
-        "position": "N/A"
+        "position": "TE"
       },
       {
         "round": 12,
@@ -1519,21 +1657,21 @@ const LEAGUE_DATA = {
         "pick": 5,
         "team": "Sweet Victory",
         "player_name": "Phillip Lindsay",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 12,
         "pick": 6,
         "team": "NOLA Dr. Who Dat",
         "player_name": "Steven Sims Jr.",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 12,
         "pick": 7,
         "team": "Wuhan Labs  JOKEVID-19",
         "player_name": "James White",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 12,
@@ -1547,7 +1685,7 @@ const LEAGUE_DATA = {
         "pick": 1,
         "team": "Cat Diddlers",
         "player_name": "Julian Edelman",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 13,
@@ -1568,14 +1706,14 @@ const LEAGUE_DATA = {
         "pick": 4,
         "team": "Sweet Victory",
         "player_name": "Cam Newton",
-        "position": "N/A"
+        "position": "QB"
       },
       {
         "round": 13,
         "pick": 5,
         "team": "Haribo Lecter",
         "player_name": "Christian Kirk",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 13,
@@ -1638,21 +1776,21 @@ const LEAGUE_DATA = {
         "pick": 6,
         "team": "NOLA Dr. Who Dat",
         "player_name": "Matthew Stafford",
-        "position": "N/A"
+        "position": "QB"
       },
       {
         "round": 14,
         "pick": 7,
         "team": "Wuhan Labs  JOKEVID-19",
         "player_name": "Noah Fant",
-        "position": "N/A"
+        "position": "TE"
       },
       {
         "round": 14,
         "pick": 8,
         "team": "Cat Diddlers",
         "player_name": "49ers D/ST",
-        "position": "N/A"
+        "position": "D/ST"
       },
       {
         "round": 15,
@@ -1666,7 +1804,7 @@ const LEAGUE_DATA = {
         "pick": 2,
         "team": "Wuhan Labs  JOKEVID-19",
         "player_name": "Golden Tate",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 15,
@@ -1680,7 +1818,7 @@ const LEAGUE_DATA = {
         "pick": 4,
         "team": "Sweet Victory",
         "player_name": "Darius Slayton",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 15,
@@ -1708,14 +1846,14 @@ const LEAGUE_DATA = {
         "pick": 8,
         "team": "Bodega Cat",
         "player_name": "Chargers D/ST",
-        "position": "N/A"
+        "position": "D/ST"
       },
       {
         "round": 16,
         "pick": 1,
         "team": "Bodega Cat",
         "player_name": "Chris Boswell",
-        "position": "N/A"
+        "position": "K"
       },
       {
         "round": 16,
@@ -1729,21 +1867,21 @@ const LEAGUE_DATA = {
         "pick": 3,
         "team": "The Comeback Kid",
         "player_name": "Henry Ruggs III",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 16,
         "pick": 4,
         "team": "Haribo Lecter",
         "player_name": "Robbie Gould",
-        "position": "N/A"
+        "position": "K"
       },
       {
         "round": 16,
         "pick": 5,
         "team": "Sweet Victory",
         "player_name": "Zane Gonzalez",
-        "position": "N/A"
+        "position": "K"
       },
       {
         "round": 16,
@@ -1757,14 +1895,14 @@ const LEAGUE_DATA = {
         "pick": 7,
         "team": "Wuhan Labs  JOKEVID-19",
         "player_name": "Zack Moss",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 16,
         "pick": 8,
         "team": "Cat Diddlers",
         "player_name": "Jake Elliott",
-        "position": "N/A"
+        "position": "K"
       }
     ]
   },
@@ -1907,9 +2045,11 @@ const LEAGUE_DATA = {
         "home_team": "Toney Soprano",
         "home_score": 156.1,
         "home_projected": 132.71,
+        "home_max_pf": 199.6,
         "away_team": "The Comeback Kid",
         "away_score": 118.65,
         "away_projected": 126.90999999999998,
+        "away_max_pf": 136.3,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -1918,9 +2058,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 136.45,
         "home_projected": 129.23000000000002,
+        "home_max_pf": 162.55,
         "away_team": "Baby Got  Dak",
         "away_score": 113.35,
         "away_projected": 119.62,
+        "away_max_pf": 167.85,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -1929,9 +2071,11 @@ const LEAGUE_DATA = {
         "home_team": "Tijuana Anti-VaxxAttack",
         "home_score": 133.95,
         "home_projected": 130.67,
+        "home_max_pf": 153.6,
         "away_team": "NOLA Dr. Who Dat",
         "away_score": 148.75,
         "away_projected": 123.39,
+        "away_max_pf": 175.85,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -1940,9 +2084,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 106.4,
         "home_projected": 124.39,
+        "home_max_pf": 148.55,
         "away_team": "I\u2019m Walkin\u2019 Here",
         "away_score": 106.35,
         "away_projected": 120.88999999999999,
+        "away_max_pf": 158.5,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -1951,9 +2097,11 @@ const LEAGUE_DATA = {
         "home_team": "Talibanistan Liberators ",
         "home_score": 148.75,
         "home_projected": 125.34000000000002,
+        "home_max_pf": 152.65,
         "away_team": "Joe BYE-Den My Time",
         "away_score": 133.45,
         "away_projected": 119.32999999999998,
+        "away_max_pf": 152.75,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -1962,9 +2110,11 @@ const LEAGUE_DATA = {
         "home_team": "Talibanistan Liberators ",
         "home_score": 115.05,
         "home_projected": 137.20999999999998,
+        "home_max_pf": 141.75,
         "away_team": "The Comeback Kid",
         "away_score": 153.0,
         "away_projected": 135.39000000000001,
+        "away_max_pf": 166.0,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -1973,9 +2123,11 @@ const LEAGUE_DATA = {
         "home_team": "Baby Got  Dak",
         "home_score": 134.45,
         "home_projected": 127.83,
+        "home_max_pf": 160.15,
         "away_team": "Toney Soprano",
         "away_score": 127.35,
         "away_projected": 135.07,
+        "away_max_pf": 147.05,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -1984,9 +2136,11 @@ const LEAGUE_DATA = {
         "home_team": "NOLA Dr. Who Dat",
         "home_score": 120.9,
         "home_projected": 132.38,
+        "home_max_pf": 155.5,
         "away_team": "Haribo Lecter",
         "away_score": 149.9,
         "away_projected": 132.52,
+        "away_max_pf": 171.0,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -1995,9 +2149,11 @@ const LEAGUE_DATA = {
         "home_team": "Tijuana Anti-VaxxAttack",
         "home_score": 158.75,
         "home_projected": 132.55,
+        "home_max_pf": 182.25,
         "away_team": "Bodega Cat",
         "away_score": 123.65,
         "away_projected": 127.56,
+        "away_max_pf": 154.1,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2006,9 +2162,11 @@ const LEAGUE_DATA = {
         "home_team": "I\u2019m Walkin\u2019 Here",
         "home_score": 127.35,
         "home_projected": 125.03,
+        "home_max_pf": 137.55,
         "away_team": "Joe BYE-Den My Time",
         "away_score": 177.35,
         "away_projected": 130.41000000000003,
+        "away_max_pf": 186.25,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2017,9 +2175,11 @@ const LEAGUE_DATA = {
         "home_team": "The Comeback Kid",
         "home_score": 101.65,
         "home_projected": 127.22999999999999,
+        "home_max_pf": 139.45,
         "away_team": "Baby Got  Dak",
         "away_score": 123.9,
         "away_projected": 132.04,
+        "away_max_pf": 149.4,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2028,9 +2188,11 @@ const LEAGUE_DATA = {
         "home_team": "Toney Soprano",
         "home_score": 134.5,
         "home_projected": 147.76999999999998,
+        "home_max_pf": 154.7,
         "away_team": "NOLA Dr. Who Dat",
         "away_score": 117.1,
         "away_projected": 137.21,
+        "away_max_pf": 168.4,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2039,9 +2201,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 107.85,
         "home_projected": 132.43,
+        "home_max_pf": 141.8,
         "away_team": "Haribo Lecter",
         "away_score": 119.3,
         "away_projected": 118.60999999999999,
+        "away_max_pf": 145.7,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2050,9 +2214,11 @@ const LEAGUE_DATA = {
         "home_team": "Joe BYE-Den My Time",
         "home_score": 135.7,
         "home_projected": 133.14000000000001,
+        "home_max_pf": 165.1,
         "away_team": "Tijuana Anti-VaxxAttack",
         "away_score": 119.65,
         "away_projected": 140.91,
+        "away_max_pf": 141.3,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2061,9 +2227,11 @@ const LEAGUE_DATA = {
         "home_team": "Talibanistan Liberators ",
         "home_score": 162.6,
         "home_projected": 131.13,
+        "home_max_pf": 169.3,
         "away_team": "I\u2019m Walkin\u2019 Here",
         "away_score": 110.55,
         "away_projected": 123.33,
+        "away_max_pf": 148.2,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2072,9 +2240,11 @@ const LEAGUE_DATA = {
         "home_team": "The Comeback Kid",
         "home_score": 113.7,
         "home_projected": 128.14,
+        "home_max_pf": 134.1,
         "away_team": "NOLA Dr. Who Dat",
         "away_score": 89.3,
         "away_projected": 136.8,
+        "away_max_pf": 112.9,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2083,9 +2253,11 @@ const LEAGUE_DATA = {
         "home_team": "Talibanistan Liberators ",
         "home_score": 110.1,
         "home_projected": 132.02,
+        "home_max_pf": 120.45,
         "away_team": "Baby Got  Dak",
         "away_score": 133.5,
         "away_projected": 130.54999999999998,
+        "away_max_pf": 172.8,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2094,9 +2266,11 @@ const LEAGUE_DATA = {
         "home_team": "Toney Soprano",
         "home_score": 147.2,
         "home_projected": 131.27,
+        "home_max_pf": 164.1,
         "away_team": "Bodega Cat",
         "away_score": 103.7,
         "away_projected": 131.1,
+        "away_max_pf": 122.8,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2105,9 +2279,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 94.95,
         "home_projected": 114.02,
+        "home_max_pf": 143.7,
         "away_team": "Joe BYE-Den My Time",
         "away_score": 179.85,
         "away_projected": 132.93,
+        "away_max_pf": 202.25,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2116,9 +2292,11 @@ const LEAGUE_DATA = {
         "home_team": "I\u2019m Walkin\u2019 Here",
         "home_score": 156.0,
         "home_projected": 126.20999999999998,
+        "home_max_pf": 181.05,
         "away_team": "Tijuana Anti-VaxxAttack",
         "away_score": 140.45,
         "away_projected": 139.45999999999998,
+        "away_max_pf": 143.85,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2127,9 +2305,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 139.85,
         "home_projected": 130.01,
+        "home_max_pf": 160.25,
         "away_team": "The Comeback Kid",
         "away_score": 174.3,
         "away_projected": 121.92999999999999,
+        "away_max_pf": 188.1,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2138,9 +2318,11 @@ const LEAGUE_DATA = {
         "home_team": "NOLA Dr. Who Dat",
         "home_score": 150.55,
         "home_projected": 128.51999999999998,
+        "home_max_pf": 160.95,
         "away_team": "Baby Got  Dak",
         "away_score": 147.05,
         "away_projected": 126.66,
+        "away_max_pf": 169.85,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2149,9 +2331,11 @@ const LEAGUE_DATA = {
         "home_team": "Joe BYE-Den My Time",
         "home_score": 142.9,
         "home_projected": 140.85,
+        "home_max_pf": 144.8,
         "away_team": "Toney Soprano",
         "away_score": 82.3,
         "away_projected": 142.51,
+        "away_max_pf": 91.5,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2160,9 +2344,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 186.85,
         "home_projected": 131.64000000000001,
+        "home_max_pf": 195.75,
         "away_team": "I\u2019m Walkin\u2019 Here",
         "away_score": 155.7,
         "away_projected": 128.32999999999998,
+        "away_max_pf": 231.7,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2171,9 +2357,11 @@ const LEAGUE_DATA = {
         "home_team": "Talibanistan Liberators ",
         "home_score": 135.1,
         "home_projected": 133.94,
+        "home_max_pf": 146.35,
         "away_team": "Tijuana Anti-VaxxAttack",
         "away_score": 177.1,
         "away_projected": 129.46,
+        "away_max_pf": 196.1,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2182,9 +2370,11 @@ const LEAGUE_DATA = {
         "home_team": "The Comeback Kid",
         "home_score": 106.25,
         "home_projected": 138.35999999999999,
+        "home_max_pf": 156.85,
         "away_team": "Joe BYE-Den My Time",
         "away_score": 155.4,
         "away_projected": 135.65,
+        "away_max_pf": 159.9,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2193,9 +2383,11 @@ const LEAGUE_DATA = {
         "home_team": "Baby Got  Dak",
         "home_score": 129.25,
         "home_projected": 132.15,
+        "home_max_pf": 139.15,
         "away_team": "Bodega Cat",
         "away_score": 131.45,
         "away_projected": 132.33999999999997,
+        "away_max_pf": 183.75,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2204,9 +2396,11 @@ const LEAGUE_DATA = {
         "home_team": "Talibanistan Liberators ",
         "home_score": 120.65,
         "home_projected": 130.45,
+        "home_max_pf": 133.15,
         "away_team": "NOLA Dr. Who Dat",
         "away_score": 125.65,
         "away_projected": 132.06,
+        "away_max_pf": 164.65,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2215,9 +2409,11 @@ const LEAGUE_DATA = {
         "home_team": "I\u2019m Walkin\u2019 Here",
         "home_score": 106.85,
         "home_projected": 136.81,
+        "home_max_pf": 154.35,
         "away_team": "Toney Soprano",
         "away_score": 106.2,
         "away_projected": 130.64,
+        "away_max_pf": 124.9,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2226,9 +2422,11 @@ const LEAGUE_DATA = {
         "home_team": "Tijuana Anti-VaxxAttack",
         "home_score": 169.05,
         "home_projected": 125.24000000000001,
+        "home_max_pf": 182.35,
         "away_team": "Haribo Lecter",
         "away_score": 141.35,
         "away_projected": 134.49,
+        "away_max_pf": 165.25,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2237,9 +2435,11 @@ const LEAGUE_DATA = {
         "home_team": "I\u2019m Walkin\u2019 Here",
         "home_score": 183.9,
         "home_projected": 134.37,
+        "home_max_pf": 190.9,
         "away_team": "The Comeback Kid",
         "away_score": 125.35,
         "away_projected": 120.91999999999999,
+        "away_max_pf": 134.95,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2248,9 +2448,11 @@ const LEAGUE_DATA = {
         "home_team": "Joe BYE-Den My Time",
         "home_score": 136.8,
         "home_projected": 127.97999999999999,
+        "home_max_pf": 144.0,
         "away_team": "Baby Got  Dak",
         "away_score": 81.7,
         "away_projected": 120.61000000000001,
+        "away_max_pf": 105.5,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2259,9 +2461,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 107.6,
         "home_projected": 129.28,
+        "home_max_pf": 148.9,
         "away_team": "NOLA Dr. Who Dat",
         "away_score": 148.35,
         "away_projected": 134.77,
+        "away_max_pf": 168.75,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2270,9 +2474,11 @@ const LEAGUE_DATA = {
         "home_team": "Tijuana Anti-VaxxAttack",
         "home_score": 134.8,
         "home_projected": 134.58,
+        "home_max_pf": 135.05,
         "away_team": "Toney Soprano",
         "away_score": 113.15,
         "away_projected": 110.99000000000001,
+        "away_max_pf": 118.85,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2281,9 +2487,11 @@ const LEAGUE_DATA = {
         "home_team": "Talibanistan Liberators ",
         "home_score": 151.75,
         "home_projected": 122.35000000000001,
+        "home_max_pf": 158.85,
         "away_team": "Haribo Lecter",
         "away_score": 146.25,
         "away_projected": 121.62999999999998,
+        "away_max_pf": 159.45,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2292,9 +2500,11 @@ const LEAGUE_DATA = {
         "home_team": "The Comeback Kid",
         "home_score": 92.85,
         "home_projected": 131.16000000000003,
+        "home_max_pf": 111.65,
         "away_team": "Tijuana Anti-VaxxAttack",
         "away_score": 104.65,
         "away_projected": 129.66,
+        "away_max_pf": 121.95,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2303,9 +2513,11 @@ const LEAGUE_DATA = {
         "home_team": "Baby Got  Dak",
         "home_score": 101.95,
         "home_projected": 132.01,
+        "home_max_pf": 124.25,
         "away_team": "I\u2019m Walkin\u2019 Here",
         "away_score": 127.4,
         "away_projected": 137.97,
+        "away_max_pf": 132.1,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2314,9 +2526,11 @@ const LEAGUE_DATA = {
         "home_team": "NOLA Dr. Who Dat",
         "home_score": 118.3,
         "home_projected": 122.66,
+        "home_max_pf": 130.5,
         "away_team": "Joe BYE-Den My Time",
         "away_score": 114.5,
         "away_projected": 136.32999999999998,
+        "away_max_pf": 130.6,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2325,9 +2539,11 @@ const LEAGUE_DATA = {
         "home_team": "Talibanistan Liberators ",
         "home_score": 120.95,
         "home_projected": 116.84,
+        "home_max_pf": 142.45,
         "away_team": "Bodega Cat",
         "away_score": 154.95,
         "away_projected": 128.42000000000002,
+        "away_max_pf": 175.95,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2336,9 +2552,11 @@ const LEAGUE_DATA = {
         "home_team": "Toney Soprano",
         "home_score": 61.5,
         "home_projected": 75.28999999999999,
+        "home_max_pf": 90.6,
         "away_team": "Haribo Lecter",
         "away_score": 133.65,
         "away_projected": 123.00999999999999,
+        "away_max_pf": 155.75,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2347,9 +2565,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 110.0,
         "home_projected": 110.64,
+        "home_max_pf": 126.7,
         "away_team": "The Comeback Kid",
         "away_score": 121.4,
         "away_projected": 125.11,
+        "away_max_pf": 124.5,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2358,9 +2578,11 @@ const LEAGUE_DATA = {
         "home_team": "Tijuana Anti-VaxxAttack",
         "home_score": 124.4,
         "home_projected": 127.19,
+        "home_max_pf": 201.6,
         "away_team": "Baby Got  Dak",
         "away_score": 69.6,
         "away_projected": 131.5,
+        "away_max_pf": 84.4,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2369,9 +2591,11 @@ const LEAGUE_DATA = {
         "home_team": "I\u2019m Walkin\u2019 Here",
         "home_score": 87.15,
         "home_projected": 124.44,
+        "home_max_pf": 97.15,
         "away_team": "NOLA Dr. Who Dat",
         "away_score": 106.8,
         "away_projected": 102.94999999999999,
+        "away_max_pf": 122.6,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2380,9 +2604,11 @@ const LEAGUE_DATA = {
         "home_team": "Joe BYE-Den My Time",
         "home_score": 160.6,
         "home_projected": 140.29999999999998,
+        "home_max_pf": 170.2,
         "away_team": "Bodega Cat",
         "away_score": 81.0,
         "away_projected": 135.22,
+        "away_max_pf": 127.95,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2391,9 +2617,11 @@ const LEAGUE_DATA = {
         "home_team": "Talibanistan Liberators ",
         "home_score": 130.0,
         "home_projected": 116.30999999999997,
+        "home_max_pf": 135.7,
         "away_team": "Toney Soprano",
         "away_score": 115.8,
         "away_projected": 130.02999999999997,
+        "away_max_pf": 131.8,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2402,9 +2630,11 @@ const LEAGUE_DATA = {
         "home_team": "The Comeback Kid",
         "home_score": 81.05,
         "home_projected": 131.19000000000003,
+        "home_max_pf": 135.0,
         "away_team": "Toney Soprano",
         "away_score": 123.85,
         "away_projected": 140.98000000000002,
+        "away_max_pf": 128.55,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2413,9 +2643,11 @@ const LEAGUE_DATA = {
         "home_team": "Baby Got  Dak",
         "home_score": 122.8,
         "home_projected": 125.25999999999999,
+        "home_max_pf": 145.0,
         "away_team": "Haribo Lecter",
         "away_score": 80.3,
         "away_projected": 119.15000000000002,
+        "away_max_pf": 102.0,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2424,9 +2656,11 @@ const LEAGUE_DATA = {
         "home_team": "NOLA Dr. Who Dat",
         "home_score": 45.4,
         "home_projected": 55.08999999999999,
+        "home_max_pf": 69.2,
         "away_team": "Tijuana Anti-VaxxAttack",
         "away_score": 118.7,
         "away_projected": 132.5,
+        "away_max_pf": 125.5,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2435,9 +2669,11 @@ const LEAGUE_DATA = {
         "home_team": "I\u2019m Walkin\u2019 Here",
         "home_score": 134.7,
         "home_projected": 138.13000000000002,
+        "home_max_pf": 165.8,
         "away_team": "Bodega Cat",
         "away_score": 158.35,
         "away_projected": 130.84,
+        "away_max_pf": 185.95,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2446,9 +2682,11 @@ const LEAGUE_DATA = {
         "home_team": "Joe BYE-Den My Time",
         "home_score": 109.4,
         "home_projected": 142.68,
+        "home_max_pf": 127.9,
         "away_team": "Talibanistan Liberators ",
         "away_score": 118.3,
         "away_projected": 136.7,
+        "away_max_pf": 137.5,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2457,9 +2695,11 @@ const LEAGUE_DATA = {
         "home_team": "The Comeback Kid",
         "home_score": 141.3,
         "home_projected": 122.49000000000001,
+        "home_max_pf": 148.2,
         "away_team": "Talibanistan Liberators ",
         "away_score": 130.9,
         "away_projected": 138.08999999999997,
+        "away_max_pf": 148.55,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2468,9 +2708,11 @@ const LEAGUE_DATA = {
         "home_team": "Toney Soprano",
         "home_score": 117.85,
         "home_projected": 140.5,
+        "home_max_pf": 125.05,
         "away_team": "Baby Got  Dak",
         "away_score": 136.35,
         "away_projected": 124.19,
+        "away_max_pf": 149.45,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2479,9 +2721,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 94.3,
         "home_projected": 80.46,
+        "home_max_pf": 143.55,
         "away_team": "NOLA Dr. Who Dat",
         "away_score": 88.55,
         "away_projected": 91.57999999999998,
+        "away_max_pf": 100.45,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2490,9 +2734,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 103.8,
         "home_projected": 129.34,
+        "home_max_pf": 113.35,
         "away_team": "Tijuana Anti-VaxxAttack",
         "away_score": 195.15,
         "away_projected": 120.38000000000001,
+        "away_max_pf": 220.05,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2501,9 +2747,11 @@ const LEAGUE_DATA = {
         "home_team": "Joe BYE-Den My Time",
         "home_score": 113.6,
         "home_projected": 109.80000000000001,
+        "home_max_pf": 137.9,
         "away_team": "I\u2019m Walkin\u2019 Here",
         "away_score": 143.05,
         "away_projected": 134.36,
+        "away_max_pf": 164.95,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2512,9 +2760,11 @@ const LEAGUE_DATA = {
         "home_team": "Baby Got  Dak",
         "home_score": 151.6,
         "home_projected": 131.49,
+        "home_max_pf": 151.6,
         "away_team": "The Comeback Kid",
         "away_score": 155.55,
         "away_projected": 121.53,
+        "away_max_pf": 166.05,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2523,9 +2773,11 @@ const LEAGUE_DATA = {
         "home_team": "NOLA Dr. Who Dat",
         "home_score": 103.4,
         "home_projected": 95.57000000000001,
+        "home_max_pf": 129.0,
         "away_team": "Toney Soprano",
         "away_score": 92.6,
         "away_projected": 139.93,
+        "away_max_pf": 113.4,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2534,9 +2786,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 151.0,
         "home_projected": 104.43999999999998,
+        "home_max_pf": 184.1,
         "away_team": "Bodega Cat",
         "away_score": 117.0,
         "away_projected": 116.69,
+        "away_max_pf": 126.8,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2545,9 +2799,11 @@ const LEAGUE_DATA = {
         "home_team": "Tijuana Anti-VaxxAttack",
         "home_score": 127.65,
         "home_projected": 125.88999999999999,
+        "home_max_pf": 138.85,
         "away_team": "Joe BYE-Den My Time",
         "away_score": 112.5,
         "away_projected": 137.68,
+        "away_max_pf": 143.8,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2556,9 +2812,11 @@ const LEAGUE_DATA = {
         "home_team": "I\u2019m Walkin\u2019 Here",
         "home_score": 116.85,
         "home_projected": 129.07000000000002,
+        "home_max_pf": 159.15,
         "away_team": "Talibanistan Liberators ",
         "away_score": 83.25,
         "away_projected": 106.29,
+        "away_max_pf": 100.65,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2567,9 +2825,11 @@ const LEAGUE_DATA = {
         "home_team": "NOLA Dr. Who Dat",
         "home_score": 66.1,
         "home_projected": 100.68,
+        "home_max_pf": 83.75,
         "away_team": "The Comeback Kid",
         "away_score": 137.95,
         "away_projected": 122.09000000000002,
+        "away_max_pf": 145.95,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2578,9 +2838,11 @@ const LEAGUE_DATA = {
         "home_team": "Baby Got  Dak",
         "home_score": 113.6,
         "home_projected": 124.77,
+        "home_max_pf": 123.3,
         "away_team": "Talibanistan Liberators ",
         "away_score": 125.3,
         "away_projected": 105.42,
+        "away_max_pf": 125.3,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2589,9 +2851,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 101.4,
         "home_projected": 126.76,
+        "home_max_pf": 111.6,
         "away_team": "Toney Soprano",
         "away_score": 137.25,
         "away_projected": 128.04,
+        "away_max_pf": 155.15,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2600,9 +2864,11 @@ const LEAGUE_DATA = {
         "home_team": "Joe BYE-Den My Time",
         "home_score": 143.5,
         "home_projected": 133.35999999999999,
+        "home_max_pf": 195.65,
         "away_team": "Haribo Lecter",
         "away_score": 163.6,
         "away_projected": 133.32,
+        "away_max_pf": 168.3,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2611,9 +2877,11 @@ const LEAGUE_DATA = {
         "home_team": "Tijuana Anti-VaxxAttack",
         "home_score": 150.65,
         "home_projected": 144.4,
+        "home_max_pf": 177.75,
         "away_team": "I\u2019m Walkin\u2019 Here",
         "away_score": 119.1,
         "away_projected": 124.68,
+        "away_max_pf": 131.2,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2622,9 +2890,11 @@ const LEAGUE_DATA = {
         "home_team": "The Comeback Kid",
         "home_score": 156.45,
         "home_projected": 99.24000000000001,
+        "home_max_pf": 187.55,
         "away_team": "Bodega Cat",
         "away_score": 164.6,
         "away_projected": 129.47,
+        "away_max_pf": 166.4,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2633,9 +2903,11 @@ const LEAGUE_DATA = {
         "home_team": "Baby Got  Dak",
         "home_score": 142.0,
         "home_projected": 121.30000000000001,
+        "home_max_pf": 148.5,
         "away_team": "NOLA Dr. Who Dat",
         "away_score": 94.45,
         "away_projected": 102.32000000000002,
+        "away_max_pf": 124.65,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2644,9 +2916,11 @@ const LEAGUE_DATA = {
         "home_team": "Toney Soprano",
         "home_score": 106.45,
         "home_projected": 113.89999999999998,
+        "home_max_pf": 155.55,
         "away_team": "Joe BYE-Den My Time",
         "away_score": 138.6,
         "away_projected": 133.0,
+        "away_max_pf": 140.3,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2655,9 +2929,11 @@ const LEAGUE_DATA = {
         "home_team": "I\u2019m Walkin\u2019 Here",
         "home_score": 117.05,
         "home_projected": 124.86,
+        "home_max_pf": 120.55,
         "away_team": "Haribo Lecter",
         "away_score": 150.15,
         "away_projected": 108.83,
+        "away_max_pf": 175.65,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2666,9 +2942,11 @@ const LEAGUE_DATA = {
         "home_team": "Tijuana Anti-VaxxAttack",
         "home_score": 119.25,
         "home_projected": 114.82,
+        "home_max_pf": 134.95,
         "away_team": "Talibanistan Liberators ",
         "away_score": 107.35,
         "away_projected": 109.08,
+        "away_max_pf": 127.6,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2677,9 +2955,11 @@ const LEAGUE_DATA = {
         "home_team": "Joe BYE-Den My Time",
         "home_score": 125.5,
         "home_projected": 144.3,
+        "home_max_pf": 159.55,
         "away_team": "The Comeback Kid",
         "away_score": 94.1,
         "away_projected": 128.75,
+        "away_max_pf": 129.0,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2688,9 +2968,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 137.5,
         "home_projected": 125.30999999999999,
+        "home_max_pf": 142.65,
         "away_team": "Baby Got  Dak",
         "away_score": 112.2,
         "away_projected": 125.14999999999998,
+        "away_max_pf": 144.5,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2699,9 +2981,11 @@ const LEAGUE_DATA = {
         "home_team": "NOLA Dr. Who Dat",
         "home_score": 60.35,
         "home_projected": 85.17,
+        "home_max_pf": 75.8,
         "away_team": "Talibanistan Liberators ",
         "away_score": 111.65,
         "away_projected": 106.22000000000001,
+        "away_max_pf": 130.35,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2710,9 +2994,11 @@ const LEAGUE_DATA = {
         "home_team": "Toney Soprano",
         "home_score": 70.0,
         "home_projected": 101.69,
+        "home_max_pf": 114.4,
         "away_team": "I\u2019m Walkin\u2019 Here",
         "away_score": 128.4,
         "away_projected": 126.61000000000001,
+        "away_max_pf": 169.7,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2721,9 +3007,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 91.9,
         "home_projected": 139.19,
+        "home_max_pf": 111.7,
         "away_team": "Tijuana Anti-VaxxAttack",
         "away_score": 95.15,
         "away_projected": 121.87,
+        "away_max_pf": 152.9,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -2732,9 +3020,11 @@ const LEAGUE_DATA = {
         "home_team": "Tijuana Anti-VaxxAttack",
         "home_score": 127.45,
         "home_projected": 130.57999999999998,
+        "home_max_pf": 146.25,
         "away_team": "Bodega Cat",
         "away_score": 164.75,
         "away_projected": 127.85,
+        "away_max_pf": 215.15,
         "is_playoff": true,
         "matchup_type": "WINNERS_BRACKET"
       },
@@ -2743,9 +3033,11 @@ const LEAGUE_DATA = {
         "home_team": "I\u2019m Walkin\u2019 Here",
         "home_score": 89.0,
         "home_projected": 113.76,
+        "home_max_pf": 158.7,
         "away_team": "The Comeback Kid",
         "away_score": 134.0,
         "away_projected": 126.26,
+        "away_max_pf": 150.3,
         "is_playoff": true,
         "matchup_type": "WINNERS_BRACKET"
       },
@@ -2754,9 +3046,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 157.1,
         "home_projected": 130.13,
+        "home_max_pf": 157.1,
         "away_team": "Talibanistan Liberators ",
         "away_score": 111.9,
         "away_projected": 108.07,
+        "away_max_pf": 136.3,
         "is_playoff": true,
         "matchup_type": "WINNERS_BRACKET"
       },
@@ -2765,9 +3059,11 @@ const LEAGUE_DATA = {
         "home_team": "Joe BYE-Den My Time",
         "home_score": 134.65,
         "home_projected": 134.45999999999998,
+        "home_max_pf": 143.35,
         "away_team": "NOLA Dr. Who Dat",
         "away_score": 125.95,
         "away_projected": 105.28999999999999,
+        "away_max_pf": 125.95,
         "is_playoff": true,
         "matchup_type": "WINNERS_BRACKET"
       },
@@ -2776,9 +3072,11 @@ const LEAGUE_DATA = {
         "home_team": "Baby Got  Dak",
         "home_score": 123.7,
         "home_projected": 125.67000000000002,
+        "home_max_pf": 139.0,
         "away_team": "Toney Soprano",
         "away_score": 64.05,
         "away_projected": 90.46000000000001,
+        "away_max_pf": 88.25,
         "is_playoff": true,
         "matchup_type": "LOSERS_CONSOLATION_LADDER"
       },
@@ -2787,9 +3085,11 @@ const LEAGUE_DATA = {
         "home_team": "The Comeback Kid",
         "home_score": 113.85,
         "home_projected": 127.24999999999999,
+        "home_max_pf": 154.55,
         "away_team": "Bodega Cat",
         "away_score": 123.8,
         "away_projected": 134.38,
+        "away_max_pf": 165.0,
         "is_playoff": true,
         "matchup_type": "WINNERS_BRACKET"
       },
@@ -2798,9 +3098,11 @@ const LEAGUE_DATA = {
         "home_team": "Joe BYE-Den My Time",
         "home_score": 131.8,
         "home_projected": 137.18,
+        "home_max_pf": 157.4,
         "away_team": "Haribo Lecter",
         "away_score": 151.6,
         "away_projected": 142.88,
+        "away_max_pf": 170.7,
         "is_playoff": true,
         "matchup_type": "WINNERS_BRACKET"
       },
@@ -2809,9 +3111,11 @@ const LEAGUE_DATA = {
         "home_team": "Tijuana Anti-VaxxAttack",
         "home_score": 116.1,
         "home_projected": 129.37,
+        "home_max_pf": 127.3,
         "away_team": "I\u2019m Walkin\u2019 Here",
         "away_score": 126.4,
         "away_projected": 105.47000000000001,
+        "away_max_pf": 151.1,
         "is_playoff": true,
         "matchup_type": "WINNERS_CONSOLATION_LADDER"
       },
@@ -2820,9 +3124,11 @@ const LEAGUE_DATA = {
         "home_team": "Talibanistan Liberators ",
         "home_score": 107.8,
         "home_projected": 107.74000000000001,
+        "home_max_pf": 131.3,
         "away_team": "NOLA Dr. Who Dat",
         "away_score": 167.25,
         "away_projected": 106.52000000000001,
+        "away_max_pf": 172.25,
         "is_playoff": true,
         "matchup_type": "WINNERS_CONSOLATION_LADDER"
       },
@@ -2831,9 +3137,11 @@ const LEAGUE_DATA = {
         "home_team": "Baby Got  Dak",
         "home_score": 132.8,
         "home_projected": 125.44,
+        "home_max_pf": 165.45,
         "away_team": "Toney Soprano",
         "away_score": 82.25,
         "away_projected": 91.51,
+        "away_max_pf": 108.85,
         "is_playoff": true,
         "matchup_type": "LOSERS_CONSOLATION_LADDER"
       },
@@ -2842,9 +3150,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 81.1,
         "home_projected": 81.1,
+        "home_max_pf": 103.5,
         "away_team": "Bodega Cat",
         "away_score": 138.25,
         "away_projected": 138.25,
+        "away_max_pf": 146.45,
         "is_playoff": true,
         "matchup_type": "WINNERS_BRACKET"
       },
@@ -2853,9 +3163,11 @@ const LEAGUE_DATA = {
         "home_team": "Joe BYE-Den My Time",
         "home_score": 142.0,
         "home_projected": 142.0,
+        "home_max_pf": 165.8,
         "away_team": "The Comeback Kid",
         "away_score": 152.35,
         "away_projected": 152.35,
+        "away_max_pf": 190.05,
         "is_playoff": true,
         "matchup_type": "WINNERS_CONSOLATION_LADDER"
       },
@@ -2864,9 +3176,11 @@ const LEAGUE_DATA = {
         "home_team": "I\u2019m Walkin\u2019 Here",
         "home_score": 92.1,
         "home_projected": 92.1,
+        "home_max_pf": 154.5,
         "away_team": "NOLA Dr. Who Dat",
         "away_score": 117.3,
         "away_projected": 117.3,
+        "away_max_pf": 123.0,
         "is_playoff": true,
         "matchup_type": "WINNERS_CONSOLATION_LADDER"
       },
@@ -2875,9 +3189,11 @@ const LEAGUE_DATA = {
         "home_team": "Tijuana Anti-VaxxAttack",
         "home_score": 153.6,
         "home_projected": 153.6,
+        "home_max_pf": 190.9,
         "away_team": "Talibanistan Liberators ",
         "away_score": 100.15,
         "away_projected": 100.15,
+        "away_max_pf": 135.55,
         "is_playoff": true,
         "matchup_type": "WINNERS_CONSOLATION_LADDER"
       },
@@ -2886,9 +3202,11 @@ const LEAGUE_DATA = {
         "home_team": "Baby Got  Dak",
         "home_score": 146.65,
         "home_projected": 146.65,
+        "home_max_pf": 152.3,
         "away_team": "Toney Soprano",
         "away_score": 80.6,
         "away_projected": 80.6,
+        "away_max_pf": 95.2,
         "is_playoff": true,
         "matchup_type": "LOSERS_CONSOLATION_LADDER"
       }
@@ -2906,7 +3224,7 @@ const LEAGUE_DATA = {
         "pick": 2,
         "team": "Toney Soprano",
         "player_name": "Christian McCaffrey",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 1,
@@ -3060,14 +3378,14 @@ const LEAGUE_DATA = {
         "pick": 4,
         "team": "The Comeback Kid",
         "player_name": "DeAndre Hopkins",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 3,
         "pick": 5,
         "team": "Talibanistan Liberators ",
         "player_name": "Calvin Ridley",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 3,
@@ -3200,14 +3518,14 @@ const LEAGUE_DATA = {
         "pick": 4,
         "team": "The Comeback Kid",
         "player_name": "Julio Jones",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 5,
         "pick": 5,
         "team": "Talibanistan Liberators ",
         "player_name": "Chris Godwin",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 5,
@@ -3249,7 +3567,7 @@ const LEAGUE_DATA = {
         "pick": 1,
         "team": "Baby Got  Dak",
         "player_name": "Chris Carson",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 6,
@@ -3312,7 +3630,7 @@ const LEAGUE_DATA = {
         "pick": 10,
         "team": "NOLA Dr. Who Dat",
         "player_name": "Logan Thomas",
-        "position": "N/A"
+        "position": "TE"
       },
       {
         "round": 7,
@@ -3326,21 +3644,21 @@ const LEAGUE_DATA = {
         "pick": 2,
         "team": "Toney Soprano",
         "player_name": "Ryan Tannehill",
-        "position": "N/A"
+        "position": "QB"
       },
       {
         "round": 7,
         "pick": 3,
         "team": "Haribo Lecter",
         "player_name": "Robby Anderson",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 7,
         "pick": 4,
         "team": "The Comeback Kid",
         "player_name": "Zack Moss",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 7,
@@ -3375,7 +3693,7 @@ const LEAGUE_DATA = {
         "pick": 9,
         "team": "Bodega Cat",
         "player_name": "Jerry Jeudy",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 7,
@@ -3403,7 +3721,7 @@ const LEAGUE_DATA = {
         "pick": 3,
         "team": "Tijuana Anti-VaxxAttack",
         "player_name": "Courtland Sutton",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 8,
@@ -3431,7 +3749,7 @@ const LEAGUE_DATA = {
         "pick": 7,
         "team": "The Comeback Kid",
         "player_name": "Robert Tonyan",
-        "position": "N/A"
+        "position": "TE"
       },
       {
         "round": 8,
@@ -3452,7 +3770,7 @@ const LEAGUE_DATA = {
         "pick": 10,
         "team": "NOLA Dr. Who Dat",
         "player_name": "JuJu Smith-Schuster",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 9,
@@ -3466,7 +3784,7 @@ const LEAGUE_DATA = {
         "pick": 2,
         "team": "Toney Soprano",
         "player_name": "Trey Sermon",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 9,
@@ -3494,7 +3812,7 @@ const LEAGUE_DATA = {
         "pick": 6,
         "team": "I\u2019m Walkin\u2019 Here",
         "player_name": "Jonnu Smith",
-        "position": "N/A"
+        "position": "TE"
       },
       {
         "round": 9,
@@ -3508,7 +3826,7 @@ const LEAGUE_DATA = {
         "pick": 8,
         "team": "Tijuana Anti-VaxxAttack",
         "player_name": "Michael Thomas",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 9,
@@ -3536,7 +3854,7 @@ const LEAGUE_DATA = {
         "pick": 2,
         "team": "Bodega Cat",
         "player_name": "Matt Ryan",
-        "position": "N/A"
+        "position": "QB"
       },
       {
         "round": 10,
@@ -3564,7 +3882,7 @@ const LEAGUE_DATA = {
         "pick": 6,
         "team": "Talibanistan Liberators ",
         "player_name": "Harrison Butker",
-        "position": "N/A"
+        "position": "K"
       },
       {
         "round": 10,
@@ -3578,14 +3896,14 @@ const LEAGUE_DATA = {
         "pick": 8,
         "team": "Haribo Lecter",
         "player_name": "Raheem Mostert",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 10,
         "pick": 9,
         "team": "Toney Soprano",
         "player_name": "Laviska Shenault Jr.",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 10,
@@ -3634,14 +3952,14 @@ const LEAGUE_DATA = {
         "pick": 6,
         "team": "I\u2019m Walkin\u2019 Here",
         "player_name": "Commanders D/ST",
-        "position": "N/A"
+        "position": "D/ST"
       },
       {
         "round": 11,
         "pick": 7,
         "team": "Joe BYE-Den My Time",
         "player_name": "William Fuller V",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 11,
@@ -3655,7 +3973,7 @@ const LEAGUE_DATA = {
         "pick": 9,
         "team": "Bodega Cat",
         "player_name": "Steelers D/ST",
-        "position": "N/A"
+        "position": "D/ST"
       },
       {
         "round": 11,
@@ -3669,14 +3987,14 @@ const LEAGUE_DATA = {
         "pick": 1,
         "team": "Baby Got  Dak",
         "player_name": "Corey Davis",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 12,
         "pick": 2,
         "team": "Bodega Cat",
         "player_name": "Jamaal Williams",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 12,
@@ -3697,7 +4015,7 @@ const LEAGUE_DATA = {
         "pick": 5,
         "team": "I\u2019m Walkin\u2019 Here",
         "player_name": "Antonio Brown",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 12,
@@ -3746,7 +4064,7 @@ const LEAGUE_DATA = {
         "pick": 2,
         "team": "Toney Soprano",
         "player_name": "Curtis Samuel",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 13,
@@ -3774,14 +4092,14 @@ const LEAGUE_DATA = {
         "pick": 6,
         "team": "I\u2019m Walkin\u2019 Here",
         "player_name": "Ben Roethlisberger",
-        "position": "N/A"
+        "position": "QB"
       },
       {
         "round": 13,
         "pick": 7,
         "team": "Joe BYE-Den My Time",
         "player_name": "Ronald Jones II",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 13,
@@ -3802,14 +4120,14 @@ const LEAGUE_DATA = {
         "pick": 10,
         "team": "Baby Got  Dak",
         "player_name": "Graham Gano",
-        "position": "N/A"
+        "position": "K"
       },
       {
         "round": 14,
         "pick": 1,
         "team": "Baby Got  Dak",
         "player_name": "Jason Sanders",
-        "position": "N/A"
+        "position": "K"
       },
       {
         "round": 14,
@@ -3837,14 +4155,14 @@ const LEAGUE_DATA = {
         "pick": 5,
         "team": "I\u2019m Walkin\u2019 Here",
         "player_name": "Phillip Lindsay",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 14,
         "pick": 6,
         "team": "Talibanistan Liberators ",
         "player_name": "Mac Jones",
-        "position": "N/A"
+        "position": "QB"
       },
       {
         "round": 14,
@@ -3858,7 +4176,7 @@ const LEAGUE_DATA = {
         "pick": 8,
         "team": "Haribo Lecter",
         "player_name": "Parris Campbell",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 14,
@@ -3872,21 +4190,21 @@ const LEAGUE_DATA = {
         "pick": 10,
         "team": "NOLA Dr. Who Dat",
         "player_name": "Marquez Callaway",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 15,
         "pick": 1,
         "team": "NOLA Dr. Who Dat",
         "player_name": "Henry Ruggs III",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 15,
         "pick": 2,
         "team": "Toney Soprano",
         "player_name": "Jameis Winston",
-        "position": "N/A"
+        "position": "QB"
       },
       {
         "round": 15,
@@ -3900,7 +4218,7 @@ const LEAGUE_DATA = {
         "pick": 4,
         "team": "The Comeback Kid",
         "player_name": "Carlos Hyde",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 15,
@@ -3914,14 +4232,14 @@ const LEAGUE_DATA = {
         "pick": 6,
         "team": "I\u2019m Walkin\u2019 Here",
         "player_name": "Ty'Son Williams",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 15,
         "pick": 7,
         "team": "Joe BYE-Den My Time",
         "player_name": "David Johnson",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 15,
@@ -3935,14 +4253,14 @@ const LEAGUE_DATA = {
         "pick": 9,
         "team": "Bodega Cat",
         "player_name": "Nyheim Hines",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 15,
         "pick": 10,
         "team": "Baby Got  Dak",
         "player_name": "Vikings D/ST",
-        "position": "N/A"
+        "position": "D/ST"
       },
       {
         "round": 16,
@@ -3977,7 +4295,7 @@ const LEAGUE_DATA = {
         "pick": 5,
         "team": "I\u2019m Walkin\u2019 Here",
         "player_name": "Randy Bullock",
-        "position": "N/A"
+        "position": "K"
       },
       {
         "round": 16,
@@ -3991,7 +4309,7 @@ const LEAGUE_DATA = {
         "pick": 7,
         "team": "The Comeback Kid",
         "player_name": "Austin Hooper",
-        "position": "N/A"
+        "position": "TE"
       },
       {
         "round": 16,
@@ -4012,7 +4330,7 @@ const LEAGUE_DATA = {
         "pick": 10,
         "team": "NOLA Dr. Who Dat",
         "player_name": "Jalen Reagor",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 17,
@@ -4040,7 +4358,7 @@ const LEAGUE_DATA = {
         "pick": 4,
         "team": "The Comeback Kid",
         "player_name": "James White",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 17,
@@ -4082,7 +4400,7 @@ const LEAGUE_DATA = {
         "pick": 10,
         "team": "Baby Got  Dak",
         "player_name": "Nelson Agholor",
-        "position": "N/A"
+        "position": "WR"
       }
     ]
   },
@@ -4249,9 +4567,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 152.3,
         "home_projected": 133.79999999999998,
+        "home_max_pf": 178.7,
         "away_team": "Neil Rackers",
         "away_score": 135.95,
         "away_projected": 120.97999999999999,
+        "away_max_pf": 157.15,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4260,9 +4580,11 @@ const LEAGUE_DATA = {
         "home_team": "Talibanistan Liberators ",
         "home_score": 86.1,
         "home_projected": 120.55999999999997,
+        "home_max_pf": 117.8,
         "away_team": "Haribo Lecter",
         "away_score": 111.65,
         "away_projected": 130.17,
+        "away_max_pf": 156.95,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4271,9 +4593,11 @@ const LEAGUE_DATA = {
         "home_team": "Dawson's Creek",
         "home_score": 104.85,
         "home_projected": 123.44,
+        "home_max_pf": 121.75,
         "away_team": "LuLu Lemons",
         "away_score": 142.65,
         "away_projected": 128.56,
+        "away_max_pf": 145.85,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4282,9 +4606,11 @@ const LEAGUE_DATA = {
         "home_team": "I\u2019m Walkin\u2019 Here",
         "home_score": 123.35,
         "home_projected": 122.90000000000002,
+        "home_max_pf": 167.65,
         "away_team": "My Neck, My Dak",
         "away_score": 103.0,
         "away_projected": 120.80000000000001,
+        "away_max_pf": 124.8,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4293,9 +4619,11 @@ const LEAGUE_DATA = {
         "home_team": "Team Maybe Next Year",
         "home_score": 102.0,
         "home_projected": 113.93,
+        "home_max_pf": 120.9,
         "away_team": "Good Picks Good Picks",
         "away_score": 117.7,
         "away_projected": 121.23000000000002,
+        "away_max_pf": 145.05,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4304,9 +4632,11 @@ const LEAGUE_DATA = {
         "home_team": "The Green \ud83d\ude08 \ud83c\udf83 Rawblin",
         "home_score": 133.35,
         "home_projected": 124.75,
+        "home_max_pf": 135.45,
         "away_team": "Acquittsburgh Deshaun Cosbys",
         "away_score": 111.7,
         "away_projected": 123.77000000000001,
+        "away_max_pf": 140.5,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4315,9 +4645,11 @@ const LEAGUE_DATA = {
         "home_team": "I\u2019m Walkin\u2019 Here",
         "home_score": 180.35,
         "home_projected": 123.41000000000001,
+        "home_max_pf": 180.35,
         "away_team": "The Green \ud83d\ude08 \ud83c\udf83 Rawblin",
         "away_score": 140.35,
         "away_projected": 121.32000000000002,
+        "away_max_pf": 169.15,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4326,9 +4658,11 @@ const LEAGUE_DATA = {
         "home_team": "Acquittsburgh Deshaun Cosbys",
         "home_score": 108.5,
         "home_projected": 122.78,
+        "home_max_pf": 160.85,
         "away_team": "Talibanistan Liberators ",
         "away_score": 73.8,
         "away_projected": 103.44999999999999,
+        "away_max_pf": 111.6,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4337,9 +4671,11 @@ const LEAGUE_DATA = {
         "home_team": "LuLu Lemons",
         "home_score": 151.9,
         "home_projected": 121.85,
+        "home_max_pf": 179.3,
         "away_team": "Haribo Lecter",
         "away_score": 71.4,
         "away_projected": 120.51,
+        "away_max_pf": 107.7,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4348,9 +4684,11 @@ const LEAGUE_DATA = {
         "home_team": "Good Picks Good Picks",
         "home_score": 85.5,
         "home_projected": 117.71000000000001,
+        "home_max_pf": 95.7,
         "away_team": "Dawson's Creek",
         "away_score": 146.75,
         "away_projected": 121.98,
+        "away_max_pf": 160.75,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4359,9 +4697,11 @@ const LEAGUE_DATA = {
         "home_team": "Neil Rackers",
         "home_score": 122.0,
         "home_projected": 124.58,
+        "home_max_pf": 131.5,
         "away_team": "Team Maybe Next Year",
         "away_score": 138.95,
         "away_projected": 128.16,
+        "away_max_pf": 138.95,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4370,9 +4710,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 89.85,
         "home_projected": 130.26,
+        "home_max_pf": 120.55,
         "away_team": "My Neck, My Dak",
         "away_score": 145.45,
         "away_projected": 120.08,
+        "away_max_pf": 161.15,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4381,9 +4723,11 @@ const LEAGUE_DATA = {
         "home_team": "The Green \ud83d\ude08 \ud83c\udf83 Rawblin",
         "home_score": 123.5,
         "home_projected": 124.91,
+        "home_max_pf": 143.3,
         "away_team": "Team Maybe Next Year",
         "away_score": 119.45,
         "away_projected": 126.53000000000002,
+        "away_max_pf": 121.75,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4392,9 +4736,11 @@ const LEAGUE_DATA = {
         "home_team": "Good Picks Good Picks",
         "home_score": 109.85,
         "home_projected": 118.41999999999999,
+        "home_max_pf": 140.45,
         "away_team": "Bodega Cat",
         "away_score": 103.9,
         "away_projected": 128.79000000000002,
+        "away_max_pf": 123.8,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4403,9 +4749,11 @@ const LEAGUE_DATA = {
         "home_team": "LuLu Lemons",
         "home_score": 161.4,
         "home_projected": 131.1,
+        "home_max_pf": 170.1,
         "away_team": "I\u2019m Walkin\u2019 Here",
         "away_score": 145.6,
         "away_projected": 124.74999999999999,
+        "away_max_pf": 154.7,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4414,9 +4762,11 @@ const LEAGUE_DATA = {
         "home_team": "Talibanistan Liberators ",
         "home_score": 111.05,
         "home_projected": 122.93,
+        "home_max_pf": 132.05,
         "away_team": "My Neck, My Dak",
         "away_score": 105.4,
         "away_projected": 123.02000000000001,
+        "away_max_pf": 134.6,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4425,9 +4775,11 @@ const LEAGUE_DATA = {
         "home_team": "Dawson's Creek",
         "home_score": 108.9,
         "home_projected": 125.41,
+        "home_max_pf": 136.2,
         "away_team": "Acquittsburgh Deshaun Cosbys",
         "away_score": 84.25,
         "away_projected": 124.19000000000001,
+        "away_max_pf": 89.05,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4436,9 +4788,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 114.65,
         "home_projected": 119.42000000000002,
+        "home_max_pf": 137.15,
         "away_team": "Neil Rackers",
         "away_score": 140.95,
         "away_projected": 120.87000000000002,
+        "away_max_pf": 177.1,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4447,9 +4801,11 @@ const LEAGUE_DATA = {
         "home_team": "Acquittsburgh Deshaun Cosbys",
         "home_score": 131.5,
         "home_projected": 126.6,
+        "home_max_pf": 189.5,
         "away_team": "LuLu Lemons",
         "away_score": 89.6,
         "away_projected": 132.79000000000002,
+        "away_max_pf": 111.5,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4458,9 +4814,11 @@ const LEAGUE_DATA = {
         "home_team": "My Neck, My Dak",
         "home_score": 135.75,
         "home_projected": 116.91,
+        "home_max_pf": 140.45,
         "away_team": "The Green \ud83d\ude08 \ud83c\udf83 Rawblin",
         "away_score": 137.8,
         "away_projected": 127.86999999999999,
+        "away_max_pf": 156.6,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4469,9 +4827,11 @@ const LEAGUE_DATA = {
         "home_team": "Neil Rackers",
         "home_score": 136.0,
         "home_projected": 124.50000000000001,
+        "home_max_pf": 162.7,
         "away_team": "Dawson's Creek",
         "away_score": 136.75,
         "away_projected": 123.53999999999999,
+        "away_max_pf": 148.65,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4480,9 +4840,11 @@ const LEAGUE_DATA = {
         "home_team": "Talibanistan Liberators ",
         "home_score": 119.05,
         "home_projected": 116.58999999999999,
+        "home_max_pf": 161.75,
         "away_team": "Team Maybe Next Year",
         "away_score": 129.75,
         "away_projected": 129.01,
+        "away_max_pf": 139.25,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4491,9 +4853,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 99.55,
         "home_projected": 130.49,
+        "home_max_pf": 126.15,
         "away_team": "Haribo Lecter",
         "away_score": 76.15,
         "away_projected": 104.74000000000001,
+        "away_max_pf": 121.75,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4502,9 +4866,11 @@ const LEAGUE_DATA = {
         "home_team": "I\u2019m Walkin\u2019 Here",
         "home_score": 113.65,
         "home_projected": 132.18,
+        "home_max_pf": 125.05,
         "away_team": "Good Picks Good Picks",
         "away_score": 135.25,
         "away_projected": 127.01000000000002,
+        "away_max_pf": 142.95,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4513,9 +4879,11 @@ const LEAGUE_DATA = {
         "home_team": "The Green \ud83d\ude08 \ud83c\udf83 Rawblin",
         "home_score": 140.05,
         "home_projected": 133.39000000000001,
+        "home_max_pf": 169.45,
         "away_team": "Haribo Lecter",
         "away_score": 106.0,
         "away_projected": 120.82000000000001,
+        "away_max_pf": 134.3,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4524,9 +4892,11 @@ const LEAGUE_DATA = {
         "home_team": "Team Maybe Next Year",
         "home_score": 90.15,
         "home_projected": 123.43,
+        "home_max_pf": 111.85,
         "away_team": "LuLu Lemons",
         "away_score": 134.95,
         "away_projected": 134.71,
+        "away_max_pf": 144.65,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4535,9 +4905,11 @@ const LEAGUE_DATA = {
         "home_team": "Dawson's Creek",
         "home_score": 149.9,
         "home_projected": 128.48,
+        "home_max_pf": 173.6,
         "away_team": "Bodega Cat",
         "away_score": 89.5,
         "away_projected": 122.89999999999999,
+        "away_max_pf": 102.2,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4546,9 +4918,11 @@ const LEAGUE_DATA = {
         "home_team": "My Neck, My Dak",
         "home_score": 97.9,
         "home_projected": 118.08,
+        "home_max_pf": 137.4,
         "away_team": "Acquittsburgh Deshaun Cosbys",
         "away_score": 123.15,
         "away_projected": 126.14999999999999,
+        "away_max_pf": 138.15,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4557,9 +4931,11 @@ const LEAGUE_DATA = {
         "home_team": "I\u2019m Walkin\u2019 Here",
         "home_score": 168.8,
         "home_projected": 124.78000000000002,
+        "home_max_pf": 175.8,
         "away_team": "Talibanistan Liberators ",
         "away_score": 151.95,
         "away_projected": 120.08,
+        "away_max_pf": 178.95,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4568,9 +4944,11 @@ const LEAGUE_DATA = {
         "home_team": "Good Picks Good Picks",
         "home_score": 101.15,
         "home_projected": 124.42,
+        "home_max_pf": 116.25,
         "away_team": "Neil Rackers",
         "away_score": 136.2,
         "away_projected": 134.61,
+        "away_max_pf": 147.1,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4579,9 +4957,11 @@ const LEAGUE_DATA = {
         "home_team": "My Neck, My Dak",
         "home_score": 70.45,
         "home_projected": 96.85,
+        "home_max_pf": 73.75,
         "away_team": "Good Picks Good Picks",
         "away_score": 138.25,
         "away_projected": 125.33999999999997,
+        "away_max_pf": 151.85,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4590,9 +4970,11 @@ const LEAGUE_DATA = {
         "home_team": "Dawson's Creek",
         "home_score": 125.6,
         "home_projected": 131.79,
+        "home_max_pf": 126.5,
         "away_team": "Team Maybe Next Year",
         "away_score": 119.4,
         "away_projected": 115.13999999999999,
+        "away_max_pf": 123.9,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4601,9 +4983,11 @@ const LEAGUE_DATA = {
         "home_team": "LuLu Lemons",
         "home_score": 119.6,
         "home_projected": 136.15,
+        "home_max_pf": 149.3,
         "away_team": "Talibanistan Liberators ",
         "away_score": 94.55,
         "away_projected": 88.46,
+        "away_max_pf": 137.05,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4612,9 +4996,11 @@ const LEAGUE_DATA = {
         "home_team": "I\u2019m Walkin\u2019 Here",
         "home_score": 164.95,
         "home_projected": 123.84,
+        "home_max_pf": 171.45,
         "away_team": "Bodega Cat",
         "away_score": 94.8,
         "away_projected": 115.97,
+        "away_max_pf": 108.6,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4623,9 +5009,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 88.65,
         "home_projected": 110.79,
+        "home_max_pf": 97.05,
         "away_team": "Acquittsburgh Deshaun Cosbys",
         "away_score": 97.8,
         "away_projected": 112.69,
+        "away_max_pf": 116.2,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4634,9 +5022,11 @@ const LEAGUE_DATA = {
         "home_team": "The Green \ud83d\ude08 \ud83c\udf83 Rawblin",
         "home_score": 84.55,
         "home_projected": 119.1,
+        "home_max_pf": 105.75,
         "away_team": "Neil Rackers",
         "away_score": 111.4,
         "away_projected": 118.06999999999998,
+        "away_max_pf": 155.35,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4645,9 +5035,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 120.05,
         "home_projected": 117.24999999999999,
+        "home_max_pf": 144.35,
         "away_team": "The Green \ud83d\ude08 \ud83c\udf83 Rawblin",
         "away_score": 90.95,
         "away_projected": 118.28,
+        "away_max_pf": 116.65,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4656,9 +5048,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 105.6,
         "home_projected": 110.55,
+        "home_max_pf": 120.5,
         "away_team": "My Neck, My Dak",
         "away_score": 124.85,
         "away_projected": 119.96999999999998,
+        "away_max_pf": 143.05,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4667,9 +5061,11 @@ const LEAGUE_DATA = {
         "home_team": "Team Maybe Next Year",
         "home_score": 100.75,
         "home_projected": 107.97,
+        "home_max_pf": 107.95,
         "away_team": "I\u2019m Walkin\u2019 Here",
         "away_score": 98.55,
         "away_projected": 107.80000000000001,
+        "away_max_pf": 131.45,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4678,9 +5074,11 @@ const LEAGUE_DATA = {
         "home_team": "Neil Rackers",
         "home_score": 119.35,
         "home_projected": 124.65,
+        "home_max_pf": 125.5,
         "away_team": "Acquittsburgh Deshaun Cosbys",
         "away_score": 106.45,
         "away_projected": 121.47,
+        "away_max_pf": 110.65,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4689,9 +5087,11 @@ const LEAGUE_DATA = {
         "home_team": "LuLu Lemons",
         "home_score": 122.8,
         "home_projected": 131.48000000000002,
+        "home_max_pf": 131.5,
         "away_team": "Good Picks Good Picks",
         "away_score": 165.8,
         "away_projected": 128.72,
+        "away_max_pf": 165.8,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4700,9 +5100,11 @@ const LEAGUE_DATA = {
         "home_team": "Talibanistan Liberators ",
         "home_score": 81.7,
         "home_projected": 79.64,
+        "home_max_pf": 133.7,
         "away_team": "Dawson's Creek",
         "away_score": 107.3,
         "away_projected": 112.11999999999999,
+        "away_max_pf": 115.1,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4711,9 +5113,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 177.2,
         "home_projected": 117.68999999999998,
+        "home_max_pf": 190.0,
         "away_team": "Team Maybe Next Year",
         "away_score": 117.9,
         "away_projected": 105.22,
+        "away_max_pf": 117.9,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4722,9 +5126,11 @@ const LEAGUE_DATA = {
         "home_team": "Dawson's Creek",
         "home_score": 130.0,
         "home_projected": 117.36000000000001,
+        "home_max_pf": 168.0,
         "away_team": "I\u2019m Walkin\u2019 Here",
         "away_score": 150.6,
         "away_projected": 135.0,
+        "away_max_pf": 181.4,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4733,9 +5139,11 @@ const LEAGUE_DATA = {
         "home_team": "My Neck, My Dak",
         "home_score": 173.2,
         "home_projected": 127.69000000000001,
+        "home_max_pf": 183.4,
         "away_team": "Neil Rackers",
         "away_score": 67.9,
         "away_projected": 98.45,
+        "away_max_pf": 70.9,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4744,9 +5152,11 @@ const LEAGUE_DATA = {
         "home_team": "Good Picks Good Picks",
         "home_score": 153.85,
         "home_projected": 124.19000000000001,
+        "home_max_pf": 161.35,
         "away_team": "Acquittsburgh Deshaun Cosbys",
         "away_score": 126.5,
         "away_projected": 114.05999999999999,
+        "away_max_pf": 154.0,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4755,9 +5165,11 @@ const LEAGUE_DATA = {
         "home_team": "The Green \ud83d\ude08 \ud83c\udf83 Rawblin",
         "home_score": 123.25,
         "home_projected": 120.43,
+        "home_max_pf": 154.55,
         "away_team": "Talibanistan Liberators ",
         "away_score": 140.6,
         "away_projected": 125.41000000000001,
+        "away_max_pf": 148.5,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4766,9 +5178,11 @@ const LEAGUE_DATA = {
         "home_team": "LuLu Lemons",
         "home_score": 106.4,
         "home_projected": 129.93,
+        "home_max_pf": 131.0,
         "away_team": "Bodega Cat",
         "away_score": 90.85,
         "away_projected": 110.72999999999999,
+        "away_max_pf": 130.15,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4777,9 +5191,11 @@ const LEAGUE_DATA = {
         "home_team": "Acquittsburgh Deshaun Cosbys",
         "home_score": 151.8,
         "home_projected": 126.60000000000001,
+        "home_max_pf": 197.65,
         "away_team": "I\u2019m Walkin\u2019 Here",
         "away_score": 149.65,
         "away_projected": 137.85,
+        "away_max_pf": 166.35,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4788,9 +5204,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 107.2,
         "home_projected": 105.24,
+        "home_max_pf": 111.15,
         "away_team": "Team Maybe Next Year",
         "away_score": 78.0,
         "away_projected": 80.06,
+        "away_max_pf": 78.0,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4799,9 +5217,11 @@ const LEAGUE_DATA = {
         "home_team": "Good Picks Good Picks",
         "home_score": 110.2,
         "home_projected": 112.77999999999999,
+        "home_max_pf": 110.2,
         "away_team": "Haribo Lecter",
         "away_score": 110.45,
         "away_projected": 102.18999999999998,
+        "away_max_pf": 119.95,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4810,9 +5230,11 @@ const LEAGUE_DATA = {
         "home_team": "Neil Rackers",
         "home_score": 155.75,
         "home_projected": 124.61999999999999,
+        "home_max_pf": 165.45,
         "away_team": "Talibanistan Liberators ",
         "away_score": 108.2,
         "away_projected": 94.16,
+        "away_max_pf": 138.95,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4821,9 +5243,11 @@ const LEAGUE_DATA = {
         "home_team": "My Neck, My Dak",
         "home_score": 99.35,
         "home_projected": 127.31,
+        "home_max_pf": 107.75,
         "away_team": "LuLu Lemons",
         "away_score": 114.25,
         "away_projected": 120.83000000000001,
+        "away_max_pf": 137.15,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4832,9 +5256,11 @@ const LEAGUE_DATA = {
         "home_team": "The Green \ud83d\ude08 \ud83c\udf83 Rawblin",
         "home_score": 93.45,
         "home_projected": 110.15,
+        "home_max_pf": 106.85,
         "away_team": "Dawson's Creek",
         "away_score": 87.35,
         "away_projected": 110.05000000000001,
+        "away_max_pf": 108.35,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4843,9 +5269,11 @@ const LEAGUE_DATA = {
         "home_team": "LuLu Lemons",
         "home_score": 135.35,
         "home_projected": 113.78,
+        "home_max_pf": 144.15,
         "away_team": "The Green \ud83d\ude08 \ud83c\udf83 Rawblin",
         "away_score": 118.05,
         "away_projected": 118.96999999999998,
+        "away_max_pf": 121.15,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4854,9 +5282,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 116.25,
         "home_projected": 119.25,
+        "home_max_pf": 141.1,
         "away_team": "Dawson's Creek",
         "away_score": 104.4,
         "away_projected": 117.00999999999999,
+        "away_max_pf": 104.5,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4865,9 +5295,11 @@ const LEAGUE_DATA = {
         "home_team": "Neil Rackers",
         "home_score": 79.9,
         "home_projected": 107.58999999999999,
+        "home_max_pf": 89.8,
         "away_team": "I\u2019m Walkin\u2019 Here",
         "away_score": 122.7,
         "away_projected": 130.22,
+        "away_max_pf": 125.3,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4876,9 +5308,11 @@ const LEAGUE_DATA = {
         "home_team": "Team Maybe Next Year",
         "home_score": 106.35,
         "home_projected": 105.62999999999998,
+        "home_max_pf": 118.45,
         "away_team": "My Neck, My Dak",
         "away_score": 110.75,
         "away_projected": 119.58999999999999,
+        "away_max_pf": 154.35,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4887,9 +5321,11 @@ const LEAGUE_DATA = {
         "home_team": "Acquittsburgh Deshaun Cosbys",
         "home_score": 155.65,
         "home_projected": 130.29999999999998,
+        "home_max_pf": 156.15,
         "away_team": "Bodega Cat",
         "away_score": 148.85,
         "away_projected": 121.66000000000001,
+        "away_max_pf": 175.05,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4898,9 +5334,11 @@ const LEAGUE_DATA = {
         "home_team": "Talibanistan Liberators ",
         "home_score": 119.85,
         "home_projected": 104.2,
+        "home_max_pf": 156.45,
         "away_team": "Good Picks Good Picks",
         "away_score": 107.2,
         "away_projected": 133.66,
+        "away_max_pf": 114.1,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4909,9 +5347,11 @@ const LEAGUE_DATA = {
         "home_team": "Acquittsburgh Deshaun Cosbys",
         "home_score": 116.95,
         "home_projected": 117.02999999999999,
+        "home_max_pf": 126.95,
         "away_team": "Team Maybe Next Year",
         "away_score": 137.15,
         "away_projected": 115.60000000000001,
+        "away_max_pf": 137.65,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4920,9 +5360,11 @@ const LEAGUE_DATA = {
         "home_team": "My Neck, My Dak",
         "home_score": 101.05,
         "home_projected": 118.86999999999999,
+        "home_max_pf": 161.15,
         "away_team": "Dawson's Creek",
         "away_score": 122.95,
         "away_projected": 108.37,
+        "away_max_pf": 140.65,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4931,9 +5373,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 122.85,
         "home_projected": 122.58999999999999,
+        "home_max_pf": 149.35,
         "away_team": "Talibanistan Liberators ",
         "away_score": 96.6,
         "away_projected": 93.82,
+        "away_max_pf": 154.9,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4942,9 +5386,11 @@ const LEAGUE_DATA = {
         "home_team": "Neil Rackers",
         "home_score": 115.7,
         "home_projected": 91.97,
+        "home_max_pf": 135.4,
         "away_team": "LuLu Lemons",
         "away_score": 104.85,
         "away_projected": 121.27000000000001,
+        "away_max_pf": 114.35,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4953,9 +5399,11 @@ const LEAGUE_DATA = {
         "home_team": "Good Picks Good Picks",
         "home_score": 140.05,
         "home_projected": 117.11000000000001,
+        "home_max_pf": 157.85,
         "away_team": "The Green \ud83d\ude08 \ud83c\udf83 Rawblin",
         "away_score": 123.5,
         "away_projected": 114.01999999999998,
+        "away_max_pf": 128.6,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4964,9 +5412,11 @@ const LEAGUE_DATA = {
         "home_team": "I\u2019m Walkin\u2019 Here",
         "home_score": 102.15,
         "home_projected": 133.11,
+        "home_max_pf": 139.4,
         "away_team": "Haribo Lecter",
         "away_score": 107.35,
         "away_projected": 114.92999999999998,
+        "away_max_pf": 111.95,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4975,9 +5425,11 @@ const LEAGUE_DATA = {
         "home_team": "Dawson's Creek",
         "home_score": 122.65,
         "home_projected": 116.65,
+        "home_max_pf": 143.15,
         "away_team": "Talibanistan Liberators ",
         "away_score": 132.95,
         "away_projected": 117.30999999999999,
+        "away_max_pf": 194.45,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4986,9 +5438,11 @@ const LEAGUE_DATA = {
         "home_team": "Acquittsburgh Deshaun Cosbys",
         "home_score": 106.95,
         "home_projected": 130.72,
+        "home_max_pf": 117.85,
         "away_team": "Good Picks Good Picks",
         "away_score": 98.1,
         "away_projected": 129.76999999999998,
+        "away_max_pf": 131.35,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -4997,9 +5451,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 116.6,
         "home_projected": 125.79999999999998,
+        "home_max_pf": 130.5,
         "away_team": "The Green \ud83d\ude08 \ud83c\udf83 Rawblin",
         "away_score": 102.55,
         "away_projected": 113.97999999999999,
+        "away_max_pf": 125.95,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -5008,9 +5464,11 @@ const LEAGUE_DATA = {
         "home_team": "My Neck, My Dak",
         "home_score": 119.5,
         "home_projected": 122.86,
+        "home_max_pf": 147.25,
         "away_team": "Bodega Cat",
         "away_score": 136.4,
         "away_projected": 130.47,
+        "away_max_pf": 168.6,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -5019,9 +5477,11 @@ const LEAGUE_DATA = {
         "home_team": "I\u2019m Walkin\u2019 Here",
         "home_score": 119.95,
         "home_projected": 130.5,
+        "home_max_pf": 129.55,
         "away_team": "LuLu Lemons",
         "away_score": 145.65,
         "away_projected": 129.39999999999998,
+        "away_max_pf": 163.85,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -5030,9 +5490,11 @@ const LEAGUE_DATA = {
         "home_team": "Team Maybe Next Year",
         "home_score": 96.4,
         "home_projected": 120.76,
+        "home_max_pf": 111.4,
         "away_team": "Neil Rackers",
         "away_score": 101.1,
         "away_projected": 111.24999999999999,
+        "away_max_pf": 115.7,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -5041,9 +5503,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 123.95,
         "home_projected": 121.49,
+        "home_max_pf": 165.25,
         "away_team": "Dawson's Creek",
         "away_score": 75.85,
         "away_projected": 110.34999999999998,
+        "away_max_pf": 102.15,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -5052,9 +5516,11 @@ const LEAGUE_DATA = {
         "home_team": "Team Maybe Next Year",
         "home_score": 135.2,
         "home_projected": 111.79999999999998,
+        "home_max_pf": 153.7,
         "away_team": "LuLu Lemons",
         "away_score": 98.55,
         "away_projected": 124.71000000000001,
+        "away_max_pf": 128.75,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -5063,9 +5529,11 @@ const LEAGUE_DATA = {
         "home_team": "The Green \ud83d\ude08 \ud83c\udf83 Rawblin",
         "home_score": 121.4,
         "home_projected": 116.51,
+        "home_max_pf": 133.9,
         "away_team": "I\u2019m Walkin\u2019 Here",
         "away_score": 114.65,
         "away_projected": 118.49,
+        "away_max_pf": 125.35,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -5074,9 +5542,11 @@ const LEAGUE_DATA = {
         "home_team": "Good Picks Good Picks",
         "home_score": 129.1,
         "home_projected": 128.19,
+        "home_max_pf": 140.85,
         "away_team": "My Neck, My Dak",
         "away_score": 125.05,
         "away_projected": 127.30000000000001,
+        "away_max_pf": 141.55,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -5085,9 +5555,11 @@ const LEAGUE_DATA = {
         "home_team": "Neil Rackers",
         "home_score": 82.05,
         "home_projected": 106.69999999999999,
+        "home_max_pf": 101.15,
         "away_team": "Haribo Lecter",
         "away_score": 148.65,
         "away_projected": 117.91999999999999,
+        "away_max_pf": 185.15,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -5096,9 +5568,11 @@ const LEAGUE_DATA = {
         "home_team": "Talibanistan Liberators ",
         "home_score": 137.1,
         "home_projected": 116.21999999999998,
+        "home_max_pf": 163.9,
         "away_team": "Acquittsburgh Deshaun Cosbys",
         "away_score": 120.85,
         "away_projected": 114.3,
+        "away_max_pf": 130.5,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -5107,9 +5581,11 @@ const LEAGUE_DATA = {
         "home_team": "Acquittsburgh Deshaun Cosbys",
         "home_score": 131.25,
         "home_projected": 124.06,
+        "home_max_pf": 131.25,
         "away_team": "My Neck, My Dak",
         "away_score": 118.45,
         "away_projected": 120.61,
+        "away_max_pf": 150.1,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -5118,9 +5594,11 @@ const LEAGUE_DATA = {
         "home_team": "Dawson's Creek",
         "home_score": 96.25,
         "home_projected": 99.77000000000001,
+        "home_max_pf": 141.8,
         "away_team": "Good Picks Good Picks",
         "away_score": 105.95,
         "away_projected": 124.28999999999999,
+        "away_max_pf": 127.55,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -5129,9 +5607,11 @@ const LEAGUE_DATA = {
         "home_team": "LuLu Lemons",
         "home_score": 108.4,
         "home_projected": 121.75,
+        "home_max_pf": 120.2,
         "away_team": "Neil Rackers",
         "away_score": 127.55,
         "away_projected": 116.42999999999999,
+        "away_max_pf": 139.15,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -5140,9 +5620,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 102.6,
         "home_projected": 111.49,
+        "home_max_pf": 114.6,
         "away_team": "I\u2019m Walkin\u2019 Here",
         "away_score": 109.35,
         "away_projected": 125.47000000000001,
+        "away_max_pf": 130.15,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -5151,9 +5633,11 @@ const LEAGUE_DATA = {
         "home_team": "Team Maybe Next Year",
         "home_score": 105.25,
         "home_projected": 120.25,
+        "home_max_pf": 156.05,
         "away_team": "The Green \ud83d\ude08 \ud83c\udf83 Rawblin",
         "away_score": 104.75,
         "away_projected": 109.31,
+        "away_max_pf": 126.05,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -5162,9 +5646,11 @@ const LEAGUE_DATA = {
         "home_team": "Talibanistan Liberators ",
         "home_score": 106.7,
         "home_projected": 119.54,
+        "home_max_pf": 129.4,
         "away_team": "Bodega Cat",
         "away_score": 125.1,
         "away_projected": 106.46000000000001,
+        "away_max_pf": 127.6,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -5173,9 +5659,11 @@ const LEAGUE_DATA = {
         "home_team": "LuLu Lemons",
         "home_score": 124.25,
         "home_projected": 120.89,
+        "home_max_pf": 135.45,
         "away_team": "Haribo Lecter",
         "away_score": 123.7,
         "away_projected": 122.75,
+        "away_max_pf": 147.8,
         "is_playoff": true,
         "matchup_type": "WINNERS_BRACKET"
       },
@@ -5184,9 +5672,11 @@ const LEAGUE_DATA = {
         "home_team": "Neil Rackers",
         "home_score": 90.65,
         "home_projected": 117.99,
+        "home_max_pf": 97.95,
         "away_team": "Bodega Cat",
         "away_score": 95.4,
         "away_projected": 102.42,
+        "away_max_pf": 146.7,
         "is_playoff": true,
         "matchup_type": "WINNERS_BRACKET"
       },
@@ -5195,9 +5685,11 @@ const LEAGUE_DATA = {
         "home_team": "Acquittsburgh Deshaun Cosbys",
         "home_score": 118.3,
         "home_projected": 131.55,
+        "home_max_pf": 126.1,
         "away_team": "I\u2019m Walkin\u2019 Here",
         "away_score": 134.0,
         "away_projected": 120.2,
+        "away_max_pf": 158.4,
         "is_playoff": true,
         "matchup_type": "WINNERS_BRACKET"
       },
@@ -5206,9 +5698,11 @@ const LEAGUE_DATA = {
         "home_team": "Good Picks Good Picks",
         "home_score": 154.5,
         "home_projected": 124.72,
+        "home_max_pf": 158.45,
         "away_team": "Dawson's Creek",
         "away_score": 96.85,
         "away_projected": 104.08,
+        "away_max_pf": 139.35,
         "is_playoff": true,
         "matchup_type": "WINNERS_BRACKET"
       },
@@ -5217,9 +5711,11 @@ const LEAGUE_DATA = {
         "home_team": "The Green \ud83d\ude08 \ud83c\udf83 Rawblin",
         "home_score": 116.05,
         "home_projected": 115.31,
+        "home_max_pf": 125.35,
         "away_team": "Team Maybe Next Year",
         "away_score": 116.4,
         "away_projected": 120.36000000000001,
+        "away_max_pf": 159.6,
         "is_playoff": true,
         "matchup_type": "LOSERS_CONSOLATION_LADDER"
       },
@@ -5228,9 +5724,11 @@ const LEAGUE_DATA = {
         "home_team": "Talibanistan Liberators ",
         "home_score": 118.7,
         "home_projected": 118.33999999999999,
+        "home_max_pf": 154.0,
         "away_team": "My Neck, My Dak",
         "away_score": 130.0,
         "away_projected": 121.11999999999999,
+        "away_max_pf": 158.3,
         "is_playoff": true,
         "matchup_type": "LOSERS_CONSOLATION_LADDER"
       },
@@ -5239,9 +5737,11 @@ const LEAGUE_DATA = {
         "home_team": "LuLu Lemons",
         "home_score": 115.25,
         "home_projected": 121.68,
+        "home_max_pf": 148.55,
         "away_team": "Bodega Cat",
         "away_score": 161.5,
         "away_projected": 112.61999999999999,
+        "away_max_pf": 176.1,
         "is_playoff": true,
         "matchup_type": "WINNERS_BRACKET"
       },
@@ -5250,9 +5750,11 @@ const LEAGUE_DATA = {
         "home_team": "Good Picks Good Picks",
         "home_score": 130.25,
         "home_projected": 123.27000000000001,
+        "home_max_pf": 149.85,
         "away_team": "I\u2019m Walkin\u2019 Here",
         "away_score": 134.3,
         "away_projected": 122.37,
+        "away_max_pf": 154.1,
         "is_playoff": true,
         "matchup_type": "WINNERS_BRACKET"
       },
@@ -5261,9 +5763,11 @@ const LEAGUE_DATA = {
         "home_team": "Acquittsburgh Deshaun Cosbys",
         "home_score": 80.85,
         "home_projected": 129.0,
+        "home_max_pf": 109.0,
         "away_team": "Neil Rackers",
         "away_score": 101.75,
         "away_projected": 117.13,
+        "away_max_pf": 139.15,
         "is_playoff": true,
         "matchup_type": "WINNERS_CONSOLATION_LADDER"
       },
@@ -5272,9 +5776,11 @@ const LEAGUE_DATA = {
         "home_team": "Dawson's Creek",
         "home_score": 122.45,
         "home_projected": 105.6,
+        "home_max_pf": 132.25,
         "away_team": "Haribo Lecter",
         "away_score": 120.15,
         "away_projected": 129.9,
+        "away_max_pf": 136.7,
         "is_playoff": true,
         "matchup_type": "WINNERS_CONSOLATION_LADDER"
       },
@@ -5283,9 +5789,11 @@ const LEAGUE_DATA = {
         "home_team": "Team Maybe Next Year",
         "home_score": 124.15,
         "home_projected": 117.62,
+        "home_max_pf": 140.55,
         "away_team": "My Neck, My Dak",
         "away_score": 142.95,
         "away_projected": 131.42,
+        "away_max_pf": 151.45,
         "is_playoff": true,
         "matchup_type": "LOSERS_CONSOLATION_LADDER"
       },
@@ -5294,9 +5802,11 @@ const LEAGUE_DATA = {
         "home_team": "The Green \ud83d\ude08 \ud83c\udf83 Rawblin",
         "home_score": 116.8,
         "home_projected": 101.6,
+        "home_max_pf": 142.8,
         "away_team": "Talibanistan Liberators ",
         "away_score": 86.85,
         "away_projected": 116.0,
+        "away_max_pf": 118.85,
         "is_playoff": true,
         "matchup_type": "LOSERS_CONSOLATION_LADDER"
       },
@@ -5305,9 +5815,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 114.5,
         "home_projected": 114.5,
+        "home_max_pf": 134.7,
         "away_team": "I\u2019m Walkin\u2019 Here",
         "away_score": 87.4,
         "away_projected": 87.4,
+        "away_max_pf": 103.0,
         "is_playoff": true,
         "matchup_type": "WINNERS_BRACKET"
       },
@@ -5316,9 +5828,11 @@ const LEAGUE_DATA = {
         "home_team": "LuLu Lemons",
         "home_score": 101.4,
         "home_projected": 101.4,
+        "home_max_pf": 145.35,
         "away_team": "Good Picks Good Picks",
         "away_score": 136.2,
         "away_projected": 136.2,
+        "away_max_pf": 143.1,
         "is_playoff": true,
         "matchup_type": "WINNERS_CONSOLATION_LADDER"
       },
@@ -5327,9 +5841,11 @@ const LEAGUE_DATA = {
         "home_team": "Neil Rackers",
         "home_score": 61.6,
         "home_projected": 61.6,
+        "home_max_pf": 98.6,
         "away_team": "Dawson's Creek",
         "away_score": 119.35,
         "away_projected": 119.35,
+        "away_max_pf": 131.45,
         "is_playoff": true,
         "matchup_type": "WINNERS_CONSOLATION_LADDER"
       },
@@ -5338,9 +5854,11 @@ const LEAGUE_DATA = {
         "home_team": "Acquittsburgh Deshaun Cosbys",
         "home_score": 109.05,
         "home_projected": 109.05,
+        "home_max_pf": 126.65,
         "away_team": "Haribo Lecter",
         "away_score": 116.25,
         "away_projected": 116.25,
+        "away_max_pf": 145.45,
         "is_playoff": true,
         "matchup_type": "WINNERS_CONSOLATION_LADDER"
       },
@@ -5349,9 +5867,11 @@ const LEAGUE_DATA = {
         "home_team": "The Green \ud83d\ude08 \ud83c\udf83 Rawblin",
         "home_score": 108.75,
         "home_projected": 108.75,
+        "home_max_pf": 173.35,
         "away_team": "My Neck, My Dak",
         "away_score": 93.05,
         "away_projected": 93.05,
+        "away_max_pf": 99.85,
         "is_playoff": true,
         "matchup_type": "LOSERS_CONSOLATION_LADDER"
       },
@@ -5360,9 +5880,11 @@ const LEAGUE_DATA = {
         "home_team": "Team Maybe Next Year",
         "home_score": 133.7,
         "home_projected": 133.7,
+        "home_max_pf": 197.25,
         "away_team": "Talibanistan Liberators ",
         "away_score": 119.6,
         "away_projected": 119.6,
+        "away_max_pf": 138.2,
         "is_playoff": true,
         "matchup_type": "LOSERS_CONSOLATION_LADDER"
       }
@@ -5541,7 +6063,7 @@ const LEAGUE_DATA = {
         "pick": 1,
         "team": "Bodega Cat",
         "player_name": "Javonte Williams",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 3,
@@ -5569,7 +6091,7 @@ const LEAGUE_DATA = {
         "pick": 5,
         "team": "Dawson's Creek",
         "player_name": "Breece Hall",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 3,
@@ -5730,14 +6252,14 @@ const LEAGUE_DATA = {
         "pick": 4,
         "team": "Acquittsburgh Deshaun Cosbys",
         "player_name": "Darnell Mooney",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 5,
         "pick": 5,
         "team": "Dawson's Creek",
         "player_name": "Kyler Murray",
-        "position": "N/A"
+        "position": "QB"
       },
       {
         "round": 5,
@@ -5765,7 +6287,7 @@ const LEAGUE_DATA = {
         "pick": 9,
         "team": "My Neck, My Dak",
         "player_name": "Russell Wilson",
-        "position": "N/A"
+        "position": "QB"
       },
       {
         "round": 5,
@@ -5821,7 +6343,7 @@ const LEAGUE_DATA = {
         "pick": 5,
         "team": "Good Picks Good Picks",
         "player_name": "Allen Robinson II",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 6,
@@ -5835,7 +6357,7 @@ const LEAGUE_DATA = {
         "pick": 7,
         "team": "LuLu Lemons",
         "player_name": "Elijah Mitchell",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 6,
@@ -5856,7 +6378,7 @@ const LEAGUE_DATA = {
         "pick": 10,
         "team": "Team Maybe Next Year",
         "player_name": "Michael Thomas",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 6,
@@ -5877,7 +6399,7 @@ const LEAGUE_DATA = {
         "pick": 1,
         "team": "Bodega Cat",
         "player_name": "Rashod Bateman",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 7,
@@ -5933,7 +6455,7 @@ const LEAGUE_DATA = {
         "pick": 9,
         "team": "My Neck, My Dak",
         "player_name": "Hunter Henry",
-        "position": "N/A"
+        "position": "TE"
       },
       {
         "round": 7,
@@ -5989,7 +6511,7 @@ const LEAGUE_DATA = {
         "pick": 5,
         "team": "Good Picks Good Picks",
         "player_name": "Chase Edmonds",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 8,
@@ -6017,7 +6539,7 @@ const LEAGUE_DATA = {
         "pick": 9,
         "team": "Acquittsburgh Deshaun Cosbys",
         "player_name": "Rashaad Penny",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 8,
@@ -6045,7 +6567,7 @@ const LEAGUE_DATA = {
         "pick": 1,
         "team": "Bodega Cat",
         "player_name": "Zach Ertz",
-        "position": "N/A"
+        "position": "TE"
       },
       {
         "round": 9,
@@ -6066,21 +6588,21 @@ const LEAGUE_DATA = {
         "pick": 4,
         "team": "Acquittsburgh Deshaun Cosbys",
         "player_name": "Trey Lance",
-        "position": "N/A"
+        "position": "QB"
       },
       {
         "round": 9,
         "pick": 5,
         "team": "Dawson's Creek",
         "player_name": "Matthew Stafford",
-        "position": "N/A"
+        "position": "QB"
       },
       {
         "round": 9,
         "pick": 6,
         "team": "LuLu Lemons",
         "player_name": "Melvin Gordon III",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 9,
@@ -6178,7 +6700,7 @@ const LEAGUE_DATA = {
         "pick": 8,
         "team": "Dawson's Creek",
         "player_name": "Robert Woods",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 10,
@@ -6206,7 +6728,7 @@ const LEAGUE_DATA = {
         "pick": 12,
         "team": "Bodega Cat",
         "player_name": "Kadarius Toney",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 11,
@@ -6234,7 +6756,7 @@ const LEAGUE_DATA = {
         "pick": 4,
         "team": "Acquittsburgh Deshaun Cosbys",
         "player_name": "Irv Smith Jr.",
-        "position": "N/A"
+        "position": "TE"
       },
       {
         "round": 11,
@@ -6311,7 +6833,7 @@ const LEAGUE_DATA = {
         "pick": 3,
         "team": "I\u2019m Walkin\u2019 Here",
         "player_name": "Albert Okwuegbunam",
-        "position": "N/A"
+        "position": "TE"
       },
       {
         "round": 12,
@@ -6353,14 +6875,14 @@ const LEAGUE_DATA = {
         "pick": 9,
         "team": "Acquittsburgh Deshaun Cosbys",
         "player_name": "Darrell Henderson Jr.",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 12,
         "pick": 10,
         "team": "Team Maybe Next Year",
         "player_name": "Matt Gay",
-        "position": "N/A"
+        "position": "K"
       },
       {
         "round": 12,
@@ -6374,7 +6896,7 @@ const LEAGUE_DATA = {
         "pick": 12,
         "team": "Bodega Cat",
         "player_name": "Rondale Moore",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 13,
@@ -6402,14 +6924,14 @@ const LEAGUE_DATA = {
         "pick": 4,
         "team": "Acquittsburgh Deshaun Cosbys",
         "player_name": "DeVante Parker",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 13,
         "pick": 5,
         "team": "Dawson's Creek",
         "player_name": "Saints D/ST",
-        "position": "N/A"
+        "position": "D/ST"
       },
       {
         "round": 13,
@@ -6423,14 +6945,14 @@ const LEAGUE_DATA = {
         "pick": 7,
         "team": "The Green \ud83d\ude08 \ud83c\udf83 Rawblin",
         "player_name": "Buccaneers D/ST",
-        "position": "N/A"
+        "position": "D/ST"
       },
       {
         "round": 13,
         "pick": 8,
         "team": "Good Picks Good Picks",
         "player_name": "Julio Jones",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 13,
@@ -6444,7 +6966,7 @@ const LEAGUE_DATA = {
         "pick": 10,
         "team": "I\u2019m Walkin\u2019 Here",
         "player_name": "Robbie Anderson",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 13,
@@ -6500,7 +7022,7 @@ const LEAGUE_DATA = {
         "pick": 6,
         "team": "The Green \ud83d\ude08 \ud83c\udf83 Rawblin",
         "player_name": "J.D. McKissic",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 14,
@@ -6563,7 +7085,7 @@ const LEAGUE_DATA = {
         "pick": 3,
         "team": "Team Maybe Next Year",
         "player_name": "Kenny Golladay",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 15,
@@ -6577,7 +7099,7 @@ const LEAGUE_DATA = {
         "pick": 5,
         "team": "Dawson's Creek",
         "player_name": "Rex Burkhead",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 15,
@@ -6591,21 +7113,21 @@ const LEAGUE_DATA = {
         "pick": 7,
         "team": "The Green \ud83d\ude08 \ud83c\udf83 Rawblin",
         "player_name": "Brandon McManus",
-        "position": "N/A"
+        "position": "K"
       },
       {
         "round": 15,
         "pick": 8,
         "team": "Good Picks Good Picks",
         "player_name": "Jameis Winston",
-        "position": "N/A"
+        "position": "QB"
       },
       {
         "round": 15,
         "pick": 9,
         "team": "My Neck, My Dak",
         "player_name": "Mike Davis",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 15,
@@ -6626,14 +7148,14 @@ const LEAGUE_DATA = {
         "pick": 12,
         "team": "Haribo Lecter",
         "player_name": "Matt Prater",
-        "position": "N/A"
+        "position": "K"
       },
       {
         "round": 16,
         "pick": 1,
         "team": "Haribo Lecter",
         "player_name": "Steelers D/ST",
-        "position": "N/A"
+        "position": "D/ST"
       },
       {
         "round": 16,
@@ -6647,7 +7169,7 @@ const LEAGUE_DATA = {
         "pick": 3,
         "team": "I\u2019m Walkin\u2019 Here",
         "player_name": "Dustin Hopkins",
-        "position": "N/A"
+        "position": "K"
       },
       {
         "round": 16,
@@ -6668,7 +7190,7 @@ const LEAGUE_DATA = {
         "pick": 6,
         "team": "The Green \ud83d\ude08 \ud83c\udf83 Rawblin",
         "player_name": "Jalen Tolbert",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 16,
@@ -6682,35 +7204,35 @@ const LEAGUE_DATA = {
         "pick": 8,
         "team": "Dawson's Creek",
         "player_name": "Mark Ingram II",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 16,
         "pick": 9,
         "team": "Acquittsburgh Deshaun Cosbys",
         "player_name": "Sony Michel",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 16,
         "pick": 10,
         "team": "Team Maybe Next Year",
         "player_name": "Nico Collins",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 16,
         "pick": 11,
         "team": "Neil Rackers",
         "player_name": "Byron Pringle",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 16,
         "pick": 12,
         "team": "Bodega Cat",
         "player_name": "Commanders D/ST",
-        "position": "N/A"
+        "position": "D/ST"
       },
       {
         "round": 17,
@@ -6724,7 +7246,7 @@ const LEAGUE_DATA = {
         "pick": 2,
         "team": "Neil Rackers",
         "player_name": "Tre' McKitty",
-        "position": "N/A"
+        "position": "TE"
       },
       {
         "round": 17,
@@ -6738,7 +7260,7 @@ const LEAGUE_DATA = {
         "pick": 4,
         "team": "Acquittsburgh Deshaun Cosbys",
         "player_name": "Isaiah Spiller",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 17,
@@ -6752,7 +7274,7 @@ const LEAGUE_DATA = {
         "pick": 6,
         "team": "LuLu Lemons",
         "player_name": "Zamir White",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 17,
@@ -6766,14 +7288,14 @@ const LEAGUE_DATA = {
         "pick": 8,
         "team": "Good Picks Good Picks",
         "player_name": "Rodrigo Blankenship",
-        "position": "N/A"
+        "position": "K"
       },
       {
         "round": 17,
         "pick": 9,
         "team": "My Neck, My Dak",
         "player_name": "Jake Elliott",
-        "position": "N/A"
+        "position": "K"
       },
       {
         "round": 17,
@@ -6794,7 +7316,7 @@ const LEAGUE_DATA = {
         "pick": 12,
         "team": "Haribo Lecter",
         "player_name": "Mac Jones",
-        "position": "N/A"
+        "position": "QB"
       }
     ]
   },
@@ -6985,9 +7507,11 @@ const LEAGUE_DATA = {
         "home_team": "Neil Rackers",
         "home_score": 104.44,
         "home_projected": 8.13,
+        "home_max_pf": 115.1,
         "away_team": "Haribo Lecter",
         "away_score": 98.64,
         "away_projected": 8.15,
+        "away_max_pf": 112.64,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -6996,9 +7520,11 @@ const LEAGUE_DATA = {
         "home_team": "Damar Ham n' Cheese",
         "home_score": 92.5,
         "home_projected": 12.92,
+        "home_max_pf": 100.6,
         "away_team": "Good Picks Good Picks",
         "away_score": 70.06,
         "away_projected": 20.03,
+        "away_max_pf": 70.06,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7007,9 +7533,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 135.36,
         "home_projected": 8.49,
+        "home_max_pf": 144.76,
         "away_team": "Jon Favreau Beats His \ud83e\udd69",
         "away_score": 79.94,
         "away_projected": 7.9,
+        "away_max_pf": 92.44,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7018,9 +7546,11 @@ const LEAGUE_DATA = {
         "home_team": "Kirk Cousins Goat",
         "home_score": 159.04,
         "home_projected": 7.87,
+        "home_max_pf": 166.44,
         "away_team": "The Green \ud83d\ude08 \ud83c\udf83 Rawblin",
         "away_score": 109.64,
         "away_projected": 0.0,
+        "away_max_pf": 154.04,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7029,9 +7559,11 @@ const LEAGUE_DATA = {
         "home_team": "Dawson's Creek",
         "home_score": 75.38,
         "home_projected": 8.21,
+        "home_max_pf": 85.38,
         "away_team": "Beerserkers ",
         "away_score": 149.56,
         "away_projected": 8.16,
+        "away_max_pf": 161.46,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7040,9 +7572,11 @@ const LEAGUE_DATA = {
         "home_team": "The Philadelphia Smeagles",
         "home_score": 77.06,
         "home_projected": 19.950000000000003,
+        "home_max_pf": 100.66,
         "away_team": "LuLu Lemons",
         "away_score": 119.52,
         "away_projected": 21.64,
+        "away_max_pf": 142.32,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7051,9 +7585,11 @@ const LEAGUE_DATA = {
         "home_team": "Denethor's Tomatoes",
         "home_score": 101.88,
         "home_projected": 20.509999999999998,
+        "home_max_pf": 110.68,
         "away_team": "Philadelphia Kegels",
         "away_score": 79.5,
         "away_projected": 19.59,
+        "away_max_pf": 83.7,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7062,9 +7598,11 @@ const LEAGUE_DATA = {
         "home_team": "Jon Favreau Beats His \ud83e\udd69",
         "home_score": 84.74,
         "home_projected": 115.42000000000002,
+        "home_max_pf": 86.64,
         "away_team": "Damar Ham n' Cheese",
         "away_score": 111.24,
         "away_projected": 109.92999999999999,
+        "away_max_pf": 125.24,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7073,9 +7611,11 @@ const LEAGUE_DATA = {
         "home_team": "LuLu Lemons",
         "home_score": 112.44,
         "home_projected": 119.17999999999999,
+        "home_max_pf": 145.44,
         "away_team": "Neil Rackers",
         "away_score": 133.66,
         "away_projected": 127.81000000000002,
+        "away_max_pf": 134.06,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7084,9 +7624,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 125.82,
         "home_projected": 102.99999999999999,
+        "home_max_pf": 159.72,
         "away_team": "Kirk Cousins Goat",
         "away_score": 61.14,
         "away_projected": 101.55000000000003,
+        "away_max_pf": 72.84,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7095,9 +7637,11 @@ const LEAGUE_DATA = {
         "home_team": "Good Picks Good Picks",
         "home_score": 109.88,
         "home_projected": 110.64999999999999,
+        "home_max_pf": 119.98,
         "away_team": "Denethor's Tomatoes",
         "away_score": 142.52,
         "away_projected": 105.03,
+        "away_max_pf": 164.42,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7106,9 +7650,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 90.9,
         "home_projected": 119.00999999999999,
+        "home_max_pf": 113.8,
         "away_team": "The Philadelphia Smeagles",
         "away_score": 150.86,
         "away_projected": 120.23,
+        "away_max_pf": 172.06,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7117,9 +7663,11 @@ const LEAGUE_DATA = {
         "home_team": "Philadelphia Kegels",
         "home_score": 115.42,
         "home_projected": 109.13,
+        "home_max_pf": 127.94,
         "away_team": "Beerserkers ",
         "away_score": 105.9,
         "away_projected": 113.41999999999999,
+        "away_max_pf": 145.62,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7128,9 +7676,11 @@ const LEAGUE_DATA = {
         "home_team": "Dawson's Creek",
         "home_score": 140.18,
         "home_projected": 121.96,
+        "home_max_pf": 145.98,
         "away_team": "The Green \ud83d\ude08 \ud83c\udf83 Rawblin",
         "away_score": 121.5,
         "away_projected": 129.14,
+        "away_max_pf": 165.9,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7139,9 +7689,11 @@ const LEAGUE_DATA = {
         "home_team": "Beerserkers ",
         "home_score": 134.8,
         "home_projected": 120.1,
+        "home_max_pf": 148.2,
         "away_team": "LuLu Lemons",
         "away_score": 126.26,
         "away_projected": 114.72000000000001,
+        "away_max_pf": 129.76,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7150,9 +7702,11 @@ const LEAGUE_DATA = {
         "home_team": "The Philadelphia Smeagles",
         "home_score": 144.08,
         "home_projected": 117.89,
+        "home_max_pf": 150.28,
         "away_team": "Damar Ham n' Cheese",
         "away_score": 127.34,
         "away_projected": 119.22999999999999,
+        "away_max_pf": 128.04,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7161,9 +7715,11 @@ const LEAGUE_DATA = {
         "home_team": "Kirk Cousins Goat",
         "home_score": 83.16,
         "home_projected": 101.99,
+        "home_max_pf": 105.06,
         "away_team": "Bodega Cat",
         "away_score": 133.06,
         "away_projected": 125.02000000000004,
+        "away_max_pf": 139.16,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7172,9 +7728,11 @@ const LEAGUE_DATA = {
         "home_team": "The Green \ud83d\ude08 \ud83c\udf83 Rawblin",
         "home_score": 130.58,
         "home_projected": 128.38,
+        "home_max_pf": 160.28,
         "away_team": "Good Picks Good Picks",
         "away_score": 112.18,
         "away_projected": 113.27000000000001,
+        "away_max_pf": 112.18,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7183,9 +7741,11 @@ const LEAGUE_DATA = {
         "home_team": "Jon Favreau Beats His \ud83e\udd69",
         "home_score": 110.42,
         "home_projected": 110.18,
+        "home_max_pf": 124.42,
         "away_team": "Dawson's Creek",
         "away_score": 122.66,
         "away_projected": 127.94999999999999,
+        "away_max_pf": 134.76,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7194,9 +7754,11 @@ const LEAGUE_DATA = {
         "home_team": "Philadelphia Kegels",
         "home_score": 55.58,
         "home_projected": 65.64999999999999,
+        "home_max_pf": 78.38,
         "away_team": "Neil Rackers",
         "away_score": 113.92,
         "away_projected": 121.89000000000001,
+        "away_max_pf": 119.02,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7205,9 +7767,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 151.36,
         "home_projected": 116.49000000000001,
+        "home_max_pf": 176.06,
         "away_team": "Denethor's Tomatoes",
         "away_score": 112.84,
         "away_projected": 116.88000000000001,
+        "away_max_pf": 130.64,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7216,9 +7780,11 @@ const LEAGUE_DATA = {
         "home_team": "Neil Rackers",
         "home_score": 131.0,
         "home_projected": 121.02000000000001,
+        "home_max_pf": 146.0,
         "away_team": "The Philadelphia Smeagles",
         "away_score": 110.26,
         "away_projected": 117.87,
+        "away_max_pf": 140.2,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7227,9 +7793,11 @@ const LEAGUE_DATA = {
         "home_team": "Jon Favreau Beats His \ud83e\udd69",
         "home_score": 107.28,
         "home_projected": 117.46000000000001,
+        "home_max_pf": 118.68,
         "away_team": "Philadelphia Kegels",
         "away_score": 71.66,
         "away_projected": 96.93999999999998,
+        "away_max_pf": 73.46,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7238,9 +7806,11 @@ const LEAGUE_DATA = {
         "home_team": "Beerserkers ",
         "home_score": 95.68,
         "home_projected": 118.51000000000002,
+        "home_max_pf": 145.58,
         "away_team": "The Green \ud83d\ude08 \ud83c\udf83 Rawblin",
         "away_score": 108.82,
         "away_projected": 124.00000000000001,
+        "away_max_pf": 112.62,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7249,9 +7819,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 101.84,
         "home_projected": 120.25,
+        "home_max_pf": 103.34,
         "away_team": "Damar Ham n' Cheese",
         "away_score": 110.3,
         "away_projected": 114.70999999999998,
+        "away_max_pf": 121.8,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7260,9 +7832,11 @@ const LEAGUE_DATA = {
         "home_team": "Denethor's Tomatoes",
         "home_score": 140.62,
         "home_projected": 126.75,
+        "home_max_pf": 143.12,
         "away_team": "Dawson's Creek",
         "away_score": 148.88,
         "away_projected": 123.95,
+        "away_max_pf": 169.54,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7271,9 +7845,11 @@ const LEAGUE_DATA = {
         "home_team": "LuLu Lemons",
         "home_score": 124.7,
         "home_projected": 120.58,
+        "home_max_pf": 150.5,
         "away_team": "Kirk Cousins Goat",
         "away_score": 110.3,
         "away_projected": 113.89999999999999,
+        "away_max_pf": 124.9,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7282,9 +7858,11 @@ const LEAGUE_DATA = {
         "home_team": "Good Picks Good Picks",
         "home_score": 119.84,
         "home_projected": 105.38,
+        "home_max_pf": 120.34,
         "away_team": "Haribo Lecter",
         "away_score": 97.48,
         "away_projected": 118.21,
+        "away_max_pf": 118.8,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7293,9 +7871,11 @@ const LEAGUE_DATA = {
         "home_team": "The Philadelphia Smeagles",
         "home_score": 157.36,
         "home_projected": 111.68,
+        "home_max_pf": 164.56,
         "away_team": "Jon Favreau Beats His \ud83e\udd69",
         "away_score": 160.1,
         "away_projected": 108.83,
+        "away_max_pf": 170.7,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7304,9 +7884,11 @@ const LEAGUE_DATA = {
         "home_team": "Good Picks Good Picks",
         "home_score": 76.74,
         "home_projected": 111.37,
+        "home_max_pf": 91.74,
         "away_team": "Neil Rackers",
         "away_score": 136.56,
         "away_projected": 110.55000000000001,
+        "away_max_pf": 136.56,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7315,9 +7897,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 161.52,
         "home_projected": 114.63,
+        "home_max_pf": 181.12,
         "away_team": "Dawson's Creek",
         "away_score": 116.08,
         "away_projected": 125.67000000000002,
+        "away_max_pf": 121.48,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7326,9 +7910,11 @@ const LEAGUE_DATA = {
         "home_team": "Kirk Cousins Goat",
         "home_score": 111.18,
         "home_projected": 90.53,
+        "home_max_pf": 111.18,
         "away_team": "Philadelphia Kegels",
         "away_score": 103.02,
         "away_projected": 86.03999999999999,
+        "away_max_pf": 103.02,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7337,9 +7923,11 @@ const LEAGUE_DATA = {
         "home_team": "The Green \ud83d\ude08 \ud83c\udf83 Rawblin",
         "home_score": 79.74,
         "home_projected": 126.62,
+        "home_max_pf": 91.14,
         "away_team": "LuLu Lemons",
         "away_score": 91.42,
         "away_projected": 117.16000000000001,
+        "away_max_pf": 130.76,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7348,9 +7936,11 @@ const LEAGUE_DATA = {
         "home_team": "Damar Ham n' Cheese",
         "home_score": 112.34,
         "home_projected": 123.22999999999999,
+        "home_max_pf": 132.34,
         "away_team": "Denethor's Tomatoes",
         "away_score": 140.24,
         "away_projected": 128.73000000000002,
+        "away_max_pf": 145.94,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7359,9 +7949,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 115.22,
         "home_projected": 114.87,
+        "home_max_pf": 116.72,
         "away_team": "Beerserkers ",
         "away_score": 73.64,
         "away_projected": 106.17000000000002,
+        "away_max_pf": 98.24,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7370,9 +7962,11 @@ const LEAGUE_DATA = {
         "home_team": "The Green \ud83d\ude08 \ud83c\udf83 Rawblin",
         "home_score": 95.04,
         "home_projected": 118.14999999999999,
+        "home_max_pf": 119.74,
         "away_team": "Philadelphia Kegels",
         "away_score": 100.4,
         "away_projected": 95.41,
+        "away_max_pf": 105.8,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7381,9 +7975,11 @@ const LEAGUE_DATA = {
         "home_team": "Dawson's Creek",
         "home_score": 87.3,
         "home_projected": 122.69000000000001,
+        "home_max_pf": 115.9,
         "away_team": "The Philadelphia Smeagles",
         "away_score": 73.54,
         "away_projected": 111.50000000000001,
+        "away_max_pf": 95.94,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7392,9 +7988,11 @@ const LEAGUE_DATA = {
         "home_team": "Good Picks Good Picks",
         "home_score": 128.32,
         "home_projected": 118.44,
+        "home_max_pf": 129.52,
         "away_team": "Beerserkers ",
         "away_score": 93.08,
         "away_projected": 110.75000000000001,
+        "away_max_pf": 109.82,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7403,9 +8001,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 170.98,
         "home_projected": 122.72,
+        "home_max_pf": 170.98,
         "away_team": "Bodega Cat",
         "away_score": 147.98,
         "away_projected": 121.58,
+        "away_max_pf": 150.88,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7414,9 +8014,11 @@ const LEAGUE_DATA = {
         "home_team": "Damar Ham n' Cheese",
         "home_score": 102.4,
         "home_projected": 120.72,
+        "home_max_pf": 124.3,
         "away_team": "Kirk Cousins Goat",
         "away_score": 83.02,
         "away_projected": 114.15,
+        "away_max_pf": 95.56,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7425,9 +8027,11 @@ const LEAGUE_DATA = {
         "home_team": "Jon Favreau Beats His \ud83e\udd69",
         "home_score": 94.54,
         "home_projected": 102.08999999999999,
+        "home_max_pf": 101.14,
         "away_team": "Neil Rackers",
         "away_score": 104.96,
         "away_projected": 121.68,
+        "away_max_pf": 106.26,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7436,9 +8040,11 @@ const LEAGUE_DATA = {
         "home_team": "Denethor's Tomatoes",
         "home_score": 108.0,
         "home_projected": 130.16,
+        "home_max_pf": 113.34,
         "away_team": "LuLu Lemons",
         "away_score": 106.0,
         "away_projected": 132.01,
+        "away_max_pf": 135.0,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7447,9 +8053,11 @@ const LEAGUE_DATA = {
         "home_team": "Jon Favreau Beats His \ud83e\udd69",
         "home_score": 113.46,
         "home_projected": 94.06,
+        "home_max_pf": 118.16,
         "away_team": "Good Picks Good Picks",
         "away_score": 160.98,
         "away_projected": 111.08999999999999,
+        "away_max_pf": 160.98,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7458,9 +8066,11 @@ const LEAGUE_DATA = {
         "home_team": "LuLu Lemons",
         "home_score": 73.7,
         "home_projected": 118.33000000000001,
+        "home_max_pf": 80.4,
         "away_team": "Bodega Cat",
         "away_score": 100.0,
         "away_projected": 121.77,
+        "away_max_pf": 112.9,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7469,9 +8079,11 @@ const LEAGUE_DATA = {
         "home_team": "Kirk Cousins Goat",
         "home_score": 111.84,
         "home_projected": 117.56,
+        "home_max_pf": 111.84,
         "away_team": "Denethor's Tomatoes",
         "away_score": 118.26,
         "away_projected": 115.21,
+        "away_max_pf": 162.26,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7480,9 +8092,11 @@ const LEAGUE_DATA = {
         "home_team": "The Philadelphia Smeagles",
         "home_score": 78.72,
         "home_projected": 104.21,
+        "home_max_pf": 82.12,
         "away_team": "Beerserkers ",
         "away_score": 98.36,
         "away_projected": 108.48,
+        "away_max_pf": 116.36,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7491,9 +8105,11 @@ const LEAGUE_DATA = {
         "home_team": "Damar Ham n' Cheese",
         "home_score": 135.98,
         "home_projected": 116.00000000000001,
+        "home_max_pf": 158.78,
         "away_team": "Dawson's Creek",
         "away_score": 112.34,
         "away_projected": 109.98,
+        "away_max_pf": 112.34,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7502,9 +8118,11 @@ const LEAGUE_DATA = {
         "home_team": "Neil Rackers",
         "home_score": 129.1,
         "home_projected": 112.19,
+        "home_max_pf": 129.1,
         "away_team": "The Green \ud83d\ude08 \ud83c\udf83 Rawblin",
         "away_score": 100.26,
         "away_projected": 112.96,
+        "away_max_pf": 109.76,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7513,9 +8131,11 @@ const LEAGUE_DATA = {
         "home_team": "Philadelphia Kegels",
         "home_score": 60.96,
         "home_projected": 79.57,
+        "home_max_pf": 72.26,
         "away_team": "Haribo Lecter",
         "away_score": 115.84,
         "away_projected": 120.72000000000001,
+        "away_max_pf": 119.04,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7524,9 +8144,11 @@ const LEAGUE_DATA = {
         "home_team": "Philadelphia Kegels",
         "home_score": 115.76,
         "home_projected": 107.39,
+        "home_max_pf": 119.36,
         "away_team": "Damar Ham n' Cheese",
         "away_score": 103.1,
         "away_projected": 117.86000000000001,
+        "away_max_pf": 138.1,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7535,9 +8157,11 @@ const LEAGUE_DATA = {
         "home_team": "The Green \ud83d\ude08 \ud83c\udf83 Rawblin",
         "home_score": 116.5,
         "home_projected": 113.96,
+        "home_max_pf": 140.3,
         "away_team": "The Philadelphia Smeagles",
         "away_score": 108.86,
         "away_projected": 110.64,
+        "away_max_pf": 125.76,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7546,9 +8170,11 @@ const LEAGUE_DATA = {
         "home_team": "Denethor's Tomatoes",
         "home_score": 152.06,
         "home_projected": 132.86,
+        "home_max_pf": 152.06,
         "away_team": "Bodega Cat",
         "away_score": 164.86,
         "away_projected": 126.21000000000001,
+        "away_max_pf": 202.96,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7557,9 +8183,11 @@ const LEAGUE_DATA = {
         "home_team": "Jon Favreau Beats His \ud83e\udd69",
         "home_score": 129.68,
         "home_projected": 112.12,
+        "home_max_pf": 129.68,
         "away_team": "Kirk Cousins Goat",
         "away_score": 115.7,
         "away_projected": 121.69,
+        "away_max_pf": 129.2,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7568,9 +8196,11 @@ const LEAGUE_DATA = {
         "home_team": "Beerserkers ",
         "home_score": 110.52,
         "home_projected": 109.72999999999999,
+        "home_max_pf": 141.88,
         "away_team": "Neil Rackers",
         "away_score": 135.16,
         "away_projected": 125.44,
+        "away_max_pf": 135.16,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7579,9 +8209,11 @@ const LEAGUE_DATA = {
         "home_team": "Dawson's Creek",
         "home_score": 121.62,
         "home_projected": 114.16999999999997,
+        "home_max_pf": 130.32,
         "away_team": "Good Picks Good Picks",
         "away_score": 102.58,
         "away_projected": 122.94,
+        "away_max_pf": 117.08,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7590,9 +8222,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 121.46,
         "home_projected": 127.42,
+        "home_max_pf": 132.38,
         "away_team": "LuLu Lemons",
         "away_score": 107.96,
         "away_projected": 118.5,
+        "away_max_pf": 129.86,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7601,9 +8235,11 @@ const LEAGUE_DATA = {
         "home_team": "LuLu Lemons",
         "home_score": 78.98,
         "home_projected": 112.63999999999999,
+        "home_max_pf": 95.22,
         "away_team": "Jon Favreau Beats His \ud83e\udd69",
         "away_score": 81.52,
         "away_projected": 110.35,
+        "away_max_pf": 87.52,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7612,9 +8248,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 107.76,
         "home_projected": 118.72999999999999,
+        "home_max_pf": 131.36,
         "away_team": "Dawson's Creek",
         "away_score": 121.32,
         "away_projected": 116.93,
+        "away_max_pf": 123.72,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7623,9 +8261,11 @@ const LEAGUE_DATA = {
         "home_team": "The Philadelphia Smeagles",
         "home_score": 81.44,
         "home_projected": 78.64,
+        "home_max_pf": 90.44,
         "away_team": "Denethor's Tomatoes",
         "away_score": 92.78,
         "away_projected": 123.45000000000002,
+        "away_max_pf": 100.38,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7634,9 +8274,11 @@ const LEAGUE_DATA = {
         "home_team": "Neil Rackers",
         "home_score": 149.02,
         "home_projected": 125.57,
+        "home_max_pf": 149.02,
         "away_team": "Damar Ham n' Cheese",
         "away_score": 102.9,
         "away_projected": 104.16999999999999,
+        "away_max_pf": 106.0,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7645,9 +8287,11 @@ const LEAGUE_DATA = {
         "home_team": "Good Picks Good Picks",
         "home_score": 80.28,
         "home_projected": 115.66,
+        "home_max_pf": 101.98,
         "away_team": "Philadelphia Kegels",
         "away_score": 108.08,
         "away_projected": 102.05000000000001,
+        "away_max_pf": 122.98,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7656,9 +8300,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 119.22,
         "home_projected": 108.83,
+        "home_max_pf": 130.6,
         "away_team": "The Green \ud83d\ude08 \ud83c\udf83 Rawblin",
         "away_score": 120.7,
         "away_projected": 106.78,
+        "away_max_pf": 152.7,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7667,9 +8313,11 @@ const LEAGUE_DATA = {
         "home_team": "Beerserkers ",
         "home_score": 124.26,
         "home_projected": 110.46000000000001,
+        "home_max_pf": 140.56,
         "away_team": "Kirk Cousins Goat",
         "away_score": 126.7,
         "away_projected": 108.38999999999999,
+        "away_max_pf": 131.6,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7678,9 +8326,11 @@ const LEAGUE_DATA = {
         "home_team": "Kirk Cousins Goat",
         "home_score": 118.54,
         "home_projected": 123.64,
+        "home_max_pf": 153.84,
         "away_team": "The Philadelphia Smeagles",
         "away_score": 97.5,
         "away_projected": 99.61999999999999,
+        "away_max_pf": 97.5,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7689,9 +8339,11 @@ const LEAGUE_DATA = {
         "home_team": "Philadelphia Kegels",
         "home_score": 97.5,
         "home_projected": 75.04,
+        "home_max_pf": 110.4,
         "away_team": "Bodega Cat",
         "away_score": 135.56,
         "away_projected": 104.39,
+        "away_max_pf": 143.96,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7700,9 +8352,11 @@ const LEAGUE_DATA = {
         "home_team": "Denethor's Tomatoes",
         "home_score": 132.22,
         "home_projected": 114.69999999999999,
+        "home_max_pf": 135.62,
         "away_team": "Jon Favreau Beats His \ud83e\udd69",
         "away_score": 110.7,
         "away_projected": 106.94,
+        "away_max_pf": 134.66,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7711,9 +8365,11 @@ const LEAGUE_DATA = {
         "home_team": "Damar Ham n' Cheese",
         "home_score": 143.56,
         "home_projected": 102.89,
+        "home_max_pf": 151.14,
         "away_team": "The Green \ud83d\ude08 \ud83c\udf83 Rawblin",
         "away_score": 132.0,
         "away_projected": 110.61,
+        "away_max_pf": 138.0,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7722,9 +8378,11 @@ const LEAGUE_DATA = {
         "home_team": "Beerserkers ",
         "home_score": 118.82,
         "home_projected": 111.29999999999998,
+        "home_max_pf": 135.22,
         "away_team": "Haribo Lecter",
         "away_score": 109.38,
         "away_projected": 113.66,
+        "away_max_pf": 121.28,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7733,9 +8391,11 @@ const LEAGUE_DATA = {
         "home_team": "Neil Rackers",
         "home_score": 109.18,
         "home_projected": 130.42000000000002,
+        "home_max_pf": 136.92,
         "away_team": "Dawson's Creek",
         "away_score": 114.38,
         "away_projected": 118.9,
+        "away_max_pf": 114.38,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7744,9 +8404,11 @@ const LEAGUE_DATA = {
         "home_team": "LuLu Lemons",
         "home_score": 108.42,
         "home_projected": 116.81,
+        "home_max_pf": 120.22,
         "away_team": "Good Picks Good Picks",
         "away_score": 107.82,
         "away_projected": 106.03999999999999,
+        "away_max_pf": 125.06,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7755,9 +8417,11 @@ const LEAGUE_DATA = {
         "home_team": "Philadelphia Kegels",
         "home_score": 102.9,
         "home_projected": 100.95,
+        "home_max_pf": 120.6,
         "away_team": "The Philadelphia Smeagles",
         "away_score": 88.72,
         "away_projected": 110.81000000000002,
+        "away_max_pf": 92.32,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7766,9 +8430,11 @@ const LEAGUE_DATA = {
         "home_team": "The Green \ud83d\ude08 \ud83c\udf83 Rawblin",
         "home_score": 139.78,
         "home_projected": 119.05999999999999,
+        "home_max_pf": 141.88,
         "away_team": "Bodega Cat",
         "away_score": 154.86,
         "away_projected": 129.02,
+        "away_max_pf": 154.86,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7777,9 +8443,11 @@ const LEAGUE_DATA = {
         "home_team": "Good Picks Good Picks",
         "home_score": 91.46,
         "home_projected": 118.24,
+        "home_max_pf": 94.66,
         "away_team": "Kirk Cousins Goat",
         "away_score": 106.14,
         "away_projected": 121.49,
+        "away_max_pf": 119.54,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7788,9 +8456,11 @@ const LEAGUE_DATA = {
         "home_team": "Jon Favreau Beats His \ud83e\udd69",
         "home_score": 97.28,
         "home_projected": 107.03,
+        "home_max_pf": 104.18,
         "away_team": "Haribo Lecter",
         "away_score": 92.34,
         "away_projected": 105.64999999999999,
+        "away_max_pf": 93.6,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7799,9 +8469,11 @@ const LEAGUE_DATA = {
         "home_team": "Damar Ham n' Cheese",
         "home_score": 118.12,
         "home_projected": 110.19999999999999,
+        "home_max_pf": 151.12,
         "away_team": "Beerserkers ",
         "away_score": 148.5,
         "away_projected": 104.33,
+        "away_max_pf": 148.5,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7810,9 +8482,11 @@ const LEAGUE_DATA = {
         "home_team": "Dawson's Creek",
         "home_score": 101.94,
         "home_projected": 117.87,
+        "home_max_pf": 117.38,
         "away_team": "LuLu Lemons",
         "away_score": 105.04,
         "away_projected": 116.56,
+        "away_max_pf": 144.94,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7821,9 +8495,11 @@ const LEAGUE_DATA = {
         "home_team": "Neil Rackers",
         "home_score": 102.8,
         "home_projected": 120.78999999999999,
+        "home_max_pf": 107.1,
         "away_team": "Denethor's Tomatoes",
         "away_score": 68.96,
         "away_projected": 111.08000000000001,
+        "away_max_pf": 72.76,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7832,9 +8508,11 @@ const LEAGUE_DATA = {
         "home_team": "Kirk Cousins Goat",
         "home_score": 141.86,
         "home_projected": 114.11000000000001,
+        "home_max_pf": 155.26,
         "away_team": "Dawson's Creek",
         "away_score": 141.42,
         "away_projected": 115.86000000000001,
+        "away_max_pf": 169.72,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7843,9 +8521,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 128.14,
         "home_projected": 134.28,
+        "home_max_pf": 133.14,
         "away_team": "Neil Rackers",
         "away_score": 114.96,
         "away_projected": 120.06,
+        "away_max_pf": 125.26,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7854,9 +8534,11 @@ const LEAGUE_DATA = {
         "home_team": "Denethor's Tomatoes",
         "home_score": 120.86,
         "home_projected": 119.67000000000002,
+        "home_max_pf": 126.66,
         "away_team": "The Green \ud83d\ude08 \ud83c\udf83 Rawblin",
         "away_score": 126.32,
         "away_projected": 117.68,
+        "away_max_pf": 129.62,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7865,9 +8547,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 99.92,
         "home_projected": 106.92999999999999,
+        "home_max_pf": 134.7,
         "away_team": "Damar Ham n' Cheese",
         "away_score": 119.06,
         "away_projected": 116.31,
+        "away_max_pf": 144.94,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7876,9 +8560,11 @@ const LEAGUE_DATA = {
         "home_team": "Beerserkers ",
         "home_score": 101.38,
         "home_projected": 115.99000000000001,
+        "home_max_pf": 117.58,
         "away_team": "Jon Favreau Beats His \ud83e\udd69",
         "away_score": 118.96,
         "away_projected": 113.13000000000001,
+        "away_max_pf": 119.36,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7887,9 +8573,11 @@ const LEAGUE_DATA = {
         "home_team": "Philadelphia Kegels",
         "home_score": 122.9,
         "home_projected": 112.03,
+        "home_max_pf": 131.3,
         "away_team": "LuLu Lemons",
         "away_score": 112.8,
         "away_projected": 121.43,
+        "away_max_pf": 129.48,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7898,9 +8586,11 @@ const LEAGUE_DATA = {
         "home_team": "Good Picks Good Picks",
         "home_score": 127.58,
         "home_projected": 121.65999999999998,
+        "home_max_pf": 127.58,
         "away_team": "The Philadelphia Smeagles",
         "away_score": 125.3,
         "away_projected": 112.34000000000002,
+        "away_max_pf": 146.16,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7909,9 +8599,11 @@ const LEAGUE_DATA = {
         "home_team": "Neil Rackers",
         "home_score": 101.88,
         "home_projected": 101.69,
+        "home_max_pf": 101.88,
         "away_team": "Kirk Cousins Goat",
         "away_score": 87.46,
         "away_projected": 109.03000000000002,
+        "away_max_pf": 87.46,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7920,9 +8612,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 161.36,
         "home_projected": 132.09000000000003,
+        "home_max_pf": 167.16,
         "away_team": "Good Picks Good Picks",
         "away_score": 138.56,
         "away_projected": 100.27,
+        "away_max_pf": 138.56,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7931,9 +8625,11 @@ const LEAGUE_DATA = {
         "home_team": "Denethor's Tomatoes",
         "home_score": 108.54,
         "home_projected": 116.45,
+        "home_max_pf": 108.54,
         "away_team": "Beerserkers ",
         "away_score": 105.18,
         "away_projected": 112.80000000000001,
+        "away_max_pf": 132.42,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7942,9 +8638,11 @@ const LEAGUE_DATA = {
         "home_team": "The Green \ud83d\ude08 \ud83c\udf83 Rawblin",
         "home_score": 116.5,
         "home_projected": 115.6,
+        "home_max_pf": 139.6,
         "away_team": "Jon Favreau Beats His \ud83e\udd69",
         "away_score": 118.74,
         "away_projected": 107.90000000000002,
+        "away_max_pf": 139.84,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7953,9 +8651,11 @@ const LEAGUE_DATA = {
         "home_team": "LuLu Lemons",
         "home_score": 93.16,
         "home_projected": 116.08,
+        "home_max_pf": 108.36,
         "away_team": "Damar Ham n' Cheese",
         "away_score": 129.16,
         "away_projected": 119.24,
+        "away_max_pf": 129.16,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7964,9 +8664,11 @@ const LEAGUE_DATA = {
         "home_team": "The Philadelphia Smeagles",
         "home_score": 96.64,
         "home_projected": 105.88999999999999,
+        "home_max_pf": 104.06,
         "away_team": "Haribo Lecter",
         "away_score": 106.8,
         "away_projected": 109.03000000000002,
+        "away_max_pf": 119.7,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7975,9 +8677,11 @@ const LEAGUE_DATA = {
         "home_team": "Dawson's Creek",
         "home_score": 176.28,
         "home_projected": 108.36,
+        "home_max_pf": 176.56,
         "away_team": "Philadelphia Kegels",
         "away_score": 110.72,
         "away_projected": 81.58,
+        "away_max_pf": 112.62,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7986,9 +8690,11 @@ const LEAGUE_DATA = {
         "home_team": "Damar Ham n' Cheese",
         "home_score": 111.12,
         "home_projected": 116.89,
+        "home_max_pf": 116.42,
         "away_team": "Jon Favreau Beats His \ud83e\udd69",
         "away_score": 79.52,
         "away_projected": 111.26999999999998,
+        "away_max_pf": 98.28,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -7997,9 +8703,11 @@ const LEAGUE_DATA = {
         "home_team": "LuLu Lemons",
         "home_score": 155.94,
         "home_projected": 112.85000000000001,
+        "home_max_pf": 181.34,
         "away_team": "Haribo Lecter",
         "away_score": 94.4,
         "away_projected": 101.66,
+        "away_max_pf": 94.4,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -8008,9 +8716,11 @@ const LEAGUE_DATA = {
         "home_team": "Beerserkers ",
         "home_score": 96.84,
         "home_projected": 112.46000000000002,
+        "home_max_pf": 123.64,
         "away_team": "Philadelphia Kegels",
         "away_score": 106.98,
         "away_projected": 98.98000000000002,
+        "away_max_pf": 132.18,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -8019,9 +8729,11 @@ const LEAGUE_DATA = {
         "home_team": "The Philadelphia Smeagles",
         "home_score": 90.16,
         "home_projected": 105.12000000000002,
+        "home_max_pf": 96.58,
         "away_team": "Bodega Cat",
         "away_score": 117.94,
         "away_projected": 128.33999999999997,
+        "away_max_pf": 133.74,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -8030,9 +8742,11 @@ const LEAGUE_DATA = {
         "home_team": "The Green \ud83d\ude08 \ud83c\udf83 Rawblin",
         "home_score": 106.14,
         "home_projected": 112.44999999999999,
+        "home_max_pf": 115.74,
         "away_team": "Neil Rackers",
         "away_score": 88.12,
         "away_projected": 114.94999999999999,
+        "away_max_pf": 95.72,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -8041,9 +8755,11 @@ const LEAGUE_DATA = {
         "home_team": "Dawson's Creek",
         "home_score": 148.32,
         "home_projected": 118.57,
+        "home_max_pf": 174.16,
         "away_team": "Denethor's Tomatoes",
         "away_score": 97.26,
         "away_projected": 123.8,
+        "away_max_pf": 132.6,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -8052,9 +8768,11 @@ const LEAGUE_DATA = {
         "home_team": "Kirk Cousins Goat",
         "home_score": 91.02,
         "home_projected": 109.56,
+        "home_max_pf": 93.12,
         "away_team": "Good Picks Good Picks",
         "away_score": 148.14,
         "away_projected": 116.28,
+        "away_max_pf": 148.64,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -8063,9 +8781,11 @@ const LEAGUE_DATA = {
         "home_team": "Neil Rackers",
         "home_score": 119.66,
         "home_projected": 121.63000000000001,
+        "home_max_pf": 130.86,
         "away_team": "Philadelphia Kegels",
         "away_score": 80.12,
         "away_projected": 98.33,
+        "away_max_pf": 86.72,
         "is_playoff": true,
         "matchup_type": "WINNERS_BRACKET"
       },
@@ -8074,9 +8794,11 @@ const LEAGUE_DATA = {
         "home_team": "Damar Ham n' Cheese",
         "home_score": 176.28,
         "home_projected": 125.25999999999998,
+        "home_max_pf": 186.58,
         "away_team": "Denethor's Tomatoes",
         "away_score": 85.76,
         "away_projected": 127.25,
+        "away_max_pf": 95.06,
         "is_playoff": true,
         "matchup_type": "WINNERS_BRACKET"
       },
@@ -8085,9 +8807,11 @@ const LEAGUE_DATA = {
         "home_team": "Dawson's Creek",
         "home_score": 144.26,
         "home_projected": 123.88000000000001,
+        "home_max_pf": 167.42,
         "away_team": "Haribo Lecter",
         "away_score": 117.56,
         "away_projected": 97.19000000000001,
+        "away_max_pf": 117.56,
         "is_playoff": true,
         "matchup_type": "WINNERS_BRACKET"
       },
@@ -8096,9 +8820,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 96.56,
         "home_projected": 125.11000000000001,
+        "home_max_pf": 130.12,
         "away_team": "Jon Favreau Beats His \ud83e\udd69",
         "away_score": 74.46,
         "away_projected": 97.59,
+        "away_max_pf": 76.06,
         "is_playoff": true,
         "matchup_type": "WINNERS_BRACKET"
       },
@@ -8107,9 +8833,11 @@ const LEAGUE_DATA = {
         "home_team": "Good Picks Good Picks",
         "home_score": 80.04,
         "home_projected": 121.02000000000001,
+        "home_max_pf": 84.44,
         "away_team": "The Green \ud83d\ude08 \ud83c\udf83 Rawblin",
         "away_score": 96.1,
         "away_projected": 112.74000000000001,
+        "away_max_pf": 117.0,
         "is_playoff": true,
         "matchup_type": "LOSERS_CONSOLATION_LADDER"
       },
@@ -8118,9 +8846,11 @@ const LEAGUE_DATA = {
         "home_team": "Kirk Cousins Goat",
         "home_score": 96.32,
         "home_projected": 112.23,
+        "home_max_pf": 102.42,
         "away_team": "LuLu Lemons",
         "away_score": 114.36,
         "away_projected": 111.61000000000001,
+        "away_max_pf": 134.16,
         "is_playoff": true,
         "matchup_type": "LOSERS_CONSOLATION_LADDER"
       },
@@ -8129,9 +8859,11 @@ const LEAGUE_DATA = {
         "home_team": "Beerserkers ",
         "home_score": 103.42,
         "home_projected": 109.70000000000002,
+        "home_max_pf": 116.82,
         "away_team": "The Philadelphia Smeagles",
         "away_score": 133.66,
         "away_projected": 102.53,
+        "away_max_pf": 157.52,
         "is_playoff": true,
         "matchup_type": "LOSERS_CONSOLATION_LADDER"
       },
@@ -8140,9 +8872,11 @@ const LEAGUE_DATA = {
         "home_team": "Neil Rackers",
         "home_score": 92.88,
         "home_projected": 120.26999999999998,
+        "home_max_pf": 104.08,
         "away_team": "Damar Ham n' Cheese",
         "away_score": 85.7,
         "away_projected": 129.95,
+        "away_max_pf": 94.6,
         "is_playoff": true,
         "matchup_type": "WINNERS_BRACKET"
       },
@@ -8151,9 +8885,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 119.42,
         "home_projected": 130.15,
+        "home_max_pf": 137.62,
         "away_team": "Dawson's Creek",
         "away_score": 144.84,
         "away_projected": 129.53,
+        "away_max_pf": 147.44,
         "is_playoff": true,
         "matchup_type": "WINNERS_BRACKET"
       },
@@ -8162,9 +8898,11 @@ const LEAGUE_DATA = {
         "home_team": "Denethor's Tomatoes",
         "home_score": 140.0,
         "home_projected": 112.63000000000001,
+        "home_max_pf": 168.32,
         "away_team": "Haribo Lecter",
         "away_score": 106.82,
         "away_projected": 106.69000000000001,
+        "away_max_pf": 106.82,
         "is_playoff": true,
         "matchup_type": "WINNERS_CONSOLATION_LADDER"
       },
@@ -8173,9 +8911,11 @@ const LEAGUE_DATA = {
         "home_team": "Jon Favreau Beats His \ud83e\udd69",
         "home_score": 61.74,
         "home_projected": 82.68,
+        "home_max_pf": 87.04,
         "away_team": "Philadelphia Kegels",
         "away_score": 132.04,
         "away_projected": 93.42,
+        "away_max_pf": 153.44,
         "is_playoff": true,
         "matchup_type": "WINNERS_CONSOLATION_LADDER"
       },
@@ -8184,9 +8924,11 @@ const LEAGUE_DATA = {
         "home_team": "The Green \ud83d\ude08 \ud83c\udf83 Rawblin",
         "home_score": 141.4,
         "home_projected": 115.77999999999999,
+        "home_max_pf": 146.6,
         "away_team": "LuLu Lemons",
         "away_score": 124.72,
         "away_projected": 114.45,
+        "away_max_pf": 125.22,
         "is_playoff": true,
         "matchup_type": "LOSERS_CONSOLATION_LADDER"
       },
@@ -8195,9 +8937,11 @@ const LEAGUE_DATA = {
         "home_team": "Kirk Cousins Goat",
         "home_score": 105.8,
         "home_projected": 114.61999999999998,
+        "home_max_pf": 122.5,
         "away_team": "The Philadelphia Smeagles",
         "away_score": 186.16,
         "away_projected": 115.24000000000001,
+        "away_max_pf": 205.86,
         "is_playoff": true,
         "matchup_type": "LOSERS_CONSOLATION_LADDER"
       },
@@ -8206,9 +8950,11 @@ const LEAGUE_DATA = {
         "home_team": "Good Picks Good Picks",
         "home_score": 109.48,
         "home_projected": 116.77000000000001,
+        "home_max_pf": 130.98,
         "away_team": "Beerserkers ",
         "away_score": 112.38,
         "away_projected": 107.53999999999999,
+        "away_max_pf": 114.68,
         "is_playoff": true,
         "matchup_type": "LOSERS_CONSOLATION_LADDER"
       },
@@ -8217,9 +8963,11 @@ const LEAGUE_DATA = {
         "home_team": "Neil Rackers",
         "home_score": 138.06,
         "home_projected": 138.06,
+        "home_max_pf": 141.06,
         "away_team": "Dawson's Creek",
         "away_score": 128.34,
         "away_projected": 128.34,
+        "away_max_pf": 139.84,
         "is_playoff": true,
         "matchup_type": "WINNERS_BRACKET"
       },
@@ -8228,9 +8976,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 109.8,
         "home_projected": 109.8,
+        "home_max_pf": 134.2,
         "away_team": "Damar Ham n' Cheese",
         "away_score": 143.7,
         "away_projected": 143.7,
+        "away_max_pf": 171.2,
         "is_playoff": true,
         "matchup_type": "WINNERS_CONSOLATION_LADDER"
       },
@@ -8239,9 +8989,11 @@ const LEAGUE_DATA = {
         "home_team": "Denethor's Tomatoes",
         "home_score": 101.72,
         "home_projected": 101.72,
+        "home_max_pf": 111.52,
         "away_team": "Philadelphia Kegels",
         "away_score": 92.68,
         "away_projected": 92.68,
+        "away_max_pf": 108.28,
         "is_playoff": true,
         "matchup_type": "WINNERS_CONSOLATION_LADDER"
       },
@@ -8250,9 +9002,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 126.28,
         "home_projected": 126.28,
+        "home_max_pf": 126.28,
         "away_team": "Jon Favreau Beats His \ud83e\udd69",
         "away_score": 82.7,
         "away_projected": 82.7,
+        "away_max_pf": 111.3,
         "is_playoff": true,
         "matchup_type": "WINNERS_CONSOLATION_LADDER"
       },
@@ -8261,9 +9015,11 @@ const LEAGUE_DATA = {
         "home_team": "The Green \ud83d\ude08 \ud83c\udf83 Rawblin",
         "home_score": 92.5,
         "home_projected": 92.5,
+        "home_max_pf": 93.8,
         "away_team": "LuLu Lemons",
         "away_score": 117.96,
         "away_projected": 117.96,
+        "away_max_pf": 125.26,
         "is_playoff": true,
         "matchup_type": "LOSERS_CONSOLATION_LADDER"
       },
@@ -8272,9 +9028,11 @@ const LEAGUE_DATA = {
         "home_team": "The Philadelphia Smeagles",
         "home_score": 102.58,
         "home_projected": 102.58,
+        "home_max_pf": 119.98,
         "away_team": "Beerserkers ",
         "away_score": 127.64,
         "away_projected": 127.64,
+        "away_max_pf": 152.94,
         "is_playoff": true,
         "matchup_type": "LOSERS_CONSOLATION_LADDER"
       },
@@ -8283,9 +9041,11 @@ const LEAGUE_DATA = {
         "home_team": "Kirk Cousins Goat",
         "home_score": 105.72,
         "home_projected": 105.72,
+        "home_max_pf": 114.72,
         "away_team": "Good Picks Good Picks",
         "away_score": 91.14,
         "away_projected": 91.14,
+        "away_max_pf": 123.74,
         "is_playoff": true,
         "matchup_type": "LOSERS_CONSOLATION_LADDER"
       }
@@ -8338,7 +9098,7 @@ const LEAGUE_DATA = {
         "pick": 7,
         "team": "Beerserkers ",
         "player_name": "Nick Chubb",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 1,
@@ -8534,7 +9294,7 @@ const LEAGUE_DATA = {
         "pick": 7,
         "team": "Beerserkers ",
         "player_name": "Miles Sanders",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 3,
@@ -8604,7 +9364,7 @@ const LEAGUE_DATA = {
         "pick": 3,
         "team": "Dawson's Creek",
         "player_name": "Joe Burrow",
-        "position": "N/A"
+        "position": "QB"
       },
       {
         "round": 4,
@@ -8751,7 +9511,7 @@ const LEAGUE_DATA = {
         "pick": 10,
         "team": "Good Picks Good Picks",
         "player_name": "Mike Williams",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 5,
@@ -8772,7 +9532,7 @@ const LEAGUE_DATA = {
         "pick": 13,
         "team": "LuLu Lemons",
         "player_name": "Cam Akers",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 5,
@@ -8814,7 +9574,7 @@ const LEAGUE_DATA = {
         "pick": 5,
         "team": "Good Picks Good Picks",
         "player_name": "Dalvin Cook",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 6,
@@ -8842,7 +9602,7 @@ const LEAGUE_DATA = {
         "pick": 9,
         "team": "The Philadelphia Smeagles",
         "player_name": "Kirk Cousins",
-        "position": "N/A"
+        "position": "QB"
       },
       {
         "round": 6,
@@ -8856,14 +9616,14 @@ const LEAGUE_DATA = {
         "pick": 11,
         "team": "Bodega Cat",
         "player_name": "Deshaun Watson",
-        "position": "N/A"
+        "position": "QB"
       },
       {
         "round": 6,
         "pick": 12,
         "team": "Damar Ham n' Cheese",
         "player_name": "J.K. Dobbins",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 6,
@@ -9003,7 +9763,7 @@ const LEAGUE_DATA = {
         "pick": 4,
         "team": "Denethor's Tomatoes",
         "player_name": "Rondale Moore",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 8,
@@ -9038,7 +9798,7 @@ const LEAGUE_DATA = {
         "pick": 9,
         "team": "The Philadelphia Smeagles",
         "player_name": "Jamaal Williams",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 8,
@@ -9059,14 +9819,14 @@ const LEAGUE_DATA = {
         "pick": 12,
         "team": "Damar Ham n' Cheese",
         "player_name": "JuJu Smith-Schuster",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 8,
         "pick": 13,
         "team": "The Green \ud83d\ude08 \ud83c\udf83 Rawblin",
         "player_name": "Treylon Burks",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 8,
@@ -9136,14 +9896,14 @@ const LEAGUE_DATA = {
         "pick": 9,
         "team": "Neil Rackers",
         "player_name": "Saints D/ST",
-        "position": "N/A"
+        "position": "D/ST"
       },
       {
         "round": 9,
         "pick": 10,
         "team": "Good Picks Good Picks",
         "player_name": "Damien Harris",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 9,
@@ -9185,7 +9945,7 @@ const LEAGUE_DATA = {
         "pick": 2,
         "team": "LuLu Lemons",
         "player_name": "Rashaad Penny",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 10,
@@ -9206,14 +9966,14 @@ const LEAGUE_DATA = {
         "pick": 5,
         "team": "Good Picks Good Picks",
         "player_name": "Kadarius Toney",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 10,
         "pick": 6,
         "team": "Neil Rackers",
         "player_name": "Michael Gallup",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 10,
@@ -9227,7 +9987,7 @@ const LEAGUE_DATA = {
         "pick": 8,
         "team": "Beerserkers ",
         "player_name": "Elijah Mitchell",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 10,
@@ -9255,7 +10015,7 @@ const LEAGUE_DATA = {
         "pick": 12,
         "team": "Damar Ham n' Cheese",
         "player_name": "Marquez Valdes-Scantling",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 10,
@@ -9276,14 +10036,14 @@ const LEAGUE_DATA = {
         "pick": 1,
         "team": "Jon Favreau Beats His \ud83e\udd69",
         "player_name": "Joshua Kelley",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 11,
         "pick": 2,
         "team": "The Green \ud83d\ude08 \ud83c\udf83 Rawblin",
         "player_name": "Darnell Mooney",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 11,
@@ -9297,7 +10057,7 @@ const LEAGUE_DATA = {
         "pick": 4,
         "team": "Bodega Cat",
         "player_name": "Tank Bigsby",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 11,
@@ -9339,7 +10099,7 @@ const LEAGUE_DATA = {
         "pick": 10,
         "team": "Good Picks Good Picks",
         "player_name": "Rashod Bateman",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 11,
@@ -9360,7 +10120,7 @@ const LEAGUE_DATA = {
         "pick": 13,
         "team": "LuLu Lemons",
         "player_name": "Anthony Richardson",
-        "position": "N/A"
+        "position": "QB"
       },
       {
         "round": 11,
@@ -9409,7 +10169,7 @@ const LEAGUE_DATA = {
         "pick": 6,
         "team": "Neil Rackers",
         "player_name": "Daniel Carlson",
-        "position": "N/A"
+        "position": "K"
       },
       {
         "round": 12,
@@ -9458,21 +10218,21 @@ const LEAGUE_DATA = {
         "pick": 13,
         "team": "The Green \ud83d\ude08 \ud83c\udf83 Rawblin",
         "player_name": "Packers D/ST",
-        "position": "N/A"
+        "position": "D/ST"
       },
       {
         "round": 12,
         "pick": 14,
         "team": "Jon Favreau Beats His \ud83e\udd69",
         "player_name": "Bears D/ST",
-        "position": "N/A"
+        "position": "D/ST"
       },
       {
         "round": 13,
         "pick": 1,
         "team": "Jon Favreau Beats His \ud83e\udd69",
         "player_name": "Kenneth Gainwell",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 13,
@@ -9528,35 +10288,35 @@ const LEAGUE_DATA = {
         "pick": 9,
         "team": "Neil Rackers",
         "player_name": "Allen Lazard",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 13,
         "pick": 10,
         "team": "Good Picks Good Picks",
         "player_name": "Brett Maher",
-        "position": "N/A"
+        "position": "K"
       },
       {
         "round": 13,
         "pick": 11,
         "team": "Denethor's Tomatoes",
         "player_name": "Eagles D/ST",
-        "position": "N/A"
+        "position": "D/ST"
       },
       {
         "round": 13,
         "pick": 12,
         "team": "Dawson's Creek",
         "player_name": "Kenny Pickett",
-        "position": "N/A"
+        "position": "QB"
       },
       {
         "round": 13,
         "pick": 13,
         "team": "LuLu Lemons",
         "player_name": "Younghoe Koo",
-        "position": "N/A"
+        "position": "K"
       },
       {
         "round": 13,
@@ -9570,7 +10330,7 @@ const LEAGUE_DATA = {
         "pick": 1,
         "team": "Philadelphia Kegels",
         "player_name": "Greg Dulcich",
-        "position": "N/A"
+        "position": "TE"
       },
       {
         "round": 14,
@@ -9584,7 +10344,7 @@ const LEAGUE_DATA = {
         "pick": 3,
         "team": "Dawson's Creek",
         "player_name": "Tyler Conklin",
-        "position": "N/A"
+        "position": "TE"
       },
       {
         "round": 14,
@@ -9612,28 +10372,28 @@ const LEAGUE_DATA = {
         "pick": 7,
         "team": "Haribo Lecter",
         "player_name": "Panthers D/ST",
-        "position": "N/A"
+        "position": "D/ST"
       },
       {
         "round": 14,
         "pick": 8,
         "team": "Beerserkers ",
         "player_name": "Juwan Johnson",
-        "position": "N/A"
+        "position": "TE"
       },
       {
         "round": 14,
         "pick": 9,
         "team": "The Philadelphia Smeagles",
         "player_name": "Graham Gano",
-        "position": "N/A"
+        "position": "K"
       },
       {
         "round": 14,
         "pick": 10,
         "team": "Kirk Cousins Goat",
         "player_name": "Clyde Edwards-Helaire",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 14,
@@ -9647,7 +10407,7 @@ const LEAGUE_DATA = {
         "pick": 12,
         "team": "Damar Ham n' Cheese",
         "player_name": "Wil Lutz",
-        "position": "N/A"
+        "position": "K"
       },
       {
         "round": 14,
@@ -9661,7 +10421,7 @@ const LEAGUE_DATA = {
         "pick": 14,
         "team": "Jon Favreau Beats His \ud83e\udd69",
         "player_name": "Cameron Dicker",
-        "position": "N/A"
+        "position": "K"
       }
     ]
   },
@@ -9852,9 +10612,11 @@ const LEAGUE_DATA = {
         "home_team": "The Algorithm",
         "home_score": 113.32,
         "home_projected": 120.47,
+        "home_max_pf": 115.82,
         "away_team": "LuLu Lemons",
         "away_score": 97.08,
         "away_projected": 128.82999999999998,
+        "away_max_pf": 104.68,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -9863,9 +10625,11 @@ const LEAGUE_DATA = {
         "home_team": "Beerserkers ",
         "home_score": 154.16,
         "home_projected": 120.92,
+        "home_max_pf": 162.86,
         "away_team": "Jimmy Da Kid",
         "away_score": 105.46,
         "away_projected": 113.88999999999999,
+        "away_max_pf": 118.26,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -9874,9 +10638,11 @@ const LEAGUE_DATA = {
         "home_team": "Gooning With All Mahomies \ud83e\udd0c",
         "home_score": 77.14,
         "home_projected": 112.77000000000001,
+        "home_max_pf": 88.84,
         "away_team": "RawbPeeple",
         "away_score": 118.12,
         "away_projected": 123.53999999999999,
+        "away_max_pf": 126.02,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -9885,9 +10651,11 @@ const LEAGUE_DATA = {
         "home_team": "The Philadelphia Smeagles",
         "home_score": 85.94,
         "home_projected": 100.03999999999999,
+        "home_max_pf": 111.24,
         "away_team": "McConkey Kong",
         "away_score": 118.1,
         "away_projected": 118.97000000000001,
+        "away_max_pf": 156.9,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -9896,9 +10664,11 @@ const LEAGUE_DATA = {
         "home_team": "Sacks in the City",
         "home_score": 116.18,
         "home_projected": 116.8,
+        "home_max_pf": 120.78,
         "away_team": "Detroit Lines ",
         "away_score": 122.16,
         "away_projected": 117.05999999999999,
+        "away_max_pf": 126.38,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -9907,9 +10677,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 128.88,
         "home_projected": 120.1,
+        "home_max_pf": 130.68,
         "away_team": "Stroud Boys",
         "away_score": 110.66,
         "away_projected": 122.07,
+        "away_max_pf": 133.46,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -9918,9 +10690,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 130.28,
         "home_projected": 119.88,
+        "home_max_pf": 134.68,
         "away_team": "Spaghetti Mafia",
         "away_score": 110.02,
         "away_projected": 113.42999999999999,
+        "away_max_pf": 139.38,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -9929,9 +10703,11 @@ const LEAGUE_DATA = {
         "home_team": "Detroit Lines ",
         "home_score": 116.72,
         "home_projected": 121.33000000000001,
+        "home_max_pf": 135.02,
         "away_team": "The Algorithm",
         "away_score": 107.68,
         "away_projected": 121.08999999999999,
+        "away_max_pf": 109.08,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -9940,9 +10716,11 @@ const LEAGUE_DATA = {
         "home_team": "LuLu Lemons",
         "home_score": 175.04,
         "home_projected": 127.94999999999999,
+        "home_max_pf": 179.54,
         "away_team": "The Philadelphia Smeagles",
         "away_score": 106.86,
         "away_projected": 114.76000000000002,
+        "away_max_pf": 124.68,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -9951,9 +10729,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 107.46,
         "home_projected": 119.35,
+        "home_max_pf": 120.84,
         "away_team": "Beerserkers ",
         "away_score": 121.64,
         "away_projected": 122.79,
+        "away_max_pf": 128.7,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -9962,9 +10742,11 @@ const LEAGUE_DATA = {
         "home_team": "Jimmy Da Kid",
         "home_score": 88.1,
         "home_projected": 114.22000000000001,
+        "home_max_pf": 97.62,
         "away_team": "Stroud Boys",
         "away_score": 130.6,
         "away_projected": 122.11,
+        "away_max_pf": 137.8,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -9973,9 +10755,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 99.16,
         "home_projected": 120.46000000000001,
+        "home_max_pf": 115.94,
         "away_team": "RawbPeeple",
         "away_score": 143.92,
         "away_projected": 132.55,
+        "away_max_pf": 156.12,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -9984,9 +10768,11 @@ const LEAGUE_DATA = {
         "home_team": "Spaghetti Mafia",
         "home_score": 100.34,
         "home_projected": 114.67999999999999,
+        "home_max_pf": 111.24,
         "away_team": "McConkey Kong",
         "away_score": 135.44,
         "away_projected": 112.07,
+        "away_max_pf": 141.64,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -9995,9 +10781,11 @@ const LEAGUE_DATA = {
         "home_team": "Sacks in the City",
         "home_score": 112.1,
         "home_projected": 115.07,
+        "home_max_pf": 114.5,
         "away_team": "Gooning With All Mahomies \ud83e\udd0c",
         "away_score": 68.74,
         "away_projected": 105.66999999999999,
+        "away_max_pf": 76.84,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10006,9 +10794,11 @@ const LEAGUE_DATA = {
         "home_team": "Beerserkers ",
         "home_score": 79.46,
         "home_projected": 120.06000000000002,
+        "home_max_pf": 119.06,
         "away_team": "The Algorithm",
         "away_score": 68.28,
         "away_projected": 118.80999999999999,
+        "away_max_pf": 80.18,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10017,9 +10807,11 @@ const LEAGUE_DATA = {
         "home_team": "The Philadelphia Smeagles",
         "home_score": 69.78,
         "home_projected": 108.0,
+        "home_max_pf": 75.58,
         "away_team": "Stroud Boys",
         "away_score": 114.8,
         "away_projected": 123.32000000000001,
+        "away_max_pf": 137.74,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10028,9 +10820,11 @@ const LEAGUE_DATA = {
         "home_team": "Gooning With All Mahomies \ud83e\udd0c",
         "home_score": 97.68,
         "home_projected": 101.75999999999999,
+        "home_max_pf": 97.68,
         "away_team": "Spaghetti Mafia",
         "away_score": 115.64,
         "away_projected": 111.82999999999998,
+        "away_max_pf": 130.84,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10039,9 +10833,11 @@ const LEAGUE_DATA = {
         "home_team": "RawbPeeple",
         "home_score": 116.84,
         "home_projected": 134.47,
+        "home_max_pf": 130.64,
         "away_team": "Sacks in the City",
         "away_score": 103.72,
         "away_projected": 111.08999999999999,
+        "away_max_pf": 119.72,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10050,9 +10846,11 @@ const LEAGUE_DATA = {
         "home_team": "McConkey Kong",
         "home_score": 110.28,
         "home_projected": 107.77000000000001,
+        "home_max_pf": 127.78,
         "away_team": "LuLu Lemons",
         "away_score": 88.58,
         "away_projected": 126.57999999999998,
+        "away_max_pf": 125.4,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10061,9 +10859,11 @@ const LEAGUE_DATA = {
         "home_team": "Detroit Lines ",
         "home_score": 185.78,
         "home_projected": 109.6,
+        "home_max_pf": 185.78,
         "away_team": "Jimmy Da Kid",
         "away_score": 124.76,
         "away_projected": 114.83000000000001,
+        "away_max_pf": 156.76,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10072,9 +10872,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 104.92,
         "home_projected": 117.66999999999999,
+        "home_max_pf": 114.32,
         "away_team": "Haribo Lecter",
         "away_score": 99.78,
         "away_projected": 118.14,
+        "away_max_pf": 133.3,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10083,9 +10885,11 @@ const LEAGUE_DATA = {
         "home_team": "The Philadelphia Smeagles",
         "home_score": 131.92,
         "home_projected": 106.94999999999999,
+        "home_max_pf": 170.9,
         "away_team": "Spaghetti Mafia",
         "away_score": 104.0,
         "away_projected": 106.45,
+        "away_max_pf": 125.8,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10094,9 +10898,11 @@ const LEAGUE_DATA = {
         "home_team": "Gooning With All Mahomies \ud83e\udd0c",
         "home_score": 102.3,
         "home_projected": 104.42,
+        "home_max_pf": 108.1,
         "away_team": "LuLu Lemons",
         "away_score": 56.08,
         "away_projected": 117.65999999999998,
+        "away_max_pf": 92.98,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10105,9 +10911,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 121.34,
         "home_projected": 103.14,
+        "home_max_pf": 147.72,
         "away_team": "RawbPeeple",
         "away_score": 103.7,
         "away_projected": 125.73,
+        "away_max_pf": 123.9,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10116,9 +10924,11 @@ const LEAGUE_DATA = {
         "home_team": "Sacks in the City",
         "home_score": 91.14,
         "home_projected": 119.69000000000001,
+        "home_max_pf": 110.66,
         "away_team": "Bodega Cat",
         "away_score": 66.5,
         "away_projected": 117.72,
+        "away_max_pf": 85.44,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10127,9 +10937,11 @@ const LEAGUE_DATA = {
         "home_team": "McConkey Kong",
         "home_score": 87.16,
         "home_projected": 97.49999999999999,
+        "home_max_pf": 103.56,
         "away_team": "Beerserkers ",
         "away_score": 125.32,
         "away_projected": 119.68,
+        "away_max_pf": 144.78,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10138,9 +10950,11 @@ const LEAGUE_DATA = {
         "home_team": "Stroud Boys",
         "home_score": 129.1,
         "home_projected": 126.76000000000002,
+        "home_max_pf": 145.1,
         "away_team": "Detroit Lines ",
         "away_score": 127.68,
         "away_projected": 117.63999999999999,
+        "away_max_pf": 138.48,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10149,9 +10963,11 @@ const LEAGUE_DATA = {
         "home_team": "Jimmy Da Kid",
         "home_score": 126.04,
         "home_projected": 110.33000000000001,
+        "home_max_pf": 151.04,
         "away_team": "The Algorithm",
         "away_score": 95.94,
         "away_projected": 109.68999999999998,
+        "away_max_pf": 119.84,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10160,9 +10976,11 @@ const LEAGUE_DATA = {
         "home_team": "Gooning With All Mahomies \ud83e\udd0c",
         "home_score": 139.14,
         "home_projected": 108.29,
+        "home_max_pf": 142.34,
         "away_team": "Bodega Cat",
         "away_score": 132.04,
         "away_projected": 105.04000000000002,
+        "away_max_pf": 139.64,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10171,9 +10989,11 @@ const LEAGUE_DATA = {
         "home_team": "The Algorithm",
         "home_score": 116.52,
         "home_projected": 113.21,
+        "home_max_pf": 119.08,
         "away_team": "RawbPeeple",
         "away_score": 100.66,
         "away_projected": 108.96999999999998,
+        "away_max_pf": 123.16,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10182,9 +11002,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 125.66,
         "home_projected": 113.22999999999999,
+        "home_max_pf": 144.06,
         "away_team": "The Philadelphia Smeagles",
         "away_score": 102.16,
         "away_projected": 113.98,
+        "away_max_pf": 114.06,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10193,9 +11015,11 @@ const LEAGUE_DATA = {
         "home_team": "LuLu Lemons",
         "home_score": 126.64,
         "home_projected": 119.03000000000002,
+        "home_max_pf": 144.6,
         "away_team": "Stroud Boys",
         "away_score": 104.64,
         "away_projected": 105.3,
+        "away_max_pf": 117.84,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10204,9 +11028,11 @@ const LEAGUE_DATA = {
         "home_team": "Jimmy Da Kid",
         "home_score": 134.88,
         "home_projected": 107.92999999999999,
+        "home_max_pf": 149.38,
         "away_team": "McConkey Kong",
         "away_score": 87.96,
         "away_projected": 100.65,
+        "away_max_pf": 111.46,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10215,9 +11041,11 @@ const LEAGUE_DATA = {
         "home_team": "Spaghetti Mafia",
         "home_score": 131.46,
         "home_projected": 109.18,
+        "home_max_pf": 144.96,
         "away_team": "Sacks in the City",
         "away_score": 121.38,
         "away_projected": 113.84,
+        "away_max_pf": 125.04,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10226,9 +11054,11 @@ const LEAGUE_DATA = {
         "home_team": "Beerserkers ",
         "home_score": 116.22,
         "home_projected": 125.04000000000002,
+        "home_max_pf": 126.6,
         "away_team": "Detroit Lines ",
         "away_score": 148.88,
         "away_projected": 111.86000000000001,
+        "away_max_pf": 148.88,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10237,9 +11067,11 @@ const LEAGUE_DATA = {
         "home_team": "RawbPeeple",
         "home_score": 111.06,
         "home_projected": 121.83999999999999,
+        "home_max_pf": 111.06,
         "away_team": "McConkey Kong",
         "away_score": 143.52,
         "away_projected": 116.45000000000002,
+        "away_max_pf": 144.02,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10248,9 +11080,11 @@ const LEAGUE_DATA = {
         "home_team": "The Philadelphia Smeagles",
         "home_score": 85.3,
         "home_projected": 93.05000000000001,
+        "home_max_pf": 85.3,
         "away_team": "Sacks in the City",
         "away_score": 113.5,
         "away_projected": 106.02000000000001,
+        "away_max_pf": 134.66,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10259,9 +11093,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 126.2,
         "home_projected": 112.42,
+        "home_max_pf": 137.04,
         "away_team": "LuLu Lemons",
         "away_score": 153.0,
         "away_projected": 117.89,
+        "away_max_pf": 153.0,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10270,9 +11106,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 129.6,
         "home_projected": 119.10000000000001,
+        "home_max_pf": 129.6,
         "away_team": "Jimmy Da Kid",
         "away_score": 62.72,
         "away_projected": 106.58000000000001,
+        "away_max_pf": 76.72,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10281,9 +11119,11 @@ const LEAGUE_DATA = {
         "home_team": "Stroud Boys",
         "home_score": 103.08,
         "home_projected": 98.86000000000001,
+        "home_max_pf": 121.28,
         "away_team": "Beerserkers ",
         "away_score": 124.86,
         "away_projected": 126.03,
+        "away_max_pf": 140.8,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10292,9 +11132,11 @@ const LEAGUE_DATA = {
         "home_team": "Detroit Lines ",
         "home_score": 142.92,
         "home_projected": 130.29,
+        "home_max_pf": 175.2,
         "away_team": "Gooning With All Mahomies \ud83e\udd0c",
         "away_score": 106.04,
         "away_projected": 112.41999999999999,
+        "away_max_pf": 106.04,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10303,9 +11145,11 @@ const LEAGUE_DATA = {
         "home_team": "Spaghetti Mafia",
         "home_score": 83.56,
         "home_projected": 116.04000000000002,
+        "home_max_pf": 91.86,
         "away_team": "The Algorithm",
         "away_score": 112.92,
         "away_projected": 102.97,
+        "away_max_pf": 112.92,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10314,9 +11158,11 @@ const LEAGUE_DATA = {
         "home_team": "The Philadelphia Smeagles",
         "home_score": 85.08,
         "home_projected": 102.29999999999998,
+        "home_max_pf": 96.18,
         "away_team": "Detroit Lines ",
         "away_score": 129.14,
         "away_projected": 127.75999999999999,
+        "away_max_pf": 138.7,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10325,9 +11171,11 @@ const LEAGUE_DATA = {
         "home_team": "LuLu Lemons",
         "home_score": 101.6,
         "home_projected": 124.48,
+        "home_max_pf": 129.9,
         "away_team": "Jimmy Da Kid",
         "away_score": 54.6,
         "away_projected": 69.31,
+        "away_max_pf": 65.0,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10336,9 +11184,11 @@ const LEAGUE_DATA = {
         "home_team": "Stroud Boys",
         "home_score": 108.94,
         "home_projected": 127.48,
+        "home_max_pf": 108.94,
         "away_team": "Bodega Cat",
         "away_score": 116.32,
         "away_projected": 109.72,
+        "away_max_pf": 118.12,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10347,9 +11197,11 @@ const LEAGUE_DATA = {
         "home_team": "Gooning With All Mahomies \ud83e\udd0c",
         "home_score": 121.16,
         "home_projected": 122.75,
+        "home_max_pf": 133.46,
         "away_team": "Beerserkers ",
         "away_score": 80.74,
         "away_projected": 128.66,
+        "away_max_pf": 164.1,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10358,9 +11210,11 @@ const LEAGUE_DATA = {
         "home_team": "Sacks in the City",
         "home_score": 100.52,
         "home_projected": 115.56000000000002,
+        "home_max_pf": 111.52,
         "away_team": "The Algorithm",
         "away_score": 110.84,
         "away_projected": 101.76,
+        "away_max_pf": 112.14,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10369,9 +11223,11 @@ const LEAGUE_DATA = {
         "home_team": "RawbPeeple",
         "home_score": 105.16,
         "home_projected": 113.53,
+        "home_max_pf": 116.86,
         "away_team": "Spaghetti Mafia",
         "away_score": 157.56,
         "away_projected": 112.46000000000001,
+        "away_max_pf": 158.36,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10380,9 +11236,11 @@ const LEAGUE_DATA = {
         "home_team": "McConkey Kong",
         "home_score": 136.5,
         "home_projected": 116.83,
+        "home_max_pf": 136.5,
         "away_team": "Haribo Lecter",
         "away_score": 66.28,
         "away_projected": 122.87,
+        "away_max_pf": 76.06,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10391,9 +11249,11 @@ const LEAGUE_DATA = {
         "home_team": "Stroud Boys",
         "home_score": 131.2,
         "home_projected": 128.13,
+        "home_max_pf": 143.56,
         "away_team": "RawbPeeple",
         "away_score": 122.04,
         "away_projected": 125.65,
+        "away_max_pf": 142.24,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10402,9 +11262,11 @@ const LEAGUE_DATA = {
         "home_team": "Detroit Lines ",
         "home_score": 133.96,
         "home_projected": 132.35000000000002,
+        "home_max_pf": 146.2,
         "away_team": "Bodega Cat",
         "away_score": 126.42,
         "away_projected": 117.12,
+        "away_max_pf": 147.92,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10413,9 +11275,11 @@ const LEAGUE_DATA = {
         "home_team": "Beerserkers ",
         "home_score": 153.3,
         "home_projected": 122.36,
+        "home_max_pf": 157.66,
         "away_team": "Spaghetti Mafia",
         "away_score": 124.8,
         "away_projected": 121.99,
+        "away_max_pf": 158.5,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10424,9 +11288,11 @@ const LEAGUE_DATA = {
         "home_team": "McConkey Kong",
         "home_score": 119.54,
         "home_projected": 120.61999999999999,
+        "home_max_pf": 142.96,
         "away_team": "Gooning With All Mahomies \ud83e\udd0c",
         "away_score": 132.48,
         "away_projected": 130.19,
+        "away_max_pf": 145.48,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10435,9 +11301,11 @@ const LEAGUE_DATA = {
         "home_team": "The Philadelphia Smeagles",
         "home_score": 123.2,
         "home_projected": 100.21,
+        "home_max_pf": 125.8,
         "away_team": "Jimmy Da Kid",
         "away_score": 90.82,
         "away_projected": 98.25999999999999,
+        "away_max_pf": 97.42,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10446,9 +11314,11 @@ const LEAGUE_DATA = {
         "home_team": "Sacks in the City",
         "home_score": 104.16,
         "home_projected": 104.14999999999999,
+        "home_max_pf": 116.62,
         "away_team": "LuLu Lemons",
         "away_score": 128.28,
         "away_projected": 131.88,
+        "away_max_pf": 149.48,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10457,9 +11327,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 138.14,
         "home_projected": 109.03,
+        "home_max_pf": 164.44,
         "away_team": "The Algorithm",
         "away_score": 136.76,
         "away_projected": 118.31,
+        "away_max_pf": 147.06,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10468,9 +11340,11 @@ const LEAGUE_DATA = {
         "home_team": "Jimmy Da Kid",
         "home_score": 103.72,
         "home_projected": 103.27,
+        "home_max_pf": 103.72,
         "away_team": "Gooning With All Mahomies \ud83e\udd0c",
         "away_score": 123.8,
         "away_projected": 132.52,
+        "away_max_pf": 134.42,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10479,9 +11353,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 114.8,
         "home_projected": 110.29,
+        "home_max_pf": 117.3,
         "away_team": "McConkey Kong",
         "away_score": 99.28,
         "away_projected": 114.47999999999999,
+        "away_max_pf": 121.18,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10490,9 +11366,11 @@ const LEAGUE_DATA = {
         "home_team": "Spaghetti Mafia",
         "home_score": 109.4,
         "home_projected": 119.49000000000001,
+        "home_max_pf": 109.4,
         "away_team": "LuLu Lemons",
         "away_score": 110.56,
         "away_projected": 118.8,
+        "away_max_pf": 123.9,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10501,9 +11379,11 @@ const LEAGUE_DATA = {
         "home_team": "The Algorithm",
         "home_score": 126.7,
         "home_projected": 111.27,
+        "home_max_pf": 127.8,
         "away_team": "The Philadelphia Smeagles",
         "away_score": 88.32,
         "away_projected": 89.5,
+        "away_max_pf": 94.32,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10512,9 +11392,11 @@ const LEAGUE_DATA = {
         "home_team": "Stroud Boys",
         "home_score": 108.34,
         "home_projected": 129.32000000000002,
+        "home_max_pf": 126.02,
         "away_team": "Sacks in the City",
         "away_score": 113.72,
         "away_projected": 109.78,
+        "away_max_pf": 122.94,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10523,9 +11405,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 122.58,
         "home_projected": 127.11,
+        "home_max_pf": 144.08,
         "away_team": "Detroit Lines ",
         "away_score": 144.94,
         "away_projected": 105.0,
+        "away_max_pf": 145.94,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10534,9 +11418,11 @@ const LEAGUE_DATA = {
         "home_team": "RawbPeeple",
         "home_score": 152.2,
         "home_projected": 133.94,
+        "home_max_pf": 152.2,
         "away_team": "Beerserkers ",
         "away_score": 133.26,
         "away_projected": 137.39999999999998,
+        "away_max_pf": 158.46,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10545,9 +11431,11 @@ const LEAGUE_DATA = {
         "home_team": "Detroit Lines ",
         "home_score": 105.92,
         "home_projected": 119.29,
+        "home_max_pf": 111.92,
         "away_team": "McConkey Kong",
         "away_score": 90.1,
         "away_projected": 108.44,
+        "away_max_pf": 105.56,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10556,9 +11444,11 @@ const LEAGUE_DATA = {
         "home_team": "Stroud Boys",
         "home_score": 108.02,
         "home_projected": 116.4,
+        "home_max_pf": 108.02,
         "away_team": "The Algorithm",
         "away_score": 112.1,
         "away_projected": 111.64,
+        "away_max_pf": 122.5,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10567,9 +11457,11 @@ const LEAGUE_DATA = {
         "home_team": "Gooning With All Mahomies \ud83e\udd0c",
         "home_score": 141.7,
         "home_projected": 110.41,
+        "home_max_pf": 142.14,
         "away_team": "The Philadelphia Smeagles",
         "away_score": 98.22,
         "away_projected": 90.38000000000001,
+        "away_max_pf": 108.22,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10578,9 +11470,11 @@ const LEAGUE_DATA = {
         "home_team": "Spaghetti Mafia",
         "home_score": 107.14,
         "home_projected": 113.03000000000002,
+        "home_max_pf": 108.44,
         "away_team": "Jimmy Da Kid",
         "away_score": 86.84,
         "away_projected": 111.63,
+        "away_max_pf": 96.54,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10589,9 +11483,11 @@ const LEAGUE_DATA = {
         "home_team": "Sacks in the City",
         "home_score": 92.38,
         "home_projected": 105.78,
+        "home_max_pf": 113.68,
         "away_team": "Haribo Lecter",
         "away_score": 105.74,
         "away_projected": 124.2,
+        "away_max_pf": 109.34,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10600,9 +11496,11 @@ const LEAGUE_DATA = {
         "home_team": "Beerserkers ",
         "home_score": 85.88,
         "home_projected": 132.42000000000002,
+        "home_max_pf": 99.44,
         "away_team": "Bodega Cat",
         "away_score": 101.9,
         "away_projected": 118.35000000000001,
+        "away_max_pf": 111.1,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10611,9 +11509,11 @@ const LEAGUE_DATA = {
         "home_team": "LuLu Lemons",
         "home_score": 120.64,
         "home_projected": 126.75,
+        "home_max_pf": 134.84,
         "away_team": "RawbPeeple",
         "away_score": 114.58,
         "away_projected": 125.16999999999999,
+        "away_max_pf": 118.58,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10622,9 +11522,11 @@ const LEAGUE_DATA = {
         "home_team": "Stroud Boys",
         "home_score": 114.18,
         "home_projected": 106.59,
+        "home_max_pf": 132.0,
         "away_team": "Gooning With All Mahomies \ud83e\udd0c",
         "away_score": 128.58,
         "away_projected": 125.13,
+        "away_max_pf": 157.98,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10633,9 +11535,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 87.28,
         "home_projected": 107.41,
+        "home_max_pf": 99.08,
         "away_team": "The Philadelphia Smeagles",
         "away_score": 99.06,
         "away_projected": 122.42999999999999,
+        "away_max_pf": 99.06,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10644,9 +11548,11 @@ const LEAGUE_DATA = {
         "home_team": "Jimmy Da Kid",
         "home_score": 138.06,
         "home_projected": 110.18,
+        "home_max_pf": 155.46,
         "away_team": "RawbPeeple",
         "away_score": 148.24,
         "away_projected": 117.20999999999998,
+        "away_max_pf": 148.24,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10655,9 +11561,11 @@ const LEAGUE_DATA = {
         "home_team": "Spaghetti Mafia",
         "home_score": 144.54,
         "home_projected": 117.94,
+        "home_max_pf": 161.24,
         "away_team": "Haribo Lecter",
         "away_score": 72.62,
         "away_projected": 103.53,
+        "away_max_pf": 95.98,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10666,9 +11574,11 @@ const LEAGUE_DATA = {
         "home_team": "Beerserkers ",
         "home_score": 113.34,
         "home_projected": 126.01999999999998,
+        "home_max_pf": 121.04,
         "away_team": "Sacks in the City",
         "away_score": 115.42,
         "away_projected": 101.84999999999998,
+        "away_max_pf": 115.42,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10677,9 +11587,11 @@ const LEAGUE_DATA = {
         "home_team": "Detroit Lines ",
         "home_score": 144.24,
         "home_projected": 111.32000000000001,
+        "home_max_pf": 157.08,
         "away_team": "LuLu Lemons",
         "away_score": 131.8,
         "away_projected": 121.77,
+        "away_max_pf": 131.8,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10688,9 +11600,11 @@ const LEAGUE_DATA = {
         "home_team": "McConkey Kong",
         "home_score": 168.2,
         "home_projected": 120.66999999999999,
+        "home_max_pf": 184.2,
         "away_team": "The Algorithm",
         "away_score": 95.58,
         "away_projected": 102.39999999999998,
+        "away_max_pf": 109.88,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10699,9 +11613,11 @@ const LEAGUE_DATA = {
         "home_team": "Sacks in the City",
         "home_score": 102.18,
         "home_projected": 106.39999999999999,
+        "home_max_pf": 114.98,
         "away_team": "Jimmy Da Kid",
         "away_score": 66.76,
         "away_projected": 88.36,
+        "away_max_pf": 66.76,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10710,9 +11626,11 @@ const LEAGUE_DATA = {
         "home_team": "The Algorithm",
         "home_score": 104.38,
         "home_projected": 112.10999999999999,
+        "home_max_pf": 136.38,
         "away_team": "Bodega Cat",
         "away_score": 111.1,
         "away_projected": 94.11,
+        "away_max_pf": 111.1,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10721,9 +11639,11 @@ const LEAGUE_DATA = {
         "home_team": "The Philadelphia Smeagles",
         "home_score": 89.06,
         "home_projected": 115.87,
+        "home_max_pf": 103.26,
         "away_team": "RawbPeeple",
         "away_score": 114.16,
         "away_projected": 114.78000000000002,
+        "away_max_pf": 119.06,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10732,9 +11652,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 129.68,
         "home_projected": 103.98,
+        "home_max_pf": 139.18,
         "away_team": "Gooning With All Mahomies \ud83e\udd0c",
         "away_score": 109.02,
         "away_projected": 108.35000000000002,
+        "away_max_pf": 129.36,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10743,9 +11665,11 @@ const LEAGUE_DATA = {
         "home_team": "Stroud Boys",
         "home_score": 111.08,
         "home_projected": 104.8,
+        "home_max_pf": 114.62,
         "away_team": "McConkey Kong",
         "away_score": 92.42,
         "away_projected": 116.21000000000001,
+        "away_max_pf": 110.82,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10754,9 +11678,11 @@ const LEAGUE_DATA = {
         "home_team": "LuLu Lemons",
         "home_score": 117.1,
         "home_projected": 109.42,
+        "home_max_pf": 120.6,
         "away_team": "Beerserkers ",
         "away_score": 120.06,
         "away_projected": 117.83,
+        "away_max_pf": 145.0,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10765,9 +11691,11 @@ const LEAGUE_DATA = {
         "home_team": "Detroit Lines ",
         "home_score": 140.56,
         "home_projected": 113.02,
+        "home_max_pf": 155.66,
         "away_team": "Spaghetti Mafia",
         "away_score": 170.1,
         "away_projected": 120.91,
+        "away_max_pf": 183.2,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10776,9 +11704,11 @@ const LEAGUE_DATA = {
         "home_team": "Beerserkers ",
         "home_score": 113.0,
         "home_projected": 128.46,
+        "home_max_pf": 152.74,
         "away_team": "The Philadelphia Smeagles",
         "away_score": 117.34,
         "away_projected": 124.7,
+        "away_max_pf": 127.74,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10787,9 +11717,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 123.32,
         "home_projected": 117.47,
+        "home_max_pf": 123.32,
         "away_team": "Jimmy Da Kid",
         "away_score": 97.9,
         "away_projected": 102.46,
+        "away_max_pf": 109.7,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10798,9 +11730,11 @@ const LEAGUE_DATA = {
         "home_team": "McConkey Kong",
         "home_score": 98.28,
         "home_projected": 119.69999999999999,
+        "home_max_pf": 115.26,
         "away_team": "Sacks in the City",
         "away_score": 101.1,
         "away_projected": 101.40999999999998,
+        "away_max_pf": 101.1,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10809,9 +11743,11 @@ const LEAGUE_DATA = {
         "home_team": "RawbPeeple",
         "home_score": 102.92,
         "home_projected": 115.72000000000001,
+        "home_max_pf": 141.02,
         "away_team": "Detroit Lines ",
         "away_score": 119.96,
         "away_projected": 121.71,
+        "away_max_pf": 133.56,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10820,9 +11756,11 @@ const LEAGUE_DATA = {
         "home_team": "Gooning With All Mahomies \ud83e\udd0c",
         "home_score": 119.26,
         "home_projected": 121.83,
+        "home_max_pf": 163.44,
         "away_team": "The Algorithm",
         "away_score": 117.88,
         "away_projected": 116.35,
+        "away_max_pf": 129.08,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10831,9 +11769,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 123.66,
         "home_projected": 127.26,
+        "home_max_pf": 134.16,
         "away_team": "LuLu Lemons",
         "away_score": 134.8,
         "away_projected": 122.56000000000002,
+        "away_max_pf": 155.86,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10842,9 +11782,11 @@ const LEAGUE_DATA = {
         "home_team": "Spaghetti Mafia",
         "home_score": 113.8,
         "home_projected": 123.28,
+        "home_max_pf": 140.8,
         "away_team": "Stroud Boys",
         "away_score": 153.58,
         "away_projected": 132.39999999999998,
+        "away_max_pf": 154.72,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10853,9 +11795,11 @@ const LEAGUE_DATA = {
         "home_team": "Spaghetti Mafia",
         "home_score": 116.28,
         "home_projected": 108.43,
+        "home_max_pf": 129.38,
         "away_team": "The Philadelphia Smeagles",
         "away_score": 107.5,
         "away_projected": 105.95999999999998,
+        "away_max_pf": 110.4,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10864,9 +11808,11 @@ const LEAGUE_DATA = {
         "home_team": "The Algorithm",
         "home_score": 123.92,
         "home_projected": 102.02999999999999,
+        "home_max_pf": 127.62,
         "away_team": "Haribo Lecter",
         "away_score": 129.66,
         "away_projected": 119.89999999999999,
+        "away_max_pf": 144.16,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10875,9 +11821,11 @@ const LEAGUE_DATA = {
         "home_team": "LuLu Lemons",
         "home_score": 115.06,
         "home_projected": 118.82,
+        "home_max_pf": 117.76,
         "away_team": "Detroit Lines ",
         "away_score": 139.16,
         "away_projected": 119.32,
+        "away_max_pf": 146.76,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10886,9 +11834,11 @@ const LEAGUE_DATA = {
         "home_team": "Beerserkers ",
         "home_score": 114.9,
         "home_projected": 120.55000000000001,
+        "home_max_pf": 130.3,
         "away_team": "Gooning With All Mahomies \ud83e\udd0c",
         "away_score": 110.9,
         "away_projected": 103.49,
+        "away_max_pf": 110.9,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10897,9 +11847,11 @@ const LEAGUE_DATA = {
         "home_team": "RawbPeeple",
         "home_score": 93.02,
         "home_projected": 116.41,
+        "home_max_pf": 100.92,
         "away_team": "Stroud Boys",
         "away_score": 125.0,
         "away_projected": 128.3,
+        "away_max_pf": 131.2,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10908,9 +11860,11 @@ const LEAGUE_DATA = {
         "home_team": "Jimmy Da Kid",
         "home_score": 109.56,
         "home_projected": 116.38999999999999,
+        "home_max_pf": 121.16,
         "away_team": "Sacks in the City",
         "away_score": 125.74,
         "away_projected": 99.33,
+        "away_max_pf": 135.44,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10919,9 +11873,11 @@ const LEAGUE_DATA = {
         "home_team": "McConkey Kong",
         "home_score": 108.42,
         "home_projected": 100.89999999999999,
+        "home_max_pf": 109.14,
         "away_team": "Bodega Cat",
         "away_score": 167.58,
         "away_projected": 112.51,
+        "away_max_pf": 168.68,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -10930,9 +11886,11 @@ const LEAGUE_DATA = {
         "home_team": "Detroit Lines ",
         "home_score": 68.14,
         "home_projected": 122.42999999999999,
+        "home_max_pf": 104.36,
         "away_team": "Spaghetti Mafia",
         "away_score": 111.84,
         "away_projected": 129.26999999999998,
+        "away_max_pf": 134.78,
         "is_playoff": true,
         "matchup_type": "WINNERS_BRACKET"
       },
@@ -10941,9 +11899,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 133.38,
         "home_projected": 120.28000000000002,
+        "home_max_pf": 145.98,
         "away_team": "Haribo Lecter",
         "away_score": 100.08,
         "away_projected": 126.80999999999999,
+        "away_max_pf": 130.28,
         "is_playoff": true,
         "matchup_type": "WINNERS_BRACKET"
       },
@@ -10952,9 +11912,11 @@ const LEAGUE_DATA = {
         "home_team": "LuLu Lemons",
         "home_score": 160.66,
         "home_projected": 124.00999999999999,
+        "home_max_pf": 167.66,
         "away_team": "Gooning With All Mahomies \ud83e\udd0c",
         "away_score": 103.5,
         "away_projected": 106.28,
+        "away_max_pf": 110.76,
         "is_playoff": true,
         "matchup_type": "WINNERS_BRACKET"
       },
@@ -10963,9 +11925,11 @@ const LEAGUE_DATA = {
         "home_team": "Beerserkers ",
         "home_score": 135.44,
         "home_projected": 131.4,
+        "home_max_pf": 143.72,
         "away_team": "Sacks in the City",
         "away_score": 84.14,
         "away_projected": 105.04,
+        "away_max_pf": 99.94,
         "is_playoff": true,
         "matchup_type": "WINNERS_BRACKET"
       },
@@ -10974,9 +11938,11 @@ const LEAGUE_DATA = {
         "home_team": "Stroud Boys",
         "home_score": 149.2,
         "home_projected": 132.55,
+        "home_max_pf": 165.34,
         "away_team": "The Algorithm",
         "away_score": 142.8,
         "away_projected": 116.16,
+        "away_max_pf": 149.8,
         "is_playoff": true,
         "matchup_type": "LOSERS_CONSOLATION_LADDER"
       },
@@ -10985,9 +11951,11 @@ const LEAGUE_DATA = {
         "home_team": "McConkey Kong",
         "home_score": 82.1,
         "home_projected": 116.64,
+        "home_max_pf": 100.36,
         "away_team": "RawbPeeple",
         "away_score": 130.3,
         "away_projected": 112.52000000000001,
+        "away_max_pf": 144.0,
         "is_playoff": true,
         "matchup_type": "LOSERS_CONSOLATION_LADDER"
       },
@@ -10996,9 +11964,11 @@ const LEAGUE_DATA = {
         "home_team": "The Philadelphia Smeagles",
         "home_score": 108.28,
         "home_projected": 105.33999999999999,
+        "home_max_pf": 117.76,
         "away_team": "Jimmy Da Kid",
         "away_score": 109.9,
         "away_projected": 100.36999999999999,
+        "away_max_pf": 132.4,
         "is_playoff": true,
         "matchup_type": "LOSERS_CONSOLATION_LADDER"
       },
@@ -11007,9 +11977,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 120.36,
         "home_projected": 126.36000000000001,
+        "home_max_pf": 142.56,
         "away_team": "Spaghetti Mafia",
         "away_score": 113.64,
         "away_projected": 118.02999999999997,
+        "away_max_pf": 135.74,
         "is_playoff": true,
         "matchup_type": "WINNERS_BRACKET"
       },
@@ -11018,9 +11990,11 @@ const LEAGUE_DATA = {
         "home_team": "Beerserkers ",
         "home_score": 112.72,
         "home_projected": 124.03999999999999,
+        "home_max_pf": 135.42,
         "away_team": "LuLu Lemons",
         "away_score": 175.28,
         "away_projected": 125.83,
+        "away_max_pf": 186.28,
         "is_playoff": true,
         "matchup_type": "WINNERS_BRACKET"
       },
@@ -11029,9 +12003,11 @@ const LEAGUE_DATA = {
         "home_team": "Detroit Lines ",
         "home_score": 116.78,
         "home_projected": 116.08,
+        "home_max_pf": 135.94,
         "away_team": "Haribo Lecter",
         "away_score": 98.8,
         "away_projected": 103.32,
+        "away_max_pf": 135.94,
         "is_playoff": true,
         "matchup_type": "WINNERS_CONSOLATION_LADDER"
       },
@@ -11040,9 +12016,11 @@ const LEAGUE_DATA = {
         "home_team": "Gooning With All Mahomies \ud83e\udd0c",
         "home_score": 91.62,
         "home_projected": 99.88000000000001,
+        "home_max_pf": 126.7,
         "away_team": "Sacks in the City",
         "away_score": 110.9,
         "away_projected": 101.73,
+        "away_max_pf": 132.5,
         "is_playoff": true,
         "matchup_type": "WINNERS_CONSOLATION_LADDER"
       },
@@ -11051,9 +12029,11 @@ const LEAGUE_DATA = {
         "home_team": "Stroud Boys",
         "home_score": 113.2,
         "home_projected": 134.48000000000002,
+        "home_max_pf": 159.06,
         "away_team": "RawbPeeple",
         "away_score": 111.04,
         "away_projected": 113.41999999999999,
+        "away_max_pf": 119.64,
         "is_playoff": true,
         "matchup_type": "LOSERS_CONSOLATION_LADDER"
       },
@@ -11062,9 +12042,11 @@ const LEAGUE_DATA = {
         "home_team": "McConkey Kong",
         "home_score": 93.48,
         "home_projected": 99.79,
+        "home_max_pf": 112.26,
         "away_team": "Jimmy Da Kid",
         "away_score": 115.34,
         "away_projected": 119.99000000000001,
+        "away_max_pf": 134.84,
         "is_playoff": true,
         "matchup_type": "LOSERS_CONSOLATION_LADDER"
       },
@@ -11073,9 +12055,11 @@ const LEAGUE_DATA = {
         "home_team": "The Algorithm",
         "home_score": 111.48,
         "home_projected": 115.22999999999999,
+        "home_max_pf": 112.68,
         "away_team": "The Philadelphia Smeagles",
         "away_score": 98.12,
         "away_projected": 110.18,
+        "away_max_pf": 105.96,
         "is_playoff": true,
         "matchup_type": "LOSERS_CONSOLATION_LADDER"
       },
@@ -11084,9 +12068,11 @@ const LEAGUE_DATA = {
         "home_team": "LuLu Lemons",
         "home_score": 107.04,
         "home_projected": 107.04,
+        "home_max_pf": 140.54,
         "away_team": "Bodega Cat",
         "away_score": 85.58,
         "away_projected": 85.58,
+        "away_max_pf": 99.68,
         "is_playoff": true,
         "matchup_type": "WINNERS_BRACKET"
       },
@@ -11095,9 +12081,11 @@ const LEAGUE_DATA = {
         "home_team": "Beerserkers ",
         "home_score": 114.98,
         "home_projected": 114.98,
+        "home_max_pf": 129.66,
         "away_team": "Spaghetti Mafia",
         "away_score": 121.48,
         "away_projected": 121.48,
+        "away_max_pf": 134.58,
         "is_playoff": true,
         "matchup_type": "WINNERS_CONSOLATION_LADDER"
       },
@@ -11106,9 +12094,11 @@ const LEAGUE_DATA = {
         "home_team": "Detroit Lines ",
         "home_score": 124.78,
         "home_projected": 124.78,
+        "home_max_pf": 131.68,
         "away_team": "Sacks in the City",
         "away_score": 75.6,
         "away_projected": 75.6,
+        "away_max_pf": 103.9,
         "is_playoff": true,
         "matchup_type": "WINNERS_CONSOLATION_LADDER"
       },
@@ -11117,9 +12107,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 104.3,
         "home_projected": 104.3,
+        "home_max_pf": 144.1,
         "away_team": "Gooning With All Mahomies \ud83e\udd0c",
         "away_score": 107.06,
         "away_projected": 107.06,
+        "away_max_pf": 112.3,
         "is_playoff": true,
         "matchup_type": "WINNERS_CONSOLATION_LADDER"
       },
@@ -11128,9 +12120,11 @@ const LEAGUE_DATA = {
         "home_team": "Stroud Boys",
         "home_score": 165.96,
         "home_projected": 165.96,
+        "home_max_pf": 177.86,
         "away_team": "Jimmy Da Kid",
         "away_score": 128.68,
         "away_projected": 128.68,
+        "away_max_pf": 137.98,
         "is_playoff": true,
         "matchup_type": "LOSERS_CONSOLATION_LADDER"
       },
@@ -11139,9 +12133,11 @@ const LEAGUE_DATA = {
         "home_team": "RawbPeeple",
         "home_score": 95.7,
         "home_projected": 95.7,
+        "home_max_pf": 100.7,
         "away_team": "The Algorithm",
         "away_score": 95.12,
         "away_projected": 95.12,
+        "away_max_pf": 111.02,
         "is_playoff": true,
         "matchup_type": "LOSERS_CONSOLATION_LADDER"
       },
@@ -11150,9 +12146,11 @@ const LEAGUE_DATA = {
         "home_team": "McConkey Kong",
         "home_score": 102.64,
         "home_projected": 102.64,
+        "home_max_pf": 116.24,
         "away_team": "The Philadelphia Smeagles",
         "away_score": 106.88,
         "away_projected": 106.88,
+        "away_max_pf": 132.18,
         "is_playoff": true,
         "matchup_type": "LOSERS_CONSOLATION_LADDER"
       }
@@ -11415,7 +12413,7 @@ const LEAGUE_DATA = {
         "pick": 9,
         "team": "Sacks in the City",
         "player_name": "Zamir White",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 3,
@@ -11436,7 +12434,7 @@ const LEAGUE_DATA = {
         "pick": 12,
         "team": "Jimmy Da Kid",
         "player_name": "Brandon Aiyuk",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 3,
@@ -11618,7 +12616,7 @@ const LEAGUE_DATA = {
         "pick": 10,
         "team": "Bodega Cat",
         "player_name": "Kyle Pitts",
-        "position": "N/A"
+        "position": "TE"
       },
       {
         "round": 5,
@@ -11632,7 +12630,7 @@ const LEAGUE_DATA = {
         "pick": 12,
         "team": "Jimmy Da Kid",
         "player_name": "Dak Prescott",
-        "position": "N/A"
+        "position": "QB"
       },
       {
         "round": 5,
@@ -11716,7 +12714,7 @@ const LEAGUE_DATA = {
         "pick": 10,
         "team": "RawbPeeple",
         "player_name": "Rashee Rice",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 6,
@@ -11744,14 +12742,14 @@ const LEAGUE_DATA = {
         "pick": 14,
         "team": "Gooning With All Mahomies \ud83e\udd0c",
         "player_name": "Raheem Mostert",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 7,
         "pick": 1,
         "team": "Gooning With All Mahomies \ud83e\udd0c",
         "player_name": "Jahan Dotson",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 7,
@@ -11772,14 +12770,14 @@ const LEAGUE_DATA = {
         "pick": 4,
         "team": "The Algorithm",
         "player_name": "Ezekiel Elliott",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 7,
         "pick": 5,
         "team": "RawbPeeple",
         "player_name": "Austin Ekeler",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 7,
@@ -11800,14 +12798,14 @@ const LEAGUE_DATA = {
         "pick": 8,
         "team": "McConkey Kong",
         "player_name": "Christian Kirk",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 7,
         "pick": 9,
         "team": "Sacks in the City",
         "player_name": "Trevor Lawrence",
-        "position": "N/A"
+        "position": "QB"
       },
       {
         "round": 7,
@@ -11828,7 +12826,7 @@ const LEAGUE_DATA = {
         "pick": 12,
         "team": "Jimmy Da Kid",
         "player_name": "Zack Moss",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 7,
@@ -11856,7 +12854,7 @@ const LEAGUE_DATA = {
         "pick": 2,
         "team": "Haribo Lecter",
         "player_name": "Browns D/ST",
-        "position": "N/A"
+        "position": "D/ST"
       },
       {
         "round": 8,
@@ -11884,7 +12882,7 @@ const LEAGUE_DATA = {
         "pick": 6,
         "team": "Sacks in the City",
         "player_name": "Keon Coleman",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 8,
@@ -11905,7 +12903,7 @@ const LEAGUE_DATA = {
         "pick": 9,
         "team": "LuLu Lemons",
         "player_name": "Jonathon Brooks",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 8,
@@ -11940,14 +12938,14 @@ const LEAGUE_DATA = {
         "pick": 14,
         "team": "Gooning With All Mahomies \ud83e\udd0c",
         "player_name": "Jamaal Williams",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 9,
         "pick": 1,
         "team": "Gooning With All Mahomies \ud83e\udd0c",
         "player_name": "Jaleel McLaughlin",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 9,
@@ -11968,7 +12966,7 @@ const LEAGUE_DATA = {
         "pick": 4,
         "team": "The Algorithm",
         "player_name": "Ravens D/ST",
-        "position": "N/A"
+        "position": "D/ST"
       },
       {
         "round": 9,
@@ -11989,14 +12987,14 @@ const LEAGUE_DATA = {
         "pick": 7,
         "team": "Stroud Boys",
         "player_name": "Trey Benson",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 9,
         "pick": 8,
         "team": "McConkey Kong",
         "player_name": "Rashid Shaheed",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 9,
@@ -12010,14 +13008,14 @@ const LEAGUE_DATA = {
         "pick": 10,
         "team": "Bodega Cat",
         "player_name": "Blake Corum",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 9,
         "pick": 11,
         "team": "Detroit Lines ",
         "player_name": "Jaylen Wright",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 9,
@@ -12045,7 +13043,7 @@ const LEAGUE_DATA = {
         "pick": 1,
         "team": "Spaghetti Mafia",
         "player_name": "Ty Chandler",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 10,
@@ -12059,7 +13057,7 @@ const LEAGUE_DATA = {
         "pick": 3,
         "team": "Jimmy Da Kid",
         "player_name": "Joshua Palmer",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 10,
@@ -12108,7 +13106,7 @@ const LEAGUE_DATA = {
         "pick": 10,
         "team": "RawbPeeple",
         "player_name": "Curtis Samuel",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 10,
@@ -12143,7 +13141,7 @@ const LEAGUE_DATA = {
         "pick": 1,
         "team": "Gooning With All Mahomies \ud83e\udd0c",
         "player_name": "Khalil Herbert",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 11,
@@ -12157,7 +13155,7 @@ const LEAGUE_DATA = {
         "pick": 3,
         "team": "Beerserkers ",
         "player_name": "Cowboys D/ST",
-        "position": "N/A"
+        "position": "D/ST"
       },
       {
         "round": 11,
@@ -12199,7 +13197,7 @@ const LEAGUE_DATA = {
         "pick": 9,
         "team": "Sacks in the City",
         "player_name": "Mike Williams",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 11,
@@ -12241,7 +13239,7 @@ const LEAGUE_DATA = {
         "pick": 1,
         "team": "Spaghetti Mafia",
         "player_name": "Caleb Williams",
-        "position": "N/A"
+        "position": "QB"
       },
       {
         "round": 12,
@@ -12269,14 +13267,14 @@ const LEAGUE_DATA = {
         "pick": 5,
         "team": "Bodega Cat",
         "player_name": "Texans D/ST",
-        "position": "N/A"
+        "position": "D/ST"
       },
       {
         "round": 12,
         "pick": 6,
         "team": "Sacks in the City",
         "player_name": "Dallas Goedert",
-        "position": "N/A"
+        "position": "TE"
       },
       {
         "round": 12,
@@ -12325,21 +13323,21 @@ const LEAGUE_DATA = {
         "pick": 13,
         "team": "The Philadelphia Smeagles",
         "player_name": "Antonio Gibson",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 12,
         "pick": 14,
         "team": "Gooning With All Mahomies \ud83e\udd0c",
         "player_name": "Gabe Davis",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 13,
         "pick": 1,
         "team": "Gooning With All Mahomies \ud83e\udd0c",
         "player_name": "Greg Zuerlein",
-        "position": "N/A"
+        "position": "K"
       },
       {
         "round": 13,
@@ -12353,7 +13351,7 @@ const LEAGUE_DATA = {
         "pick": 3,
         "team": "Beerserkers ",
         "player_name": "Tyler Conklin",
-        "position": "N/A"
+        "position": "TE"
       },
       {
         "round": 13,
@@ -12402,7 +13400,7 @@ const LEAGUE_DATA = {
         "pick": 10,
         "team": "Bodega Cat",
         "player_name": "Deshaun Watson",
-        "position": "N/A"
+        "position": "QB"
       },
       {
         "round": 13,
@@ -12430,14 +13428,14 @@ const LEAGUE_DATA = {
         "pick": 14,
         "team": "Spaghetti Mafia",
         "player_name": "Luke Musgrave",
-        "position": "N/A"
+        "position": "TE"
       },
       {
         "round": 14,
         "pick": 1,
         "team": "Spaghetti Mafia",
         "player_name": "Bills D/ST",
-        "position": "N/A"
+        "position": "D/ST"
       },
       {
         "round": 14,
@@ -12451,21 +13449,21 @@ const LEAGUE_DATA = {
         "pick": 3,
         "team": "Jimmy Da Kid",
         "player_name": "Younghoe Koo",
-        "position": "N/A"
+        "position": "K"
       },
       {
         "round": 14,
         "pick": 4,
         "team": "Detroit Lines ",
         "player_name": "Kalif Raymond",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 14,
         "pick": 5,
         "team": "Bodega Cat",
         "player_name": "Matt Gay",
-        "position": "N/A"
+        "position": "K"
       },
       {
         "round": 14,
@@ -12479,7 +13477,7 @@ const LEAGUE_DATA = {
         "pick": 7,
         "team": "McConkey Kong",
         "player_name": "Jalen Tolbert",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 14,
@@ -12493,7 +13491,7 @@ const LEAGUE_DATA = {
         "pick": 9,
         "team": "LuLu Lemons",
         "player_name": "Jason Sanders",
-        "position": "N/A"
+        "position": "K"
       },
       {
         "round": 14,
@@ -12507,14 +13505,14 @@ const LEAGUE_DATA = {
         "pick": 11,
         "team": "The Algorithm",
         "player_name": "Adonai Mitchell",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 14,
         "pick": 12,
         "team": "Beerserkers ",
         "player_name": "Brandin Cooks",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 14,
@@ -12528,7 +13526,7 @@ const LEAGUE_DATA = {
         "pick": 14,
         "team": "Gooning With All Mahomies \ud83e\udd0c",
         "player_name": "Luke McCaffrey",
-        "position": "N/A"
+        "position": "WR"
       }
     ]
   },
@@ -12719,9 +13717,11 @@ const LEAGUE_DATA = {
         "home_team": "The Algorithm",
         "home_score": 133.12,
         "home_projected": 124.27000000000001,
+        "home_max_pf": 149.02,
         "away_team": "RawbPeople",
         "away_score": 111.36,
         "away_projected": 118.15,
+        "away_max_pf": 131.86,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -12730,9 +13730,11 @@ const LEAGUE_DATA = {
         "home_team": "Spaghetti Mafia",
         "home_score": 117.66,
         "home_projected": 114.96999999999997,
+        "home_max_pf": 119.36,
         "away_team": "Beerserkers ",
         "away_score": 88.58,
         "away_projected": 120.32000000000001,
+        "away_max_pf": 101.18,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -12741,9 +13743,11 @@ const LEAGUE_DATA = {
         "home_team": "The Movie Chef",
         "home_score": 142.38,
         "home_projected": 120.12999999999998,
+        "home_max_pf": 142.38,
         "away_team": "Haribo Lecter",
         "away_score": 147.72,
         "away_projected": 111.22999999999999,
+        "away_max_pf": 147.72,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -12752,9 +13756,11 @@ const LEAGUE_DATA = {
         "home_team": "The Philadelphia Smeagles",
         "home_score": 107.38,
         "home_projected": 123.84000000000002,
+        "home_max_pf": 130.88,
         "away_team": "Bodega Cat",
         "away_score": 79.02,
         "away_projected": 123.65,
+        "away_max_pf": 85.42,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -12763,9 +13769,11 @@ const LEAGUE_DATA = {
         "home_team": "LuLu Lemons",
         "home_score": 131.02,
         "home_projected": 117.17,
+        "home_max_pf": 146.82,
         "away_team": "Detroit Lines ",
         "away_score": 70.82,
         "away_projected": 117.92000000000002,
+        "away_max_pf": 83.22,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -12774,9 +13782,11 @@ const LEAGUE_DATA = {
         "home_team": "Jimmy Da Kid",
         "home_score": 98.02,
         "home_projected": 119.64999999999999,
+        "home_max_pf": 128.32,
         "away_team": "Sacks in the City",
         "away_score": 102.92,
         "away_projected": 127.76,
+        "away_max_pf": 131.52,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -12785,9 +13795,11 @@ const LEAGUE_DATA = {
         "home_team": "Average Boes",
         "home_score": 94.34,
         "home_projected": 120.97,
+        "home_max_pf": 109.64,
         "away_team": "McConkey Kong",
         "away_score": 109.18,
         "away_projected": 120.64000000000001,
+        "away_max_pf": 116.6,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -12796,9 +13808,11 @@ const LEAGUE_DATA = {
         "home_team": "Detroit Lines ",
         "home_score": 124.4,
         "home_projected": 100.77000000000001,
+        "home_max_pf": 125.5,
         "away_team": "The Philadelphia Smeagles",
         "away_score": 118.2,
         "away_projected": 120.30000000000001,
+        "away_max_pf": 135.8,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -12807,9 +13821,11 @@ const LEAGUE_DATA = {
         "home_team": "Average Boes",
         "home_score": 133.72,
         "home_projected": 118.79000000000002,
+        "home_max_pf": 171.94,
         "away_team": "LuLu Lemons",
         "away_score": 111.28,
         "away_projected": 121.52000000000001,
+        "away_max_pf": 144.24,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -12818,9 +13834,11 @@ const LEAGUE_DATA = {
         "home_team": "The Algorithm",
         "home_score": 96.44,
         "home_projected": 107.09,
+        "home_max_pf": 107.34,
         "away_team": "Haribo Lecter",
         "away_score": 87.3,
         "away_projected": 111.50999999999999,
+        "away_max_pf": 103.0,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -12829,9 +13847,11 @@ const LEAGUE_DATA = {
         "home_team": "The Movie Chef",
         "home_score": 80.04,
         "home_projected": 120.85,
+        "home_max_pf": 102.14,
         "away_team": "Jimmy Da Kid",
         "away_score": 123.08,
         "away_projected": 123.51999999999998,
+        "away_max_pf": 123.08,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -12840,9 +13860,11 @@ const LEAGUE_DATA = {
         "home_team": "McConkey Kong",
         "home_score": 90.82,
         "home_projected": 120.66,
+        "home_max_pf": 115.28,
         "away_team": "RawbPeople",
         "away_score": 122.22,
         "away_projected": 121.11,
+        "away_max_pf": 130.82,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -12851,9 +13873,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 144.24,
         "home_projected": 111.59,
+        "home_max_pf": 152.74,
         "away_team": "Spaghetti Mafia",
         "away_score": 98.5,
         "away_projected": 122.1,
+        "away_max_pf": 117.76,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -12862,9 +13886,11 @@ const LEAGUE_DATA = {
         "home_team": "Sacks in the City",
         "home_score": 130.8,
         "home_projected": 126.39,
+        "home_max_pf": 137.18,
         "away_team": "Beerserkers ",
         "away_score": 120.4,
         "away_projected": 116.43,
+        "away_max_pf": 164.0,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -12873,9 +13899,11 @@ const LEAGUE_DATA = {
         "home_team": "Beerserkers ",
         "home_score": 124.22,
         "home_projected": 120.38,
+        "home_max_pf": 131.52,
         "away_team": "Average Boes",
         "away_score": 73.92,
         "away_projected": 121.94000000000001,
+        "away_max_pf": 97.32,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -12884,9 +13912,11 @@ const LEAGUE_DATA = {
         "home_team": "Sacks in the City",
         "home_score": 138.1,
         "home_projected": 130.83,
+        "home_max_pf": 146.1,
         "away_team": "The Philadelphia Smeagles",
         "away_score": 109.02,
         "away_projected": 117.56,
+        "away_max_pf": 109.02,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -12895,9 +13925,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 111.58,
         "home_projected": 105.46,
+        "home_max_pf": 111.58,
         "away_team": "Spaghetti Mafia",
         "away_score": 131.52,
         "away_projected": 112.14999999999998,
+        "away_max_pf": 148.62,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -12906,9 +13938,11 @@ const LEAGUE_DATA = {
         "home_team": "Jimmy Da Kid",
         "home_score": 112.26,
         "home_projected": 124.40999999999998,
+        "home_max_pf": 119.26,
         "away_team": "McConkey Kong",
         "away_score": 130.22,
         "away_projected": 116.29,
+        "away_max_pf": 134.72,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -12917,9 +13951,11 @@ const LEAGUE_DATA = {
         "home_team": "The Algorithm",
         "home_score": 120.86,
         "home_projected": 121.85000000000001,
+        "home_max_pf": 145.96,
         "away_team": "LuLu Lemons",
         "away_score": 110.82,
         "away_projected": 126.02999999999999,
+        "away_max_pf": 119.62,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -12928,9 +13964,11 @@ const LEAGUE_DATA = {
         "home_team": "RawbPeople",
         "home_score": 100.02,
         "home_projected": 123.86000000000001,
+        "home_max_pf": 104.52,
         "away_team": "Detroit Lines ",
         "away_score": 137.72,
         "away_projected": 102.53999999999999,
+        "away_max_pf": 137.72,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -12939,9 +13977,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 124.74,
         "home_projected": 123.92000000000002,
+        "home_max_pf": 139.64,
         "away_team": "The Movie Chef",
         "away_score": 89.84,
         "away_projected": 116.56,
+        "away_max_pf": 107.44,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -12950,9 +13990,11 @@ const LEAGUE_DATA = {
         "home_team": "McConkey Kong",
         "home_score": 144.28,
         "home_projected": 111.69999999999999,
+        "home_max_pf": 150.38,
         "away_team": "Bodega Cat",
         "away_score": 104.88,
         "away_projected": 111.47999999999999,
+        "away_max_pf": 128.26,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -12961,9 +14003,11 @@ const LEAGUE_DATA = {
         "home_team": "The Movie Chef",
         "home_score": 104.6,
         "home_projected": 114.94000000000001,
+        "home_max_pf": 121.8,
         "away_team": "Spaghetti Mafia",
         "away_score": 118.88,
         "away_projected": 120.43,
+        "away_max_pf": 133.82,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -12972,9 +14016,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 135.32,
         "home_projected": 107.7,
+        "home_max_pf": 135.32,
         "away_team": "LuLu Lemons",
         "away_score": 121.68,
         "away_projected": 125.87,
+        "away_max_pf": 147.58,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -12983,9 +14029,11 @@ const LEAGUE_DATA = {
         "home_team": "Sacks in the City",
         "home_score": 102.62,
         "home_projected": 128.95999999999998,
+        "home_max_pf": 106.2,
         "away_team": "The Algorithm",
         "away_score": 131.18,
         "away_projected": 130.06,
+        "away_max_pf": 148.28,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -12994,9 +14042,11 @@ const LEAGUE_DATA = {
         "home_team": "Beerserkers ",
         "home_score": 132.32,
         "home_projected": 122.57000000000001,
+        "home_max_pf": 144.92,
         "away_team": "RawbPeople",
         "away_score": 95.86,
         "away_projected": 118.52000000000001,
+        "away_max_pf": 95.86,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13005,9 +14055,11 @@ const LEAGUE_DATA = {
         "home_team": "Average Boes",
         "home_score": 131.44,
         "home_projected": 124.48,
+        "home_max_pf": 179.24,
         "away_team": "The Philadelphia Smeagles",
         "away_score": 101.66,
         "away_projected": 103.78999999999999,
+        "away_max_pf": 113.4,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13016,9 +14068,11 @@ const LEAGUE_DATA = {
         "home_team": "Jimmy Da Kid",
         "home_score": 122.9,
         "home_projected": 125.14000000000001,
+        "home_max_pf": 136.6,
         "away_team": "Detroit Lines ",
         "away_score": 109.68,
         "away_projected": 105.08,
+        "away_max_pf": 152.38,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13027,9 +14081,11 @@ const LEAGUE_DATA = {
         "home_team": "Detroit Lines ",
         "home_score": 90.56,
         "home_projected": 105.19,
+        "home_max_pf": 106.16,
         "away_team": "Average Boes",
         "away_score": 129.38,
         "away_projected": 109.59,
+        "away_max_pf": 130.28,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13038,9 +14094,11 @@ const LEAGUE_DATA = {
         "home_team": "The Algorithm",
         "home_score": 118.98,
         "home_projected": 112.23,
+        "home_max_pf": 119.18,
         "away_team": "Jimmy Da Kid",
         "away_score": 147.92,
         "away_projected": 119.41,
+        "away_max_pf": 166.22,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13049,9 +14107,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 152.16,
         "home_projected": 113.44,
+        "home_max_pf": 162.36,
         "away_team": "RawbPeople",
         "away_score": 106.22,
         "away_projected": 109.74999999999999,
+        "away_max_pf": 113.52,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13060,9 +14120,11 @@ const LEAGUE_DATA = {
         "home_team": "LuLu Lemons",
         "home_score": 116.02,
         "home_projected": 120.96999999999998,
+        "home_max_pf": 142.82,
         "away_team": "The Movie Chef",
         "away_score": 91.8,
         "away_projected": 98.92999999999999,
+        "away_max_pf": 111.8,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13071,9 +14133,11 @@ const LEAGUE_DATA = {
         "home_team": "Spaghetti Mafia",
         "home_score": 91.22,
         "home_projected": 109.32000000000001,
+        "home_max_pf": 118.12,
         "away_team": "The Philadelphia Smeagles",
         "away_score": 111.66,
         "away_projected": 108.12,
+        "away_max_pf": 111.66,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13082,9 +14146,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 127.58,
         "home_projected": 120.15,
+        "home_max_pf": 130.48,
         "away_team": "Sacks in the City",
         "away_score": 105.94,
         "away_projected": 123.17999999999999,
+        "away_max_pf": 110.6,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13093,9 +14159,11 @@ const LEAGUE_DATA = {
         "home_team": "Beerserkers ",
         "home_score": 137.32,
         "home_projected": 123.97,
+        "home_max_pf": 147.42,
         "away_team": "McConkey Kong",
         "away_score": 69.34,
         "away_projected": 103.64999999999999,
+        "away_max_pf": 77.34,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13104,9 +14172,11 @@ const LEAGUE_DATA = {
         "home_team": "Detroit Lines ",
         "home_score": 92.34,
         "home_projected": 119.83000000000001,
+        "home_max_pf": 93.64,
         "away_team": "Haribo Lecter",
         "away_score": 79.2,
         "away_projected": 122.53000000000002,
+        "away_max_pf": 90.3,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13115,9 +14185,11 @@ const LEAGUE_DATA = {
         "home_team": "The Philadelphia Smeagles",
         "home_score": 79.94,
         "home_projected": 112.00999999999999,
+        "home_max_pf": 91.94,
         "away_team": "The Algorithm",
         "away_score": 115.5,
         "away_projected": 125.25,
+        "away_max_pf": 121.3,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13126,9 +14198,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 111.98,
         "home_projected": 117.83,
+        "home_max_pf": 119.46,
         "away_team": "Average Boes",
         "away_score": 120.36,
         "away_projected": 128.8,
+        "away_max_pf": 132.5,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13137,9 +14211,11 @@ const LEAGUE_DATA = {
         "home_team": "RawbPeople",
         "home_score": 128.2,
         "home_projected": 110.09999999999998,
+        "home_max_pf": 150.6,
         "away_team": "Jimmy Da Kid",
         "away_score": 102.08,
         "away_projected": 119.45,
+        "away_max_pf": 120.98,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13148,9 +14224,11 @@ const LEAGUE_DATA = {
         "home_team": "Beerserkers ",
         "home_score": 129.84,
         "home_projected": 134.42,
+        "home_max_pf": 154.14,
         "away_team": "The Movie Chef",
         "away_score": 116.62,
         "away_projected": 103.68,
+        "away_max_pf": 141.52,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13159,9 +14237,11 @@ const LEAGUE_DATA = {
         "home_team": "LuLu Lemons",
         "home_score": 123.08,
         "home_projected": 127.03999999999999,
+        "home_max_pf": 146.98,
         "away_team": "McConkey Kong",
         "away_score": 131.28,
         "away_projected": 111.16000000000003,
+        "away_max_pf": 143.28,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13170,9 +14250,11 @@ const LEAGUE_DATA = {
         "home_team": "Sacks in the City",
         "home_score": 111.56,
         "home_projected": 127.1,
+        "home_max_pf": 122.76,
         "away_team": "Spaghetti Mafia",
         "away_score": 104.82,
         "away_projected": 105.72,
+        "away_max_pf": 105.92,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13181,9 +14263,11 @@ const LEAGUE_DATA = {
         "home_team": "RawbPeople",
         "home_score": 161.24,
         "home_projected": 102.58,
+        "home_max_pf": 163.54,
         "away_team": "The Philadelphia Smeagles",
         "away_score": 120.42,
         "away_projected": 109.96000000000001,
+        "away_max_pf": 153.28,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13192,9 +14276,11 @@ const LEAGUE_DATA = {
         "home_team": "Detroit Lines ",
         "home_score": 96.84,
         "home_projected": 122.80999999999999,
+        "home_max_pf": 121.64,
         "away_team": "Beerserkers ",
         "away_score": 175.08,
         "away_projected": 135.25,
+        "away_max_pf": 191.48,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13203,9 +14289,11 @@ const LEAGUE_DATA = {
         "home_team": "LuLu Lemons",
         "home_score": 157.52,
         "home_projected": 135.2,
+        "home_max_pf": 165.82,
         "away_team": "Bodega Cat",
         "away_score": 145.16,
         "away_projected": 135.85999999999999,
+        "away_max_pf": 153.26,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13214,9 +14302,11 @@ const LEAGUE_DATA = {
         "home_team": "The Algorithm",
         "home_score": 150.82,
         "home_projected": 117.11000000000001,
+        "home_max_pf": 150.82,
         "away_team": "McConkey Kong",
         "away_score": 80.78,
         "away_projected": 110.86,
+        "away_max_pf": 119.18,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13225,9 +14315,11 @@ const LEAGUE_DATA = {
         "home_team": "The Movie Chef",
         "home_score": 66.44,
         "home_projected": 103.9,
+        "home_max_pf": 78.94,
         "away_team": "Sacks in the City",
         "away_score": 79.8,
         "away_projected": 126.84,
+        "away_max_pf": 100.8,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13236,9 +14328,11 @@ const LEAGUE_DATA = {
         "home_team": "Spaghetti Mafia",
         "home_score": 82.24,
         "home_projected": 102.79999999999998,
+        "home_max_pf": 92.04,
         "away_team": "Average Boes",
         "away_score": 108.86,
         "away_projected": 102.57000000000001,
+        "away_max_pf": 157.06,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13247,9 +14341,11 @@ const LEAGUE_DATA = {
         "home_team": "Jimmy Da Kid",
         "home_score": 106.54,
         "home_projected": 130.53,
+        "home_max_pf": 119.44,
         "away_team": "Haribo Lecter",
         "away_score": 116.36,
         "away_projected": 115.38999999999999,
+        "away_max_pf": 116.36,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13258,9 +14354,11 @@ const LEAGUE_DATA = {
         "home_team": "Spaghetti Mafia",
         "home_score": 68.7,
         "home_projected": 69.10000000000001,
+        "home_max_pf": 69.6,
         "away_team": "RawbPeople",
         "away_score": 124.52,
         "away_projected": 116.80999999999997,
+        "away_max_pf": 124.52,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13269,9 +14367,11 @@ const LEAGUE_DATA = {
         "home_team": "Detroit Lines ",
         "home_score": 91.02,
         "home_projected": 94.40000000000002,
+        "home_max_pf": 91.32,
         "away_team": "Bodega Cat",
         "away_score": 167.72,
         "away_projected": 127.59,
+        "away_max_pf": 193.32,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13280,9 +14380,11 @@ const LEAGUE_DATA = {
         "home_team": "Sacks in the City",
         "home_score": 149.08,
         "home_projected": 116.45000000000002,
+        "home_max_pf": 161.08,
         "away_team": "Average Boes",
         "away_score": 113.16,
         "away_projected": 116.33,
+        "away_max_pf": 145.78,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13291,9 +14393,11 @@ const LEAGUE_DATA = {
         "home_team": "McConkey Kong",
         "home_score": 120.2,
         "home_projected": 99.81,
+        "home_max_pf": 122.2,
         "away_team": "The Movie Chef",
         "away_score": 105.36,
         "away_projected": 107.71000000000002,
+        "away_max_pf": 119.86,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13302,9 +14406,11 @@ const LEAGUE_DATA = {
         "home_team": "The Algorithm",
         "home_score": 104.02,
         "home_projected": 120.08999999999999,
+        "home_max_pf": 104.02,
         "away_team": "Beerserkers ",
         "away_score": 102.58,
         "away_projected": 109.46000000000001,
+        "away_max_pf": 112.8,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13313,9 +14419,11 @@ const LEAGUE_DATA = {
         "home_team": "Jimmy Da Kid",
         "home_score": 140.82,
         "home_projected": 121.05,
+        "home_max_pf": 140.82,
         "away_team": "LuLu Lemons",
         "away_score": 97.88,
         "away_projected": 123.24000000000001,
+        "away_max_pf": 111.68,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13324,9 +14432,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 115.02,
         "home_projected": 96.02,
+        "home_max_pf": 115.02,
         "away_team": "The Philadelphia Smeagles",
         "away_score": 115.18,
         "away_projected": 112.47,
+        "away_max_pf": 125.28,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13335,9 +14445,11 @@ const LEAGUE_DATA = {
         "home_team": "Jimmy Da Kid",
         "home_score": 79.2,
         "home_projected": 110.82,
+        "home_max_pf": 82.4,
         "away_team": "The Philadelphia Smeagles",
         "away_score": 118.24,
         "away_projected": 108.67999999999999,
+        "away_max_pf": 142.24,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13346,9 +14458,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 100.8,
         "home_projected": 138.38,
+        "home_max_pf": 113.1,
         "away_team": "Haribo Lecter",
         "away_score": 110.16,
         "away_projected": 129.38,
+        "away_max_pf": 110.16,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13357,9 +14471,11 @@ const LEAGUE_DATA = {
         "home_team": "Spaghetti Mafia",
         "home_score": 154.16,
         "home_projected": 110.85000000000001,
+        "home_max_pf": 154.16,
         "away_team": "Detroit Lines ",
         "away_score": 100.9,
         "away_projected": 113.46000000000001,
+        "away_max_pf": 110.2,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13368,9 +14484,11 @@ const LEAGUE_DATA = {
         "home_team": "The Algorithm",
         "home_score": 126.14,
         "home_projected": 130.23,
+        "home_max_pf": 146.14,
         "away_team": "The Movie Chef",
         "away_score": 127.0,
         "away_projected": 113.08999999999999,
+        "away_max_pf": 136.1,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13379,9 +14497,11 @@ const LEAGUE_DATA = {
         "home_team": "Beerserkers ",
         "home_score": 121.66,
         "home_projected": 128.44,
+        "home_max_pf": 133.66,
         "away_team": "LuLu Lemons",
         "away_score": 80.78,
         "away_projected": 125.89,
+        "away_max_pf": 91.68,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13390,9 +14510,11 @@ const LEAGUE_DATA = {
         "home_team": "Sacks in the City",
         "home_score": 123.7,
         "home_projected": 117.05,
+        "home_max_pf": 134.5,
         "away_team": "McConkey Kong",
         "away_score": 145.2,
         "away_projected": 115.1,
+        "away_max_pf": 145.2,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13401,9 +14523,11 @@ const LEAGUE_DATA = {
         "home_team": "RawbPeople",
         "home_score": 107.2,
         "home_projected": 123.34,
+        "home_max_pf": 110.1,
         "away_team": "Average Boes",
         "away_score": 104.32,
         "away_projected": 116.58,
+        "away_max_pf": 127.02,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13412,9 +14536,11 @@ const LEAGUE_DATA = {
         "home_team": "McConkey Kong",
         "home_score": 106.1,
         "home_projected": 100.19,
+        "home_max_pf": 107.5,
         "away_team": "The Philadelphia Smeagles",
         "away_score": 103.8,
         "away_projected": 115.11999999999999,
+        "away_max_pf": 122.6,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13423,9 +14549,11 @@ const LEAGUE_DATA = {
         "home_team": "The Algorithm",
         "home_score": 106.78,
         "home_projected": 129.26000000000002,
+        "home_max_pf": 124.78,
         "away_team": "Bodega Cat",
         "away_score": 148.02,
         "away_projected": 111.58000000000001,
+        "away_max_pf": 151.32,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13434,9 +14562,11 @@ const LEAGUE_DATA = {
         "home_team": "The Movie Chef",
         "home_score": 90.82,
         "home_projected": 117.48,
+        "home_max_pf": 108.72,
         "away_team": "Detroit Lines ",
         "away_score": 92.02,
         "away_projected": 108.83999999999999,
+        "away_max_pf": 96.42,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13445,9 +14575,11 @@ const LEAGUE_DATA = {
         "home_team": "Jimmy Da Kid",
         "home_score": 137.32,
         "home_projected": 108.42000000000002,
+        "home_max_pf": 141.32,
         "away_team": "Average Boes",
         "away_score": 89.5,
         "away_projected": 121.46000000000001,
+        "away_max_pf": 111.74,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13456,9 +14588,11 @@ const LEAGUE_DATA = {
         "home_team": "Sacks in the City",
         "home_score": 126.5,
         "home_projected": 123.4,
+        "home_max_pf": 126.5,
         "away_team": "RawbPeople",
         "away_score": 91.74,
         "away_projected": 106.82999999999998,
+        "away_max_pf": 116.94,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13467,9 +14601,11 @@ const LEAGUE_DATA = {
         "home_team": "LuLu Lemons",
         "home_score": 117.6,
         "home_projected": 131.01,
+        "home_max_pf": 133.8,
         "away_team": "Spaghetti Mafia",
         "away_score": 110.64,
         "away_projected": 116.00999999999999,
+        "away_max_pf": 119.4,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13478,9 +14614,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 121.68,
         "home_projected": 128.94,
+        "home_max_pf": 132.98,
         "away_team": "Beerserkers ",
         "away_score": 151.3,
         "away_projected": 121.63000000000001,
+        "away_max_pf": 160.7,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13489,9 +14627,11 @@ const LEAGUE_DATA = {
         "home_team": "Average Boes",
         "home_score": 97.7,
         "home_projected": 113.42999999999998,
+        "home_max_pf": 115.7,
         "away_team": "The Algorithm",
         "away_score": 123.34,
         "away_projected": 118.89,
+        "away_max_pf": 123.34,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13500,9 +14640,11 @@ const LEAGUE_DATA = {
         "home_team": "Spaghetti Mafia",
         "home_score": 117.62,
         "home_projected": 117.77,
+        "home_max_pf": 134.3,
         "away_team": "Jimmy Da Kid",
         "away_score": 98.34,
         "away_projected": 115.1,
+        "away_max_pf": 122.24,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13511,9 +14653,11 @@ const LEAGUE_DATA = {
         "home_team": "McConkey Kong",
         "home_score": 88.42,
         "home_projected": 113.73,
+        "home_max_pf": 102.8,
         "away_team": "Detroit Lines ",
         "away_score": 99.76,
         "away_projected": 101.83,
+        "away_max_pf": 105.36,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13522,9 +14666,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 117.92,
         "home_projected": 136.61999999999998,
+        "home_max_pf": 127.92,
         "away_team": "Beerserkers ",
         "away_score": 116.94,
         "away_projected": 126.94,
+        "away_max_pf": 120.66,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13533,9 +14679,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 131.4,
         "home_projected": 119.91,
+        "home_max_pf": 138.3,
         "away_team": "Sacks in the City",
         "away_score": 87.34,
         "away_projected": 127.63000000000001,
+        "away_max_pf": 99.64,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13544,9 +14692,11 @@ const LEAGUE_DATA = {
         "home_team": "RawbPeople",
         "home_score": 91.18,
         "home_projected": 113.39000000000001,
+        "home_max_pf": 98.68,
         "away_team": "LuLu Lemons",
         "away_score": 154.78,
         "away_projected": 132.57,
+        "away_max_pf": 157.18,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13555,9 +14705,11 @@ const LEAGUE_DATA = {
         "home_team": "The Philadelphia Smeagles",
         "home_score": 107.1,
         "home_projected": 134.3,
+        "home_max_pf": 110.72,
         "away_team": "The Movie Chef",
         "away_score": 126.3,
         "away_projected": 115.23,
+        "away_max_pf": 141.72,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13566,9 +14718,11 @@ const LEAGUE_DATA = {
         "home_team": "Jimmy Da Kid",
         "home_score": 89.48,
         "home_projected": 107.08999999999999,
+        "home_max_pf": 92.78,
         "away_team": "Beerserkers ",
         "away_score": 144.26,
         "away_projected": 135.1,
+        "away_max_pf": 193.56,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13577,9 +14731,11 @@ const LEAGUE_DATA = {
         "home_team": "RawbPeople",
         "home_score": 80.42,
         "home_projected": 100.16000000000001,
+        "home_max_pf": 105.82,
         "away_team": "Bodega Cat",
         "away_score": 150.86,
         "away_projected": 133.94,
+        "away_max_pf": 153.66,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13588,9 +14744,11 @@ const LEAGUE_DATA = {
         "home_team": "LuLu Lemons",
         "home_score": 129.08,
         "home_projected": 127.08,
+        "home_max_pf": 142.88,
         "away_team": "The Philadelphia Smeagles",
         "away_score": 130.22,
         "away_projected": 123.62999999999998,
+        "away_max_pf": 134.22,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13599,9 +14757,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 146.22,
         "home_projected": 120.25999999999999,
+        "home_max_pf": 153.22,
         "away_team": "McConkey Kong",
         "away_score": 130.36,
         "away_projected": 110.39,
+        "away_max_pf": 152.76,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13610,9 +14770,11 @@ const LEAGUE_DATA = {
         "home_team": "Average Boes",
         "home_score": 61.68,
         "home_projected": 111.73000000000002,
+        "home_max_pf": 61.68,
         "away_team": "The Movie Chef",
         "away_score": 104.96,
         "away_projected": 110.65000000000002,
+        "away_max_pf": 106.96,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13621,9 +14783,11 @@ const LEAGUE_DATA = {
         "home_team": "Detroit Lines ",
         "home_score": 143.06,
         "home_projected": 110.99999999999999,
+        "home_max_pf": 147.06,
         "away_team": "Sacks in the City",
         "away_score": 91.32,
         "away_projected": 106.61,
+        "away_max_pf": 98.22,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13632,9 +14796,11 @@ const LEAGUE_DATA = {
         "home_team": "Spaghetti Mafia",
         "home_score": 59.52,
         "home_projected": 119.66,
+        "home_max_pf": 77.26,
         "away_team": "The Algorithm",
         "away_score": 116.56,
         "away_projected": 109.44,
+        "away_max_pf": 118.06,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13643,9 +14809,11 @@ const LEAGUE_DATA = {
         "home_team": "The Philadelphia Smeagles",
         "home_score": 115.22,
         "home_projected": 117.01999999999998,
+        "home_max_pf": 121.06,
         "away_team": "Beerserkers ",
         "away_score": 108.18,
         "away_projected": 127.87,
+        "away_max_pf": 138.86,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13654,9 +14822,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 144.6,
         "home_projected": 143.6,
+        "home_max_pf": 162.2,
         "away_team": "Jimmy Da Kid",
         "away_score": 109.14,
         "away_projected": 116.26000000000002,
+        "away_max_pf": 132.34,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13665,9 +14835,11 @@ const LEAGUE_DATA = {
         "home_team": "McConkey Kong",
         "home_score": 118.86,
         "home_projected": 116.87,
+        "home_max_pf": 135.02,
         "away_team": "Spaghetti Mafia",
         "away_score": 108.54,
         "away_projected": 104.41,
+        "away_max_pf": 146.64,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13676,9 +14848,11 @@ const LEAGUE_DATA = {
         "home_team": "RawbPeople",
         "home_score": 100.12,
         "home_projected": 122.03000000000002,
+        "home_max_pf": 130.72,
         "away_team": "The Movie Chef",
         "away_score": 72.2,
         "away_projected": 114.32999999999998,
+        "away_max_pf": 103.06,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13687,9 +14861,11 @@ const LEAGUE_DATA = {
         "home_team": "Detroit Lines ",
         "home_score": 64.12,
         "home_projected": 103.91999999999999,
+        "home_max_pf": 78.82,
         "away_team": "The Algorithm",
         "away_score": 70.96,
         "away_projected": 121.97,
+        "away_max_pf": 93.04,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13698,9 +14874,11 @@ const LEAGUE_DATA = {
         "home_team": "LuLu Lemons",
         "home_score": 160.14,
         "home_projected": 123.46000000000001,
+        "home_max_pf": 162.24,
         "away_team": "Sacks in the City",
         "away_score": 95.04,
         "away_projected": 116.79,
+        "away_max_pf": 107.64,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13709,9 +14887,11 @@ const LEAGUE_DATA = {
         "home_team": "Average Boes",
         "home_score": 93.44,
         "home_projected": 107.58,
+        "home_max_pf": 102.48,
         "away_team": "Haribo Lecter",
         "away_score": 79.04,
         "away_projected": 125.2,
+        "away_max_pf": 94.16,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13720,9 +14900,11 @@ const LEAGUE_DATA = {
         "home_team": "Spaghetti Mafia",
         "home_score": 100.46,
         "home_projected": 92.83000000000001,
+        "home_max_pf": 117.66,
         "away_team": "Bodega Cat",
         "away_score": 154.14,
         "away_projected": 138.19000000000003,
+        "away_max_pf": 175.34,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13731,9 +14913,11 @@ const LEAGUE_DATA = {
         "home_team": "Beerserkers ",
         "home_score": 126.36,
         "home_projected": 121.26000000000002,
+        "home_max_pf": 142.26,
         "away_team": "Sacks in the City",
         "away_score": 116.46,
         "away_projected": 113.38999999999999,
+        "away_max_pf": 126.06,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13742,9 +14926,11 @@ const LEAGUE_DATA = {
         "home_team": "Average Boes",
         "home_score": 81.88,
         "home_projected": 91.87,
+        "home_max_pf": 95.08,
         "away_team": "The Movie Chef",
         "away_score": 70.8,
         "away_projected": 96.89,
+        "away_max_pf": 105.96,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13753,9 +14939,11 @@ const LEAGUE_DATA = {
         "home_team": "The Algorithm",
         "home_score": 131.86,
         "home_projected": 109.46,
+        "home_max_pf": 131.86,
         "away_team": "LuLu Lemons",
         "away_score": 102.54,
         "away_projected": 116.66,
+        "away_max_pf": 107.34,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13764,9 +14952,11 @@ const LEAGUE_DATA = {
         "home_team": "Detroit Lines ",
         "home_score": 104.36,
         "home_projected": 102.35,
+        "home_max_pf": 107.86,
         "away_team": "RawbPeople",
         "away_score": 112.14,
         "away_projected": 116.53999999999999,
+        "away_max_pf": 134.24,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13775,9 +14965,11 @@ const LEAGUE_DATA = {
         "home_team": "Haribo Lecter",
         "home_score": 112.82,
         "home_projected": 95.43,
+        "home_max_pf": 135.06,
         "away_team": "Jimmy Da Kid",
         "away_score": 108.1,
         "away_projected": 114.01,
+        "away_max_pf": 111.4,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13786,9 +14978,11 @@ const LEAGUE_DATA = {
         "home_team": "The Philadelphia Smeagles",
         "home_score": 108.14,
         "home_projected": 117.05000000000001,
+        "home_max_pf": 108.34,
         "away_team": "McConkey Kong",
         "away_score": 123.84,
         "away_projected": 111.19999999999999,
+        "away_max_pf": 132.34,
         "is_playoff": false,
         "matchup_type": "NONE"
       },
@@ -13797,9 +14991,11 @@ const LEAGUE_DATA = {
         "home_team": "The Algorithm",
         "home_score": 109.74,
         "home_projected": 127.0,
+        "home_max_pf": 109.74,
         "away_team": "Average Boes",
         "away_score": 96.88,
         "away_projected": 103.47,
+        "away_max_pf": 117.58,
         "is_playoff": true,
         "matchup_type": "WINNERS_BRACKET"
       },
@@ -13808,9 +15004,11 @@ const LEAGUE_DATA = {
         "home_team": "McConkey Kong",
         "home_score": 93.3,
         "home_projected": 118.94,
+        "home_max_pf": 140.3,
         "away_team": "Haribo Lecter",
         "away_score": 160.3,
         "away_projected": 123.3,
+        "away_max_pf": 165.4,
         "is_playoff": true,
         "matchup_type": "WINNERS_BRACKET"
       },
@@ -13819,9 +15017,11 @@ const LEAGUE_DATA = {
         "home_team": "Beerserkers ",
         "home_score": 136.4,
         "home_projected": 128.04000000000002,
+        "home_max_pf": 151.3,
         "away_team": "Sacks in the City",
         "away_score": 96.5,
         "away_projected": 113.47,
+        "away_max_pf": 130.3,
         "is_playoff": true,
         "matchup_type": "WINNERS_BRACKET"
       },
@@ -13830,9 +15030,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 138.96,
         "home_projected": 135.95999999999998,
+        "home_max_pf": 144.76,
         "away_team": "RawbPeople",
         "away_score": 97.12,
         "away_projected": 116.86,
+        "away_max_pf": 113.22,
         "is_playoff": true,
         "matchup_type": "WINNERS_BRACKET"
       },
@@ -13841,9 +15043,11 @@ const LEAGUE_DATA = {
         "home_team": "LuLu Lemons",
         "home_score": 143.36,
         "home_projected": 124.72000000000001,
+        "home_max_pf": 164.96,
         "away_team": "Jimmy Da Kid",
         "away_score": 104.36,
         "away_projected": 114.11999999999999,
+        "away_max_pf": 121.26,
         "is_playoff": true,
         "matchup_type": "LOSERS_CONSOLATION_LADDER"
       },
@@ -13852,9 +15056,11 @@ const LEAGUE_DATA = {
         "home_team": "The Philadelphia Smeagles",
         "home_score": 131.92,
         "home_projected": 121.55000000000003,
+        "home_max_pf": 141.92,
         "away_team": "Detroit Lines ",
         "away_score": 127.14,
         "away_projected": 106.78999999999999,
+        "away_max_pf": 134.94,
         "is_playoff": true,
         "matchup_type": "LOSERS_CONSOLATION_LADDER"
       },
@@ -13863,9 +15069,11 @@ const LEAGUE_DATA = {
         "home_team": "Spaghetti Mafia",
         "home_score": 96.3,
         "home_projected": 94.96000000000001,
+        "home_max_pf": 126.62,
         "away_team": "The Movie Chef",
         "away_score": 125.2,
         "away_projected": 105.02000000000001,
+        "away_max_pf": 170.9,
         "is_playoff": true,
         "matchup_type": "LOSERS_CONSOLATION_LADDER"
       },
@@ -13874,9 +15082,11 @@ const LEAGUE_DATA = {
         "home_team": "The Algorithm",
         "home_score": 96.92,
         "home_projected": 119.79,
+        "home_max_pf": 129.36,
         "away_team": "Haribo Lecter",
         "away_score": 138.38,
         "away_projected": 123.81,
+        "away_max_pf": 170.62,
         "is_playoff": true,
         "matchup_type": "WINNERS_BRACKET"
       },
@@ -13885,9 +15095,11 @@ const LEAGUE_DATA = {
         "home_team": "Bodega Cat",
         "home_score": 111.66,
         "home_projected": 136.45000000000002,
+        "home_max_pf": 130.96,
         "away_team": "Beerserkers ",
         "away_score": 112.6,
         "away_projected": 121.80000000000001,
+        "away_max_pf": 135.4,
         "is_playoff": true,
         "matchup_type": "WINNERS_BRACKET"
       },
@@ -13896,9 +15108,11 @@ const LEAGUE_DATA = {
         "home_team": "McConkey Kong",
         "home_score": 170.6,
         "home_projected": 113.16000000000001,
+        "home_max_pf": 187.2,
         "away_team": "Sacks in the City",
         "away_score": 107.4,
         "away_projected": 114.18,
+        "away_max_pf": 118.5,
         "is_playoff": true,
         "matchup_type": "WINNERS_CONSOLATION_LADDER"
       },
@@ -13907,9 +15121,11 @@ const LEAGUE_DATA = {
         "home_team": "RawbPeople",
         "home_score": 111.8,
         "home_projected": 115.3,
+        "home_max_pf": 128.1,
         "away_team": "Average Boes",
         "away_score": 130.18,
         "away_projected": 106.08,
+        "away_max_pf": 148.38,
         "is_playoff": true,
         "matchup_type": "WINNERS_CONSOLATION_LADDER"
       },
@@ -13918,9 +15134,11 @@ const LEAGUE_DATA = {
         "home_team": "LuLu Lemons",
         "home_score": 119.32,
         "home_projected": 129.8,
+        "home_max_pf": 133.62,
         "away_team": "The Philadelphia Smeagles",
         "away_score": 181.38,
         "away_projected": 124.79,
+        "away_max_pf": 181.38,
         "is_playoff": true,
         "matchup_type": "LOSERS_CONSOLATION_LADDER"
       },
@@ -13929,9 +15147,11 @@ const LEAGUE_DATA = {
         "home_team": "Jimmy Da Kid",
         "home_score": 64.12,
         "home_projected": 115.06000000000002,
+        "home_max_pf": 97.52,
         "away_team": "Spaghetti Mafia",
         "away_score": 99.36,
         "away_projected": 107.09,
+        "away_max_pf": 107.16,
         "is_playoff": true,
         "matchup_type": "LOSERS_CONSOLATION_LADDER"
       },
@@ -13940,9 +15160,11 @@ const LEAGUE_DATA = {
         "home_team": "Detroit Lines ",
         "home_score": 116.7,
         "home_projected": 111.2,
+        "home_max_pf": 132.8,
         "away_team": "The Movie Chef",
         "away_score": 86.5,
         "away_projected": 117.28,
+        "away_max_pf": 108.76,
         "is_playoff": true,
         "matchup_type": "LOSERS_CONSOLATION_LADDER"
       },
@@ -13951,9 +15173,11 @@ const LEAGUE_DATA = {
         "home_team": "Beerserkers ",
         "home_score": 147.04,
         "home_projected": 147.04,
+        "home_max_pf": 163.84,
         "away_team": "Haribo Lecter",
         "away_score": 138.92,
         "away_projected": 138.92,
+        "away_max_pf": 141.02,
         "is_playoff": true,
         "matchup_type": "WINNERS_BRACKET"
       },
@@ -13962,9 +15186,11 @@ const LEAGUE_DATA = {
         "home_team": "The Algorithm",
         "home_score": 110.0,
         "home_projected": 110.0,
+        "home_max_pf": 117.18,
         "away_team": "Bodega Cat",
         "away_score": 127.98,
         "away_projected": 127.98,
+        "away_max_pf": 154.48,
         "is_playoff": true,
         "matchup_type": "WINNERS_CONSOLATION_LADDER"
       },
@@ -13973,9 +15199,11 @@ const LEAGUE_DATA = {
         "home_team": "McConkey Kong",
         "home_score": 156.22,
         "home_projected": 156.22,
+        "home_max_pf": 167.42,
         "away_team": "Average Boes",
         "away_score": 95.38,
         "away_projected": 95.38,
+        "away_max_pf": 102.68,
         "is_playoff": true,
         "matchup_type": "WINNERS_CONSOLATION_LADDER"
       },
@@ -13984,9 +15212,11 @@ const LEAGUE_DATA = {
         "home_team": "Sacks in the City",
         "home_score": 81.94,
         "home_projected": 81.94,
+        "home_max_pf": 84.44,
         "away_team": "RawbPeople",
         "away_score": 81.28,
         "away_projected": 81.28,
+        "away_max_pf": 87.18,
         "is_playoff": true,
         "matchup_type": "WINNERS_CONSOLATION_LADDER"
       },
@@ -13995,9 +15225,11 @@ const LEAGUE_DATA = {
         "home_team": "The Philadelphia Smeagles",
         "home_score": 82.26,
         "home_projected": 82.26,
+        "home_max_pf": 99.44,
         "away_team": "LuLu Lemons",
         "away_score": 115.68,
         "away_projected": 115.68,
+        "away_max_pf": 124.28,
         "is_playoff": true,
         "matchup_type": "LOSERS_CONSOLATION_LADDER"
       },
@@ -14006,9 +15238,11 @@ const LEAGUE_DATA = {
         "home_team": "Spaghetti Mafia",
         "home_score": 69.08,
         "home_projected": 69.08,
+        "home_max_pf": 90.78,
         "away_team": "Detroit Lines ",
         "away_score": 90.28,
         "away_projected": 90.28,
+        "away_max_pf": 111.08,
         "is_playoff": true,
         "matchup_type": "LOSERS_CONSOLATION_LADDER"
       },
@@ -14017,9 +15251,11 @@ const LEAGUE_DATA = {
         "home_team": "Jimmy Da Kid",
         "home_score": 122.74,
         "home_projected": 122.74,
+        "home_max_pf": 125.54,
         "away_team": "The Movie Chef",
         "away_score": 111.72,
         "away_projected": 111.72,
+        "away_max_pf": 125.42,
         "is_playoff": true,
         "matchup_type": "LOSERS_CONSOLATION_LADDER"
       }
@@ -14100,7 +15336,7 @@ const LEAGUE_DATA = {
         "pick": 11,
         "team": "Average Boes",
         "player_name": "Malik Nabers",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 1,
@@ -14289,7 +15525,7 @@ const LEAGUE_DATA = {
         "pick": 10,
         "team": "McConkey Kong",
         "player_name": "James Conner",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 3,
@@ -14317,7 +15553,7 @@ const LEAGUE_DATA = {
         "pick": 14,
         "team": "Jimmy Da Kid",
         "player_name": "Tyreek Hill",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 4,
@@ -14401,7 +15637,7 @@ const LEAGUE_DATA = {
         "pick": 12,
         "team": "Sacks in the City",
         "player_name": "Sam LaPorta",
-        "position": "N/A"
+        "position": "TE"
       },
       {
         "round": 4,
@@ -14471,7 +15707,7 @@ const LEAGUE_DATA = {
         "pick": 8,
         "team": "Haribo Lecter",
         "player_name": "Michael Penix Jr.",
-        "position": "N/A"
+        "position": "QB"
       },
       {
         "round": 5,
@@ -14499,7 +15735,7 @@ const LEAGUE_DATA = {
         "pick": 12,
         "team": "The Movie Chef",
         "player_name": "Nick Chubb",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 5,
@@ -14548,14 +15784,14 @@ const LEAGUE_DATA = {
         "pick": 5,
         "team": "McConkey Kong",
         "player_name": "Ricky Pearsall",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 6,
         "pick": 6,
         "team": "Detroit Lines ",
         "player_name": "Austin Ekeler",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 6,
@@ -14590,7 +15826,7 @@ const LEAGUE_DATA = {
         "pick": 11,
         "team": "Beerserkers ",
         "player_name": "Evan Engram",
-        "position": "N/A"
+        "position": "TE"
       },
       {
         "round": 6,
@@ -14604,14 +15840,14 @@ const LEAGUE_DATA = {
         "pick": 13,
         "team": "LuLu Lemons",
         "player_name": "Calvin Ridley",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 6,
         "pick": 14,
         "team": "RawbPeople",
         "player_name": "Matthew Golden",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 7,
@@ -14625,14 +15861,14 @@ const LEAGUE_DATA = {
         "pick": 2,
         "team": "LuLu Lemons",
         "player_name": "Jacory Croskey-Merritt",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 7,
         "pick": 3,
         "team": "Sacks in the City",
         "player_name": "Kyler Murray",
-        "position": "N/A"
+        "position": "QB"
       },
       {
         "round": 7,
@@ -14653,7 +15889,7 @@ const LEAGUE_DATA = {
         "pick": 6,
         "team": "The Algorithm",
         "player_name": "J.K. Dobbins",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 7,
@@ -14681,28 +15917,28 @@ const LEAGUE_DATA = {
         "pick": 10,
         "team": "McConkey Kong",
         "player_name": "Kaleb Johnson",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 7,
         "pick": 11,
         "team": "Average Boes",
         "player_name": "Tucker Kraft",
-        "position": "N/A"
+        "position": "TE"
       },
       {
         "round": 7,
         "pick": 12,
         "team": "The Movie Chef",
         "player_name": "Keon Coleman",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 7,
         "pick": 13,
         "team": "Spaghetti Mafia",
         "player_name": "Cam Skattebo",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 7,
@@ -14730,7 +15966,7 @@ const LEAGUE_DATA = {
         "pick": 3,
         "team": "The Movie Chef",
         "player_name": "Tank Bigsby",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 8,
@@ -14793,7 +16029,7 @@ const LEAGUE_DATA = {
         "pick": 12,
         "team": "Sacks in the City",
         "player_name": "Jordan Mason",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 8,
@@ -14821,14 +16057,14 @@ const LEAGUE_DATA = {
         "pick": 2,
         "team": "LuLu Lemons",
         "player_name": "Najee Harris",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 9,
         "pick": 3,
         "team": "Sacks in the City",
         "player_name": "Jerome Ford",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 9,
@@ -14884,7 +16120,7 @@ const LEAGUE_DATA = {
         "pick": 11,
         "team": "Average Boes",
         "player_name": "Rachaad White",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 9,
@@ -14912,7 +16148,7 @@ const LEAGUE_DATA = {
         "pick": 1,
         "team": "Jimmy Da Kid",
         "player_name": "Joe Mixon",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 10,
@@ -14933,7 +16169,7 @@ const LEAGUE_DATA = {
         "pick": 4,
         "team": "Average Boes",
         "player_name": "Xavier Legette",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 10,
@@ -14947,14 +16183,14 @@ const LEAGUE_DATA = {
         "pick": 6,
         "team": "Detroit Lines ",
         "player_name": "Tyler Bass",
-        "position": "N/A"
+        "position": "K"
       },
       {
         "round": 10,
         "pick": 7,
         "team": "Haribo Lecter",
         "player_name": "Jaydon Blue",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 10,
@@ -14968,14 +16204,14 @@ const LEAGUE_DATA = {
         "pick": 9,
         "team": "The Algorithm",
         "player_name": "Jake Bates",
-        "position": "N/A"
+        "position": "K"
       },
       {
         "round": 10,
         "pick": 10,
         "team": "Bodega Cat",
         "player_name": "Marvin Mims Jr.",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 10,
@@ -15003,7 +16239,7 @@ const LEAGUE_DATA = {
         "pick": 14,
         "team": "RawbPeople",
         "player_name": "Cedric Tillman",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 11,
@@ -15017,7 +16253,7 @@ const LEAGUE_DATA = {
         "pick": 2,
         "team": "LuLu Lemons",
         "player_name": "Justin Fields",
-        "position": "N/A"
+        "position": "QB"
       },
       {
         "round": 11,
@@ -15031,14 +16267,14 @@ const LEAGUE_DATA = {
         "pick": 4,
         "team": "Beerserkers ",
         "player_name": "Jordan Love",
-        "position": "N/A"
+        "position": "QB"
       },
       {
         "round": 11,
         "pick": 5,
         "team": "Bodega Cat",
         "player_name": "Ollie Gordon II",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 11,
@@ -15052,14 +16288,14 @@ const LEAGUE_DATA = {
         "pick": 7,
         "team": "The Philadelphia Smeagles",
         "player_name": "Dylan Sampson",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 11,
         "pick": 8,
         "team": "Haribo Lecter",
         "player_name": "Braelon Allen",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 11,
@@ -15080,14 +16316,14 @@ const LEAGUE_DATA = {
         "pick": 11,
         "team": "Average Boes",
         "player_name": "Cam Ward",
-        "position": "N/A"
+        "position": "QB"
       },
       {
         "round": 11,
         "pick": 12,
         "team": "The Movie Chef",
         "player_name": "Harrison Butker",
-        "position": "N/A"
+        "position": "K"
       },
       {
         "round": 11,
@@ -15101,7 +16337,7 @@ const LEAGUE_DATA = {
         "pick": 14,
         "team": "Jimmy Da Kid",
         "player_name": "Hollywood Brown",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 12,
@@ -15122,7 +16358,7 @@ const LEAGUE_DATA = {
         "pick": 3,
         "team": "The Movie Chef",
         "player_name": "Bills D/ST",
-        "position": "N/A"
+        "position": "D/ST"
       },
       {
         "round": 12,
@@ -15136,7 +16372,7 @@ const LEAGUE_DATA = {
         "pick": 5,
         "team": "McConkey Kong",
         "player_name": "J.J. McCarthy",
-        "position": "N/A"
+        "position": "QB"
       },
       {
         "round": 12,
@@ -15164,14 +16400,14 @@ const LEAGUE_DATA = {
         "pick": 9,
         "team": "The Algorithm",
         "player_name": "Will Shipley",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 12,
         "pick": 10,
         "team": "Bodega Cat",
         "player_name": "Kyle Williams",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 12,
@@ -15206,21 +16442,21 @@ const LEAGUE_DATA = {
         "pick": 1,
         "team": "RawbPeople",
         "player_name": "Packers D/ST",
-        "position": "N/A"
+        "position": "D/ST"
       },
       {
         "round": 13,
         "pick": 2,
         "team": "LuLu Lemons",
         "player_name": "Cardinals D/ST",
-        "position": "N/A"
+        "position": "D/ST"
       },
       {
         "round": 13,
         "pick": 3,
         "team": "Sacks in the City",
         "player_name": "Vikings D/ST",
-        "position": "N/A"
+        "position": "D/ST"
       },
       {
         "round": 13,
@@ -15241,7 +16477,7 @@ const LEAGUE_DATA = {
         "pick": 6,
         "team": "The Algorithm",
         "player_name": "Brenton Strange",
-        "position": "N/A"
+        "position": "TE"
       },
       {
         "round": 13,
@@ -15283,7 +16519,7 @@ const LEAGUE_DATA = {
         "pick": 12,
         "team": "The Movie Chef",
         "player_name": "Pat Bryant",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 13,
@@ -15339,7 +16575,7 @@ const LEAGUE_DATA = {
         "pick": 6,
         "team": "Detroit Lines ",
         "player_name": "Christian Kirk",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 14,
@@ -15360,7 +16596,7 @@ const LEAGUE_DATA = {
         "pick": 9,
         "team": "The Algorithm",
         "player_name": "Ray Davis",
-        "position": "N/A"
+        "position": "RB"
       },
       {
         "round": 14,
@@ -15374,28 +16610,28 @@ const LEAGUE_DATA = {
         "pick": 11,
         "team": "Beerserkers ",
         "player_name": "Brandon McManus",
-        "position": "N/A"
+        "position": "K"
       },
       {
         "round": 14,
         "pick": 12,
         "team": "Sacks in the City",
         "player_name": "Rashod Bateman",
-        "position": "N/A"
+        "position": "WR"
       },
       {
         "round": 14,
         "pick": 13,
         "team": "LuLu Lemons",
         "player_name": "Bryce Young",
-        "position": "N/A"
+        "position": "QB"
       },
       {
         "round": 14,
         "pick": 14,
         "team": "RawbPeople",
         "player_name": "Joshua Karty",
-        "position": "N/A"
+        "position": "K"
       }
     ]
   }

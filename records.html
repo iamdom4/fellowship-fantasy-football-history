@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <nav class="navbar">
     <div class="nav-inner">
@@ -20,7 +21,7 @@
         <li><a href="records.html" class="active">Records</a></li>
         <li><a href="h2h.html">Head-to-Head</a></li>
                 <li class="nav-dropdown">
-          <a href="team.html" class="dropdown-toggle">Teams &#9662;</a>
+          <a href="team.html" class="dropdown-toggle" aria-expanded="false">Teams <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
           <ul class="dropdown-menu dropdown-menu-scroll">
             <li><a href="team.html?owner=Abigail%20Shewalter">Abigail S.</a></li>
             <li><a href="team.html?owner=Alex%20Carrocce">Alex C.</a></li>
@@ -44,40 +45,21 @@
             <li><a href="team.html?owner=Zach%20Abraham">Zach A.</a></li>
           </ul>
         </li>
-        <li class="nav-dropdown">
-          <a href="playoffs.html" class="dropdown-toggle">Playoffs &#9662;</a>
-          <ul class="dropdown-menu">
-            <li><a href="playoffs.html?year=2020">2020 Season</a></li>
-            <li><a href="playoffs.html?year=2021">2021 Season</a></li>
-            <li><a href="playoffs.html?year=2022">2022 Season</a></li>
-            <li><a href="playoffs.html?year=2023">2023 Season</a></li>
-            <li><a href="playoffs.html?year=2024">2024 Season</a></li>
-            <li><a href="playoffs.html?year=2025">2025 Season</a></li>
-          </ul>
-        </li>
-        <li class="nav-dropdown">
-          <a href="draft.html" class="dropdown-toggle">Draft History &#9662;</a>
-          <ul class="dropdown-menu">
-            <li><a href="draft.html?year=2020">2020 Season</a></li>
-            <li><a href="draft.html?year=2021">2021 Season</a></li>
-            <li><a href="draft.html?year=2022">2022 Season</a></li>
-            <li><a href="draft.html?year=2023">2023 Season</a></li>
-            <li><a href="draft.html?year=2024">2024 Season</a></li>
-            <li><a href="draft.html?year=2025">2025 Season</a></li>
-          </ul>
-        </li>
+        <li><a href="power-rankings.html">Power Rankings</a></li>
+        <li><a href="playoffs.html">Playoffs</a></li>
+        <li><a href="draft.html">Draft</a></li>
       </ul>
       </div>
   </nav>
 
-  <div class="page-wrapper">
+  <div class="page-wrapper" id="main-content">
     <div class="page-header">
       <h1>League Records</h1>
       <p>The best, worst, and wildest moments across all seasons</p>
     </div>
 
     <!-- Scoring Records -->
-    <div style="margin-bottom:2rem">
+    <div class="section-block">
       <div class="section-title"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg> Scoring Records</div>
       <div class="records-grid" id="scoringRecords">
         <div class="loading"><div class="spinner"></div></div>
@@ -85,7 +67,7 @@
     </div>
 
     <!-- Season Records -->
-    <div style="margin-bottom:2rem">
+    <div class="section-block">
       <div class="section-title"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="4" rx="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg> Season Records</div>
       <div class="records-grid" id="seasonRecords">
         <div class="loading"><div class="spinner"></div></div>
@@ -93,7 +75,7 @@
     </div>
 
     <!-- Streak Records -->
-    <div style="margin-bottom:2rem">
+    <div class="section-block">
       <div class="section-title"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg> Streak Records</div>
       <div class="records-grid" id="streakRecords">
         <div class="loading"><div class="spinner"></div></div>
@@ -101,7 +83,7 @@
     </div>
 
     <!-- Top 10 Scores -->
-    <div style="margin-bottom:2rem">
+    <div class="section-block">
       <div class="section-title"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg> Top 10 Single-Week Scores</div>
       <div class="table-wrap" id="topScoresTable">
         <div class="loading"><div class="spinner"></div></div>
@@ -114,14 +96,10 @@
     <p>The Fellowship of the League &mdash; All data from ESPN</p>
   </footer>
 
-  <script src="js/leagueData.js"></script>
-  <script src="js/utils.js"></script>
-  <script src="js/icons.js"></script>
-  <script src="js/records.js"></script>
-  <script>
-    document.getElementById('navToggle').addEventListener('click', () => {
-      document.getElementById('navLinks').classList.toggle('open');
-    });
-  </script>
+  <script src="js/leagueData.js?v=2"></script>
+  <script src="js/utils.js?v=2"></script>
+  <script src="js/icons.js?v=2"></script>
+  <script src="js/records.js?v=2"></script>
+  <script src="js/nav.js?v=2"></script>
 </body>
 </html>

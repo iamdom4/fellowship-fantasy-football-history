@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <nav class="navbar">
     <div class="nav-inner">
@@ -20,7 +21,7 @@
         <li><a href="records.html">Records</a></li>
         <li><a href="h2h.html">Head-to-Head</a></li>
                 <li class="nav-dropdown">
-          <a href="team.html" class="dropdown-toggle">Teams &#9662;</a>
+          <a href="team.html" class="dropdown-toggle" aria-expanded="false">Teams <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
           <ul class="dropdown-menu dropdown-menu-scroll">
             <li><a href="team.html?owner=Abigail%20Shewalter">Abigail S.</a></li>
             <li><a href="team.html?owner=Alex%20Carrocce">Alex C.</a></li>
@@ -44,33 +45,14 @@
             <li><a href="team.html?owner=Zach%20Abraham">Zach A.</a></li>
           </ul>
         </li>
-        <li class="nav-dropdown">
-          <a href="playoffs.html" class="dropdown-toggle">Playoffs &#9662;</a>
-          <ul class="dropdown-menu">
-            <li><a href="playoffs.html?year=2020">2020 Season</a></li>
-            <li><a href="playoffs.html?year=2021">2021 Season</a></li>
-            <li><a href="playoffs.html?year=2022">2022 Season</a></li>
-            <li><a href="playoffs.html?year=2023">2023 Season</a></li>
-            <li><a href="playoffs.html?year=2024">2024 Season</a></li>
-            <li><a href="playoffs.html?year=2025">2025 Season</a></li>
-          </ul>
-        </li>
-        <li class="nav-dropdown">
-          <a href="draft.html" class="dropdown-toggle">Draft History &#9662;</a>
-          <ul class="dropdown-menu">
-            <li><a href="draft.html?year=2020">2020 Season</a></li>
-            <li><a href="draft.html?year=2021">2021 Season</a></li>
-            <li><a href="draft.html?year=2022">2022 Season</a></li>
-            <li><a href="draft.html?year=2023">2023 Season</a></li>
-            <li><a href="draft.html?year=2024">2024 Season</a></li>
-            <li><a href="draft.html?year=2025">2025 Season</a></li>
-          </ul>
-        </li>
+        <li><a href="power-rankings.html">Power Rankings</a></li>
+        <li><a href="playoffs.html">Playoffs</a></li>
+        <li><a href="draft.html">Draft</a></li>
       </ul>
       </div>
   </nav>
 
-  <div class="page-wrapper">
+  <div class="page-wrapper" id="main-content">
     <div class="page-header">
       <h1>All-Time Standings</h1>
       <p>Career stats across all seasons (2020–2025) &mdash; sorted by titles, then win rate</p>
@@ -80,7 +62,7 @@
     <div id="standingsPodium"></div>
 
     <!-- Full Table -->
-    <div class="section-title" style="margin-bottom:1rem">
+    <div class="section-title">
       <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" x2="18" y1="20" y2="10"/><line x1="12" x2="12" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="14"/></svg>
       Full Standings
     </div>
@@ -93,14 +75,10 @@
     <p>The Fellowship of the League &mdash; All data from ESPN</p>
   </footer>
 
-  <script src="js/leagueData.js"></script>
-  <script src="js/utils.js"></script>
-  <script src="js/icons.js"></script>
-  <script src="js/standings.js"></script>
-  <script>
-    document.getElementById('navToggle').addEventListener('click', () => {
-      document.getElementById('navLinks').classList.toggle('open');
-    });
-  </script>
+  <script src="js/leagueData.js?v=2"></script>
+  <script src="js/utils.js?v=2"></script>
+  <script src="js/icons.js?v=2"></script>
+  <script src="js/standings.js?v=2"></script>
+  <script src="js/nav.js?v=2"></script>
 </body>
 </html>

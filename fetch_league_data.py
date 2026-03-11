@@ -11,6 +11,73 @@ SWID = os.getenv("SWID", None)
 SEASONS = list(range(2020, 2026))
 
 
+def compute_max_lineup_score(lineup):
+    """
+    Compute the theoretical maximum score if the optimal lineup was set.
+    Fills the most restrictive slots first (QB, K, D/ST, RB, WR, TE),
+    then flexible slots (FLEX, OP), using a greedy descending-score approach.
+    """
+    SLOT_ELIGIBILITY = {
+        'QB':        ['QB'],
+        'RB':        ['RB'],
+        'WR':        ['WR'],
+        'TE':        ['TE'],
+        'K':         ['K'],
+        'D/ST':      ['D/ST'],
+        'FLEX':      ['RB', 'WR', 'TE'],
+        'OP':        ['QB', 'RB', 'WR', 'TE'],
+        'RB/WR/TE':  ['RB', 'WR', 'TE'],
+        'WR/TE':     ['WR', 'TE'],
+        'WR/RB':     ['RB', 'WR'],
+        'WR/RB/TE':  ['RB', 'WR', 'TE'],
+    }
+    # Process most restrictive slots before flexible ones
+    SLOT_PRIORITY = [
+        'QB', 'K', 'D/ST', 'RB', 'WR', 'TE',
+        'WR/TE', 'WR/RB', 'RB/WR/TE', 'WR/RB/TE', 'FLEX', 'OP',
+    ]
+
+    # Infer starting slot counts from the actual lineup (exclude bench/IR)
+    slot_counts = {}
+    for p in lineup:
+        slot = getattr(p, 'slot_position', '')
+        if slot not in ('BE', 'IR'):
+            slot_counts[slot] = slot_counts.get(slot, 0) + 1
+
+    # Collect all non-IR players and their scores
+    players = []
+    for p in lineup:
+        if getattr(p, 'slot_position', '') == 'IR':
+            continue
+        points = p.points if p.points is not None else 0
+        position = getattr(p, 'position', '')
+        players.append({'position': position, 'points': points})
+
+    # Sort descending so greedy picks the best available first
+    players.sort(key=lambda x: x['points'], reverse=True)
+
+    used = set()
+    total = 0.0
+
+    for slot in SLOT_PRIORITY:
+        count = slot_counts.get(slot, 0)
+        if count == 0:
+            continue
+        eligible = SLOT_ELIGIBILITY.get(slot, [slot])
+        filled = 0
+        for i, p in enumerate(players):
+            if i in used:
+                continue
+            if p['position'] in eligible:
+                total += p['points']
+                used.add(i)
+                filled += 1
+                if filled >= count:
+                    break
+
+    return round(total, 2)
+
+
 def safe(val, fallback="N/A"):
     try:
         return val if val is not None else fallback
@@ -49,20 +116,39 @@ def fetch_teams(league):
     return teams
 
 
-def fetch_matchups(league):
+def fetch_matchups(league, player_positions):
+    """Fetch matchups and populate player_positions from every lineup seen."""
     matchups = []
     for week in range(1, league.current_week + 1):
         try:
             box_scores = league.box_scores(week)
             for match in box_scores:
+                # Harvest positions from lineups so draft lookup is comprehensive
+                for lineup in (match.home_lineup or [], match.away_lineup or []):
+                    for player in lineup:
+                        pid = getattr(player, 'playerId', None)
+                        pos = getattr(player, 'position', None)
+                        if pid and pos and pos != 'N/A':
+                            player_positions[pid] = pos
+                home_max = 0.0
+                away_max = 0.0
+                try:
+                    if match.home_lineup:
+                        home_max = compute_max_lineup_score(match.home_lineup)
+                    if match.away_lineup:
+                        away_max = compute_max_lineup_score(match.away_lineup)
+                except Exception:
+                    pass
                 matchups.append({
                     "week": week,
                     "home_team": safe(match.home_team.team_name if match.home_team else None),
                     "home_score": safe(match.home_score),
                     "home_projected": safe(match.home_projected),
+                    "home_max_pf": home_max,
                     "away_team": safe(match.away_team.team_name if match.away_team else None),
                     "away_score": safe(match.away_score),
                     "away_projected": safe(match.away_projected),
+                    "away_max_pf": away_max,
                     "is_playoff": safe(match.is_playoff),
                     "matchup_type": safe(match.matchup_type),
                 })
@@ -71,20 +157,14 @@ def fetch_matchups(league):
     return matchups
 
 
-def fetch_draft(league):
-    # Build playerId → position map from all rosters
-    player_positions = {}
-    try:
-        for team in league.teams:
-            for player in team.roster:
-                player_positions[player.playerId] = safe(player.position)
-    except Exception:
-        pass
-
+def fetch_draft(league, player_positions):
     draft_picks = []
     try:
         for pick in league.draft:
             position = player_positions.get(pick.playerId, "N/A")
+            # Fallback: D/ST units have names ending in "D/ST"
+            if (not position or position == "N/A") and pick.playerName and pick.playerName.endswith("D/ST"):
+                position = "D/ST"
             draft_picks.append({
                 "round": safe(pick.round_num),
                 "pick": safe(pick.round_pick),
@@ -133,13 +213,27 @@ for year in SEASONS:
             swid=SWID,
         )
 
+        # Build position map: start from rosters, then fill from lineups in fetch_matchups
+        player_positions = {}
+        try:
+            for team in league.teams:
+                for player in team.roster:
+                    pid = getattr(player, 'playerId', None)
+                    pos = getattr(player, 'position', None)
+                    if pid and pos and pos != 'N/A':
+                        player_positions[pid] = pos
+        except Exception:
+            pass
+
+        matchups = fetch_matchups(league, player_positions)
+
         season_data = {
             "year": year,
             "settings": fetch_settings(league),
             "teams": fetch_teams(league),
             "champion": fetch_champion(league),
-            "matchups": fetch_matchups(league),
-            "draft": fetch_draft(league),
+            "matchups": matchups,
+            "draft": fetch_draft(league, player_positions),
         }
 
         all_data[str(year)] = season_data

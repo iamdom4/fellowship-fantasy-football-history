@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Head-to-Head — The Fellowship of the League</title>
+  <title>Power Rankings — The Fellowship of the League</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -15,12 +15,12 @@
       <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
-            <ul class="nav-links" id="navLinks">
+      <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Home</a></li>
         <li><a href="standings.html">Standings</a></li>
         <li><a href="records.html">Records</a></li>
-        <li><a href="h2h.html" class="active">Head-to-Head</a></li>
-                <li class="nav-dropdown">
+        <li><a href="h2h.html">Head-to-Head</a></li>
+        <li class="nav-dropdown">
           <a href="team.html" class="dropdown-toggle" aria-expanded="false">Teams <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
           <ul class="dropdown-menu dropdown-menu-scroll">
             <li><a href="team.html?owner=Abigail%20Shewalter">Abigail S.</a></li>
@@ -45,47 +45,39 @@
             <li><a href="team.html?owner=Zach%20Abraham">Zach A.</a></li>
           </ul>
         </li>
-        <li><a href="power-rankings.html">Power Rankings</a></li>
+        <li><a href="power-rankings.html" class="active">Power Rankings</a></li>
         <li><a href="playoffs.html">Playoffs</a></li>
         <li><a href="draft.html">Draft</a></li>
       </ul>
-      </div>
+    </div>
   </nav>
 
   <div class="page-wrapper" id="main-content">
     <div class="page-header">
-      <h1>Head-to-Head Records</h1>
-      <p>All-time matchup records between every manager (regular season + playoffs)</p>
+      <h1>Power Rankings</h1>
+      <p>Custom formula ranking across the regular season</p>
     </div>
 
-    <div class="section-hint">
-      Read as: <strong style="color:var(--text-primary)">ROW</strong> vs <strong style="color:var(--text-primary)">COLUMN</strong> &mdash;
-      <span style="color:var(--win)">■</span> winning record &nbsp;
-      <span style="color:var(--loss)">■</span> losing record &nbsp;
-      <span style="color:var(--text-muted)">■</span> even
+    <div class="year-select-wrap">
+      <label class="year-select-label" for="yearSelect">Season</label>
+      <select id="yearSelect" class="year-select"></select>
+      <label class="year-select-label" for="weekSelect">Week</label>
+      <select id="weekSelect" class="year-select"></select>
     </div>
 
-    <div class="h2h-wrap" id="h2hMatrix">
-      <div class="loading"><div class="spinner"></div></div>
-    </div>
+    <div id="rankingsContent"></div>
 
-    <div class="section-block-top">
-      <div class="section-title"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" x2="18" y1="20" y2="10"/><line x1="12" x2="12" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="14"/></svg> H2H Summary</div>
-      <div class="table-wrap" id="h2hSummary">
-        <div class="loading"><div class="spinner"></div></div>
-      </div>
-    </div>
-
+    <div id="rankingsChart" class="section-block" style="margin-top:2rem;"></div>
   </div>
 
   <footer>
     <p>The Fellowship of the League &mdash; All data from ESPN</p>
   </footer>
 
-  <script src="js/leagueData.js?v=3"></script>
-  <script src="js/utils.js?v=3"></script>
-  <script src="js/icons.js?v=3"></script>
-  <script src="js/h2h.js?v=3"></script>
-  <script src="js/nav.js?v=3"></script>
+  <script src="js/leagueData.js?v=9"></script>
+  <script src="js/utils.js?v=9"></script>
+  <script src="js/icons.js?v=9"></script>
+  <script src="js/powerRankings.js?v=9"></script>
+  <script src="js/nav.js?v=9"></script>
 </body>
 </html>

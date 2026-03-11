@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <nav class="navbar">
     <div class="nav-inner">
@@ -20,7 +21,7 @@
         <li><a href="records.html">Records</a></li>
         <li><a href="h2h.html">Head-to-Head</a></li>
                 <li class="nav-dropdown">
-          <a href="team.html" class="dropdown-toggle">Teams &#9662;</a>
+          <a href="team.html" class="dropdown-toggle" aria-expanded="false">Teams <svg class="nav-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg></a>
           <ul class="dropdown-menu dropdown-menu-scroll">
             <li><a href="team.html?owner=Abigail%20Shewalter">Abigail S.</a></li>
             <li><a href="team.html?owner=Alex%20Carrocce">Alex C.</a></li>
@@ -44,33 +45,14 @@
             <li><a href="team.html?owner=Zach%20Abraham">Zach A.</a></li>
           </ul>
         </li>
-        <li class="nav-dropdown">
-          <a href="playoffs.html" class="dropdown-toggle">Playoffs &#9662;</a>
-          <ul class="dropdown-menu">
-            <li><a href="playoffs.html?year=2020">2020 Season</a></li>
-            <li><a href="playoffs.html?year=2021">2021 Season</a></li>
-            <li><a href="playoffs.html?year=2022">2022 Season</a></li>
-            <li><a href="playoffs.html?year=2023">2023 Season</a></li>
-            <li><a href="playoffs.html?year=2024">2024 Season</a></li>
-            <li><a href="playoffs.html?year=2025">2025 Season</a></li>
-          </ul>
-        </li>
-        <li class="nav-dropdown">
-          <a href="draft.html" class="dropdown-toggle">Draft History &#9662;</a>
-          <ul class="dropdown-menu">
-            <li><a href="draft.html?year=2020">2020 Season</a></li>
-            <li><a href="draft.html?year=2021">2021 Season</a></li>
-            <li><a href="draft.html?year=2022">2022 Season</a></li>
-            <li><a href="draft.html?year=2023">2023 Season</a></li>
-            <li><a href="draft.html?year=2024">2024 Season</a></li>
-            <li><a href="draft.html?year=2025">2025 Season</a></li>
-          </ul>
-        </li>
+        <li><a href="power-rankings.html">Power Rankings</a></li>
+        <li><a href="playoffs.html">Playoffs</a></li>
+        <li><a href="draft.html">Draft</a></li>
       </ul>
       </div>
   </nav>
 
-  <div class="page-wrapper">
+  <div class="page-wrapper" id="main-content">
 
     <!-- HERO -->
     <div class="hero" id="hero">
@@ -78,7 +60,7 @@
     </div>
 
     <!-- CHAMPIONS -->
-    <div style="margin-bottom:2rem">
+    <div class="section-block">
       <div class="section-title"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg> Champions</div>
       <div class="champions-grid" id="championsGrid">
         <div class="loading"><div class="spinner"></div></div>
@@ -86,7 +68,7 @@
     </div>
 
     <!-- FUN STATS -->
-    <div style="margin-bottom:2rem">
+    <div class="section-block">
       <div class="section-title"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> League Highlights</div>
       <div class="fun-stats-grid" id="funStats">
         <div class="loading"><div class="spinner"></div></div>
@@ -99,14 +81,10 @@
     <p>The Fellowship of the League &mdash; All data from ESPN</p>
   </footer>
 
-  <script src="js/leagueData.js"></script>
-  <script src="js/utils.js"></script>
-  <script src="js/icons.js"></script>
-  <script src="js/home.js"></script>
-  <script>
-    document.getElementById('navToggle').addEventListener('click', () => {
-      document.getElementById('navLinks').classList.toggle('open');
-    });
-  </script>
+  <script src="js/leagueData.js?v=2"></script>
+  <script src="js/utils.js?v=2"></script>
+  <script src="js/icons.js?v=2"></script>
+  <script src="js/home.js?v=2"></script>
+  <script src="js/nav.js?v=2"></script>
 </body>
 </html>

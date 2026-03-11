@@ -14,28 +14,31 @@
     return pos.replace('/', '');  // D/ST → DST
   }
 
-  // Read ?year= from URL, default to most recent
-  const params = new URLSearchParams(window.location.search);
-  let activeYear = params.get('year') || seasons[seasons.length - 1][0];
-  if (!seasons.find(([y]) => y === activeYear)) activeYear = seasons[seasons.length - 1][0];
+  // ── YEAR SELECT ───────────────────────────────
+  const yearSel = document.getElementById('yearSelect');
+  const defaultYear = (() => {
+    const p = new URLSearchParams(window.location.search).get('year');
+    return seasons.find(([y]) => y === p) ? p : seasons[seasons.length - 1][0];
+  })();
 
-  // ── NAV DROPDOWNS ─────────────────────────────
-  const dropdownNav = document.getElementById('draftDropdownNav');
-  if (dropdownNav) {
-    dropdownNav.innerHTML = seasons.map(([year]) => `
-      <li><a href="draft.html?year=${year}" class="${year === activeYear ? 'active' : ''}">${year} Season</a></li>
-    `).join('');
-  }
-  // Populate playoffs nav if present
-  const playoffsNav = document.getElementById('playoffsDropdownNav');
-  if (playoffsNav) {
-    const playoffSeasons = Utils.getSeasons().filter(([,s]) =>
-      s.matchups && s.matchups.some(m => m.matchup_type === 'WINNERS_BRACKET')
-    );
-    playoffsNav.innerHTML = playoffSeasons.map(([y]) =>
-      `<li><a href="playoffs.html?year=${y}">${y} Season</a></li>`
-    ).join('');
-  }
+  // Populate select — newest first
+  [...seasons].reverse().forEach(([year]) => {
+    const opt = document.createElement('option');
+    opt.value = year;
+    opt.textContent = year;
+    yearSel.appendChild(opt);
+  });
+  yearSel.value = defaultYear;
+
+  yearSel.addEventListener('change', () => {
+    history.pushState({}, '', `draft.html?year=${yearSel.value}`);
+    renderDraft(yearSel.value);
+  });
+  window.addEventListener('popstate', () => {
+    const y = new URLSearchParams(window.location.search).get('year') || seasons[seasons.length - 1][0];
+    yearSel.value = y;
+    renderDraft(y);
+  });
 
   // Populate teams nav if present
   const teamsNav = document.getElementById('teamsDropdownNav');
@@ -46,11 +49,6 @@
       return `<li><a href="team.html?owner=${encodeURIComponent(o)}">${Utils.shortOwner(o)}${alumni}</a></li>`;
     }).join('');
   }
-
-  // ── YEAR TABS ─────────────────────────────────
-  document.getElementById('draftYearTabs').innerHTML = seasons.map(([year]) => `
-    <a href="draft.html?year=${year}" class="draft-tab ${year === activeYear ? 'draft-tab-active' : ''}">${year}</a>
-  `).join('');
 
   // ── RENDER DRAFT BOARD ───────────────────────
   function renderDraft(year) {
@@ -75,42 +73,43 @@
       );
     }
 
-    // Group picks by round
-    const rounds = {};
-    let overall = 0;
+    // Build team → picks map
+    const teamPicks = {};
     for (const pick of draft) {
-      if (!rounds[pick.round]) rounds[pick.round] = [];
-      rounds[pick.round].push(pick);
+      const key = pick.team?.trim() || '—';
+      if (!teamPicks[key]) teamPicks[key] = [];
+      teamPicks[key].push(pick);
     }
 
-    const roundsHtml = Object.entries(rounds)
-      .sort(([a], [b]) => Number(a) - Number(b))
-      .map(([round, picks]) => {
-        const picksHtml = picks
-          .sort((a, b) => a.pick - b.pick)
-          .map(pick => {
-            overall++;
-            const teamName = pick.team?.trim() || '—';
-            const owner = teamToOwner[teamName] || '—';
-            const pos = pick.position || 'N/A';
-            const pc = posClass(pos);
-            return `
-              <div class="draft-pick pos-${pc}">
-                <div class="pick-number">#${overall} <span class="pos-badge pos-badge-${pc}">${pos}</span></div>
-                <div class="pick-player">${pick.player_name || '—'}</div>
-                <div class="pick-team">${teamName}</div>
-                <div class="pick-owner">${owner}</div>
-              </div>
-            `;
-          }).join('');
+    // Order teams by their round-1 pick number (draft order)
+    const teamOrder = Object.keys(teamPicks).sort((a, b) => {
+      const aP = (teamPicks[a].find(p => p.round === 1) || {}).pick || 99;
+      const bP = (teamPicks[b].find(p => p.round === 1) || {}).pick || 99;
+      return aP - bP;
+    });
 
-        return `
-          <div class="draft-round">
-            <div class="draft-round-header">Round ${round}</div>
-            <div class="draft-picks-grid">${picksHtml}</div>
-          </div>
-        `;
+    const numTeams = teamOrder.length;
+    const maxRound = Math.max(...draft.map(p => p.round));
+
+    // Column headers
+    const headerCells = teamOrder.map(team => {
+      const owner = teamToOwner[team] || '—';
+      return `<th class="draft-col-header"><div class="draft-col-team" title="${team}">${team}</div><div class="draft-col-owner">${owner}</div></th>`;
+    }).join('');
+
+    // Rows — one per round
+    let rows = '';
+    for (let round = 1; round <= maxRound; round++) {
+      const cells = teamOrder.map(team => {
+        const pick = (teamPicks[team] || []).find(p => p.round === round);
+        if (!pick) return '<td class="draft-cell-empty"></td>';
+        const overall = (round - 1) * numTeams + pick.pick;
+        const pos = pick.position || 'N/A';
+        const pc = posClass(pos);
+        return `<td class="draft-cell"><div class="draft-pick pos-${pc}"><div class="pick-number">#${overall} <span class="pos-badge pos-badge-${pc}">${pos}</span></div><div class="pick-player">${pick.player_name || '—'}</div></div></td>`;
       }).join('');
+      rows += `<tr><td class="draft-round-num">R${round}</td>${cells}</tr>`;
+    }
 
     // Position legend
     const allPositions = [...new Set(draft.map(p => p.position || 'N/A'))];
@@ -121,13 +120,7 @@
 
     const legendHtml = sortedPositions.map(pos => {
       const pc = posClass(pos);
-      return `
-        <div class="legend-item">
-          <span class="legend-dot pos-dot-${pc}"></span>
-          <span class="pos-badge pos-badge-${pc}">${pos}</span>
-          <span style="color:var(--text-muted);font-size:0.75rem">${counts[pos] || 0} picks</span>
-        </div>
-      `;
+      return `<div class="legend-item"><span class="legend-dot pos-dot-${pc}"></span><span class="pos-badge pos-badge-${pc}">${pos}</span><span style="color:var(--text-muted);font-size:0.75rem">${counts[pos] || 0} picks</span></div>`;
     }).join('');
 
     document.getElementById('draftBoard').innerHTML = `
@@ -135,10 +128,15 @@
         <div class="card-title">Position Key</div>
         <div class="draft-legend-grid">${legendHtml}</div>
       </div>
-      <div class="draft-rounds">${roundsHtml}</div>
+      <div class="draft-board-wrap">
+        <table class="draft-board-table">
+          <thead><tr><th class="draft-round-num draft-round-num-header"></th>${headerCells}</tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>
     `;
   }
 
-  renderDraft(activeYear);
+  renderDraft(defaultYear);
 
 })();

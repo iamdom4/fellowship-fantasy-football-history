@@ -41,7 +41,7 @@
       const cls = w > l ? 'h2h-cell-win' : w < l ? 'h2h-cell-loss' : 'h2h-cell-even';
       return `<td class="${cls}" title="${rowOwner} vs ${colOwner}">${w}–${l}</td>`;
     }).join('');
-    return `<tr><td class="row-label">${rowOwner}</td>${cells}</tr>`;
+    return `<tr><td class="row-label" title="${rowOwner}">${shortName(rowOwner)}</td>${cells}</tr>`;
   }).join('');
 
   document.getElementById('h2hMatrix').innerHTML = `
