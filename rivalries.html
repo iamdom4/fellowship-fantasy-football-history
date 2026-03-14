@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Head-to-Head — The Fellowship of the League</title>
+  <title>Rivalries — The Fellowship of the League</title>
   <link rel="stylesheet" href="css/style.css?v=23" />
 </head>
 <body>
@@ -79,7 +79,7 @@
           </a>
         </nav>
 
-                <button class="sidebar-teams-toggle" id="teamsToggle" aria-expanded="false">
+        <button class="sidebar-teams-toggle" id="teamsToggle" aria-expanded="false">
           <span class="sidebar-teams-label">
             <svg class="sidebar-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
             <span class="sidebar-section-label" style="margin:0">Teams</span>
@@ -186,25 +186,36 @@
 
   <div class="content-wrap">
   <div class="page-wrapper" id="main-content">
-    <div class="page-header">
-      <h1>Head-to-Head Records</h1>
-      <p>All-time matchup records between every manager (regular season + playoffs)</p>
+
+    <!-- RIVALRY STATS STRIP -->
+    <div class="section-block">
+      <div class="section-title">
+        <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3l5 5-5 5"/><path d="M21 8H9"/><path d="M8 21l-5-5 5-5"/><path d="M3 16h12"/></svg>
+        Rivalries
+      </div>
+      <div class="rivalry-stats-strip" id="rivalryStats">
+        <div class="loading"><div class="spinner"></div></div>
+      </div>
     </div>
 
-    <div class="section-hint">
-      Read as: <strong style="color:var(--text-primary)">ROW</strong> vs <strong style="color:var(--text-primary)">COLUMN</strong> &mdash;
-      <span style="color:var(--win)">■</span> winning record &nbsp;
-      <span style="color:var(--loss)">■</span> losing record &nbsp;
-      <span style="color:var(--text-muted)">■</span> even
+    <!-- FEATURED RIVALRY -->
+    <div class="section-block">
+      <div class="section-title">
+        <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Top Rivalry
+      </div>
+      <div class="rivalry-featured-wrap" id="featuredRivalry">
+        <div class="loading"><div class="spinner"></div></div>
+      </div>
     </div>
 
-    <div class="h2h-wrap" id="h2hMatrix">
-      <div class="loading"><div class="spinner"></div></div>
-    </div>
-
-    <div class="section-block-top">
-      <div class="section-title"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" x2="18" y1="20" y2="10"/><line x1="12" x2="12" y1="20" y2="4"/><line x1="6" x2="6" y1="20" y2="14"/></svg> H2H Summary</div>
-      <div class="table-wrap" id="h2hSummary">
+    <!-- ALL RIVALRIES -->
+    <div class="section-block">
+      <div class="section-title">
+        <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        All Matchups
+      </div>
+      <div class="rivalry-grid" id="rivalriesGrid">
         <div class="loading"><div class="spinner"></div></div>
       </div>
     </div>
@@ -219,7 +230,7 @@
   <script src="js/leagueData.js?v=15"></script>
   <script src="js/utils.js?v=15"></script>
   <script src="js/icons.js?v=15"></script>
-  <script src="js/h2h.js?v=15"></script>
+  <script src="js/rivalries.js?v=1"></script>
   <script src="js/nav.js?v=23"></script>
 </body>
 </html>

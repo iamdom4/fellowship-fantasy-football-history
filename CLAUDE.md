@@ -32,6 +32,7 @@ Two managers have name variations across seasons — normalized in `js/utils.js`
 | `standings.html` | All-Time Standings — podium + full table | `js/standings.js` |
 | `records.html` | League Records — scoring, season, streak, top 10 | `js/records.js` |
 | `h2h.html` | Head-to-Head — matchup matrix + summary table | `js/h2h.js` |
+| `rivalries.html` | Rivalries — per-pair matchup stats with win% bars | `js/rivalries.js` |
 | `team.html` | Team Profile — per-owner deep dive (URL param `?owner=Name`) | `js/team.js` |
 | `power-rankings.html` | Power Rankings — by season + week selectors | `js/powerRankings.js` |
 | `playoffs.html` | Playoff Bracket — by season selector | `js/playoffs.js` |

@@ -4,10 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Fellowship of the League</title>
-  <link rel="stylesheet" href="css/style.css?v=21" />
+  <link rel="stylesheet" href="css/style.css?v=23" />
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="mobile-topbar" id="mobileTopbar">
+    <a href="index.html" class="mobile-topbar-brand">
+      <img src="The Fellowship 2 (Ring).svg" class="sidebar-logo-img" alt="" />
+      <div class="sidebar-brand-text">
+        <span class="sidebar-brand-name">FELLOWSHIP</span>
+        <span class="sidebar-brand-sub">of the League</span>
+      </div>
+    </a>
+    <button class="mobile-topbar-btn" id="mobileMenuBtn" aria-label="Open navigation">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
 
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-inner">
@@ -44,6 +57,10 @@
             <svg class="sidebar-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
             <span>Head-to-Head</span>
           </a>
+          <a href="rivalries.html" class="sidebar-item" data-page="rivalries">
+            <svg class="sidebar-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 3l5 5-5 5"/><path d="M21 8H9"/><path d="M8 21l-5-5 5-5"/><path d="M3 16h12"/></svg>
+            <span>Rivalries</span>
+          </a>
           <a href="power-rankings.html" class="sidebar-item" data-page="power-rankings">
             <svg class="sidebar-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
             <span>Power Rankings</span>
@@ -72,88 +89,88 @@
 
         <div class="sidebar-teams-list teams-closed" id="teamsList">
           <a title="Haribo Lecter" href="team.html?owner=Abigail%20Shewalter" class="sidebar-item sidebar-team-item">
-            <img class="sidebar-team-logo" src="images/logos/abigail-shewalter.jpg" alt="" />
+            <img class="sidebar-team-logo" src="images/logos/abigail-shewalter.jpg" alt="" loading="lazy"/>
             <span>Haribo Lecter</span>
           </a>
           <a title="LuLu Lemons" href="team.html?owner=Alex%20Carrocce" class="sidebar-item sidebar-team-item">
-            <img class="sidebar-team-logo" src="images/logos/alex-carrocce.jpg" alt="" />
+            <img class="sidebar-team-logo" src="images/logos/alex-carrocce.jpg" alt="" loading="lazy"/>
             <span>LuLu Lemons</span>
           </a>
           <a title="Sacks in the City" href="team.html?owner=Alyssa%20Mirto" class="sidebar-item sidebar-team-item">
-            <img class="sidebar-team-logo" src="images/logos/alyssa-mirto.svg" alt="" />
+            <img class="sidebar-team-logo" src="images/logos/alyssa-mirto.svg" alt="" loading="lazy"/>
             <span>Sacks in the City</span>
           </a>
           <a title="Bodega Cat" href="team.html?owner=Dominic%20Mirto" class="sidebar-item sidebar-team-item">
-            <img class="sidebar-team-logo" src="images/logos/dominic-mirto.svg" alt="" />
+            <img class="sidebar-team-logo" src="images/logos/dominic-mirto.svg" alt="" loading="lazy"/>
             <span>Bodega Cat</span>
           </a>
           <a title="Jimmy Da Kid" href="team.html?owner=James%20Cancel" class="sidebar-item sidebar-team-item">
-            <img class="sidebar-team-logo" src="images/logos/james-cancel.svg" alt="" />
+            <img class="sidebar-team-logo" src="images/logos/james-cancel.svg" alt="" loading="lazy"/>
             <span>Jimmy Da Kid</span>
           </a>
           <a title="Detroit Lines" href="team.html?owner=Jessica%20Pastva" class="sidebar-item sidebar-team-item">
-            <img class="sidebar-team-logo" src="images/logos/jessica-pastva.svg" alt="" />
+            <img class="sidebar-team-logo" src="images/logos/jessica-pastva.svg" alt="" loading="lazy"/>
             <span>Detroit Lines</span>
           </a>
           <a title="The Philadelphia Smeagles" href="team.html?owner=Josh%20Wakeford" class="sidebar-item sidebar-team-item">
-            <img class="sidebar-team-logo" src="images/logos/josh-wakeford.jpg" alt="" />
+            <img class="sidebar-team-logo" src="images/logos/josh-wakeford.jpg" alt="" loading="lazy"/>
             <span>The Philadelphia Smeagles</span>
           </a>
           <a title="McConkey Kong" href="team.html?owner=Katie%20McCarthy" class="sidebar-item sidebar-team-item">
-            <img class="sidebar-team-logo" src="images/logos/katie-mccarthy.jpg" alt="" />
+            <img class="sidebar-team-logo" src="images/logos/katie-mccarthy.jpg" alt="" loading="lazy"/>
             <span>McConkey Kong</span>
           </a>
           <a title="RawbPeople" href="team.html?owner=Robert%20Gross" class="sidebar-item sidebar-team-item">
-            <img class="sidebar-team-logo" src="images/logos/robert-gross.jpg" alt="" />
+            <img class="sidebar-team-logo" src="images/logos/robert-gross.jpg" alt="" loading="lazy"/>
             <span>RawbPeople</span>
           </a>
           <a title="Average Boes" href="team.html?owner=Ron%20Sullivan" class="sidebar-item sidebar-team-item">
-            <img class="sidebar-team-logo" src="images/logos/ron-sullivan.svg" alt="" />
+            <img class="sidebar-team-logo" src="images/logos/ron-sullivan.svg" alt="" loading="lazy"/>
             <span>Average Boes</span>
           </a>
           <a title="Beerserkers" href="team.html?owner=Thomas%20McGrath" class="sidebar-item sidebar-team-item">
-            <img class="sidebar-team-logo" src="images/logos/thomas-mcgrath.svg" alt="" />
+            <img class="sidebar-team-logo" src="images/logos/thomas-mcgrath.svg" alt="" loading="lazy"/>
             <span>Beerserkers</span>
           </a>
           <a title="The Movie Chef" href="team.html?owner=Tony%20Kopatich" class="sidebar-item sidebar-team-item">
-            <img class="sidebar-team-logo" src="images/logos/tony-kopatich.svg" alt="" />
+            <img class="sidebar-team-logo" src="images/logos/tony-kopatich.svg" alt="" loading="lazy"/>
             <span>The Movie Chef</span>
           </a>
           <a title="The Algorithm" href="team.html?owner=Trevor%20Crogan" class="sidebar-item sidebar-team-item">
-            <img class="sidebar-team-logo" src="images/logos/trevor-crogan.jpg" alt="" />
+            <img class="sidebar-team-logo" src="images/logos/trevor-crogan.jpg" alt="" loading="lazy"/>
             <span>The Algorithm</span>
           </a>
           <a title="Spaghetti Mafia" href="team.html?owner=Zach%20Abraham" class="sidebar-item sidebar-team-item">
-            <img class="sidebar-team-logo" src="images/logos/zach-abraham.jpg" alt="" />
+            <img class="sidebar-team-logo" src="images/logos/zach-abraham.jpg" alt="" loading="lazy"/>
             <span>Spaghetti Mafia</span>
           </a>
           <a title="Good Picks Good Picks" href="team.html?owner=Anthony%20Esway" class="sidebar-item sidebar-team-item sidebar-alumni">
-            <img class="sidebar-team-logo" src="images/logos/anthony-esway.jpg" alt="" />
+            <img class="sidebar-team-logo" src="images/logos/anthony-esway.jpg" alt="" loading="lazy"/>
             <span>Good Picks Good Picks</span>
             <span class="sidebar-alumni-tag">Alumni</span>
           </a>
           <a title="Philadelphia Kegels" href="team.html?owner=Heather%20Baker" class="sidebar-item sidebar-team-item sidebar-alumni">
-            <img class="sidebar-team-logo" src="images/logos/heather-baker.svg" alt="" />
+            <img class="sidebar-team-logo" src="images/logos/heather-baker.svg" alt="" loading="lazy"/>
             <span>Philadelphia Kegels</span>
             <span class="sidebar-alumni-tag">Alumni</span>
           </a>
           <a title="Joe Smith State Jackrabbits" href="team.html?owner=Joseph%20Smith" class="sidebar-item sidebar-team-item sidebar-alumni">
-            <img class="sidebar-team-logo" src="images/logos/joseph-smith.svg" alt="" />
+            <img class="sidebar-team-logo" src="images/logos/joseph-smith.svg" alt="" loading="lazy"/>
             <span>Joe Smith State Jackrabbits</span>
             <span class="sidebar-alumni-tag">Alumni</span>
           </a>
           <a title="NOLA Dr. Who Dat" href="team.html?owner=Kristen%20Hencsei" class="sidebar-item sidebar-team-item sidebar-alumni">
-            <img class="sidebar-team-logo" src="images/logos/kristen-hencsei.svg" alt="" />
+            <img class="sidebar-team-logo" src="images/logos/kristen-hencsei.svg" alt="" loading="lazy"/>
             <span>NOLA Dr. Who Dat</span>
             <span class="sidebar-alumni-tag">Alumni</span>
           </a>
           <a title="Damar Ham n' Cheese" href="team.html?owner=Ryan%20Sullivan" class="sidebar-item sidebar-team-item sidebar-alumni">
-            <img class="sidebar-team-logo" src="images/logos/ryan-sullivan.jpg" alt="" />
+            <img class="sidebar-team-logo" src="images/logos/ryan-sullivan.jpg" alt="" loading="lazy"/>
             <span>Damar Ham n' Cheese</span>
             <span class="sidebar-alumni-tag">Alumni</span>
           </a>
           <a title="Talibanistan Liberators" href="team.html?owner=Steven%20Cruz" class="sidebar-item sidebar-team-item sidebar-alumni">
-            <img class="sidebar-team-logo" src="images/logos/steven-cruz.svg" alt="" />
+            <img class="sidebar-team-logo" src="images/logos/steven-cruz.svg" alt="" loading="lazy"/>
             <span>Talibanistan Liberators</span>
             <span class="sidebar-alumni-tag">Alumni</span>
           </a>
@@ -175,19 +192,65 @@
       <div class="loading"><div class="spinner"></div></div>
     </div>
 
-    <!-- CHAMPIONS -->
+    <!-- SCOREBOARD -->
     <div class="section-block">
-      <div class="section-title"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg> Champions</div>
-      <div class="champions-grid" id="championsGrid">
+      <div class="scoreboard-section-header">
+        <div class="section-title">
+          <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="4" rx="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+          Latest Results
+        </div>
+        <div id="scoreboardLabel"></div>
+      </div>
+      <div class="matchup-grid" id="scoreboard">
         <div class="loading"><div class="spinner"></div></div>
       </div>
     </div>
 
-    <!-- FUN STATS -->
-    <div class="section-block">
-      <div class="section-title"><svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg> League Highlights</div>
-      <div class="fun-stats-grid" id="funStats">
-        <div class="loading"><div class="spinner"></div></div>
+    <!-- DASH ROW 1: STANDINGS + BLOG -->
+    <div class="home-dash-grid">
+      <div class="widget-card">
+        <div class="widget-header">
+          <span class="widget-title">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            Standings
+          </span>
+          <a href="standings.html" class="widget-link">All-Time →</a>
+        </div>
+        <div id="standingsWidget"><div class="loading"><div class="spinner"></div></div></div>
+      </div>
+      <div class="widget-card">
+        <div class="widget-header">
+          <span class="widget-title">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Latest from the Blog
+          </span>
+          <a href="blog.html" class="widget-link">All Posts →</a>
+        </div>
+        <div id="latestBlog"><div class="loading"><div class="spinner"></div></div></div>
+      </div>
+    </div>
+
+    <!-- DASH ROW 2: POWER RANKINGS + RECORDS TEASER -->
+    <div class="home-dash-grid">
+      <div class="widget-card">
+        <div class="widget-header">
+          <span class="widget-title">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            Power Rankings
+          </span>
+          <a href="power-rankings.html" class="widget-link">Full Rankings →</a>
+        </div>
+        <div id="powerRankingsWidget"><div class="loading"><div class="spinner"></div></div></div>
+      </div>
+      <div class="widget-card">
+        <div class="widget-header">
+          <span class="widget-title">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            All-Time Records
+          </span>
+          <a href="records.html" class="widget-link">View All →</a>
+        </div>
+        <div id="recordsTeaser"><div class="loading"><div class="spinner"></div></div></div>
       </div>
     </div>
 
@@ -201,7 +264,7 @@
   <script src="js/leagueData.js?v=15"></script>
   <script src="js/utils.js?v=15"></script>
   <script src="js/icons.js?v=15"></script>
-  <script src="js/home.js?v=15"></script>
-  <script src="js/nav.js?v=16"></script>
+  <script src="js/home.js?v=24"></script>
+  <script src="js/nav.js?v=23"></script>
 </body>
 </html>

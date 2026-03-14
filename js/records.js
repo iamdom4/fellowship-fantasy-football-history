@@ -5,6 +5,83 @@
 (function () {
   const seasons = Utils.getSeasons();
   const matchups = Utils.getAllMatchups();
+  const teamOwnerMap = Utils.buildTeamOwnerMap();
+
+  // ── CHAMPIONS TIMELINE ───────────────────────
+  const ownerStatsList = Utils.getOwnerStats();
+  const ownerToLatestTeam = {};
+  ownerStatsList.forEach(s => { ownerToLatestTeam[s.owner] = s.latestTeam; });
+
+  const champHtml = seasons.map(([year, season]) => {
+    const champTeam = season.champion?.trim() || '—';
+    const champOwnerFull = teamOwnerMap[`${year}_${champTeam}`] || '—';
+    const champOwner = Utils.shortOwner(champOwnerFull);
+    const currentTeam = ownerToLatestTeam[champOwnerFull] || champTeam;
+    const showPrev = currentTeam !== champTeam && champTeam !== '—';
+    return `
+      <div class="champion-card">
+        <div class="year-badge">${year}</div>
+        <div class="trophy-wrap">${Icons.trophy({ size: 26 })}</div>
+        <div class="champ-name">${currentTeam}</div>
+        <div class="champ-owner">${champOwner}</div>
+        ${showPrev ? `<div class="champ-prev-name">formerly ${champTeam}</div>` : ''}
+      </div>
+    `;
+  }).join('');
+  document.getElementById('championsGrid').innerHTML = champHtml;
+
+  // ── LEAGUE HIGHLIGHTS (FUN STATS) ────────────
+  let highScore2  = { score: 0,       team: '', owner: '', year: '', week: 0 };
+  let lowScore2   = { score: Infinity, team: '', owner: '', year: '', week: 0 };
+  let bigBlowout2 = { margin: 0, winner: '', loser: '', year: '', week: 0 };
+  let bestPFSeason2 = { pf: 0, team: '', owner: '', year: '' };
+
+  for (const m of matchups) {
+    const scores = [
+      { score: m.home_score, team: m.home_team, owner: m.home_owner },
+      { score: m.away_score, team: m.away_team, owner: m.away_owner },
+    ];
+    for (const s of scores) {
+      if (s.score > highScore2.score) highScore2 = { ...s, year: m.year, week: m.week };
+      if (s.score > 0 && s.score < lowScore2.score) lowScore2 = { ...s, year: m.year, week: m.week };
+    }
+    const margin = Math.abs(m.home_score - m.away_score);
+    if (margin > bigBlowout2.margin) {
+      bigBlowout2 = {
+        margin, year: m.year, week: m.week,
+        winner: m.home_score > m.away_score ? m.home_team : m.away_team,
+        loser:  m.home_score > m.away_score ? m.away_team : m.home_team,
+      };
+    }
+  }
+  for (const [year, season] of seasons) {
+    for (const t of season.teams) {
+      if (t.points_for > bestPFSeason2.pf) {
+        bestPFSeason2 = { pf: t.points_for, team: t.team_name.trim(), owner: t.owner, year };
+      }
+    }
+  }
+  const mostTitles2 = [...ownerStatsList].sort((a, b) => b.titles - a.titles)[0];
+  const avgScore2   = matchups.length
+    ? matchups.reduce((s, m) => s + m.home_score + m.away_score, 0) / (matchups.length * 2)
+    : 0;
+
+  const funStats = [
+    { icon: Icons.flame({ size: 22 }),    color: 'gold',  value: Utils.fmt(highScore2.score),     label: 'Highest Single-Week Score',  sub: `${highScore2.team} — ${highScore2.year} Wk ${highScore2.week}` },
+    { icon: Icons.skull({ size: 22 }),    color: 'red',   value: Utils.fmt(lowScore2.score),      label: 'Lowest Single-Week Score',   sub: `${lowScore2.team} — ${lowScore2.year} Wk ${lowScore2.week}` },
+    { icon: Icons.zap({ size: 22 }),      color: 'gold',  value: `+${Utils.fmt(bigBlowout2.margin)}`, label: 'Biggest Blowout',        sub: `${bigBlowout2.winner} def. ${bigBlowout2.loser} — ${bigBlowout2.year} Wk ${bigBlowout2.week}` },
+    { icon: Icons.trendUp({ size: 22 }), color: 'green', value: Utils.fmt(bestPFSeason2.pf),     label: 'Most Points in a Season',    sub: `${bestPFSeason2.team} (${Utils.shortOwner(bestPFSeason2.owner)}) — ${bestPFSeason2.year}` },
+    { icon: Icons.crown({ size: 22 }),   color: 'gold',  value: mostTitles2.titles,              label: 'Most Championships',         sub: `${Utils.shortOwner(mostTitles2.owner)}` },
+    { icon: Icons.target({ size: 22 }),  color: 'blue',  value: Utils.fmt(avgScore2),            label: 'Average Weekly Score',       sub: `Across all ${matchups.length} matchups` },
+  ];
+  document.getElementById('funStats').innerHTML = funStats.map(s => `
+    <div class="fun-stat-card">
+      <div class="icon-wrap iw-${s.color}">${s.icon}</div>
+      <div class="stat-number">${s.value}</div>
+      <div class="card-title">${s.label}</div>
+      <div class="stat-sub">${s.sub}</div>
+    </div>
+  `).join('');
 
   // ── BUILD ALL SCORES ─────────────────────────
   const allScores = [];

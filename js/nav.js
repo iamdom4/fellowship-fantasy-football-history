@@ -3,17 +3,35 @@
    ============================================= */
 
 (function () {
-  const sidebar     = document.getElementById('sidebar');
-  const overlay     = document.getElementById('sidebarOverlay');
-  const collapseBtn = document.getElementById('sidebarCollapse');
-  const openBtn     = document.getElementById('sidebarOpenBtn');
-  const teamsToggle = document.getElementById('teamsToggle');
-  const teamsList   = document.getElementById('teamsList');
+  const sidebar       = document.getElementById('sidebar');
+  const overlay       = document.getElementById('sidebarOverlay');
+  const collapseBtn   = document.getElementById('sidebarCollapse');
+  const openBtn       = document.getElementById('sidebarOpenBtn');
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const teamsToggle   = document.getElementById('teamsToggle');
+  const teamsList     = document.getElementById('teamsList');
 
   // ── Active page highlight ─────────────────────
   const page = location.pathname.split('/').pop().replace('.html', '') || 'index';
   document.querySelectorAll('.sidebar-item[data-page]').forEach(el => {
     if (el.dataset.page === page) el.classList.add('active');
+  });
+
+  // ── Auto-populate data-label for collapsed tooltips ──
+  document.querySelectorAll('.sidebar-nav .sidebar-item').forEach(item => {
+    if (!item.dataset.label) {
+      const span = item.querySelector(':scope > span');
+      if (span) item.dataset.label = span.textContent.trim();
+    }
+  });
+  // Teams toggle tooltip
+  const teamsToggleTip = document.getElementById('teamsToggle');
+  if (teamsToggleTip && !teamsToggleTip.dataset.label) {
+    teamsToggleTip.dataset.label = 'Teams';
+  }
+  // Team items: use title attribute as tooltip label
+  document.querySelectorAll('.sidebar-team-item').forEach(item => {
+    if (!item.dataset.label && item.title) item.dataset.label = item.title;
   });
 
   // ── Helpers ───────────────────────────────────
@@ -41,9 +59,12 @@
     document.body.classList.add('sidebar-collapsed');
   }
 
-  // Collapse btn toggles between collapsed rail and full sidebar on desktop
+  // Collapse btn: closes sidebar on mobile, toggles rail on desktop
   collapseBtn.addEventListener('click', () => {
-    if (isMobile()) return;
+    if (isMobile()) {
+      document.body.classList.remove('sidebar-mobile-open');
+      return;
+    }
     if (document.body.classList.contains('sidebar-collapsed')) {
       expand();
     } else {
@@ -51,12 +72,19 @@
     }
   });
 
-  // Open btn is only used on mobile
-  openBtn.addEventListener('click', () => {
-    if (isMobile()) {
+  // Mobile top bar hamburger
+  if (mobileMenuBtn) {
+    mobileMenuBtn.addEventListener('click', () => {
       document.body.classList.add('sidebar-mobile-open');
-    }
-  });
+    });
+  }
+
+  // Legacy floating open btn (desktop only, if present)
+  if (openBtn) {
+    openBtn.addEventListener('click', () => {
+      if (!isMobile()) expand();
+    });
+  }
 
   // ── Mobile overlay ────────────────────────────
   overlay.addEventListener('click', () => {
