@@ -142,5 +142,43 @@ const Utils = (() => {
     return ((w + t * 0.5) / total * 100).toFixed(1) + "%";
   }
 
-  return { getSeasons, buildTeamOwnerMap, getAllOwners, getOwnerStats, getAllMatchups, normalizeName, shortOwner, isActive, fmt, fmtPct };
+  /** Returns { owner: logo_url } using each owner's most recent season logo */
+  function getLogoMap() {
+    const map = {};
+    for (const [, season] of getSeasons()) {
+      for (const t of season.teams) {
+        if (t.logo_url && t.logo_url !== 'N/A') {
+          map[normalizeName(t.owner)] = t.logo_url;
+        }
+      }
+    }
+    return map;
+  }
+
+  /** Returns { owner: { type, length } } from the most recent season */
+  function getStreakMap() {
+    const seasons = getSeasons();
+    if (!seasons.length) return {};
+    const [, latestSeason] = seasons[seasons.length - 1];
+    const map = {};
+    for (const t of latestSeason.teams || []) {
+      const o = normalizeName(t.owner);
+      if (t.streak_type && t.streak_length) {
+        map[o] = { type: t.streak_type, length: t.streak_length };
+      }
+    }
+    return map;
+  }
+
+  /**
+   * Resolve a URL owner param (short or full) → canonical full name.
+   * Supports new format ("Dominic M.") and legacy full-name URLs.
+   */
+  function resolveOwner(param) {
+    if (!param) return null;
+    const owners = getAllOwners();
+    return owners.find(o => shortOwner(o) === param) || owners.find(o => o === param) || null;
+  }
+
+  return { getSeasons, buildTeamOwnerMap, getAllOwners, getOwnerStats, getAllMatchups, normalizeName, shortOwner, resolveOwner, isActive, fmt, fmtPct, getLogoMap, getStreakMap };
 })();

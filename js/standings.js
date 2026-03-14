@@ -4,6 +4,7 @@
 
 (function () {
   const ownerStats = Utils.getOwnerStats();
+  const streakMap  = Utils.getStreakMap();
 
   // Sort: titles desc → win% desc → wins desc
   ownerStats.sort((a, b) => {
@@ -29,13 +30,14 @@
         const total = o.wins + o.losses + o.ties;
         const wpct  = total ? ((o.wins + o.ties * 0.5) / total * 100).toFixed(1) : '0.0';
         const initial = o.owner.charAt(0).toUpperCase();
+        const logoUrl = (typeof TEAM_LOGOS !== 'undefined') ? TEAM_LOGOS[o.owner] : null;
         const trophyHtml = o.titles > 0
           ? `<div class="podium-titles">${Array(o.titles).fill(`<span class="badge">${Icons.trophy({ size: 11 })}</span>`).join(' ')}</div>`
           : '';
         return `
-          <a class="podium-card ${borderCls}" href="team.html?owner=${encodeURIComponent(o.owner)}">
+          <a class="podium-card ${borderCls}" href="team.html?owner=${encodeURIComponent(Utils.shortOwner(o.owner))}">
             <div class="podium-label">${label}</div>
-            <div class="podium-avatar ${avatarCls}">${initial}</div>
+            <div class="podium-avatar ${avatarCls}">${logoUrl ? `<img src="${logoUrl}" alt="${initial}" onerror="this.style.display='none'">` : ''}${initial}</div>
             <div class="podium-name">${Utils.shortOwner(o.owner)}</div>
             <div class="podium-team">${o.latestTeam || o.teamNames[0]}</div>
             ${trophyHtml}
@@ -77,7 +79,12 @@
     // Avatar color
     const avatarCls = i === 0 ? 'sa-gold' : i === 1 ? 'sa-silver' : i === 2 ? 'sa-bronze' : 'sa-default';
     const initial   = o.owner.charAt(0).toUpperCase();
+    const logoUrl   = (typeof TEAM_LOGOS !== 'undefined') ? TEAM_LOGOS[o.owner] : null;
     const isActive  = Utils.isActive(o.owner);
+    const streak    = streakMap[o.owner];
+    const streakHtml = streak
+      ? `<span class="streak-badge streak-${streak.type === 'W' ? 'win' : 'loss'}">${streak.type}${streak.length}</span>`
+      : '<span style="color:var(--text-muted)">—</span>';
 
     // Title badges
     const titlesHtml = o.titles > 0
@@ -87,11 +94,11 @@
     const teamName = o.latestTeam || o.teamNames[o.teamNames.length - 1];
 
     return `
-      <tr class="standings-row" onclick="window.location='team.html?owner=${encodeURIComponent(o.owner)}'">
+      <tr class="standings-row" onclick="window.location='team.html?owner=${encodeURIComponent(Utils.shortOwner(o.owner))}'">
         <td class="num">${rankBadge}</td>
         <td>
           <div class="standings-player">
-            <div class="standings-avatar ${avatarCls}">${initial}</div>
+            <div class="standings-avatar ${avatarCls}">${logoUrl ? `<img src="${logoUrl}" alt="${initial}" onerror="this.style.display='none'">` : ''}${initial}</div>
             <div>
               <div class="standings-name">${Utils.shortOwner(o.owner)}</div>
               ${!isActive ? '<div class="standings-alumni">Alumni</div>' : ''}
@@ -114,6 +121,7 @@
         <td class="num">${Utils.fmt(o.pa)}</td>
         <td class="num" style="color:${diffColor};font-weight:600">${diffStr}</td>
         <td>${titlesHtml}</td>
+        <td class="num">${streakHtml}</td>
       </tr>
     `;
   }).join('');
@@ -133,6 +141,7 @@
           <th class="num">PA</th>
           <th class="num">+/−</th>
           <th>Titles</th>
+          <th class="num">Streak</th>
         </tr>
       </thead>
       <tbody>${rows}</tbody>

@@ -95,6 +95,57 @@
     if (e.key === 'Escape') document.body.classList.remove('sidebar-mobile-open');
   });
 
+  // ── Dynamic team list from LEAGUE_DATA ────────
+  if (typeof LEAGUE_DATA !== 'undefined' && teamsList) {
+    const allSeasons = Object.entries(LEAGUE_DATA)
+      .filter(([, s]) => !s.error)
+      .sort(([a], [b]) => Number(a) - Number(b));
+
+    if (allSeasons.length) {
+      const normalize = name => ({ 'Alyssa Gilliam': 'Alyssa Mirto', 'Tomas McGrath': 'Thomas McGrath' }[name] || name);
+
+      // Build latest team name per owner (last season they appeared wins)
+      const ownerLatest = {};
+      for (const [yr, season] of allSeasons) {
+        for (const t of season.teams || []) {
+          const owner = normalize(t.owner);
+          if (!ownerLatest[owner] || Number(yr) >= ownerLatest[owner].year) {
+            ownerLatest[owner] = { year: Number(yr), teamName: (t.team_name || '').trim(), owner };
+          }
+        }
+      }
+
+      const [, latestSeason] = allSeasons[allSeasons.length - 1];
+      const latestOwners = new Set((latestSeason.teams || []).map(t => normalize(t.owner)));
+      const currentShort = new URLSearchParams(location.search).get('owner') || '';
+      const isTeamPage   = location.pathname.includes('team.html');
+
+      const sorted = Object.values(ownerLatest).sort((a, b) => {
+        const aAlumni = !latestOwners.has(a.owner);
+        const bAlumni = !latestOwners.has(b.owner);
+        if (aAlumni !== bAlumni) return aAlumni ? 1 : -1;
+        return a.owner.localeCompare(b.owner);
+      });
+
+      teamsList.innerHTML = sorted.map(({ owner, teamName }) => {
+        const isAlumni = !latestOwners.has(owner);
+        const logo = (typeof TEAM_LOGOS !== 'undefined') ? TEAM_LOGOS[owner] : null;
+        const shortKey = typeof Utils !== 'undefined' ? Utils.shortOwner(owner) : owner.split(' ')[0];
+        const href = `team.html?owner=${encodeURIComponent(shortKey)}`;
+        const isActive = isTeamPage && currentShort === shortKey;
+        const shortName = owner.split(' ')[0];
+        const logoEl = logo
+          ? `<img class="sidebar-team-logo" src="${logo}" alt="" loading="lazy"/>`
+          : `<span class="sidebar-avatar">${owner.charAt(0)}</span>`;
+        return `<a title="${teamName}" href="${href}"
+            class="sidebar-item sidebar-team-item${isAlumni ? ' sidebar-alumni' : ''}${isActive ? ' active' : ''}"
+            data-label="${shortName}">
+          ${logoEl}<span>${teamName}</span>${isAlumni ? '<span class="sidebar-alumni-tag">Alumni</span>' : ''}
+        </a>`;
+      }).join('');
+    }
+  }
+
   // ── Teams accordion ───────────────────────────
   // sessionStorage: persists within the tab session, resets on refresh
   function sessionGet(key) { try { return sessionStorage.getItem(key); } catch(e) { return null; } }

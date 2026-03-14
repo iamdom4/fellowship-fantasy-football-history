@@ -2,7 +2,7 @@
 const TEAM_LOGOS = {
   "Abigail Shewalter": "images/logos/abigail-shewalter.jpg",
   "Alex Carrocce": "images/logos/alex-carrocce.jpg",
-  "Alyssa Mirto": "images/logos/alyssa-mirto.svg",
+  "Alyssa Mirto": "images/logos/alyssa-mirto.jpg",
   "Anthony Esway": "images/logos/anthony-esway.jpg",
   "Dominic Mirto": "images/logos/dominic-mirto.svg",
   "Heather Baker": "images/logos/heather-baker.svg",

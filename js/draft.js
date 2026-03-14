@@ -46,7 +46,7 @@
     const ownerStats = Utils.getOwnerStats().map(o => o.owner).sort((a,b) => a.localeCompare(b));
     teamsNav.innerHTML = ownerStats.map(o => {
       const alumni = Utils.isActive(o) ? '' : ' <span class="dropdown-inactive">Alumni</span>';
-      return `<li><a href="team.html?owner=${encodeURIComponent(o)}">${Utils.shortOwner(o)}${alumni}</a></li>`;
+      return `<li><a href="team.html?owner=${encodeURIComponent(Utils.shortOwner(o))}">${Utils.shortOwner(o)}${alumni}</a></li>`;
     }).join('');
   }
 
@@ -103,10 +103,11 @@
       const cells = teamOrder.map(team => {
         const pick = (teamPicks[team] || []).find(p => p.round === round);
         if (!pick) return '<td class="draft-cell-empty"></td>';
-        const overall = (round - 1) * numTeams + pick.pick;
+        const overall = pick.overall_pick || (round - 1) * numTeams + pick.pick;
         const pos = pick.position || 'N/A';
         const pc = posClass(pos);
-        return `<td class="draft-cell"><div class="draft-pick pos-${pc}"><div class="pick-number">#${overall} <span class="pos-badge pos-badge-${pc}">${pos}</span></div><div class="pick-player">${pick.player_name || '—'}</div></div></td>`;
+        const keeperBadge = pick.keeper_status ? '<span class="draft-keeper-badge">K</span>' : '';
+        return `<td class="draft-cell"><div class="draft-pick pos-${pc}"><div class="pick-number">#${overall} <span class="pos-badge pos-badge-${pc}">${pos}</span>${keeperBadge}</div><div class="pick-player">${pick.player_name || '—'}</div></div></td>`;
       }).join('');
       rows += `<tr><td class="draft-round-num">R${round}</td>${cells}</tr>`;
     }

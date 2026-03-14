@@ -236,7 +236,7 @@
         const pfgDisplay = Utils.fmt(totalGames > 0 ? t.pf / totalGames : 0, 2);
 
         // Owner URL encode
-        const ownerEnc = encodeURIComponent(t.owner);
+        const ownerEnc = encodeURIComponent(Utils.shortOwner(t.owner));
 
         rows += `
           <tr class="pr-row" data-owner="${ownerEnc}" style="cursor:pointer;">

@@ -7,6 +7,7 @@
   const allMatchups  = Utils.getAllMatchups();
   const seasons      = Utils.getSeasons();
   const teamOwnerMap = Utils.buildTeamOwnerMap();
+  const logoMap      = Utils.getLogoMap();
 
   // All canonical owners sorted alphabetically
   const allOwners = ownerStats
@@ -17,11 +18,11 @@
   const teamsNav = document.getElementById('teamsDropdownNav');
   if (teamsNav) {
     const params = new URLSearchParams(window.location.search);
-    const currentOwner = params.get('owner') || '';
+    const currentShort = params.get('owner') || '';
     teamsNav.innerHTML = allOwners.map(o => {
       const active = Utils.isActive(o);
-      return `<li><a href="team.html?owner=${encodeURIComponent(o)}"
-          class="${o === currentOwner ? 'active' : ''}">
+      return `<li><a href="team.html?owner=${encodeURIComponent(Utils.shortOwner(o))}"
+          class="${Utils.shortOwner(o) === currentShort ? 'active' : ''}">
           ${Utils.shortOwner(o)}${!active ? ' <span class="dropdown-inactive">Alumni</span>' : ''}
         </a></li>`;
     }).join('');
@@ -34,7 +35,7 @@
   // Default: most seasons played (first in ownerStats sorted by seasons desc)
   const defaultOwner = [...ownerStats].sort((a, b) => b.seasons - a.seasons)[0]?.owner;
   const activeOwner  = requestedOwner
-    ? (allOwners.find(o => o === requestedOwner) || defaultOwner)
+    ? (Utils.resolveOwner(requestedOwner) || defaultOwner)
     : defaultOwner;
 
   if (!activeOwner) {
@@ -165,6 +166,15 @@
       ${statPill('Championships', stats.titles, champYears.length ? champYears.join(', ') : 'Not yet')}
     </div>
 
+    <!-- WEEK-BY-WEEK CHART -->
+    <div style="margin-bottom:2rem">
+      <div class="section-title">${Icons.trendUp({ size: 16 })} Weekly Performance</div>
+      <div class="card week-chart-card">
+        <div class="week-chart-tabs" id="weekChartTabs"></div>
+        <div id="weekChartBody"></div>
+      </div>
+    </div>
+
     <!-- SEASON HIGHLIGHTS -->
     <div class="grid-2" style="margin-bottom:2rem">
       <div>
@@ -227,6 +237,155 @@
       </div>
     </div>
   `;
+
+  // ── WEEK CHART ───────────────────────────────
+
+  // Get week-by-week data: use pre-computed arrays when available, fall back to matchups
+  function getWeeklyData(year, teamEntry) {
+    if (teamEntry.scores && teamEntry.scores.length > 0) {
+      return { scores: teamEntry.scores, outcomes: teamEntry.outcomes || [], schedule: teamEntry.schedule || [] };
+    }
+    const season = LEAGUE_DATA[year];
+    const regCount = season?.settings?.reg_season_count || 14;
+    const teamName = teamEntry.team_name?.trim();
+    const scores = [], outcomes = [], schedule = [];
+    for (let w = 1; w <= regCount; w++) {
+      const m = (season?.matchups || []).find(mx =>
+        mx.week === w && mx.matchup_type === 'NONE' &&
+        (mx.home_team?.trim() === teamName || mx.away_team?.trim() === teamName)
+      );
+      if (!m) continue;
+      const isHome = m.home_team?.trim() === teamName;
+      const myScore  = isHome ? m.home_score  : m.away_score;
+      const oppScore = isHome ? m.away_score  : m.home_score;
+      scores[w - 1]   = myScore || 0;
+      outcomes[w - 1] = myScore > oppScore ? 'W' : myScore < oppScore ? 'L' : (myScore ? 'T' : 'U');
+      schedule[w - 1] = ((isHome ? m.away_team : m.home_team) || '—').trim();
+    }
+    return { scores, outcomes, schedule };
+  }
+
+  const chartSeasons = seasonRows.filter(r => {
+    const d = getWeeklyData(r.year, r.teamEntry);
+    return d.scores.some(s => s > 0);
+  });
+
+  const tabsEl = document.getElementById('weekChartTabs');
+  const bodyEl = document.getElementById('weekChartBody');
+
+  if (tabsEl && bodyEl && chartSeasons.length) {
+    // Build year tabs — most recent first
+    const yearList = [...chartSeasons].reverse().map(r => r.year);
+    tabsEl.innerHTML = yearList.map(y =>
+      `<button class="week-chart-tab" data-year="${y}">${y}</button>`
+    ).join('');
+
+    function renderChart(year) {
+      const row = chartSeasons.find(r => r.year === year);
+      if (!row) return;
+
+      const regCount = LEAGUE_DATA[year]?.settings?.reg_season_count || 14;
+      const wd = getWeeklyData(year, row.teamEntry);
+      const wkScores   = wd.scores.slice(0, regCount);
+      const wkOutcomes = wd.outcomes.slice(0, regCount);
+      const wkSchedule = wd.schedule.slice(0, regCount);
+
+      const validScores = wkScores.filter(s => s > 0);
+      if (!validScores.length) {
+        bodyEl.innerHTML = '<p style="color:var(--text-muted);padding:1rem">No scored weeks yet.</p>';
+        tabsEl.querySelectorAll('.week-chart-tab').forEach(b => b.classList.toggle('active', b.dataset.year === String(year)));
+        return;
+      }
+
+      const maxS = Math.max(...validScores);
+      const minS = Math.min(...validScores);
+      const pad  = (maxS - minS) * 0.15 || 20;
+      const yMax = maxS + pad;
+      const yMin = Math.max(0, minS - pad);
+
+      const W = 680, H = 160;
+      const PL = 46, PR = 12, PT = 14, PB = 28;
+      const cW = W - PL - PR;
+      const cH = H - PT - PB;
+      const n  = wkScores.length;
+      const xP = i => PL + (n > 1 ? i / (n - 1) : 0.5) * cW;
+      const yP = v => PT + cH - ((v - yMin) / (yMax - yMin)) * cH;
+
+      const playedIdx = wkScores.reduce((acc, s, i) => { if (s > 0) acc.push(i); return acc; }, []);
+      const lineParts = playedIdx.map((i, j) =>
+        `${j === 0 ? 'M' : 'L'} ${xP(i).toFixed(1)},${yP(wkScores[i]).toFixed(1)}`
+      );
+      const linePath = lineParts.join(' ');
+      const areaPath = playedIdx.length
+        ? `M ${xP(playedIdx[0]).toFixed(1)},${(PT + cH).toFixed(1)} ${lineParts.join(' ')} L ${xP(playedIdx[playedIdx.length - 1]).toFixed(1)},${(PT + cH).toFixed(1)} Z`
+        : '';
+
+      let yLines = '', yLabels = '';
+      for (let ti = 0; ti <= 3; ti++) {
+        const v = yMin + (yMax - yMin) * (ti / 3);
+        const y = yP(v).toFixed(1);
+        yLines  += `<line x1="${PL}" y1="${y}" x2="${W - PR}" y2="${y}" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>`;
+        yLabels += `<text x="${PL - 6}" y="${y}" text-anchor="end" dominant-baseline="middle" fill="var(--text-muted)" font-size="10" font-family="Barlow Condensed,sans-serif">${v.toFixed(0)}</text>`;
+      }
+
+      let xLabels = '';
+      wkScores.forEach((_, i) => {
+        xLabels += `<text x="${xP(i).toFixed(1)}" y="${H - 4}" text-anchor="middle" fill="var(--text-muted)" font-size="10" font-family="Barlow Condensed,sans-serif">${i + 1}</text>`;
+      });
+
+      let dots = '';
+      wkScores.forEach((s, i) => {
+        if (!s) return;
+        const outcome = wkOutcomes[i] || 'U';
+        const opp  = wkSchedule[i] || '—';
+        const fill = outcome === 'W' ? '#4ade80' : outcome === 'L' ? '#f87171' : '#94a3b8';
+        dots += `<circle cx="${xP(i).toFixed(1)}" cy="${yP(s).toFixed(1)}" r="5" fill="${fill}" stroke="var(--bg-card)" stroke-width="2" class="chart-dot"><title>Wk ${i + 1}: ${s.toFixed(1)} pts vs ${opp} (${outcome})</title></circle>`;
+      });
+
+      const avg  = validScores.reduce((a, b) => a + b, 0) / validScores.length;
+      const avgY = yP(avg).toFixed(1);
+      const wins   = wkOutcomes.filter(o => o === 'W').length;
+      const losses = wkOutcomes.filter(o => o === 'L').length;
+      const highWk = wkScores.indexOf(Math.max(...validScores)) + 1;
+      const lowWk  = wkScores.indexOf(Math.min(...validScores)) + 1;
+
+      bodyEl.innerHTML = `
+        <svg viewBox="0 0 ${W} ${H}" class="week-chart-svg" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="cg${year}" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#c9a227" stop-opacity="0.25"/>
+              <stop offset="100%" stop-color="#c9a227" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          ${yLines}
+          <line x1="${PL}" y1="${avgY}" x2="${W - PR}" y2="${avgY}" stroke="rgba(201,162,39,0.3)" stroke-width="1" stroke-dasharray="4,3"/>
+          <text x="${W - PR}" y="${Number(avgY) - 4}" text-anchor="end" fill="rgba(201,162,39,0.6)" font-size="9" font-family="Barlow Condensed,sans-serif">AVG ${avg.toFixed(1)}</text>
+          ${areaPath ? `<path d="${areaPath}" fill="url(#cg${year})"/>` : ''}
+          ${linePath ? `<path d="${linePath}" fill="none" stroke="#c9a227" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>` : ''}
+          ${yLabels}${xLabels}${dots}
+        </svg>
+        <div class="week-chart-stats">
+          <div class="week-chart-stat"><span class="week-chart-stat-val" style="color:#4ade80">${wins}</span><span class="week-chart-stat-lbl">Wins</span></div>
+          <div class="week-chart-stat"><span class="week-chart-stat-val" style="color:#f87171">${losses}</span><span class="week-chart-stat-lbl">Losses</span></div>
+          <div class="week-chart-stat"><span class="week-chart-stat-val">${avg.toFixed(1)}</span><span class="week-chart-stat-lbl">Avg Score</span></div>
+          <div class="week-chart-stat"><span class="week-chart-stat-val">${maxS.toFixed(1)}</span><span class="week-chart-stat-lbl">Best (Wk ${highWk})</span></div>
+          <div class="week-chart-stat"><span class="week-chart-stat-val">${Math.min(...validScores).toFixed(1)}</span><span class="week-chart-stat-lbl">Lowest (Wk ${lowWk})</span></div>
+        </div>
+      `;
+
+      tabsEl.querySelectorAll('.week-chart-tab').forEach(b => b.classList.toggle('active', b.dataset.year === String(year)));
+    }
+
+    tabsEl.addEventListener('click', e => {
+      const btn = e.target.closest('.week-chart-tab');
+      if (btn) renderChart(btn.dataset.year);
+    });
+
+    // Default to most recent season with data
+    renderChart(yearList[0]);
+  } else if (tabsEl && bodyEl) {
+    bodyEl.innerHTML = '<p style="color:var(--text-muted);padding:1rem 0">No weekly data available — re-run fetch_league_data.py to populate.</p>';
+  }
 
   // ── HELPER FUNCTIONS ─────────────────────────
   function statPill(label, value, sub) {
