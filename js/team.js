@@ -141,7 +141,11 @@
 
     <!-- PROFILE HEADER -->
     <div class="team-header">
-      <div class="team-header-avatar">${Utils.shortOwner(activeOwner).split(' ')[0][0]}</div>
+      <div class="team-header-avatar">${
+        (typeof TEAM_LOGOS !== 'undefined' && TEAM_LOGOS[activeOwner])
+          ? `<img src="${TEAM_LOGOS[activeOwner]}" alt="${stats.latestTeam} logo" />`
+          : Utils.shortOwner(activeOwner).split(' ')[0][0]
+      }</div>
       <div class="team-header-info">
         <div class="team-header-name">${stats.latestTeam}</div>
         <div class="team-header-team">${Utils.shortOwner(activeOwner)}</div>
