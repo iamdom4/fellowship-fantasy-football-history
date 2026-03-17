@@ -68,7 +68,7 @@
     const wpct   = total ? ((o.wins + o.ties * 0.5) / total) : 0;
     const wpctPct = (wpct * 100).toFixed(1);
     const diff   = o.pf - o.pa;
-    const diffStr = (diff >= 0 ? '+' : '') + Utils.fmt(diff);
+    const diffStr = (diff >= 0 ? '+' : '') + Utils.fmt(diff, 2);
     const diffColor = diff >= 0 ? 'var(--win)' : 'var(--loss)';
 
     // Rank badge
@@ -93,8 +93,9 @@
 
     const teamName = o.latestTeam || o.teamNames[o.teamNames.length - 1];
 
+    const ownerUrl = `team.html?owner=${encodeURIComponent(Utils.shortOwner(o.owner))}`;
     return `
-      <tr class="standings-row" onclick="window.location='team.html?owner=${encodeURIComponent(Utils.shortOwner(o.owner))}'">
+      <tr class="standings-row" onclick="window.location='${ownerUrl}'" tabindex="0" role="link" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();window.location='${ownerUrl}';}">
         <td class="num">${rankBadge}</td>
         <td>
           <div class="standings-player">
@@ -117,8 +118,8 @@
             <span class="win-pct">${wpctPct}%</span>
           </div>
         </td>
-        <td class="num">${Utils.fmt(o.pf)}</td>
-        <td class="num">${Utils.fmt(o.pa)}</td>
+        <td class="num">${Utils.fmt(o.pf, 2)}</td>
+        <td class="num">${Utils.fmt(o.pa, 2)}</td>
         <td class="num" style="color:${diffColor};font-weight:600">${diffStr}</td>
         <td>${titlesHtml}</td>
         <td class="num">${streakHtml}</td>
@@ -130,18 +131,18 @@
     <table>
       <thead>
         <tr>
-          <th class="num">#</th>
-          <th>Manager</th>
-          <th>Current Team</th>
-          <th class="num">Seasons</th>
-          <th class="num">W</th>
-          <th class="num">L</th>
-          <th class="num">Win%</th>
-          <th class="num">PF</th>
-          <th class="num">PA</th>
-          <th class="num">+/−</th>
-          <th>Titles</th>
-          <th class="num">Streak</th>
+          <th class="num" scope="col">#</th>
+          <th scope="col">Manager</th>
+          <th scope="col">Current Team</th>
+          <th class="num" scope="col">Seasons</th>
+          <th class="num" scope="col">W</th>
+          <th class="num" scope="col">L</th>
+          <th class="num" scope="col">Win%</th>
+          <th class="num" scope="col">PF</th>
+          <th class="num" scope="col">PA</th>
+          <th class="num" scope="col">+/−</th>
+          <th scope="col">Titles</th>
+          <th class="num" scope="col">Streak</th>
         </tr>
       </thead>
       <tbody>${rows}</tbody>

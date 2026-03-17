@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Fellowship of the League</title>
-  <link rel="stylesheet" href="css/style.css?v=23" />
+  <link rel="stylesheet" href="css/style.css?v=52" />
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -195,14 +195,54 @@
     <!-- SCOREBOARD -->
     <div class="section-block">
       <div class="scoreboard-section-header">
-        <div class="section-title">
+        <div class="section-title" id="scoreboardTitle">
           <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="4" rx="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
-          Latest Results
+          Week Scoreboard
         </div>
         <div id="scoreboardLabel"></div>
       </div>
       <div class="matchup-grid" id="scoreboard">
         <div class="loading"><div class="spinner"></div></div>
+      </div>
+    </div>
+
+    <!-- PLAYOFF BRACKETS (weeks 15-17) -->
+    <div id="homeBracketsSection" style="display:none">
+      <div id="homeBrackets"></div>
+    </div>
+
+    <!-- LEAGUE STANDINGS TABLE -->
+    <div class="section-block">
+      <div class="lsc-section-header">
+        <div class="section-title">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          League Standings
+        </div>
+        <div class="lsc-filter-group" id="lscFilterBtns" role="group" aria-label="Filter standings">
+          <button class="lsc-filter-btn active" data-filter="regular">Regular Season</button>
+          <button class="lsc-filter-btn" data-filter="playoffs">Playoffs</button>
+          <button class="lsc-filter-btn" data-filter="all">All</button>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table id="lscTable" class="lsc-table">
+          <thead>
+            <tr>
+              <th scope="col" class="lsc-th-rank lsc-sortable" data-sort="rank">Rank <span class="lsc-sort">↕</span></th>
+              <th scope="col" class="lsc-th-team">Team</th>
+              <th scope="col" class="lsc-th-po" title="Currently in playoff position">Playoffs</th>
+              <th scope="col" class="lsc-sortable" data-sort="record">Record <span class="lsc-sort">↕</span></th>
+              <th scope="col" class="lsc-sortable" data-sort="powerRecord" title="Round-robin record vs all teams each week">Power Record <span class="lsc-sort">↕</span></th>
+              <th scope="col" class="lsc-sortable" data-sort="vsMedian" title="Record vs weekly median score">vs. Median <span class="lsc-sort">↕</span></th>
+              <th scope="col" class="lsc-sortable" data-sort="combined" title="Actual wins + median wins combined">Games + Median <span class="lsc-sort">↕</span></th>
+              <th scope="col" class="lsc-sortable num" data-sort="pf">PF <span class="lsc-sort">↕</span></th>
+              <th scope="col" class="lsc-sortable num" data-sort="pa">PA <span class="lsc-sort">↕</span></th>
+              <th scope="col" class="lsc-sortable num" data-sort="maxPf" title="Maximum possible points (optimal lineup each week)">Max PF <span class="lsc-sort">↕</span></th>
+              <th scope="col" class="lsc-sortable num" data-sort="mgmtPct" title="Management %: Actual PF ÷ Max PF — how optimally a team started their lineup">Mgmt % <span class="lsc-sort">↕</span></th>
+            </tr>
+          </thead>
+          <tbody id="lscTbody"></tbody>
+        </table>
       </div>
     </div>
 
@@ -264,8 +304,8 @@
   <script src="js/leagueData.js?v=15"></script>
   <script src="js/utils.js?v=26"></script>
   <script src="js/logoData.js?v=15"></script>
-  <script src="js/icons.js?v=15"></script>
-  <script src="js/home.js?v=24"></script>
+  <script src="js/icons.js?v=16"></script>
+  <script src="js/home.js?v=47"></script>
   <script src="js/nav.js?v=26"></script>
 </body>
 </html>

@@ -14,29 +14,71 @@
     return pos.replace('/', '');  // D/ST → DST
   }
 
-  // ── YEAR SELECT ───────────────────────────────
-  const yearSel = document.getElementById('yearSelect');
+  // ── Custom picker helper ───────────────────────
+  function makePicker(btnId, valId, panelId) {
+    const btn     = document.getElementById(btnId);
+    const valEl   = document.getElementById(valId);
+    const panel   = document.getElementById(panelId);
+    let currentValue = null;
+    const callbacks  = [];
+
+    function open()  { panel.hidden = false; btn.setAttribute('aria-expanded', 'true'); }
+    function close() { panel.hidden = true;  btn.setAttribute('aria-expanded', 'false'); }
+    btn.addEventListener('click', e => { e.stopPropagation(); panel.hidden ? open() : close(); });
+    document.addEventListener('click', close);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+
+    function populate(items) {
+      panel.innerHTML = '';
+      items.forEach(({ value, label }) => {
+        const opt = document.createElement('div');
+        opt.className = 'pr-picker-option' + (String(value) === String(currentValue) ? ' selected' : '');
+        opt.setAttribute('role', 'option');
+        opt.setAttribute('aria-selected', String(value) === String(currentValue) ? 'true' : 'false');
+        opt.dataset.value = value;
+        opt.innerHTML = `<svg class="pr-picker-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>${label}</span>`;
+        opt.addEventListener('click', e => {
+          e.stopPropagation();
+          setValue(value, label);
+          close();
+          callbacks.forEach(cb => cb(value));
+        });
+        panel.appendChild(opt);
+      });
+    }
+
+    function setValue(value, label) {
+      currentValue = String(value);
+      valEl.textContent = label || value;
+      panel.querySelectorAll('.pr-picker-option').forEach(el => {
+        const sel = el.dataset.value === String(value);
+        el.classList.toggle('selected', sel);
+        el.setAttribute('aria-selected', sel ? 'true' : 'false');
+      });
+    }
+
+    return { getValue: () => currentValue, setValue, populate, onChange: cb => callbacks.push(cb) };
+  }
+
+  // ── YEAR PICKER ───────────────────────────────
   const defaultYear = (() => {
     const p = new URLSearchParams(window.location.search).get('year');
     return seasons.find(([y]) => y === p) ? p : seasons[seasons.length - 1][0];
   })();
 
-  // Populate select — newest first
-  [...seasons].reverse().forEach(([year]) => {
-    const opt = document.createElement('option');
-    opt.value = year;
-    opt.textContent = year;
-    yearSel.appendChild(opt);
-  });
-  yearSel.value = defaultYear;
+  const yearPicker = makePicker('yearPickerBtn', 'yearPickerVal', 'yearPickerPanel');
+  const yearItems  = [...seasons].reverse().map(([year]) => ({ value: year, label: year }));
+  yearPicker.populate(yearItems);
+  yearPicker.setValue(defaultYear, defaultYear);
 
-  yearSel.addEventListener('change', () => {
-    history.pushState({}, '', `draft.html?year=${yearSel.value}`);
-    renderDraft(yearSel.value);
+  yearPicker.onChange(year => {
+    history.pushState({}, '', `draft.html?year=${year}`);
+    renderDraft(year);
   });
+
   window.addEventListener('popstate', () => {
     const y = new URLSearchParams(window.location.search).get('year') || seasons[seasons.length - 1][0];
-    yearSel.value = y;
+    yearPicker.setValue(y, y);
     renderDraft(y);
   });
 
@@ -94,7 +136,7 @@
     // Column headers
     const headerCells = teamOrder.map(team => {
       const owner = teamToOwner[team] || '—';
-      return `<th class="draft-col-header"><div class="draft-col-team" title="${team}">${team}</div><div class="draft-col-owner">${owner}</div></th>`;
+      return `<th class="draft-col-header" scope="col"><div class="draft-col-team" title="${team}">${team}</div><div class="draft-col-owner">${owner}</div></th>`;
     }).join('');
 
     // Rows — one per round

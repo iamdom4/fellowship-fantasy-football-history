@@ -81,7 +81,7 @@
       icon: Icons.flame({ size: 20 }), color: 'gold',
       label: 'Highest Scoring',
       owners: `${Utils.shortOwner(highestScoring.owner1)} vs ${Utils.shortOwner(highestScoring.owner2)}`,
-      stat: `${Utils.fmt(highestScoring.avgCombined)} avg combined pts`,
+      stat: `${Utils.fmt(highestScoring.avgCombined, 2)} avg combined pts`,
     },
     {
       icon: Icons.zap({ size: 20 }), color: 'green',
@@ -123,13 +123,13 @@
           <div class="rivalry-owner rivalry-owner-left">
             <div class="rivalry-name">${Utils.shortOwner(r.owner1)}</div>
             <div class="rivalry-record">${w1}–${l1}</div>
-            <div class="rivalry-avg">${Utils.fmt(avg1)} avg</div>
+            <div class="rivalry-avg">${Utils.fmt(avg1, 2)} avg</div>
           </div>
           <div class="rivalry-vs">VS</div>
           <div class="rivalry-owner rivalry-owner-right">
             <div class="rivalry-name">${Utils.shortOwner(r.owner2)}</div>
             <div class="rivalry-record">${w2}–${l2}</div>
-            <div class="rivalry-avg">${Utils.fmt(avg2)} avg</div>
+            <div class="rivalry-avg">${Utils.fmt(avg2, 2)} avg</div>
           </div>
         </div>
         <div class="rivalry-bar-wrap">
@@ -161,13 +161,13 @@
           <div class="rivalry-owner rivalry-owner-left">
             <div class="rivalry-name">${Utils.shortOwner(r.owner1)}</div>
             <div class="rivalry-record">${w1}–${l1}</div>
-            <div class="rivalry-avg">${Utils.fmt(avg1)}</div>
+            <div class="rivalry-avg">${Utils.fmt(avg1, 2)}</div>
           </div>
           <div class="rivalry-vs">VS</div>
           <div class="rivalry-owner rivalry-owner-right">
             <div class="rivalry-name">${Utils.shortOwner(r.owner2)}</div>
             <div class="rivalry-record">${w2}–${l2}</div>
-            <div class="rivalry-avg">${Utils.fmt(avg2)}</div>
+            <div class="rivalry-avg">${Utils.fmt(avg2, 2)}</div>
           </div>
         </div>
         <div class="rivalry-bar-wrap">

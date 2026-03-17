@@ -6,11 +6,70 @@
 
 (() => {
   try {
-    const yearSel  = document.getElementById('yearSelect');
-    const weekSel  = document.getElementById('weekSelect');
-    const content  = document.getElementById('rankingsContent');
+    const content = document.getElementById('rankingsContent');
 
-    // ── Populate year selector ───────────────────────────────────────────────
+    // ── Custom picker helper ─────────────────────────────────────────────────
+    function makePicker(btnId, valId, panelId) {
+      const btn    = document.getElementById(btnId);
+      const valEl  = document.getElementById(valId);
+      const panel  = document.getElementById(panelId);
+      const chevron = btn.querySelector('.pr-picker-chevron');
+      let currentValue = null;
+      const callbacks  = [];
+
+      function open() {
+        panel.hidden = false;
+        btn.setAttribute('aria-expanded', 'true');
+      }
+      function close() {
+        panel.hidden = true;
+        btn.setAttribute('aria-expanded', 'false');
+      }
+      btn.addEventListener('click', e => { e.stopPropagation(); panel.hidden ? open() : close(); });
+      document.addEventListener('click', close);
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+
+      function populate(items) {
+        panel.innerHTML = '';
+        items.forEach(({ value, label }) => {
+          const opt = document.createElement('div');
+          opt.className = 'pr-picker-option' + (String(value) === String(currentValue) ? ' selected' : '');
+          opt.setAttribute('role', 'option');
+          opt.setAttribute('aria-selected', String(value) === String(currentValue) ? 'true' : 'false');
+          opt.dataset.value = value;
+          opt.innerHTML = `<svg class="pr-picker-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>${label}</span>`;
+          opt.addEventListener('click', e => {
+            e.stopPropagation();
+            setValue(value, label);
+            close();
+            callbacks.forEach(cb => cb(value));
+          });
+          panel.appendChild(opt);
+        });
+      }
+
+      function setValue(value, label) {
+        currentValue = String(value);
+        valEl.textContent = label || value;
+        panel.querySelectorAll('.pr-picker-option').forEach(el => {
+          const sel = el.dataset.value === String(value);
+          el.classList.toggle('selected', sel);
+          el.setAttribute('aria-selected', sel ? 'true' : 'false');
+        });
+      }
+
+      return {
+        getValue: () => currentValue,
+        setValue,
+        populate,
+        onChange: cb => callbacks.push(cb),
+      };
+    }
+
+    const yearPicker = makePicker('yearPickerBtn', 'yearPickerVal', 'yearPickerPanel');
+    const weekPicker = makePicker('weekPickerBtn', 'weekPickerVal', 'weekPickerPanel');
+
+    // ── Populate year picker ─────────────────────────────────────────────────
     const seasons = Utils.getSeasons(); // sorted oldest → newest
     if (!seasons.length) {
       content.innerHTML = '<p class="loading">No season data found.</p>';
@@ -19,12 +78,8 @@
 
     // Newest first
     const seasonsSorted = [...seasons].reverse();
-    seasonsSorted.forEach(([year]) => {
-      const opt = document.createElement('option');
-      opt.value = year;
-      opt.textContent = year;
-      yearSel.appendChild(opt);
-    });
+    const yearItems = seasonsSorted.map(([year]) => ({ value: year, label: year }));
+    yearPicker.populate(yearItems);
 
     // ── Helpers ──────────────────────────────────────────────────────────────
 
@@ -41,18 +96,16 @@
       return [...weeks].sort((a, b) => a - b);
     }
 
-    /** Populate the week selector for a given year */
+    /** Populate the week picker for a given year */
     function populateWeeks(year) {
-      weekSel.innerHTML = '';
       const weeks = getRegSeasonWeeks(year);
-      weeks.forEach(w => {
-        const opt = document.createElement('option');
-        opt.value = w;
-        opt.textContent = `Week ${w}`;
-        weekSel.appendChild(opt);
-      });
+      const weekItems = [...weeks].reverse().map(w => ({ value: String(w), label: `Week ${w}` }));
+      weekPicker.populate(weekItems);
       // Default to the latest week
-      if (weeks.length) weekSel.value = weeks[weeks.length - 1];
+      if (weeks.length) {
+        const last = weeks[weeks.length - 1];
+        weekPicker.setValue(String(last), `Week ${last}`);
+      }
       return weeks;
     }
 
@@ -239,7 +292,7 @@
         const ownerEnc = encodeURIComponent(Utils.shortOwner(t.owner));
 
         rows += `
-          <tr class="pr-row" data-owner="${ownerEnc}" style="cursor:pointer;">
+          <tr class="pr-row" data-owner="${ownerEnc}" style="cursor:pointer;" tabindex="0" role="link">
             <td class="${rankClass}">${t.rank}</td>
             <td>
               <div class="owner-cell">${t.teamName}</div>
@@ -262,14 +315,14 @@
           <table>
             <thead>
               <tr>
-                <th style="text-align:center;">#</th>
-                <th>Team</th>
-                <th>Record</th>
-                <th class="num">PF/G</th>
-                <th class="num">Pts For</th>
-                <th class="num">Max PF</th>
-                <th class="num">PR Score</th>
-                <th class="num">Change</th>
+                <th style="text-align:center;" scope="col">#</th>
+                <th scope="col">Team</th>
+                <th scope="col">Record</th>
+                <th class="num" scope="col">PF/G</th>
+                <th class="num" scope="col">Pts For</th>
+                <th class="num" scope="col">Max PF</th>
+                <th class="num" scope="col">PR Score</th>
+                <th class="num" scope="col">Change</th>
               </tr>
             </thead>
             <tbody>
@@ -278,10 +331,12 @@
           </table>
         </div>`;
 
-      // Row click → team page
+      // Row click/keyboard → team page
       content.querySelectorAll('.pr-row').forEach(row => {
-        row.addEventListener('click', () => {
-          window.location.href = `team.html?owner=${row.dataset.owner}`;
+        const nav = () => { window.location.href = `team.html?owner=${row.dataset.owner}`; };
+        row.addEventListener('click', nav);
+        row.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); nav(); }
         });
       });
     }
@@ -358,8 +413,8 @@
       const numTeams  = teamNames.length;
       const numWeeks  = allWeeks.length;
 
-      // Layout
-      const M = { top: 24, right: 170, bottom: 38, left: 38 };
+      // Layout — M.left widened to give clear gap between rank labels and first circle
+      const M = { top: 24, right: 175, bottom: 42, left: 56 };
       const innerW = Math.max(560, numWeeks * 64);
       const innerH = Math.max(280, numTeams * 38);
       const totalW = innerW + M.left + M.right;
@@ -373,18 +428,18 @@
       for (let r = 1; r <= numTeams; r++) {
         const y = yScale(r).toFixed(2);
         grid += `<line x1="${M.left}" y1="${y}" x2="${(M.left+innerW).toFixed(2)}" y2="${y}" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>`;
-        grid += `<text x="${(M.left-8).toFixed(2)}" y="${y}" text-anchor="end" dominant-baseline="middle" fill="#5a6a88" font-size="11" font-family="Barlow Condensed,sans-serif">${r}</text>`;
+        grid += `<text x="${(M.left-12).toFixed(2)}" y="${y}" text-anchor="end" dominant-baseline="middle" fill="var(--text-secondary)" font-size="14" font-family="Barlow Condensed,sans-serif" font-weight="600">${r}</text>`;
       }
       for (const w of allWeeks) {
         const x = xScale(w).toFixed(2);
         grid += `<line x1="${x}" y1="${M.top}" x2="${x}" y2="${(M.top+innerH).toFixed(2)}" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>`;
-        grid += `<text x="${x}" y="${(M.top+innerH+20).toFixed(2)}" text-anchor="middle" fill="#5a6a88" font-size="11" font-family="Barlow Condensed,sans-serif">Wk ${w}</text>`;
+        grid += `<text x="${x}" y="${(M.top+innerH+22).toFixed(2)}" text-anchor="middle" fill="var(--text-secondary)" font-size="14" font-family="Barlow Condensed,sans-serif" font-weight="600">Wk ${w}</text>`;
       }
 
       // Axis label
       const midY = (M.top + innerH / 2).toFixed(2);
-      const axX  = (M.left - 28).toFixed(2);
-      grid += `<text x="${axX}" y="${midY}" text-anchor="middle" fill="#5a6a88" font-size="11" font-family="Barlow Condensed,sans-serif" transform="rotate(-90,${axX},${midY})">Rank</text>`;
+      const axX  = (M.left - 40).toFixed(2);
+      grid += `<text x="${axX}" y="${midY}" text-anchor="middle" fill="var(--text-secondary)" font-size="12" font-family="Barlow Condensed,sans-serif" font-weight="600" transform="rotate(-90,${axX},${midY})">Rank</text>`;
 
       // Lines, dots, labels
       let lines = '', dots = '', labels = '';
@@ -400,7 +455,7 @@
         }
 
         const last = pts[pts.length - 1];
-        labels += `<text class="prc-label" data-tid="${tid}" x="${(last.x+14).toFixed(2)}" y="${last.y.toFixed(2)}" dominant-baseline="middle" fill="${color}" font-size="12" font-family="Barlow Condensed,sans-serif" font-weight="600" style="cursor:pointer;">${name}</text>`;
+        labels += `<text class="prc-label" data-tid="${tid}" x="${(last.x+14).toFixed(2)}" y="${last.y.toFixed(2)}" dominant-baseline="middle" fill="${color}" font-size="15" font-family="Barlow Condensed,sans-serif" font-weight="700" style="cursor:pointer;">${name}</text>`;
       });
 
       chartEl.innerHTML = `
@@ -409,7 +464,7 @@
             <svg class="icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
             Power Rank by Week
           </div>
-          <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:1.25rem;">Hover a line or name to highlight that team's trajectory</p>
+          <p style="font-size:0.82rem;color:var(--text-secondary);margin-bottom:1.25rem;">Hover a line or name to highlight that team's trajectory</p>
           <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
             <svg id="prChartSvg" viewBox="0 0 ${totalW} ${totalH}" xmlns="http://www.w3.org/2000/svg" style="min-width:${Math.min(totalW,600)}px;width:100%;">
               ${grid}${lines}${dots}${labels}
@@ -463,27 +518,23 @@
       });
     }
 
-    // ── Wire up selectors ────────────────────────────────────────────────────
+    // ── Wire up pickers ──────────────────────────────────────────────────────
 
-    function onYearChange() {
-      const year = yearSel.value;
+    yearPicker.onChange(year => {
       populateWeeks(year);
-      renderRankings(year, parseInt(weekSel.value, 10));
+      renderRankings(year, parseInt(weekPicker.getValue(), 10));
       renderChart(year);
-    }
+    });
 
-    function onWeekChange() {
-      renderRankings(yearSel.value, parseInt(weekSel.value, 10));
-    }
-
-    yearSel.addEventListener('change', onYearChange);
-    weekSel.addEventListener('change', onWeekChange);
+    weekPicker.onChange(week => {
+      renderRankings(yearPicker.getValue(), parseInt(week, 10));
+    });
 
     // ── Initial render ───────────────────────────────────────────────────────
     const defaultYear = seasonsSorted[0][0]; // most recent year
-    yearSel.value = defaultYear;
+    yearPicker.setValue(defaultYear, defaultYear);
     populateWeeks(defaultYear);
-    renderRankings(defaultYear, parseInt(weekSel.value, 10));
+    renderRankings(defaultYear, parseInt(weekPicker.getValue(), 10));
     renderChart(defaultYear);
 
   } catch (err) {

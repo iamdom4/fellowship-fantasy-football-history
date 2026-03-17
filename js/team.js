@@ -114,10 +114,10 @@
         <td class="num" style="color:var(--win)">${t.wins}</td>
         <td class="num" style="color:var(--loss)">${t.losses}</td>
         <td class="num win-pct">${r.pct}%</td>
-        <td class="num">${Utils.fmt(t.points_for)}</td>
-        <td class="num">${Utils.fmt(t.points_against)}</td>
+        <td class="num">${Utils.fmt(t.points_for, 2)}</td>
+        <td class="num">${Utils.fmt(t.points_against, 2)}</td>
         <td class="num" style="color:${t.points_for >= t.points_against ? 'var(--win)' : 'var(--loss)'}">
-          ${t.points_for >= t.points_against ? '+' : ''}${Utils.fmt(t.points_for - t.points_against)}
+          ${t.points_for >= t.points_against ? '+' : ''}${Utils.fmt(t.points_for - t.points_against, 2)}
         </td>
         <td class="num">${ordinal(t.final_standing)}</td>
       </tr>
@@ -132,8 +132,8 @@
         <td class="owner-cell">${Utils.shortOwner(r.opp)}</td>
         <td class="num" ${winCls}>${r.w}–${r.l}</td>
         <td class="num win-pct">${(r.pct * 100).toFixed(1)}%</td>
-        <td class="num">${Utils.fmt(r.pf / r.games)}</td>
-        <td class="num">${Utils.fmt(r.pa / r.games)}</td>
+        <td class="num">${Utils.fmt(r.pf / r.games, 2)}</td>
+        <td class="num">${Utils.fmt(r.pa / r.games, 2)}</td>
       </tr>
     `;
   }).join('');
@@ -161,8 +161,8 @@
     <!-- CAREER STAT PILLS -->
     <div class="grid-4" style="margin-bottom:2rem">
       ${statPill('All-Time Record', `${stats.wins}–${stats.losses}`, `${winPct}% win rate`)}
-      ${statPill('Points For', Utils.fmt(stats.pf), `${Utils.fmt(stats.pf / stats.seasons)} per season`)}
-      ${statPill('Points Against', Utils.fmt(stats.pa), `${Utils.fmt(stats.pa / stats.seasons)} per season`)}
+      ${statPill('Points For', Utils.fmt(stats.pf, 2), `${Utils.fmt(stats.pf / stats.seasons, 2)} per season`)}
+      ${statPill('Points Against', Utils.fmt(stats.pa, 2), `${Utils.fmt(stats.pa / stats.seasons, 2)} per season`)}
       ${statPill('Championships', stats.titles, champYears.length ? champYears.join(', ') : 'Not yet')}
     </div>
 
@@ -182,8 +182,8 @@
         <div class="grid-2">
           ${highlightCard('Best Record', `${bestSeason.teamEntry.wins}–${bestSeason.teamEntry.losses}`, bestSeason.teamEntry.team_name.trim(), bestSeason.year, Icons.award({ size: 16 }), 'green')}
           ${highlightCard('Worst Record', `${worstSeason.teamEntry.wins}–${worstSeason.teamEntry.losses}`, worstSeason.teamEntry.team_name.trim(), worstSeason.year, Icons.alert({ size: 16 }), 'red')}
-          ${highlightCard('Most Points', Utils.fmt(mostPFSeason.teamEntry.points_for), mostPFSeason.teamEntry.team_name.trim(), mostPFSeason.year, Icons.trendUp({ size: 16 }), 'green')}
-          ${highlightCard('Fewest Points', Utils.fmt(leastPFSeason.teamEntry.points_for), leastPFSeason.teamEntry.team_name.trim(), leastPFSeason.year, Icons.trendDown({ size: 16 }), 'red')}
+          ${highlightCard('Most Points', Utils.fmt(mostPFSeason.teamEntry.points_for, 2), mostPFSeason.teamEntry.team_name.trim(), mostPFSeason.year, Icons.trendUp({ size: 16 }), 'green')}
+          ${highlightCard('Fewest Points', Utils.fmt(leastPFSeason.teamEntry.points_for, 2), leastPFSeason.teamEntry.team_name.trim(), leastPFSeason.year, Icons.trendDown({ size: 16 }), 'red')}
         </div>
       </div>
       <div>
@@ -202,15 +202,15 @@
         <table>
           <thead>
             <tr>
-              <th class="num">Year</th>
-              <th>Team Name</th>
-              <th class="num">W</th>
-              <th class="num">L</th>
-              <th class="num">Win%</th>
-              <th class="num">PF</th>
-              <th class="num">PA</th>
-              <th class="num">+/-</th>
-              <th class="num">Finish</th>
+              <th class="num" scope="col">Year</th>
+              <th scope="col">Team Name</th>
+              <th class="num" scope="col">W</th>
+              <th class="num" scope="col">L</th>
+              <th class="num" scope="col">Win%</th>
+              <th class="num" scope="col">PF</th>
+              <th class="num" scope="col">PA</th>
+              <th class="num" scope="col">+/-</th>
+              <th class="num" scope="col">Finish</th>
             </tr>
           </thead>
           <tbody>${seasonTableRows}</tbody>
@@ -225,11 +225,11 @@
         <table>
           <thead>
             <tr>
-              <th>Opponent</th>
-              <th class="num">Record</th>
-              <th class="num">Win%</th>
-              <th class="num">Avg PF</th>
-              <th class="num">Avg PA</th>
+              <th scope="col">Opponent</th>
+              <th class="num" scope="col">Record</th>
+              <th class="num" scope="col">Win%</th>
+              <th class="num" scope="col">Avg PF</th>
+              <th class="num" scope="col">Avg PA</th>
             </tr>
           </thead>
           <tbody>${h2hRows}</tbody>
@@ -339,7 +339,7 @@
         const outcome = wkOutcomes[i] || 'U';
         const opp  = wkSchedule[i] || '—';
         const fill = outcome === 'W' ? '#4ade80' : outcome === 'L' ? '#f87171' : '#94a3b8';
-        dots += `<circle cx="${xP(i).toFixed(1)}" cy="${yP(s).toFixed(1)}" r="5" fill="${fill}" stroke="var(--bg-card)" stroke-width="2" class="chart-dot"><title>Wk ${i + 1}: ${s.toFixed(1)} pts vs ${opp} (${outcome})</title></circle>`;
+        dots += `<circle cx="${xP(i).toFixed(1)}" cy="${yP(s).toFixed(1)}" r="5" fill="${fill}" stroke="var(--bg-card)" stroke-width="2" class="chart-dot" tabindex="0" role="img" aria-label="Week ${i + 1}: ${s.toFixed(2)} pts vs ${opp} (${outcome === 'W' ? 'Win' : outcome === 'L' ? 'Loss' : 'Unknown'})" data-tip="Wk ${i + 1}: ${s.toFixed(2)} pts vs ${opp} (${outcome})"><title>Wk ${i + 1}: ${s.toFixed(2)} pts vs ${opp} (${outcome})</title></circle>`;
       });
 
       const avg  = validScores.reduce((a, b) => a + b, 0) / validScores.length;
@@ -359,7 +359,7 @@
           </defs>
           ${yLines}
           <line x1="${PL}" y1="${avgY}" x2="${W - PR}" y2="${avgY}" stroke="rgba(201,162,39,0.3)" stroke-width="1" stroke-dasharray="4,3"/>
-          <text x="${W - PR}" y="${Number(avgY) - 4}" text-anchor="end" fill="rgba(201,162,39,0.6)" font-size="9" font-family="Barlow Condensed,sans-serif">AVG ${avg.toFixed(1)}</text>
+          <text x="${W - PR}" y="${Number(avgY) - 4}" text-anchor="end" fill="rgba(201,162,39,0.6)" font-size="9" font-family="Barlow Condensed,sans-serif">AVG ${avg.toFixed(2)}</text>
           ${areaPath ? `<path d="${areaPath}" fill="url(#cg${year})"/>` : ''}
           ${linePath ? `<path d="${linePath}" fill="none" stroke="#c9a227" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>` : ''}
           ${yLabels}${xLabels}${dots}
@@ -367,13 +367,53 @@
         <div class="week-chart-stats">
           <div class="week-chart-stat"><span class="week-chart-stat-val" style="color:#4ade80">${wins}</span><span class="week-chart-stat-lbl">Wins</span></div>
           <div class="week-chart-stat"><span class="week-chart-stat-val" style="color:#f87171">${losses}</span><span class="week-chart-stat-lbl">Losses</span></div>
-          <div class="week-chart-stat"><span class="week-chart-stat-val">${avg.toFixed(1)}</span><span class="week-chart-stat-lbl">Avg Score</span></div>
-          <div class="week-chart-stat"><span class="week-chart-stat-val">${maxS.toFixed(1)}</span><span class="week-chart-stat-lbl">Best (Wk ${highWk})</span></div>
-          <div class="week-chart-stat"><span class="week-chart-stat-val">${Math.min(...validScores).toFixed(1)}</span><span class="week-chart-stat-lbl">Lowest (Wk ${lowWk})</span></div>
+          <div class="week-chart-stat"><span class="week-chart-stat-val">${avg.toFixed(2)}</span><span class="week-chart-stat-lbl">Avg Score</span></div>
+          <div class="week-chart-stat"><span class="week-chart-stat-val">${maxS.toFixed(2)}</span><span class="week-chart-stat-lbl">Best (Wk ${highWk})</span></div>
+          <div class="week-chart-stat"><span class="week-chart-stat-val">${Math.min(...validScores).toFixed(2)}</span><span class="week-chart-stat-lbl">Lowest (Wk ${lowWk})</span></div>
         </div>
       `;
 
       tabsEl.querySelectorAll('.week-chart-tab').forEach(b => b.classList.toggle('active', b.dataset.year === String(year)));
+
+      // Touch/keyboard-accessible dot tooltips
+      const svgEl = bodyEl.querySelector('svg');
+      if (svgEl) {
+        let tipEl = bodyEl.querySelector('.chart-tooltip');
+        if (!tipEl) {
+          tipEl = document.createElement('div');
+          tipEl.className = 'chart-tooltip';
+          tipEl.setAttribute('role', 'tooltip');
+          bodyEl.style.position = 'relative';
+          bodyEl.appendChild(tipEl);
+        }
+        const showTip = (dot) => {
+          const text = dot.dataset.tip;
+          if (!text) return;
+          const rect = svgEl.getBoundingClientRect();
+          const cx = parseFloat(dot.getAttribute('cx'));
+          const cy = parseFloat(dot.getAttribute('cy'));
+          const vb = svgEl.viewBox.baseVal;
+          const scaleX = rect.width / vb.width;
+          const scaleY = rect.height / vb.height;
+          tipEl.textContent = text;
+          tipEl.style.left = `${cx * scaleX}px`;
+          tipEl.style.top = `${cy * scaleY - 38}px`;
+          tipEl.classList.add('visible');
+        };
+        const hideTip = () => tipEl.classList.remove('visible');
+        svgEl.querySelectorAll('.chart-dot').forEach(dot => {
+          dot.addEventListener('click', e => { e.stopPropagation(); showTip(dot); });
+          dot.addEventListener('focus', () => showTip(dot));
+          dot.addEventListener('blur', hideTip);
+          dot.addEventListener('keydown', e => {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); showTip(dot); }
+            if (e.key === 'Escape') hideTip();
+          });
+        });
+        svgEl.addEventListener('click', e => {
+          if (!e.target.classList.contains('chart-dot')) hideTip();
+        });
+      }
     }
 
     tabsEl.addEventListener('click', e => {

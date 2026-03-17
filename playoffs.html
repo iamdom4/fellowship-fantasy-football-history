@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Playoffs — The Fellowship of the League</title>
-  <link rel="stylesheet" href="css/style.css?v=23" />
+  <link rel="stylesheet" href="css/style.css?v=45" />
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -191,9 +191,17 @@
       <p id="playoffsSub">Select a season to view the bracket</p>
     </div>
 
-    <div class="year-select-wrap">
-      <label class="year-select-label" for="yearSelect">Season</label>
-      <select class="year-select" id="yearSelect"></select>
+    <div class="pr-pickers">
+      <div class="pr-picker-group">
+        <span class="pr-picker-label">Season</span>
+        <div class="pr-picker" id="yearPicker">
+          <button class="pr-picker-btn" id="yearPickerBtn" aria-haspopup="listbox" aria-expanded="false" aria-label="Select season">
+            <span id="yearPickerVal">—</span>
+            <svg class="pr-picker-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="pr-picker-panel" id="yearPickerPanel" role="listbox" aria-label="Select season" hidden></div>
+        </div>
+      </div>
     </div>
 
     <div id="playoffContent"></div>
@@ -208,7 +216,7 @@
   <script src="js/utils.js?v=26"></script>
   <script src="js/logoData.js?v=15"></script>
   <script src="js/icons.js?v=15"></script>
-  <script src="js/playoffs.js?v=15"></script>
+  <script src="js/playoffs.js?v=17"></script>
   <script src="js/nav.js?v=26"></script>
 </body>
 </html>

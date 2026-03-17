@@ -31,7 +31,7 @@
   // ── H2H MATRIX ────────────────────────────────
   const shortName = name => Utils.shortOwner(name);
 
-  const headerCols = owners.map(o => `<th title="${o}">${shortName(o)}</th>`).join('');
+  const headerCols = owners.map(o => `<th scope="col" title="${o}">${shortName(o)}</th>`).join('');
 
   const matrixRows = owners.map(rowOwner => {
     const cells = owners.map(colOwner => {
@@ -48,7 +48,7 @@
     <table class="h2h-table">
       <thead>
         <tr>
-          <th style="text-align:left;min-width:120px">Manager</th>
+          <th scope="col" style="text-align:left;min-width:120px">Manager</th>
           ${headerCols}
         </tr>
       </thead>
@@ -98,13 +98,13 @@
     <table>
       <thead>
         <tr>
-          <th class="num">#</th>
-          <th>Manager</th>
-          <th class="num">W</th>
-          <th class="num">L</th>
-          <th class="num">Win%</th>
-          <th>Best Matchup</th>
-          <th>Toughest Opponent</th>
+          <th class="num" scope="col">#</th>
+          <th scope="col">Manager</th>
+          <th class="num" scope="col">W</th>
+          <th class="num" scope="col">L</th>
+          <th class="num" scope="col">Win%</th>
+          <th scope="col">Best Matchup</th>
+          <th scope="col">Toughest Opponent</th>
         </tr>
       </thead>
       <tbody>${summaryRows}</tbody>

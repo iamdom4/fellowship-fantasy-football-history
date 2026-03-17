@@ -12,6 +12,56 @@
 
   const teamOwnerMap = Utils.buildTeamOwnerMap();
 
+  // ── Custom picker helper ───────────────────────
+  function makePicker(btnId, valId, panelId) {
+    const btn     = document.getElementById(btnId);
+    const valEl   = document.getElementById(valId);
+    const panel   = document.getElementById(panelId);
+    if (!btn || !valEl || !panel) {
+      console.error('makePicker: element(s) not found', { btnId, valId, panelId });
+      return { getValue: () => null, setValue: () => {}, populate: () => {}, onChange: () => {} };
+    }
+    let currentValue = null;
+    const callbacks  = [];
+
+    function open()  { panel.hidden = false; btn.setAttribute('aria-expanded', 'true'); }
+    function close() { panel.hidden = true;  btn.setAttribute('aria-expanded', 'false'); }
+    btn.addEventListener('click', e => { e.stopPropagation(); panel.hidden ? open() : close(); });
+    document.addEventListener('click', close);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+
+    function populate(items) {
+      panel.innerHTML = '';
+      items.forEach(({ value, label }) => {
+        const opt = document.createElement('div');
+        opt.className = 'pr-picker-option' + (String(value) === String(currentValue) ? ' selected' : '');
+        opt.setAttribute('role', 'option');
+        opt.setAttribute('aria-selected', String(value) === String(currentValue) ? 'true' : 'false');
+        opt.dataset.value = value;
+        opt.innerHTML = `<svg class="pr-picker-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>${label}</span>`;
+        opt.addEventListener('click', e => {
+          e.stopPropagation();
+          setValue(value, label);
+          close();
+          callbacks.forEach(cb => cb(value));
+        });
+        panel.appendChild(opt);
+      });
+    }
+
+    function setValue(value, label) {
+      currentValue = String(value);
+      valEl.textContent = label || value;
+      panel.querySelectorAll('.pr-picker-option').forEach(el => {
+        const sel = el.dataset.value === String(value);
+        el.classList.toggle('selected', sel);
+        el.setAttribute('aria-selected', sel ? 'true' : 'false');
+      });
+    }
+
+    return { getValue: () => currentValue, setValue, populate, onChange: cb => callbacks.push(cb) };
+  }
+
   // Active year from URL or default to latest
   function getYearFromURL() {
     const y = new URLSearchParams(window.location.search).get('year');
@@ -20,20 +70,13 @@
 
   let activeYear = getYearFromURL();
 
-  // ── BUILD YEAR SELECT ─────────────────────────
-  const select = document.getElementById('yearSelect');
-  // Populate options newest → oldest
-  [...seasons].reverse().forEach(([y]) => {
-    const opt = document.createElement('option');
-    opt.value = y;
-    opt.textContent = y;
-    if (y === activeYear) opt.selected = true;
-    select.appendChild(opt);
-  });
+  // ── BUILD YEAR PICKER ─────────────────────────
+  const yearPicker = makePicker('yearPickerBtn', 'yearPickerVal', 'yearPickerPanel');
+  const yearItems  = [...seasons].reverse().map(([y]) => ({ value: y, label: y }));
+  yearPicker.populate(yearItems);
+  yearPicker.setValue(activeYear, activeYear);
 
-  select.addEventListener('change', () => {
-    switchYear(select.value);
-  });
+  yearPicker.onChange(year => { switchYear(year); });
 
   // ── SWITCH YEAR ───────────────────────────────
   function switchYear(year) {
@@ -46,7 +89,7 @@
   // Browser back/forward
   window.addEventListener('popstate', e => {
     activeYear = (e.state && e.state.year) ? e.state.year : getYearFromURL();
-    select.value = activeYear;
+    yearPicker.setValue(activeYear, activeYear);
     renderBracket(activeYear);
   });
 
@@ -153,14 +196,14 @@
           ${homeSeed ? `<span class="bracket-seed">${homeSeed}</span>` : ''}
           <span class="bracket-team-name" title="${homeTeam}">${homeTeam}</span>
           <span class="bracket-team-owner">${homeOwner}</span>
-          <span class="bracket-score ${homeWon ? 'score-win' : 'score-loss'}">${isBye ? 'BYE' : homeScore.toFixed(1)}</span>
+          <span class="bracket-score ${homeWon ? 'score-win' : 'score-loss'}">${isBye ? 'BYE' : homeScore.toFixed(2)}</span>
         </div>
         <div class="bracket-divider"></div>
         <div class="bracket-team ${awayWon ? 'bracket-winner' : isBye ? 'bracket-bye' : 'bracket-loser'}">
           ${awaySeed && !isBye ? `<span class="bracket-seed">${awaySeed}</span>` : ''}
           <span class="bracket-team-name" title="${awayTeam}">${isBye ? '— BYE —' : awayTeam}</span>
           <span class="bracket-team-owner">${isBye ? '' : awayOwner}</span>
-          <span class="bracket-score ${awayWon ? 'score-win' : 'score-loss'}">${isBye ? '' : awayScore.toFixed(1)}</span>
+          <span class="bracket-score ${awayWon ? 'score-win' : 'score-loss'}">${isBye ? '' : awayScore.toFixed(2)}</span>
         </div>
       </div>`;
   }

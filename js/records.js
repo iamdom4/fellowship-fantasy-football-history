@@ -67,12 +67,12 @@
     : 0;
 
   const funStats = [
-    { icon: Icons.flame({ size: 22 }),    color: 'gold',  value: Utils.fmt(highScore2.score),     label: 'Highest Single-Week Score',  sub: `${highScore2.team} — ${highScore2.year} Wk ${highScore2.week}` },
-    { icon: Icons.skull({ size: 22 }),    color: 'red',   value: Utils.fmt(lowScore2.score),      label: 'Lowest Single-Week Score',   sub: `${lowScore2.team} — ${lowScore2.year} Wk ${lowScore2.week}` },
-    { icon: Icons.zap({ size: 22 }),      color: 'gold',  value: `+${Utils.fmt(bigBlowout2.margin)}`, label: 'Biggest Blowout',        sub: `${bigBlowout2.winner} def. ${bigBlowout2.loser} — ${bigBlowout2.year} Wk ${bigBlowout2.week}` },
-    { icon: Icons.trendUp({ size: 22 }), color: 'green', value: Utils.fmt(bestPFSeason2.pf),     label: 'Most Points in a Season',    sub: `${bestPFSeason2.team} (${Utils.shortOwner(bestPFSeason2.owner)}) — ${bestPFSeason2.year}` },
+    { icon: Icons.flame({ size: 22 }),    color: 'gold',  value: Utils.fmt(highScore2.score, 2),     label: 'Highest Single-Week Score',  sub: `${highScore2.team} — ${highScore2.year} Wk ${highScore2.week}` },
+    { icon: Icons.skull({ size: 22 }),    color: 'red',   value: Utils.fmt(lowScore2.score, 2),      label: 'Lowest Single-Week Score',   sub: `${lowScore2.team} — ${lowScore2.year} Wk ${lowScore2.week}` },
+    { icon: Icons.zap({ size: 22 }),      color: 'gold',  value: `+${Utils.fmt(bigBlowout2.margin, 2)}`, label: 'Biggest Blowout',        sub: `${bigBlowout2.winner} def. ${bigBlowout2.loser} — ${bigBlowout2.year} Wk ${bigBlowout2.week}` },
+    { icon: Icons.trendUp({ size: 22 }), color: 'green', value: Utils.fmt(bestPFSeason2.pf, 2),     label: 'Most Points in a Season',    sub: `${bestPFSeason2.team} (${Utils.shortOwner(bestPFSeason2.owner)}) — ${bestPFSeason2.year}` },
     { icon: Icons.crown({ size: 22 }),   color: 'gold',  value: mostTitles2.titles,              label: 'Most Championships',         sub: `${Utils.shortOwner(mostTitles2.owner)}` },
-    { icon: Icons.target({ size: 22 }),  color: 'blue',  value: Utils.fmt(avgScore2),            label: 'Average Weekly Score',       sub: `Across all ${matchups.length} matchups` },
+    { icon: Icons.target({ size: 22 }),  color: 'blue',  value: Utils.fmt(avgScore2, 2),            label: 'Average Weekly Score',       sub: `Across all ${matchups.length} matchups` },
   ];
   document.getElementById('funStats').innerHTML = funStats.map(s => `
     <div class="fun-stat-card">
@@ -110,31 +110,31 @@
   const scoringCards = [
     {
       icon: Icons.flame({ size: 22 }), color: 'gold',
-      value: Utils.fmt(highScore.score),
+      value: Utils.fmt(highScore.score, 2),
       title: 'Highest Single-Week Score',
       holder: highScore.team,
       detail: `${Utils.shortOwner(highScore.owner)} — ${highScore.year}, Week ${highScore.week}`,
     },
     {
       icon: Icons.skull({ size: 22 }), color: 'red',
-      value: Utils.fmt(lowScore.score),
+      value: Utils.fmt(lowScore.score, 2),
       title: 'Lowest Single-Week Score',
       holder: lowScore.team,
       detail: `${Utils.shortOwner(lowScore.owner)} — ${lowScore.year}, Week ${lowScore.week}`,
     },
     {
       icon: Icons.zap({ size: 22 }), color: 'gold',
-      value: `+${Utils.fmt(biggestBlowout.margin)}`,
+      value: `+${Utils.fmt(biggestBlowout.margin, 2)}`,
       title: 'Biggest Blowout',
       holder: `${biggestBlowout.winner} def. ${biggestBlowout.loser}`,
-      detail: `${Utils.fmt(biggestBlowout.winScore)} – ${Utils.fmt(biggestBlowout.loseScore)} — ${biggestBlowout.year}, Week ${biggestBlowout.week}`,
+      detail: `${Utils.fmt(biggestBlowout.winScore, 2)} – ${Utils.fmt(biggestBlowout.loseScore, 2)} — ${biggestBlowout.year}, Week ${biggestBlowout.week}`,
     },
     {
       icon: Icons.target({ size: 22 }), color: 'blue',
-      value: `+${Utils.fmt(closestGame.margin)}`,
+      value: `+${Utils.fmt(closestGame.margin, 2)}`,
       title: 'Closest Game',
       holder: `${closestGame.winner} def. ${closestGame.loser}`,
-      detail: `${Utils.fmt(closestGame.winScore)} – ${Utils.fmt(closestGame.loseScore)} — ${closestGame.year}, Week ${closestGame.week}`,
+      detail: `${Utils.fmt(closestGame.winScore, 2)} – ${Utils.fmt(closestGame.loseScore, 2)} — ${closestGame.year}, Week ${closestGame.week}`,
     },
   ];
 
@@ -187,21 +187,21 @@
     },
     {
       icon: Icons.trendUp({ size: 22 }), color: 'green',
-      value: Utils.fmt(mostPF.pf),
+      value: Utils.fmt(mostPF.pf, 2),
       title: 'Most Points in a Season',
       holder: mostPF.team,
       detail: `${Utils.shortOwner(mostPF.owner)} — ${mostPF.year}`,
     },
     {
       icon: Icons.trendDown({ size: 22 }), color: 'red',
-      value: Utils.fmt(leastPF.pf),
+      value: Utils.fmt(leastPF.pf, 2),
       title: 'Fewest Points in a Season',
       holder: leastPF.team,
       detail: `${Utils.shortOwner(leastPF.owner)} — ${leastPF.year}`,
     },
     {
       icon: Icons.shield({ size: 22 }), color: 'red',
-      value: Utils.fmt(mostPA.pa),
+      value: Utils.fmt(mostPA.pa, 2),
       title: 'Most Points Scored Against',
       holder: mostPA.team,
       detail: `${Utils.shortOwner(mostPA.owner)} — ${mostPA.year} (unluckiest team)`,
@@ -275,7 +275,7 @@
       <td class="rank-cell num">${i + 1}</td>
       <td class="owner-cell">${s.team}</td>
       <td>${Utils.shortOwner(s.owner)}</td>
-      <td class="num" style="color:var(--accent-gold);font-weight:700">${Utils.fmt(s.score)}</td>
+      <td class="num" style="color:var(--accent-gold);font-weight:700">${Utils.fmt(s.score, 2)}</td>
       <td class="num">${s.year}</td>
       <td class="num">Week ${s.week}</td>
     </tr>
@@ -285,12 +285,12 @@
     <table>
       <thead>
         <tr>
-          <th class="num">#</th>
-          <th>Team</th>
-          <th>Manager</th>
-          <th class="num">Score</th>
-          <th class="num">Year</th>
-          <th class="num">Week</th>
+          <th class="num" scope="col">#</th>
+          <th scope="col">Team</th>
+          <th scope="col">Manager</th>
+          <th class="num" scope="col">Score</th>
+          <th class="num" scope="col">Year</th>
+          <th class="num" scope="col">Week</th>
         </tr>
       </thead>
       <tbody>${top10Rows}</tbody>
