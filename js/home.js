@@ -380,7 +380,7 @@
       if (el) el.innerHTML = `
         <div class="hero-toilet-champ">
           <div class="hero-toilet-label">${latestYear} Last Place</div>
-          <div class="hero-toilet-icon">🚽</div>
+          <div class="hero-toilet-icon">${Icons.skull({ size: 26 })}</div>
           <div class="hero-champ-team">${toiletChamp}</div>
           ${toiletOwner ? `<div class="hero-champ-owner">${toiletOwner}</div>` : ''}
         </div>`;
@@ -393,7 +393,7 @@
           ${renderChampBracket(champRounds)}
         </div>
         <div class="home-bracket-card">
-          <div class="section-title"><span style="font-size:1.1rem;line-height:1">🪠</span> Toilet Bowl</div>
+          <div class="section-title">${Icons.skull({ size: 16 })} Toilet Bowl</div>
           ${toiletBracketHtml}
         </div>
       </div>`;

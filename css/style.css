@@ -262,7 +262,7 @@ body {
 /* ── LAYOUT ── */
 .page-wrapper {
   width: 100%;
-  max-width: 1920px;
+  max-width: 1440px;
   margin: 0 auto;
   padding: 2.5rem clamp(1.5rem, 3vw, 4rem) 5rem;
 }
@@ -960,6 +960,7 @@ footer {
   gap: 0.4rem;
   padding: 0.6rem 0.75rem;
   min-height: 44px;
+  min-width: 0;
 }
 .bracket-winner { background: rgba(34,197,94,0.07); }
 .bracket-toilet-adv { background: rgba(139,90,43,0.18); }
@@ -982,10 +983,10 @@ footer {
   font-weight: 700;
   color: var(--text-primary);
   flex: 1;
+  min-width: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 110px;
 }
 .bracket-team-owner {
   font-size: 0.68rem;
@@ -2753,9 +2754,10 @@ body.sidebar-collapsed .sidebar-team-item[data-label]:hover::after {
   margin-bottom: 0.75rem;
 }
 .hero-toilet-icon {
-  font-size: 1.6rem;
-  line-height: 1;
+  display: flex;
+  justify-content: center;
   margin-bottom: 0.6rem;
+  color: #c17f3a;
 }
 
 /* Hero champion callout */
@@ -3296,6 +3298,8 @@ body.sidebar-collapsed .sidebar-team-item[data-label]:hover::after {
   .hero-meta-item { text-align: center; }
   /* Both hero callout cards go full-width when stacked */
   .hero-champ, .hero-toilet-champ { width: 100%; min-width: 0; box-sizing: border-box; }
+  /* Wrapper div populated by JS must also be full-width (align-items: center would shrink it otherwise) */
+  #heroToiletChamp { width: 100%; }
   /* Featured matchup: stack teams vertically, each as a horizontal row */
   .sb-featured-teams { flex-direction: column; gap: 0.5rem; }
   .sb-ft, .sb-ft.sb-ft-away { flex-direction: row; text-align: left; }
