@@ -2924,10 +2924,10 @@ body.sidebar-collapsed .sidebar-team-item[data-label]:hover::after {
   padding: 0 0.25rem;
 }
 
-/* ── REGULAR CARDS (6-column row below) ── */
+/* ── REGULAR CARDS (3×2 grid) ── */
 .sb-regular-grid {
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.6rem;
 }
 .matchup-card {
@@ -2984,14 +2984,14 @@ body.sidebar-collapsed .sidebar-team-item[data-label]:hover::after {
 .matchup-score.score-win  { color: var(--accent-gold); }
 .matchup-score.score-loss { color: var(--text-muted); }
 
-/* Win caret — CSS triangle, visible only on winning row */
+/* Win caret — left-pointing CSS triangle, visible only on winning row */
 .win-caret {
   flex-shrink: 0;
   width: 0;
   height: 0;
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent;
-  border-bottom: 6px solid var(--win);
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-right: 6px solid var(--win);
 }
 .matchup-team:not(.matchup-winner) .win-caret {
   visibility: hidden;
@@ -3294,8 +3294,6 @@ body.sidebar-collapsed .sidebar-team-item[data-label]:hover::after {
 @media (max-width: 960px) {
   .home-brackets-grid { grid-template-columns: 1fr; }
   .home-dash-grid { grid-template-columns: 1fr; }
-  /* Drop to 3 columns before cards get too narrow to show scores */
-  .sb-regular-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 @media (max-width: 700px) {
   .hero {
