@@ -127,8 +127,10 @@
     const row = (team, score, won, logo) => `
       <div class="matchup-team ${won ? 'matchup-winner' : ''}">
         ${logoEl(logo, 'matchup-logo')}
-        <span class="matchup-team-name" title="${team}">${team}</span>
-        <span class="matchup-score ${won ? 'score-win' : 'score-loss'}">${Utils.fmt(score, 2)}</span>
+        <div class="matchup-team-body">
+          <span class="matchup-team-name">${team}</span>
+          <span class="matchup-score ${won ? 'score-win' : 'score-loss'}">${Utils.fmt(score, 2)}</span>
+        </div>
       </div>`;
     return `
       <div class="matchup-card">

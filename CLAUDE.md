@@ -64,13 +64,15 @@ This applies to: weekly scores, season totals (PF/PA), averages, margins of vict
 
 ### Script load order (every page except blog.html)
 ```html
-<script src="js/leagueData.js?v=26"></script>  <!-- global LEAGUE_DATA -->
-<script src="js/utils.js?v=26"></script>        <!-- Utils namespace -->
-<script src="js/logoData.js?v=15"></script>     <!-- TEAM_LOGOS map -->
-<script src="js/icons.js?v=15"></script>        <!-- Icons namespace -->
-<script src="js/[page].js?v=26"></script>       <!-- page-specific logic -->
-<script src="js/nav.js?v=26"></script>          <!-- sidebar nav + dynamic team list -->
+<script src="js/leagueData.js?v=N"></script>  <!-- global LEAGUE_DATA -->
+<script src="js/utils.js?v=N"></script>        <!-- Utils namespace -->
+<script src="js/logoData.js?v=N"></script>     <!-- TEAM_LOGOS map -->
+<script src="js/icons.js?v=N"></script>        <!-- Icons namespace -->
+<script src="js/[page].js?v=N"></script>       <!-- page-specific logic -->
+<script src="js/nav.js?v=N"></script>          <!-- sidebar nav + dynamic team list -->
 ```
+
+> **Cache busting:** Every shared JS and CSS file uses a `?v=N` query string in each HTML file's `<script>` / `<link>` tag. **Bump the version number in the relevant HTML file(s) whenever you edit that JS or CSS file**, otherwise browsers will serve the old cached version.
 
 ### Module pattern
 All shared namespaces are IIFEs returning a public API:
@@ -121,6 +123,37 @@ prScore = (PF × 2) + (PF × winPct) + (PF × medianWinPct)
 - **medianWinPct** = wins above median each week / total weeks (a team "wins" vs median if their score exceeds the week's median score across all teams)
 - Sorted by `prScore` descending, tiebroken by raw PF
 - Week-over-week rank change arrows are computed by comparing current vs previous week's rankings
+
+---
+
+## Home Page Brackets (`js/home.js`)
+
+Both the championship bracket and toilet bowl bracket use **identical HTML structure**:
+```
+.bracket-grid → .bracket-round → .bracket-round-label + .bracket-round-matches
+```
+This ensures consistent column widths, card sizes, fonts, and dividers across both.
+
+### Championship bracket
+- `renderChampBracket(rounds)` — standard winner-advances logic
+- Rounds grouped by week via `groupByWeek(matchups)`
+
+### Toilet bowl bracket
+- `renderToiletBracket6(allToiletMs, allTeams)` — returns `{ html, toiletChamp }`
+- Seeds teams by **`standing` descending** (worst regular season = seed 1, gets top bye). **Never use `final_standing`** — toilet bowl results shift it, making it wrong for seeding.
+- Loser advances each round; advancing team gets `.bracket-toilet-adv` highlight (brown)
+- Bye cards use `.tb6-bye-slot` class (dashed gold border, subtle gold background)
+- Round 1 column: 4 cards — bye1, r1Top game, bye2, r1Bot game
+- Games are found by **week index**, not by standard seeding pairings (ESPN consolation ladder doesn't follow standard bracket seeding)
+- `toiletChamp` = team name of last place (loser of the toilet bowl final)
+
+### Last place hero callout
+- `#heroToiletChamp` is a placeholder div rendered in the hero banner by `home.js`
+- After `renderToiletBracket6` runs, if `toiletChamp` is known it populates that div with a brown-themed callout card (`.hero-toilet-champ`) alongside the champion card
+
+### Playoff checkmarks (standings table)
+- Built from `WINNERS_BRACKET` matchups **only** — never from `LOSERS_CONSOLATION_LADDER` or row index
+- Stored as `r.inPlayoffs = lscPlayoffTeams.has(r.team)` so the flag travels with the team regardless of sort order
 
 ---
 
@@ -191,7 +224,8 @@ LEAGUE_DATA = {
         team_name: "Team Name",
         wins, losses, ties,
         points_for, points_against,   // display to 2 decimal places
-        standing, final_standing,
+        standing,                     // regular season finish — USE THIS for seeding/brackets
+        final_standing,               // post-toilet-bowl adjusted value — NOT reliable for seeding
         streak_type, streak_length,   // current streak (e.g. "W", 3)
         acquisitions, drops, trades,  // transaction counts
         logo_url,                     // ESPN CDN URL (populated after re-running pipeline)
@@ -204,7 +238,9 @@ LEAGUE_DATA = {
     matchups: [
       {
         week: 1,
-        matchup_type: "NONE",         // "NONE" = regular season, other = playoff
+        matchup_type: "NONE",         // "NONE" = regular season
+                                      // "WINNERS_BRACKET" = championship playoff
+                                      // "LOSERS_CONSOLATION_LADDER" = toilet bowl
         is_playoff: false,
         home_team, home_score,        // display scores to 2 decimal places
         home_projected, home_max_pf,
