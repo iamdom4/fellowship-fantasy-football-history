@@ -997,18 +997,9 @@
           ${grid}${lines}${dots}${labels}
         </svg>
       </div>
-      <div class="pr-chart-legend" id="prHomeLegend"></div>`;
+`;
 
-    // Populate legend
-    const legendEl = chartEl.querySelector('#prHomeLegend');
-    teamNames.forEach((name, ti) => {
-      const color = DESIGN.chartColors[ti % DESIGN.chartColors.length];
-      const item = document.createElement('div');
-      item.className = 'pr-legend-item';
-      item.dataset.tid = String(ti);
-      item.innerHTML = `<span class="pr-legend-dot" style="background:${color}"></span><span class="pr-legend-name">${name}</span>`;
-      legendEl.appendChild(item);
-    });
+    const legendEl = { querySelectorAll: () => [] }; // no legend — inline labels replace it
 
     const tip = document.createElement('div');
     tip.style.cssText = DESIGN.tooltipStyle;
@@ -1022,18 +1013,15 @@
       allLines.forEach(el  => { el.style.opacity = el.dataset.tid === tid ? '1' : '0.07'; el.style.strokeWidth = el.dataset.tid === tid ? '3' : String(C.lineWidthFaded); });
       allDots.forEach(el   => { el.style.opacity = el.dataset.tid === tid ? '1' : '0.07'; });
       allLabels.forEach(el => { el.style.opacity = el.dataset.tid === tid ? '1' : '0.07'; });
-      legendEl.querySelectorAll('.pr-legend-item').forEach(el => { el.style.opacity = el.dataset.tid === tid ? '1' : '0.2'; });
     }
     function lo() {
       allLines.forEach(el  => { el.style.opacity = '1'; el.style.strokeWidth = String(C.lineWidth); });
       allDots.forEach(el   => { el.style.opacity = '1'; });
       allLabels.forEach(el => { el.style.opacity = '1'; });
-      legendEl.querySelectorAll('.pr-legend-item').forEach(el => { el.style.opacity = '1'; });
       tip.style.opacity = '0';
     }
     allLines.forEach(el => { el.style.cursor = 'pointer'; el.addEventListener('mouseenter', () => hi(el.dataset.tid)); el.addEventListener('mouseleave', lo); });
     allLabels.forEach(el => { el.style.cursor = 'pointer'; el.addEventListener('mouseenter', () => hi(el.dataset.tid)); el.addEventListener('mouseleave', lo); });
-    legendEl.querySelectorAll('.pr-legend-item').forEach(el => { el.addEventListener('mouseenter', () => hi(el.dataset.tid)); el.addEventListener('mouseleave', lo); });
     allDots.forEach(el => {
       el.addEventListener('mouseenter', () => { hi(el.dataset.tid); tip.innerHTML = `<strong>${el.dataset.name}</strong><br>Week ${el.dataset.week} &mdash; Rank #${el.dataset.rank}`; tip.style.opacity = '1'; });
       el.addEventListener('mousemove', e => { tip.style.left = (e.clientX + 14) + 'px'; tip.style.top = (e.clientY - 10) + 'px'; });
