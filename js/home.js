@@ -924,7 +924,6 @@
         </tr>`;
     }
     tableEl.innerHTML = `
-      <div class="section-title" style="margin-bottom:0.75rem;font-size:0.82rem;">Week ${week} &mdash; ${year} Season</div>
       <div class="table-wrap">
         <table>
           <thead>
@@ -1057,7 +1056,53 @@
     const [year] = seasons[seasons.length - 1]; // most recent
     const weeks = prGetRegSeasonWeeks(year);
     if (!weeks.length) return;
-    renderHomePRTable(tableEl, year, weeks[weeks.length - 1]);
+
+    // ── Week picker ──────────────────────────────────────────────────────────
+    const pickerBtn   = document.getElementById('prHomeWeekPickerBtn');
+    const pickerVal   = document.getElementById('prHomeWeekPickerVal');
+    const pickerPanel = document.getElementById('prHomeWeekPickerPanel');
+
+    let currentWeek = weeks[weeks.length - 1];
+
+    function closePicker() {
+      pickerPanel.hidden = true;
+      pickerBtn.setAttribute('aria-expanded', 'false');
+    }
+    function openPicker() {
+      pickerPanel.hidden = false;
+      pickerBtn.setAttribute('aria-expanded', 'true');
+    }
+    pickerBtn.addEventListener('click', e => {
+      e.stopPropagation();
+      pickerPanel.hidden ? openPicker() : closePicker();
+    });
+    document.addEventListener('click', closePicker);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closePicker(); });
+
+    // Populate options (latest week first)
+    [...weeks].reverse().forEach(w => {
+      const opt = document.createElement('div');
+      opt.className = 'pr-picker-option' + (w === currentWeek ? ' selected' : '');
+      opt.setAttribute('role', 'option');
+      opt.dataset.value = w;
+      opt.innerHTML = `<svg class="pr-picker-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg><span>Week ${w}</span>`;
+      opt.addEventListener('click', e => {
+        e.stopPropagation();
+        currentWeek = w;
+        pickerVal.textContent = `Week ${w}`;
+        pickerPanel.querySelectorAll('.pr-picker-option').forEach(el => {
+          el.classList.toggle('selected', Number(el.dataset.value) === w);
+        });
+        closePicker();
+        renderHomePRTable(tableEl, year, w);
+      });
+      pickerPanel.appendChild(opt);
+    });
+
+    // Set initial label
+    pickerVal.textContent = `Week ${currentWeek}`;
+
+    renderHomePRTable(tableEl, year, currentWeek);
     renderHomePRChart(chartEl, year);
   })();
 

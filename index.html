@@ -266,6 +266,16 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg>
           Power Rankings
         </div>
+        <div class="pr-picker-group">
+          <span class="pr-picker-label">Week</span>
+          <div class="pr-picker" id="prHomeWeekPicker">
+            <button class="pr-picker-btn" id="prHomeWeekPickerBtn" aria-haspopup="listbox" aria-expanded="false" aria-label="Select week">
+              <span id="prHomeWeekPickerVal">—</span>
+              <svg class="pr-picker-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="pr-picker-panel" id="prHomeWeekPickerPanel" role="listbox" aria-label="Select week" hidden></div>
+          </div>
+        </div>
       </div>
       <div class="pr-home-grid">
         <div class="widget-card" id="prHomeTable"><div class="loading"><div class="spinner"></div></div></div>
@@ -285,7 +295,7 @@
   <script src="js/utils.js?v=27"></script>
   <script src="js/logoData.js?v=15"></script>
   <script src="js/icons.js?v=17"></script>
-  <script src="js/home.js?v=72"></script>
+  <script src="js/home.js?v=73"></script>
   <script src="js/nav.js?v=26"></script>
 </body>
 </html>
