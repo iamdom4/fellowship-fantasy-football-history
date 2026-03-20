@@ -537,10 +537,23 @@
     return Math.max(1, Math.ceil(words / 200));
   }
   function extractThumb(post) {
-    if (post.thumbnail && post.thumbnail.startsWith('http')) return post.thumbnail;
-    if (post.enclosure && (post.enclosure.link || post.enclosure.url)) return post.enclosure.link || post.enclosure.url;
-    const m = (post.content || post.description || '').match(/<img[^>]+src=["']([^"']+)/i);
-    return m ? m[1] : '';
+    // Resolve URL — prefer thumbnail field, then enclosure, then first img in content
+    let url = '';
+    if (post.thumbnail && post.thumbnail.startsWith('http')) {
+      url = post.thumbnail;
+    } else if (post.enclosure && (post.enclosure.link || post.enclosure.url)) {
+      url = post.enclosure.link || post.enclosure.url;
+    } else {
+      // DOM-based parsing (same as blog.js) — more reliable than regex
+      const tmp = document.createElement('div');
+      tmp.innerHTML = post.content || post.description || '';
+      const img = tmp.querySelector('img[src]');
+      url = img ? img.src : '';
+    }
+    // Strip Cloudflare Image Resizing wrapper (cdn-cgi/image/...) — these URLs
+    // can fail on mobile Safari when served from a different domain than localhost.
+    // The direct asset URL works everywhere.
+    return url.replace(/\/cdn-cgi\/image\/[^/]+\//, '/');
   }
 
   fetch(API_URL)
@@ -958,9 +971,10 @@
     const C = DESIGN.chart, CLR = DESIGN.colors;
     // Override right margin to fit inline name labels (same pattern as powerRankings.js)
     const M = Object.assign({}, C.margin, { right: 175 });
-    // Measure the actual container width so the SVG is built at exactly that
-    // size — no scaling, no preserveAspectRatio distortion, circles stay circles.
-    const containerW = Math.max(C.minWidth, chartEl.clientWidth || C.minWidth);
+    // Compute minimum width so every week gets proper spacing even on mobile.
+    // Chart scrolls horizontally below this width rather than compressing.
+    const minChartW = M.left + M.right + Math.max(C.minInnerW, (numWeeks - 1) * C.weekSpacing);
+    const containerW = Math.max(minChartW, chartEl.clientWidth || minChartW);
     const innerW = containerW - M.left - M.right;
     const innerH = Math.max(C.minInnerH, numTeams * C.rankSpacing);
     const totalW = containerW;
@@ -993,7 +1007,7 @@
     });
     chartEl.innerHTML = `
       <div class="pr-chart-scroll">
-        <svg id="prHomeChartSvg" viewBox="0 0 ${totalW} ${totalH}" width="${totalW}" height="${totalH}" xmlns="http://www.w3.org/2000/svg" style="display:block;min-width:${C.minWidth}px;max-width:100%;">
+        <svg id="prHomeChartSvg" viewBox="0 0 ${totalW} ${totalH}" width="${totalW}" height="${totalH}" xmlns="http://www.w3.org/2000/svg" style="display:block;min-width:${minChartW}px;max-width:100%;">
           ${grid}${lines}${dots}${labels}
         </svg>
       </div>
