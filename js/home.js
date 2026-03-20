@@ -941,8 +941,6 @@
       </div>`;
   }
 
-  const PR_HOME_COLORS = ['#c9a227','#e07b7b','#7baee0','#7bcca0','#b39ddb','#e0a87b','#7bcfcb','#e07bb5','#d4c97a','#7bd4e0','#e09a7b','#a3c97b','#9db3cc','#c4a07b'];
-
   function renderHomePRChart(chartEl, year) {
     if (!chartEl) return;
     if (chartEl._prTip) { chartEl._prTip.remove(); chartEl._prTip = null; }
@@ -957,10 +955,14 @@
     }
     const teamNames = Object.keys(teamSeries);
     const numTeams = teamNames.length, numWeeks = allWeeks.length;
-    const M = { top: 28, right: 10, bottom: 48, left: 54 };
-    const innerW = Math.max(320, numWeeks * 44);
-    const innerH = Math.max(320, numTeams * 40);
-    const totalW = innerW + M.left + M.right;
+    const C = DESIGN.chart, CLR = DESIGN.colors;
+    const M = C.margin;
+    // Measure the actual container width so the SVG is built at exactly that
+    // size — no scaling, no preserveAspectRatio distortion, circles stay circles.
+    const containerW = Math.max(C.minWidth, chartEl.clientWidth || C.minWidth);
+    const innerW = containerW - M.left - M.right;
+    const innerH = Math.max(C.minInnerH, numTeams * C.rankSpacing);
+    const totalW = containerW;
     const totalH = innerH + M.top + M.bottom;
     const xScale = w  => M.left + (allWeeks.indexOf(w) / (numWeeks - 1)) * innerW;
     const yScale = rk => M.top  + ((rk - 1) / (numTeams - 1)) * innerH;
@@ -968,36 +970,36 @@
     let grid = '';
     for (let r = 1; r <= numTeams; r++) {
       const y = yScale(r).toFixed(2);
-      grid += `<line x1="${M.left}" y1="${y}" x2="${(M.left+innerW).toFixed(2)}" y2="${y}" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>`;
-      grid += `<text x="${(M.left-12).toFixed(2)}" y="${y}" text-anchor="end" dominant-baseline="middle" fill="var(--text-secondary)" font-size="15" font-family="Barlow Condensed,sans-serif" font-weight="600">${r}</text>`;
+      grid += `<line x1="${M.left}" y1="${y}" x2="${(M.left+innerW).toFixed(2)}" y2="${y}" stroke="${CLR.gridLine}" stroke-width="1"/>`;
+      grid += `<text x="${(M.left-12).toFixed(2)}" y="${y}" text-anchor="end" dominant-baseline="middle" fill="${CLR.textSecondary}" font-size="${C.rankLabelSize}" font-family="${C.fontFamily}" font-weight="${C.fontWeight}">${r}</text>`;
     }
     for (const w of allWeeks) {
       const x = xScale(w).toFixed(2);
-      grid += `<line x1="${x}" y1="${M.top}" x2="${x}" y2="${(M.top+innerH).toFixed(2)}" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>`;
-      grid += `<text x="${x}" y="${(M.top+innerH+26).toFixed(2)}" text-anchor="middle" fill="var(--text-secondary)" font-size="14" font-family="Barlow Condensed,sans-serif" font-weight="600">Wk ${w}</text>`;
+      grid += `<line x1="${x}" y1="${M.top}" x2="${x}" y2="${(M.top+innerH).toFixed(2)}" stroke="${CLR.gridLineFaint}" stroke-width="1"/>`;
+      grid += `<text x="${x}" y="${(M.top+innerH+26).toFixed(2)}" text-anchor="middle" fill="${CLR.textSecondary}" font-size="${C.weekLabelSize}" font-family="${C.fontFamily}" font-weight="${C.fontWeight}">Wk ${w}</text>`;
     }
     let lines = '', dots = '';
     teamNames.forEach((name, ti) => {
-      const color = PR_HOME_COLORS[ti % PR_HOME_COLORS.length];
+      const color = DESIGN.chartColors[ti % DESIGN.chartColors.length];
       const pts = teamSeries[name].map(d => ({ x: xScale(d.week), y: yScale(d.rank), week: d.week, rank: d.rank }));
       const tid = String(ti);
-      lines += `<path class="prc-line" data-tid="${tid}" d="${prMonotonePath(pts)}" stroke="${color}" stroke-width="2.5" fill="none" stroke-linecap="round"/>`;
+      lines += `<path class="prc-line" data-tid="${tid}" d="${prMonotonePath(pts)}" stroke="${color}" stroke-width="${C.lineWidth}" fill="none" stroke-linecap="round"/>`;
       for (const p of pts) {
-        dots += `<circle class="prc-dot" data-tid="${tid}" data-name="${name}" data-week="${p.week}" data-rank="${p.rank}" cx="${p.x.toFixed(2)}" cy="${p.y.toFixed(2)}" r="5" fill="#070b12" stroke="${color}" stroke-width="2.5"/>`;
+        dots += `<circle class="prc-dot" data-tid="${tid}" data-name="${name}" data-week="${p.week}" data-rank="${p.rank}" cx="${p.x.toFixed(2)}" cy="${p.y.toFixed(2)}" r="${C.dotRadius}" fill="${CLR.bgPrimary}" stroke="${color}" stroke-width="${C.dotStrokeWidth}"/>`;
       }
     });
     chartEl.innerHTML = `
       <div class="pr-chart-scroll">
-        <svg id="prHomeChartSvg" viewBox="0 0 ${totalW} ${totalH}" width="${totalW}" height="${totalH}" xmlns="http://www.w3.org/2000/svg" style="display:block;">
+        <svg id="prHomeChartSvg" viewBox="0 0 ${totalW} ${totalH}" width="${totalW}" height="${totalH}" xmlns="http://www.w3.org/2000/svg" style="display:block;min-width:${C.minWidth}px;max-width:100%;">
           ${grid}${lines}${dots}
         </svg>
       </div>
       <div class="pr-chart-legend" id="prHomeLegend"></div>`;
 
-    // Populate legend (order matches team series = final week ranking order)
+    // Populate legend
     const legendEl = chartEl.querySelector('#prHomeLegend');
     teamNames.forEach((name, ti) => {
-      const color = PR_HOME_COLORS[ti % PR_HOME_COLORS.length];
+      const color = DESIGN.chartColors[ti % DESIGN.chartColors.length];
       const item = document.createElement('div');
       item.className = 'pr-legend-item';
       item.dataset.tid = String(ti);
@@ -1006,19 +1008,19 @@
     });
 
     const tip = document.createElement('div');
-    tip.style.cssText = 'position:fixed;background:#0d1421;border:1px solid rgba(201,162,39,0.35);border-radius:6px;padding:7px 12px;font-size:0.8rem;color:#e2e8f0;pointer-events:none;opacity:0;transition:opacity 0.12s;z-index:200;font-family:Barlow,sans-serif;white-space:nowrap;';
+    tip.style.cssText = DESIGN.tooltipStyle;
     document.body.appendChild(tip);
     chartEl._prTip = tip;
     const svgEl = document.getElementById('prHomeChartSvg');
     const allLines = svgEl.querySelectorAll('.prc-line');
     const allDots  = svgEl.querySelectorAll('.prc-dot');
     function hi(tid) {
-      allLines.forEach(el => { el.style.opacity = el.dataset.tid === tid ? '1' : '0.07'; el.style.strokeWidth = el.dataset.tid === tid ? '3' : '1.5'; });
+      allLines.forEach(el => { el.style.opacity = el.dataset.tid === tid ? '1' : '0.07'; el.style.strokeWidth = el.dataset.tid === tid ? '3' : String(C.lineWidthFaded); });
       allDots.forEach(el  => { el.style.opacity = el.dataset.tid === tid ? '1' : '0.07'; });
       legendEl.querySelectorAll('.pr-legend-item').forEach(el => { el.style.opacity = el.dataset.tid === tid ? '1' : '0.2'; });
     }
     function lo() {
-      allLines.forEach(el => { el.style.opacity = '1'; el.style.strokeWidth = '2.2'; });
+      allLines.forEach(el => { el.style.opacity = '1'; el.style.strokeWidth = String(C.lineWidth); });
       allDots.forEach(el  => { el.style.opacity = '1'; });
       legendEl.querySelectorAll('.pr-legend-item').forEach(el => { el.style.opacity = '1'; });
       tip.style.opacity = '0';
@@ -1090,6 +1092,128 @@
 
     renderHomePRTable(tableEl, year, currentWeek);
     renderHomePRChart(chartEl, year);
+  })();
+
+  // ── LUCKY WINS & UNLUCKY LOSSES ───────────────
+
+  (function renderLuckySection() {
+    const el = document.getElementById('luckySection');
+    if (!el) return;
+
+    const year = latestYear;
+    const season = LEAGUE_DATA[year];
+    if (!season) { el.innerHTML = ''; return; }
+
+    const logos = typeof TEAM_LOGOS !== 'undefined' ? TEAM_LOGOS : {};
+
+    // Build teamName → owner and teamName → logo maps for current year
+    const teamToOwner = {};
+    for (const t of (season.teams || [])) {
+      teamToOwner[t.team_name.trim()] = Utils.normalizeName(t.owner);
+    }
+
+    // Filter to regular season matchups for this year
+    const regMatchups = (season.matchups || []).filter(
+      m => m.matchup_type === 'NONE' && m.home_score != null && m.away_score != null
+    );
+
+    // Group scores by week for median calculation
+    const weekScores = {};
+    regMatchups.forEach(m => {
+      (weekScores[m.week] = weekScores[m.week] || []).push(m.home_score, m.away_score);
+    });
+
+    // Compute median
+    function calcMedian(scores) {
+      const s = [...scores].sort((a, b) => a - b);
+      const n = s.length;
+      if (n === 0) return 0;
+      return n % 2 === 1 ? s[Math.floor(n / 2)] : (s[n / 2 - 1] + s[n / 2]) / 2;
+    }
+
+    const medians = {};
+    for (const [week, scores] of Object.entries(weekScores)) {
+      medians[week] = calcMedian(scores);
+    }
+
+    // Tally lucky wins and unlucky losses keyed by team_name
+    const tally = {};
+    regMatchups.forEach(m => {
+      const median = medians[m.week];
+      [
+        { team: m.home_team?.trim(), score: m.home_score, won: m.home_score > m.away_score },
+        { team: m.away_team?.trim(), score: m.away_score, won: m.away_score > m.home_score },
+      ].forEach(({ team, score, won }) => {
+        if (!team) return;
+        if (!tally[team]) tally[team] = { lucky: 0, unlucky: 0 };
+        if (won  && score < median) tally[team].lucky++;
+        if (!won && score > median) tally[team].unlucky++;
+      });
+    });
+
+    // Sort: net desc, then lucky desc as tiebreaker
+    const rows = Object.entries(tally).map(([teamName, t]) => ({
+      teamName,
+      lucky: t.lucky,
+      unlucky: t.unlucky,
+      net: t.lucky - t.unlucky,
+    }));
+    rows.sort((a, b) => b.net - a.net || b.lucky - a.lucky);
+
+    // Label thresholds
+    const maxNet = rows[0]?.net ?? 0;
+    const minNet = rows[rows.length - 1]?.net ?? 0;
+
+    // Build table rows
+    const tbody = rows.map(r => {
+      const owner  = teamToOwner[r.teamName] || '';
+      const logo   = owner ? logos[owner] : '';
+      const logoEl = logo
+        ? `<img src="${logo}" class="lsc-logo" alt="" loading="lazy"/>`
+        : `<div class="lsc-logo-ph"></div>`;
+      const netCls = r.net > 0 ? 'lucky-net-pos' : r.net < 0 ? 'lucky-net-neg' : 'lucky-net-zero';
+      const netStr = r.net > 0 ? `+${r.net}` : String(r.net);
+      let badges = '';
+      if (r.net === maxNet) badges += `<span class="lucky-label-badge lucky-duck">Lucky Duck</span>`;
+      if (r.net === minNet) badges += `<span class="lucky-label-badge unlucky-duck">Unlucky Duck</span>`;
+      return `<tr>
+        <td class="lsc-team-cell">
+          ${logoEl}
+          <span class="lsc-tname">${r.teamName}</span>
+        </td>
+        <td class="lucky-count">${r.lucky}</td>
+        <td class="unlucky-count">${r.unlucky}</td>
+        <td class="${netCls}">${netStr}</td>
+        <td>${badges}</td>
+      </tr>`;
+    }).join('');
+
+    el.innerHTML = `
+      <div class="pr-home-header">
+        <div class="section-title">
+          ${Icons.zap({ size: 16 })}
+          Lucky Wins &amp; Unlucky Losses
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table class="lsc-table lucky-table">
+          <thead>
+            <tr>
+              <th class="lsc-th-team">Team</th>
+              <th title="Won matchup scoring in bottom half of league">Lucky</th>
+              <th title="Lost matchup scoring in top half of league">Unlucky</th>
+              <th class="lucky-th-net">+/−</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>${tbody}</tbody>
+        </table>
+      </div>
+      <div class="lucky-legend">
+        <span><strong>Lucky:</strong> Won matchup &amp; scored below the weekly median</span>
+        <span><strong>Unlucky:</strong> Lost matchup &amp; scored above the weekly median</span>
+        <span><strong>+/-:</strong> Net lucky/unlucky weeks</span>
+      </div>`;
   })();
 
 })();

@@ -343,11 +343,7 @@
 
     // ── Chart ─────────────────────────────────────────────────────────────────
 
-    const CHART_COLORS = [
-      '#c9a227','#e07b7b','#7baee0','#7bcca0','#b39ddb',
-      '#e0a87b','#7bcfcb','#e07bb5','#d4c97a','#7bd4e0',
-      '#e09a7b','#a3c97b','#9db3cc','#c4a07b',
-    ];
+    // Team colors sourced from DESIGN.chartColors (design.js) — do not redefine here
 
     /** Monotone cubic interpolation (Fritsch-Carlson) — never overshoots between points */
     function monotonePath(pts) {
@@ -424,38 +420,39 @@
       const yScale = rk => M.top  + ((rk - 1) / (numTeams - 1)) * innerH;
 
       // Grid
+      const C = DESIGN.chart, CLR = DESIGN.colors;
       let grid = '';
       for (let r = 1; r <= numTeams; r++) {
         const y = yScale(r).toFixed(2);
-        grid += `<line x1="${M.left}" y1="${y}" x2="${(M.left+innerW).toFixed(2)}" y2="${y}" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>`;
-        grid += `<text x="${(M.left-12).toFixed(2)}" y="${y}" text-anchor="end" dominant-baseline="middle" fill="var(--text-secondary)" font-size="14" font-family="Barlow Condensed,sans-serif" font-weight="600">${r}</text>`;
+        grid += `<line x1="${M.left}" y1="${y}" x2="${(M.left+innerW).toFixed(2)}" y2="${y}" stroke="${CLR.gridLine}" stroke-width="1"/>`;
+        grid += `<text x="${(M.left-12).toFixed(2)}" y="${y}" text-anchor="end" dominant-baseline="middle" fill="${CLR.textSecondary}" font-size="${C.rankLabelSize}" font-family="${C.fontFamily}" font-weight="${C.fontWeight}">${r}</text>`;
       }
       for (const w of allWeeks) {
         const x = xScale(w).toFixed(2);
-        grid += `<line x1="${x}" y1="${M.top}" x2="${x}" y2="${(M.top+innerH).toFixed(2)}" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>`;
-        grid += `<text x="${x}" y="${(M.top+innerH+22).toFixed(2)}" text-anchor="middle" fill="var(--text-secondary)" font-size="14" font-family="Barlow Condensed,sans-serif" font-weight="600">Wk ${w}</text>`;
+        grid += `<line x1="${x}" y1="${M.top}" x2="${x}" y2="${(M.top+innerH).toFixed(2)}" stroke="${CLR.gridLineFaint}" stroke-width="1"/>`;
+        grid += `<text x="${x}" y="${(M.top+innerH+22).toFixed(2)}" text-anchor="middle" fill="${CLR.textSecondary}" font-size="${C.weekLabelSize}" font-family="${C.fontFamily}" font-weight="${C.fontWeight}">Wk ${w}</text>`;
       }
 
       // Axis label
       const midY = (M.top + innerH / 2).toFixed(2);
       const axX  = (M.left - 40).toFixed(2);
-      grid += `<text x="${axX}" y="${midY}" text-anchor="middle" fill="var(--text-secondary)" font-size="12" font-family="Barlow Condensed,sans-serif" font-weight="600" transform="rotate(-90,${axX},${midY})">Rank</text>`;
+      grid += `<text x="${axX}" y="${midY}" text-anchor="middle" fill="${CLR.textSecondary}" font-size="12" font-family="${C.fontFamily}" font-weight="${C.fontWeight}" transform="rotate(-90,${axX},${midY})">Rank</text>`;
 
       // Lines, dots, labels
       let lines = '', dots = '', labels = '';
       teamNames.forEach((name, ti) => {
-        const color = CHART_COLORS[ti % CHART_COLORS.length];
+        const color = DESIGN.chartColors[ti % DESIGN.chartColors.length];
         const pts   = teamSeries[name].map(d => ({ x: xScale(d.week), y: yScale(d.rank), week: d.week, rank: d.rank }));
         const tid   = String(ti);
 
-        lines += `<path class="prc-line" data-tid="${tid}" d="${monotonePath(pts)}" stroke="${color}" stroke-width="2.2" fill="none" stroke-linecap="round"/>`;
+        lines += `<path class="prc-line" data-tid="${tid}" d="${monotonePath(pts)}" stroke="${color}" stroke-width="${C.lineWidth}" fill="none" stroke-linecap="round"/>`;
 
         for (const p of pts) {
-          dots += `<circle class="prc-dot" data-tid="${tid}" data-name="${name}" data-week="${p.week}" data-rank="${p.rank}" cx="${p.x.toFixed(2)}" cy="${p.y.toFixed(2)}" r="5.5" fill="#070b12" stroke="${color}" stroke-width="2.2"/>`;
+          dots += `<circle class="prc-dot" data-tid="${tid}" data-name="${name}" data-week="${p.week}" data-rank="${p.rank}" cx="${p.x.toFixed(2)}" cy="${p.y.toFixed(2)}" r="${C.dotRadius}" fill="${CLR.bgPrimary}" stroke="${color}" stroke-width="${C.dotStrokeWidth}"/>`;
         }
 
         const last = pts[pts.length - 1];
-        labels += `<text class="prc-label" data-tid="${tid}" x="${(last.x+14).toFixed(2)}" y="${last.y.toFixed(2)}" dominant-baseline="middle" fill="${color}" font-size="15" font-family="Barlow Condensed,sans-serif" font-weight="700" style="cursor:pointer;">${name}</text>`;
+        labels += `<text class="prc-label" data-tid="${tid}" x="${(last.x+14).toFixed(2)}" y="${last.y.toFixed(2)}" dominant-baseline="middle" fill="${color}" font-size="${C.nameLabelSize}" font-family="${C.fontFamily}" font-weight="${C.nameLabelWeight}" style="cursor:pointer;">${name}</text>`;
       });
 
       chartEl.innerHTML = `
@@ -474,7 +471,7 @@
 
       // Tooltip
       const tip = document.createElement('div');
-      tip.style.cssText = 'position:fixed;background:#0d1421;border:1px solid rgba(201,162,39,0.35);border-radius:6px;padding:7px 12px;font-size:0.8rem;color:#e2e8f0;pointer-events:none;opacity:0;transition:opacity 0.12s;z-index:200;font-family:Barlow,sans-serif;white-space:nowrap;';
+      tip.style.cssText = DESIGN.tooltipStyle;
       document.body.appendChild(tip);
       chartEl._tooltip = tip;
 
@@ -489,9 +486,9 @@
         allLabels.forEach(el => { el.style.opacity = el.dataset.tid === tid ? '1' : '0.15'; el.style.fontWeight = el.dataset.tid === tid ? '700' : '400'; });
       }
       function lo() {
-        allLines.forEach(el  => { el.style.opacity = '1'; el.style.strokeWidth = '2.2'; });
+        allLines.forEach(el  => { el.style.opacity = '1'; el.style.strokeWidth = String(DESIGN.chart.lineWidth); });
         allDots.forEach(el   => { el.style.opacity = '1'; });
-        allLabels.forEach(el => { el.style.opacity = '1'; el.style.fontWeight = '600'; });
+        allLabels.forEach(el => { el.style.opacity = '1'; el.style.fontWeight = String(DESIGN.chart.fontWeight); });
         tip.style.opacity = '0';
       }
 

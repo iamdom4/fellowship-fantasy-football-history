@@ -1,5 +1,38 @@
 # The Fellowship of the League — Project Notes
 
+## Design System (`js/design.js`)
+
+**Single source of truth for all chart rendering and visual tokens.** Load after `icons.js`, before any page script.
+
+### Rules
+- **`DESIGN.chartColors`** — canonical 14-color team palette. Never redeclare `PR_HOME_COLORS`, `CHART_COLORS`, or any equivalent array in page scripts.
+- **`DESIGN.chart.*`** — all SVG chart parameters: margins, spacing, line/dot sizes, font sizes. Any page-specific override (e.g. `M.right = 175` for inline labels in power-rankings) stays local, but pull shared values from `DESIGN.chart`.
+- **`DESIGN.colors.*`** — hex values mirroring CSS variables. Use these in SVG `fill`/`stroke` attributes where `var(--css-var)` doesn't work.
+- **`DESIGN.tooltipStyle`** — shared CSS string for all chart hover tooltips. Never duplicate inline.
+
+### Responsive SVG chart pattern
+Every SVG chart must follow this pattern to work at all viewport sizes:
+```html
+<svg viewBox="0 0 W H"
+     width="100%"
+     height="H"
+     preserveAspectRatio="none"
+     style="display:block; min-width:${DESIGN.chart.minWidth}px;">
+```
+- `width="100%"` — fills card/container at any width
+- `height="H"` fixed — Y axis (ranks) never distorts
+- `preserveAspectRatio="none"` — allows horizontal stretch only
+- `min-width` — triggers scroll wrapper below this threshold (mobile)
+- Wrap SVG in `<div style="overflow-x:auto; -webkit-overflow-scrolling:touch;">`
+
+### Pages using `design.js`
+| Page | Script |
+|------|--------|
+| `index.html` | `home.js` — `renderHomePRChart` |
+| `power-rankings.html` | `powerRankings.js` — `renderChart` |
+
+Add `design.js` to any new page that renders SVG charts.
+
 ## ESPN League
 - Platform: ESPN Fantasy Football
 - League ID: **31945763**
