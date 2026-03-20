@@ -3314,7 +3314,7 @@ body.sidebar-collapsed .sidebar-team-item[data-label]:hover::after {
 @media (max-width: 700px) {
   .news-grid { grid-template-columns: 1fr; }
   .news-featured { padding-right: 0; }
-  .news-thumb { max-height: 200px; }
+  .news-thumb { height: 200px; max-height: 200px; aspect-ratio: unset; } /* explicit height — aspect-ratio unreliable on some mobile browsers */
   .news-sidebar {
     border-left: none;
     border-top: 1px solid var(--border);
@@ -3960,6 +3960,7 @@ body.sidebar-collapsed .sidebar-item.active {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   padding-bottom: 4px;
+  min-width: 0; /* required: flex child must opt out of min-width:auto so scroll works inside widget-card */
 }
 .pr-chart-legend {
   display: flex;
