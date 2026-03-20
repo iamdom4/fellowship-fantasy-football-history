@@ -404,7 +404,8 @@
     .map(t => ({ ...t, pct: (t.wins + t.losses) ? t.wins / (t.wins + t.losses) : 0 }))
     .sort((a, b) => b.pct - a.pct || b.points_for - a.points_for);
 
-  document.getElementById('standingsWidget').innerHTML = standings.map((t, i) => {
+  const standingsWidgetEl = document.getElementById('standingsWidget');
+  if (standingsWidgetEl) standingsWidgetEl.innerHTML = standings.map((t, i) => {
     const winColor = t.wins > t.losses
       ? 'var(--win)'
       : t.wins < t.losses ? 'var(--loss)' : 'var(--text-secondary)';
@@ -469,7 +470,8 @@
     })
     .sort((a, b) => b.prScore - a.prScore || b.pf - a.pf);
 
-  document.getElementById('powerRankingsWidget').innerHTML = prRanked.map((d, i) => `
+  const prWidgetEl = document.getElementById('powerRankingsWidget');
+  if (prWidgetEl) prWidgetEl.innerHTML = prRanked.map((d, i) => `
     <div class="pr-widget-row">
       <span class="pr-rank-num ${i < 3 ? 'top3' : ''}">${i + 1}</span>
       <span class="pr-team-name" title="${d.team}">${d.team}</span>
@@ -493,7 +495,8 @@
       bigBlowout = { margin, winner: m.home_score > m.away_score ? m.home_team : m.away_team, year: m.year, week: m.week };
   }
 
-  document.getElementById('recordsTeaser').innerHTML = [
+  const recordsTeaserEl = document.getElementById('recordsTeaser');
+  if (recordsTeaserEl) recordsTeaserEl.innerHTML = [
     { icon: Icons.flame({ size: 18 }),  color: 'gold', val: Utils.fmt(highScore.score, 2), label: 'Highest Score',   sub: `${highScore.team} — ${highScore.year} Wk ${highScore.week}` },
     { icon: Icons.zap({ size: 18 }),    color: 'gold', val: `+${Utils.fmt(bigBlowout.margin, 2)}`, label: 'Biggest Blowout', sub: `${bigBlowout.winner} — ${bigBlowout.year} Wk ${bigBlowout.week}` },
     { icon: Icons.crown({ size: 18 }), color: 'gold', val: mostTitles.titles, label: 'Most Titles', sub: Utils.shortOwner(mostTitles.owner) },
@@ -529,6 +532,10 @@
     const d = new Date(str);
     return isNaN(d) ? '' : d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
   }
+  function readMins(post) {
+    const words = stripHtml(post.content || post.description || '').split(/\s+/).filter(Boolean).length;
+    return Math.max(1, Math.ceil(words / 200));
+  }
   function extractThumb(post) {
     if (post.thumbnail && post.thumbnail.startsWith('http')) return post.thumbnail;
     const m = (post.content || post.description || '').match(/<img[^>]+src=["']([^"']+)/i);
@@ -542,26 +549,35 @@
       const items    = data.items.slice(0, 4);
       const featured = items[0];
       const side     = items.slice(1);
-      const thumb    = 'The Fellowship 2 (Ring).svg';
-      const excerpt  = stripHtml(featured.description || '').slice(0, 200) + '…';
+      const thumb    = extractThumb(featured) || 'The Fellowship 2 (Ring).svg';
+      const excerpt  = stripHtml(featured.description || '').slice(0, 350) + '…';
 
-      const sideHtml = side.map((p, i) => `
+      const sideHtml = side.map((p, i) => {
+        const snip = stripHtml(p.description || '').slice(0, 100).trim();
+        return `
         <a href="${p.link || '#'}" class="news-item" target="_blank" rel="noopener">
-          <div class="news-meta">${fmtPostDate(p.pubDate)}</div>
+          <div class="news-meta">${fmtPostDate(p.pubDate)} <span class="news-read-time">&bull; ${readMins(p)} min read</span></div>
           <div class="news-item-title">${p.title || ''}</div>
+          ${snip ? `<div class="news-item-excerpt">${snip}…</div>` : ''}
         </a>
-        ${i < side.length - 1 ? '<div class="news-item-divider"></div>' : ''}
-      `).join('');
+        ${i < side.length - 1 ? '<div class="news-item-divider"></div>' : ''}`;
+      }).join('');
 
       blogEl.innerHTML = `
         <div class="news-grid">
           <a href="${featured.link || '#'}" class="news-featured" target="_blank" rel="noopener">
-            ${thumb ? `<div class="news-thumb"><img src="${thumb}" alt="" loading="lazy"></div>` : ''}
-            <div class="news-meta">${fmtPostDate(featured.pubDate)}</div>
+            ${thumb ? `<div class="news-thumb"><img src="${thumb}" alt="" loading="lazy" style="${thumb.endsWith('.svg') ? 'object-fit:contain;padding:1.5rem' : ''}"><span class="news-latest-badge">Latest Issue</span></div>` : ''}
+            <div class="news-meta">${fmtPostDate(featured.pubDate)} <span class="news-read-time">&bull; ${readMins(featured)} min read</span></div>
             <div class="news-featured-title">${featured.title || 'Latest Post'}</div>
             <div class="news-excerpt">${excerpt}</div>
           </a>
-          <div class="news-sidebar">${sideHtml}</div>
+          <div class="news-sidebar">
+            ${sideHtml}
+            <a href="blog.html" class="blog-archive-btn news-all-posts">
+              All Posts
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
         </div>
       `;
     })
@@ -576,6 +592,12 @@
     });
 
   // ── LEAGUE STANDINGS TABLE ────────────────────────────────────────────
+  // Aragorn Crown: team with standing === 1 in the latest season
+  const lscCrownTeam = (() => {
+    const top = (latestSeason.teams || []).find(t => t.standing === 1);
+    return top ? top.team_name.trim() : null;
+  })();
+
   const lscSeasonMatchups = latestSeason.matchups || [];
   const lscPlayoffCount   = latestSeason.settings?.playoff_team_count || 6;
 
@@ -725,6 +747,7 @@
       const recColor  = r.w > r.l ? 'var(--win)' : r.w < r.l ? 'var(--loss)' : 'var(--text-secondary)';
       const mgmtStr   = r.mgmtPct !== null ? r.mgmtPct.toFixed(1) + '%' : '—';
       const isChamp   = champTeam && r.team === champTeam;
+      const isCrown   = lscCrownTeam && r.team === lscCrownTeam;
 
       return `<tr${r.inPlayoffs ? ' class="lsc-po-row"' : ''}>
         <td class="lsc-rank-cell">${r.rank}</td>
@@ -733,7 +756,7 @@
             ? `<img src="${logo}" class="lsc-logo" alt="" loading="lazy"/>`
             : `<div class="lsc-logo-ph"></div>`}
           <div class="lsc-team-info">
-            <span class="lsc-tname">${r.team}${isChamp ? `<span class="lsc-ring" title="League Champion">${ringSvg}</span>` : ''}</span>
+            <span class="lsc-tname">${r.team}${isChamp ? `<span class="lsc-ring" title="League Champion">${ringSvg}</span>` : ''}${isCrown ? `<span class="lsc-ring" title="Aragorn Crown — #1 Seed" style="margin-left:2px;color:#b0bec5;vertical-align:middle">${Icons.aragornCrown({ size: 16 })}</span>` : ''}</span>
             <span class="lsc-towner">${short}</span>
           </div>
         </td>
@@ -777,5 +800,265 @@
       renderLsc();
     });
   });
+
+  // ── HOME PAGE POWER RANKINGS ──────────────────────────────────────────────
+
+  function prGetRegSeasonWeeks(year) {
+    const season = LEAGUE_DATA[year];
+    if (!season || !season.matchups) return [];
+    const weeks = new Set();
+    for (const m of season.matchups) {
+      if (m.matchup_type === 'NONE' && m.home_score != null && m.away_score != null) weeks.add(m.week);
+    }
+    return [...weeks].sort((a, b) => a - b);
+  }
+
+  function prComputeRankings(year, throughWeek) {
+    const season = LEAGUE_DATA[year];
+    if (!season) return [];
+    const stats = {};
+    for (const t of (season.teams || [])) {
+      const name = t.team_name.trim();
+      stats[name] = { teamName: name, owner: Utils.normalizeName(t.owner), pf: 0, maxPF: 0, wins: 0, losses: 0, medianWins: 0, medianLosses: 0 };
+    }
+    const byWeek = {};
+    for (const m of (season.matchups || [])) {
+      if (m.matchup_type !== 'NONE' || m.home_score == null || m.away_score == null || m.week > throughWeek) continue;
+      if (!byWeek[m.week]) byWeek[m.week] = [];
+      byWeek[m.week].push(m);
+    }
+    for (const weekMs of Object.values(byWeek)) {
+      const scores = weekMs.flatMap(m => [m.home_score, m.away_score]).sort((a, b) => a - b);
+      const n = scores.length;
+      const median = n === 0 ? 0 : n % 2 === 1 ? scores[Math.floor(n / 2)] : (scores[n / 2 - 1] + scores[n / 2]) / 2;
+      for (const m of weekMs) {
+        const h = m.home_team?.trim(), a = m.away_team?.trim();
+        if (h && stats[h]) {
+          stats[h].pf += m.home_score; stats[h].maxPF += (m.home_max_pf || 0);
+          m.home_score > m.away_score ? stats[h].wins++ : stats[h].losses++;
+          m.home_score > median ? stats[h].medianWins++ : stats[h].medianLosses++;
+        }
+        if (a && stats[a]) {
+          stats[a].pf += m.away_score; stats[a].maxPF += (m.away_max_pf || 0);
+          m.away_score > m.home_score ? stats[a].wins++ : stats[a].losses++;
+          m.away_score > median ? stats[a].medianWins++ : stats[a].medianLosses++;
+        }
+      }
+    }
+    const teams = Object.values(stats).map(t => {
+      const totalG = t.wins + t.losses, totalM = t.medianWins + t.medianLosses;
+      const winPct = totalG > 0 ? t.wins / totalG : 0;
+      const medWinPct = totalM > 0 ? t.medianWins / totalM : 0;
+      return { ...t, winPct, medWinPct, prScore: (t.pf * 2) + (t.pf * winPct) + (t.pf * medWinPct) };
+    });
+    teams.sort((a, b) => Math.abs(b.prScore - a.prScore) > 0.0001 ? b.prScore - a.prScore : b.pf - a.pf);
+    teams.forEach((t, i) => { t.rank = i + 1; });
+    return teams;
+  }
+
+  function prMonotonePath(pts) {
+    if (pts.length < 2) return '';
+    const n = pts.length, dx = [], dy = [], m = [], t = [];
+    for (let i = 0; i < n - 1; i++) { dx[i] = pts[i+1].x - pts[i].x; dy[i] = pts[i+1].y - pts[i].y; m[i] = dy[i] / dx[i]; }
+    t[0] = m[0]; t[n-1] = m[n-2];
+    for (let i = 1; i < n-1; i++) t[i] = m[i-1] * m[i] <= 0 ? 0 : (m[i-1] + m[i]) / 2;
+    for (let i = 0; i < n-1; i++) {
+      if (Math.abs(m[i]) < 1e-10) { t[i] = t[i+1] = 0; continue; }
+      const a = t[i]/m[i], b = t[i+1]/m[i], s = a*a + b*b;
+      if (s > 9) { const tau = 3/Math.sqrt(s); t[i] = tau*a*m[i]; t[i+1] = tau*b*m[i]; }
+    }
+    const segs = [`M ${pts[0].x.toFixed(2)},${pts[0].y.toFixed(2)}`];
+    for (let i = 0; i < n-1; i++) {
+      const cp1x = pts[i].x + dx[i]/3, cp1y = pts[i].y + t[i]*dx[i]/3;
+      const cp2x = pts[i+1].x - dx[i]/3, cp2y = pts[i+1].y - t[i+1]*dx[i]/3;
+      segs.push(`C ${cp1x.toFixed(2)},${cp1y.toFixed(2)} ${cp2x.toFixed(2)},${cp2y.toFixed(2)} ${pts[i+1].x.toFixed(2)},${pts[i+1].y.toFixed(2)}`);
+    }
+    return segs.join(' ');
+  }
+
+  function renderHomePRTable(tableEl, year, week) {
+    const curr = prComputeRankings(year, week);
+    let prevMap = null;
+    if (week > 1) {
+      const prev = prComputeRankings(year, week - 1);
+      prevMap = {};
+      prev.forEach(t => { prevMap[t.teamName] = t.rank; });
+    }
+    if (!curr.length) { tableEl.innerHTML = ''; return; }
+    const logoMap = typeof TEAM_LOGOS !== 'undefined' ? TEAM_LOGOS : {};
+    let rows = '';
+    for (const t of curr) {
+      let rankClass = 'rank-num-cell';
+      if (t.rank === 1) rankClass += ' rank-1-cell';
+      else if (t.rank === 2) rankClass += ' rank-2-cell';
+      else if (t.rank === 3) rankClass += ' rank-3-cell';
+      let changeHtml = '<span class="change-neutral">&mdash;</span>';
+      if (prevMap && prevMap[t.teamName] != null) {
+        const delta = prevMap[t.teamName] - t.rank;
+        if (delta > 0) changeHtml = `<span class="change-up">&#9650;${delta}</span>`;
+        else if (delta < 0) changeHtml = `<span class="change-down">&#9660;${Math.abs(delta)}</span>`;
+      }
+      const ownerEnc = encodeURIComponent(Utils.shortOwner(t.owner));
+      const logoUrl  = logoMap[t.owner] || '';
+      const logoHtml = logoUrl
+        ? `<img src="${logoUrl}" class="lsc-logo" alt="" loading="lazy" />`
+        : `<div class="lsc-logo-ph"></div>`;
+      const games  = t.wins + t.losses;
+      const pfpg   = games > 0 ? Utils.fmt(t.pf / games, 2) : '&mdash;';
+      rows += `
+        <tr class="pr-row" data-owner="${ownerEnc}" style="cursor:pointer;" tabindex="0" role="link">
+          <td class="${rankClass}">${t.rank}</td>
+          <td>
+            <div class="lsc-team-cell">
+              ${logoHtml}
+              <div class="lsc-team-info">
+                <span class="lsc-tname">${t.teamName}</span>
+                <span class="lsc-towner">${Utils.shortOwner(t.owner)}</span>
+              </div>
+            </div>
+          </td>
+          <td style="text-align:center;font-family:var(--font-mono);">${t.wins}&ndash;${t.losses}</td>
+          <td style="text-align:center;font-family:var(--font-mono);color:var(--text-secondary);">${pfpg}</td>
+          <td style="text-align:center;font-weight:700;color:var(--accent-gold);">${Utils.fmt(t.prScore, 2)}</td>
+          <td style="text-align:center;">${changeHtml}</td>
+        </tr>`;
+    }
+    tableEl.innerHTML = `
+      <div class="section-title" style="margin-bottom:0.75rem;font-size:0.82rem;">Week ${week} &mdash; ${year} Season</div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th style="text-align:center;" scope="col">#</th>
+              <th scope="col">Team</th>
+              <th style="text-align:center;" scope="col">Record</th>
+              <th style="text-align:center;" scope="col">PF/G</th>
+              <th style="text-align:center;" scope="col">Power Ranking Score</th>
+              <th style="text-align:center;" scope="col">Change</th>
+            </tr>
+          </thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>`;
+    tableEl.querySelectorAll('.pr-row').forEach(row => {
+      const nav = () => { window.location.href = `team.html?owner=${row.dataset.owner}`; };
+      row.addEventListener('click', nav);
+      row.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); nav(); } });
+    });
+  }
+
+  const PR_HOME_COLORS = ['#c9a227','#e07b7b','#7baee0','#7bcca0','#b39ddb','#e0a87b','#7bcfcb','#e07bb5','#d4c97a','#7bd4e0','#e09a7b','#a3c97b','#9db3cc','#c4a07b'];
+
+  function renderHomePRChart(chartEl, year) {
+    if (!chartEl) return;
+    if (chartEl._prTip) { chartEl._prTip.remove(); chartEl._prTip = null; }
+    const allWeeks = prGetRegSeasonWeeks(year);
+    if (allWeeks.length < 2) { chartEl.innerHTML = ''; return; }
+    const teamSeries = {};
+    for (const week of allWeeks) {
+      for (const t of prComputeRankings(year, week)) {
+        if (!teamSeries[t.teamName]) teamSeries[t.teamName] = [];
+        teamSeries[t.teamName].push({ week, rank: t.rank });
+      }
+    }
+    const teamNames = Object.keys(teamSeries);
+    const numTeams = teamNames.length, numWeeks = allWeeks.length;
+    const M = { top: 28, right: 130, bottom: 48, left: 54 };
+    const innerW = Math.max(380, numWeeks * 46);
+    const innerH = Math.max(360, numTeams * 50);
+    const totalW = innerW + M.left + M.right;
+    const totalH = innerH + M.top + M.bottom;
+    const xScale = w  => M.left + (allWeeks.indexOf(w) / (numWeeks - 1)) * innerW;
+    const yScale = rk => M.top  + ((rk - 1) / (numTeams - 1)) * innerH;
+
+    // Split long labels to two lines at the word boundary closest to the midpoint
+    function wrapLabel(s) {
+      if (s.length <= 14) return [s];
+      const mid = Math.floor(s.length / 2);
+      let best = -1, bestDist = Infinity;
+      for (let i = 0; i < s.length; i++) {
+        if (s[i] === ' ') { const d = Math.abs(i - mid); if (d < bestDist) { bestDist = d; best = i; } }
+      }
+      return best === -1 ? [s] : [s.slice(0, best), s.slice(best + 1)];
+    }
+
+    let grid = '';
+    for (let r = 1; r <= numTeams; r++) {
+      const y = yScale(r).toFixed(2);
+      grid += `<line x1="${M.left}" y1="${y}" x2="${(M.left+innerW).toFixed(2)}" y2="${y}" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>`;
+      grid += `<text x="${(M.left-12).toFixed(2)}" y="${y}" text-anchor="end" dominant-baseline="middle" fill="var(--text-secondary)" font-size="15" font-family="Barlow Condensed,sans-serif" font-weight="600">${r}</text>`;
+    }
+    for (const w of allWeeks) {
+      const x = xScale(w).toFixed(2);
+      grid += `<line x1="${x}" y1="${M.top}" x2="${x}" y2="${(M.top+innerH).toFixed(2)}" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>`;
+      grid += `<text x="${x}" y="${(M.top+innerH+26).toFixed(2)}" text-anchor="middle" fill="var(--text-secondary)" font-size="14" font-family="Barlow Condensed,sans-serif" font-weight="600">Wk ${w}</text>`;
+    }
+    let lines = '', dots = '', labels = '';
+    teamNames.forEach((name, ti) => {
+      const color = PR_HOME_COLORS[ti % PR_HOME_COLORS.length];
+      const pts = teamSeries[name].map(d => ({ x: xScale(d.week), y: yScale(d.rank), week: d.week, rank: d.rank }));
+      const tid = String(ti);
+      lines += `<path class="prc-line" data-tid="${tid}" d="${prMonotonePath(pts)}" stroke="${color}" stroke-width="2.5" fill="none" stroke-linecap="round"/>`;
+      for (const p of pts) {
+        dots += `<circle class="prc-dot" data-tid="${tid}" data-name="${name}" data-week="${p.week}" data-rank="${p.rank}" cx="${p.x.toFixed(2)}" cy="${p.y.toFixed(2)}" r="6" fill="#070b12" stroke="${color}" stroke-width="2.5"/>`;
+      }
+      const last = pts[pts.length - 1];
+      const lx = (last.x + 14).toFixed(2);
+      const lns = wrapLabel(name);
+      if (lns.length === 1) {
+        labels += `<text class="prc-label" data-tid="${tid}" x="${lx}" y="${last.y.toFixed(2)}" dominant-baseline="middle" fill="${color}" font-size="14" font-family="Barlow Condensed,sans-serif" font-weight="700" style="cursor:pointer;">${lns[0]}</text>`;
+      } else {
+        labels += `<text class="prc-label" data-tid="${tid}" x="${lx}" y="${(last.y - 8).toFixed(2)}" dominant-baseline="hanging" fill="${color}" font-size="13" font-family="Barlow Condensed,sans-serif" font-weight="700" style="cursor:pointer;"><tspan x="${lx}" dy="0">${lns[0]}</tspan><tspan x="${lx}" dy="16">${lns[1]}</tspan></text>`;
+      }
+    });
+    chartEl.innerHTML = `
+      <div class="section-title" style="margin-bottom:0.5rem;font-size:0.82rem;">${year} Season — Rank by Week</div>
+      <p style="font-size:0.78rem;color:var(--text-secondary);margin-bottom:0.75rem;">Hover a line or name to highlight that team's trajectory</p>
+      <div style="flex:1;min-height:320px;position:relative;">
+        <svg id="prHomeChartSvg" viewBox="0 0 ${totalW} ${totalH}" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;">
+          ${grid}${lines}${dots}${labels}
+        </svg>
+      </div>`;
+    const tip = document.createElement('div');
+    tip.style.cssText = 'position:fixed;background:#0d1421;border:1px solid rgba(201,162,39,0.35);border-radius:6px;padding:7px 12px;font-size:0.8rem;color:#e2e8f0;pointer-events:none;opacity:0;transition:opacity 0.12s;z-index:200;font-family:Barlow,sans-serif;white-space:nowrap;';
+    document.body.appendChild(tip);
+    chartEl._prTip = tip;
+    const svgEl = document.getElementById('prHomeChartSvg');
+    const allLines = svgEl.querySelectorAll('.prc-line');
+    const allDots  = svgEl.querySelectorAll('.prc-dot');
+    const allLabels = svgEl.querySelectorAll('.prc-label');
+    function hi(tid) {
+      allLines.forEach(el  => { el.style.opacity = el.dataset.tid === tid ? '1' : '0.07'; el.style.strokeWidth = el.dataset.tid === tid ? '3' : '1.5'; });
+      allDots.forEach(el   => { el.style.opacity = el.dataset.tid === tid ? '1' : '0.07'; });
+      allLabels.forEach(el => { el.style.opacity = el.dataset.tid === tid ? '1' : '0.15'; el.style.fontWeight = el.dataset.tid === tid ? '700' : '400'; });
+    }
+    function lo() {
+      allLines.forEach(el  => { el.style.opacity = '1'; el.style.strokeWidth = '2.2'; });
+      allDots.forEach(el   => { el.style.opacity = '1'; });
+      allLabels.forEach(el => { el.style.opacity = '1'; el.style.fontWeight = '600'; });
+      tip.style.opacity = '0';
+    }
+    allLines.forEach(el => { el.style.cursor = 'pointer'; el.addEventListener('mouseenter', () => hi(el.dataset.tid)); el.addEventListener('mouseleave', lo); });
+    allLabels.forEach(el => { el.addEventListener('mouseenter', () => hi(el.dataset.tid)); el.addEventListener('mouseleave', lo); });
+    allDots.forEach(el => {
+      el.addEventListener('mouseenter', () => { hi(el.dataset.tid); tip.innerHTML = `<strong>${el.dataset.name}</strong><br>Week ${el.dataset.week} &mdash; Rank #${el.dataset.rank}`; tip.style.opacity = '1'; });
+      el.addEventListener('mousemove', e => { tip.style.left = (e.clientX + 14) + 'px'; tip.style.top = (e.clientY - 10) + 'px'; });
+      el.addEventListener('mouseleave', lo);
+    });
+  }
+
+  // Init home PR section
+  (function initHomePR() {
+    const tableEl = document.getElementById('prHomeTable');
+    const chartEl = document.getElementById('prHomeChart');
+    if (!tableEl || !chartEl) return;
+    const seasons = Utils.getSeasons();
+    if (!seasons.length) return;
+    const [year] = seasons[seasons.length - 1]; // most recent
+    const weeks = prGetRegSeasonWeeks(year);
+    if (!weeks.length) return;
+    renderHomePRTable(tableEl, year, weeks[weeks.length - 1]);
+    renderHomePRChart(chartEl, year);
+  })();
 
 })();

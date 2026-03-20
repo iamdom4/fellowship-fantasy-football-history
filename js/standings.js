@@ -3,8 +3,14 @@
    ============================================= */
 
 (function () {
-  const ownerStats = Utils.getOwnerStats();
-  const streakMap  = Utils.getStreakMap();
+  const ownerStats   = Utils.getOwnerStats();
+  const streakMap    = Utils.getStreakMap();
+  const crownMap     = Utils.getAragornCrownMap(); // { year: { owner, teamName } }
+  // Build per-owner crown count
+  const crownCounts  = {};
+  for (const { owner } of Object.values(crownMap)) {
+    crownCounts[owner] = (crownCounts[owner] || 0) + 1;
+  }
 
   // Sort: titles desc → win% desc → wins desc
   ownerStats.sort((a, b) => {
@@ -34,6 +40,10 @@
         const trophyHtml = o.titles > 0
           ? `<div class="podium-titles">${Array(o.titles).fill(`<span class="badge">${Icons.trophy({ size: 11 })}</span>`).join(' ')}</div>`
           : '';
+        const crownCount = crownCounts[o.owner] || 0;
+        const crownHtml = crownCount > 0
+          ? `<div class="podium-titles">${Array(crownCount).fill(`<span class="badge badge-silver">${Icons.aragornCrown({ size: 11 })}</span>`).join(' ')}</div>`
+          : '';
         return `
           <a class="podium-card ${borderCls}" href="team.html?owner=${encodeURIComponent(Utils.shortOwner(o.owner))}">
             <div class="podium-label">${label}</div>
@@ -41,6 +51,7 @@
             <div class="podium-name">${Utils.shortOwner(o.owner)}</div>
             <div class="podium-team">${o.latestTeam || o.teamNames[0]}</div>
             ${trophyHtml}
+            ${crownHtml}
             <div class="podium-stats">
               <div class="podium-stat-item">
                 <div class="podium-stat-val" style="color:var(--win)">${o.wins}</div>
@@ -91,6 +102,12 @@
       ? Array(o.titles).fill(`<span class="badge">${Icons.trophy({ size: 11 })}</span>`).join(' ')
       : '<span style="color:var(--text-muted)">—</span>';
 
+    // Aragorn Crown badges
+    const ownerCrowns = crownCounts[o.owner] || 0;
+    const crownsHtml = ownerCrowns > 0
+      ? Array(ownerCrowns).fill(`<span class="badge badge-silver">${Icons.aragornCrown({ size: 11 })}</span>`).join(' ')
+      : '<span style="color:var(--text-muted)">—</span>';
+
     const teamName = o.latestTeam || o.teamNames[o.teamNames.length - 1];
 
     const ownerUrl = `team.html?owner=${encodeURIComponent(Utils.shortOwner(o.owner))}`;
@@ -122,6 +139,7 @@
         <td class="num">${Utils.fmt(o.pa, 2)}</td>
         <td class="num" style="color:${diffColor};font-weight:600">${diffStr}</td>
         <td>${titlesHtml}</td>
+        <td>${crownsHtml}</td>
         <td class="num">${streakHtml}</td>
       </tr>
     `;
@@ -142,6 +160,7 @@
           <th class="num" scope="col">PA</th>
           <th class="num" scope="col">+/−</th>
           <th scope="col">Titles</th>
+          <th scope="col">Aragorn Crown</th>
           <th class="num" scope="col">Streak</th>
         </tr>
       </thead>

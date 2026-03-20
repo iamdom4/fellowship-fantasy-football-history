@@ -155,6 +155,19 @@ const Utils = (() => {
     return map;
   }
 
+  /**
+   * Returns { year: { owner, teamName } } — the #1 regular-season seed for each year.
+   * Used for the Aragorn Crown award.
+   */
+  function getAragornCrownMap() {
+    const map = {};
+    for (const [year, season] of getSeasons()) {
+      const top = (season.teams || []).find(t => t.standing === 1);
+      if (top) map[year] = { owner: normalizeName(top.owner), teamName: top.team_name.trim() };
+    }
+    return map;
+  }
+
   /** Returns { owner: { type, length } } from the most recent season */
   function getStreakMap() {
     const seasons = getSeasons();
@@ -180,5 +193,5 @@ const Utils = (() => {
     return owners.find(o => shortOwner(o) === param) || owners.find(o => o === param) || null;
   }
 
-  return { getSeasons, buildTeamOwnerMap, getAllOwners, getOwnerStats, getAllMatchups, normalizeName, shortOwner, resolveOwner, isActive, fmt, fmtPct, getLogoMap, getStreakMap };
+  return { getSeasons, buildTeamOwnerMap, getAllOwners, getOwnerStats, getAllMatchups, normalizeName, shortOwner, resolveOwner, isActive, fmt, fmtPct, getLogoMap, getStreakMap, getAragornCrownMap };
 })();

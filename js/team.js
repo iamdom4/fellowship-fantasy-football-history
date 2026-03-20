@@ -72,6 +72,13 @@
   // Championship years
   const champYears = seasonRows.filter(r => r.isChamp).map(r => r.year);
 
+  // Aragorn Crown years (#1 regular-season seed)
+  const crownMap  = Utils.getAragornCrownMap();
+  const crownYears = Object.entries(crownMap)
+    .filter(([, v]) => v.owner === activeOwner)
+    .map(([y]) => y)
+    .sort();
+
   // H2H records vs all other managers
   const h2h = {};
   for (const m of allMatchups) {
@@ -103,6 +110,9 @@
   const champBadges = champYears.length
     ? champYears.map(y => `<span class="badge">${Icons.trophy({ size: 11 })} ${y}</span>`).join(' ')
     : '<span style="color:var(--text-muted);font-size:0.85rem">No championships yet</span>';
+  const crownBadges = crownYears.length
+    ? crownYears.map(y => `<span class="badge badge-silver">${Icons.aragornCrown({ size: 11 })} ${y}</span>`).join(' ')
+    : '';
 
   // Season table rows — most recent year first
   const seasonTableRows = [...seasonRows].reverse().map(r => {
@@ -110,7 +120,7 @@
     return `
       <tr>
         <td class="num">${r.year}</td>
-        <td>${t.team_name.trim()} ${r.isChamp ? Icons.trophy({ size: 13, cls: 'icon-gold' }) : ''}</td>
+        <td>${t.team_name.trim()} ${r.isChamp ? Icons.trophy({ size: 13, cls: 'icon-gold' }) : ''} ${crownYears.includes(r.year) ? `<span style="color:#b0bec5;vertical-align:middle;">${Icons.aragornCrown({ size: 13 })}</span>` : ''}</td>
         <td class="num" style="color:var(--win)">${t.wins}</td>
         <td class="num" style="color:var(--loss)">${t.losses}</td>
         <td class="num win-pct">${r.pct}%</td>
@@ -155,6 +165,7 @@
           ${!isActive ? '&nbsp;·&nbsp; <span class="alumni-badge">Alumni</span>' : ''}
         </div>
         <div style="margin-top:0.6rem">${champBadges}</div>
+        ${crownBadges ? `<div style="margin-top:0.4rem">${crownBadges}</div>` : ''}
       </div>
     </div>
 
@@ -164,6 +175,7 @@
       ${statPill('Points For', Utils.fmt(stats.pf, 2), `${Utils.fmt(stats.pf / stats.seasons, 2)} per season`)}
       ${statPill('Points Against', Utils.fmt(stats.pa, 2), `${Utils.fmt(stats.pa / stats.seasons, 2)} per season`)}
       ${statPill('Championships', stats.titles, champYears.length ? champYears.join(', ') : 'Not yet')}
+      ${statPill('Aragorn Crown', crownYears.length, crownYears.length ? crownYears.join(', ') : 'Not yet')}
     </div>
 
     <!-- WEEK-BY-WEEK CHART -->

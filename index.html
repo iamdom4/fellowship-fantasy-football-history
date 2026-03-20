@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Fellowship of the League</title>
-  <link rel="stylesheet" href="css/style.css?v=66" />
+  <link rel="stylesheet" href="css/style.css?v=87" />
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -211,16 +211,17 @@
       <div id="homeBrackets"></div>
     </div>
 
-    <!-- NEWS / BLOG -->
-    <div class="widget-card">
-      <div class="widget-header">
-        <span class="widget-title">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-          Latest from the Blog
-        </span>
-        <a href="blog.html" class="widget-link">All Posts →</a>
+    <!-- NEWS -->
+    <div class="section-block">
+      <div class="news-section-header">
+        <div class="section-title">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 3h16a1 1 0 0 1 1 1v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4a1 1 0 0 1 1-1z"/><path d="M8 7h6"/><path d="M8 11h8"/><path d="M8 15h6"/><path d="M4 7h1"/><path d="M4 11h1"/><path d="M4 15h1"/></svg>
+          News
+        </div>
       </div>
-      <div id="latestBlog"><div class="loading"><div class="spinner"></div></div></div>
+      <div class="widget-card">
+        <div id="latestBlog"><div class="loading"><div class="spinner"></div></div></div>
+      </div>
     </div>
 
     <!-- LEAGUE STANDINGS TABLE -->
@@ -242,7 +243,7 @@
             <tr>
               <th scope="col" class="lsc-th-rank lsc-sortable" data-sort="rank">Rank <span class="lsc-sort">↕</span></th>
               <th scope="col" class="lsc-th-team">Team</th>
-              <th scope="col" class="lsc-th-po" title="Currently in playoff position">Playoffs</th>
+              <th scope="col" class="lsc-th-po" title="Currently in playoff position"><span class="lsc-po-text">Playoffs</span></th>
               <th scope="col" class="lsc-sortable" data-sort="record">Record <span class="lsc-sort">↕</span></th>
               <th scope="col" class="lsc-sortable" data-sort="powerRecord" title="Round-robin record vs all teams each week">Power Record <span class="lsc-sort">↕</span></th>
               <th scope="col" class="lsc-sortable" data-sort="vsMedian" title="Record vs weekly median score">vs. Median <span class="lsc-sort">↕</span></th>
@@ -258,43 +259,20 @@
       </div>
     </div>
 
-    <!-- DASH ROW 1: STANDINGS -->
-    <div class="home-dash-grid">
-      <div class="widget-card">
-        <div class="widget-header">
-          <span class="widget-title">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-            Standings
-          </span>
-          <a href="standings.html" class="widget-link">All-Time →</a>
+    <!-- POWER RANKINGS -->
+    <div class="section-block">
+      <div class="pr-home-header">
+        <div class="section-title">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg>
+          Power Rankings
         </div>
-        <div id="standingsWidget"><div class="loading"><div class="spinner"></div></div></div>
+      </div>
+      <div class="pr-home-grid">
+        <div class="widget-card" id="prHomeTable"><div class="loading"><div class="spinner"></div></div></div>
+        <div class="widget-card" id="prHomeChart"><div class="loading"><div class="spinner"></div></div></div>
       </div>
     </div>
 
-    <!-- DASH ROW 2: POWER RANKINGS + RECORDS TEASER -->
-    <div class="home-dash-grid">
-      <div class="widget-card">
-        <div class="widget-header">
-          <span class="widget-title">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-            Power Rankings
-          </span>
-          <a href="power-rankings.html" class="widget-link">Full Rankings →</a>
-        </div>
-        <div id="powerRankingsWidget"><div class="loading"><div class="spinner"></div></div></div>
-      </div>
-      <div class="widget-card">
-        <div class="widget-header">
-          <span class="widget-title">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            All-Time Records
-          </span>
-          <a href="records.html" class="widget-link">View All →</a>
-        </div>
-        <div id="recordsTeaser"><div class="loading"><div class="spinner"></div></div></div>
-      </div>
-    </div>
 
   </div>
 
@@ -304,10 +282,10 @@
 
 </div><!-- /.content-wrap -->
   <script src="js/leagueData.js?v=15"></script>
-  <script src="js/utils.js?v=26"></script>
+  <script src="js/utils.js?v=27"></script>
   <script src="js/logoData.js?v=15"></script>
-  <script src="js/icons.js?v=16"></script>
-  <script src="js/home.js?v=52"></script>
+  <script src="js/icons.js?v=17"></script>
+  <script src="js/home.js?v=72"></script>
   <script src="js/nav.js?v=26"></script>
 </body>
 </html>

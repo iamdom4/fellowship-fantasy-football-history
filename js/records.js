@@ -30,6 +30,26 @@
   }).join('');
   document.getElementById('championsGrid').innerHTML = champHtml;
 
+  // ── ARAGORN CROWN TIMELINE ────────────────────
+  const crownMapRec = Utils.getAragornCrownMap();
+  const crownGridEl = document.getElementById('aragornCrownGrid');
+  if (crownGridEl) {
+    crownGridEl.innerHTML = Object.entries(crownMapRec)
+      .sort(([a], [b]) => Number(a) - Number(b))
+      .map(([year, { owner, teamName }]) => {
+        const currentTeam = ownerToLatestTeam[owner] || teamName;
+        const showPrev = currentTeam !== teamName;
+        return `
+          <div class="champion-card">
+            <div class="year-badge">${year}</div>
+            <div class="trophy-wrap" style="color:#b0bec5;">${Icons.aragornCrown({ size: 26 })}</div>
+            <div class="champ-name">${currentTeam}</div>
+            <div class="champ-owner">${Utils.shortOwner(owner)}</div>
+            ${showPrev ? `<div class="champ-prev-name">formerly ${teamName}</div>` : ''}
+          </div>`;
+      }).join('');
+  }
+
   // ── LEAGUE HIGHLIGHTS (FUN STATS) ────────────
   let highScore2  = { score: 0,       team: '', owner: '', year: '', week: 0 };
   let lowScore2   = { score: Infinity, team: '', owner: '', year: '', week: 0 };
