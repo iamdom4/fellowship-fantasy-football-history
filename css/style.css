@@ -341,6 +341,7 @@ body {
 /* ── TABLES ── */
 .table-wrap {
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
 }
@@ -651,6 +652,7 @@ tbody td {
 /* ── H2H TABLE ── */
 .h2h-wrap {
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
 }
@@ -1972,7 +1974,6 @@ footer {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow-x: hidden; /* prevent any overflowing child from creating page-level horizontal scroll */
   max-width: 100%;
 }
 
