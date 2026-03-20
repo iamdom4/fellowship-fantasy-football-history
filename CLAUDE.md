@@ -95,18 +95,143 @@ Add `design.js` to any new page that renders SVG charts.
 
 ---
 
-## Responsive Design Requirements
+## Responsive Design Contract
 
-**Every UI change must work correctly on both desktop and mobile.**
+**Every element built on this site — chart, table, card, grid, bracket, or widget — must work correctly at all viewport sizes without manual re-testing after the fact. Responsiveness is not a polish step; it is part of the definition of done.**
 
-- Test layouts at both desktop (1440px) and mobile (≤ 900px) breakpoints
-- Use `@media (max-width: 900px)` for mobile overrides — this is the established breakpoint for this project
-- Multi-column grids (e.g. `.pr-home-grid`) must collapse to a single column on mobile
-- Tables with many columns should use horizontal scroll on mobile (`.table-wrap` with `overflow-x: auto`)
-- Touch targets must be at least 44×44px
-- Font sizes must remain readable at mobile widths — minimum 14px for data, 16px for body text
-- Avoid fixed pixel widths on elements that need to flex with the viewport
-- Cards and containers should use `width: 100%` + `max-width` rather than fixed widths
+### Breakpoints
+
+| Name | Width | Behaviour |
+|------|-------|-----------|
+| Desktop | > 900px | Multi-column layouts, full data density |
+| Mobile | ≤ 900px | Single-column, horizontal scroll on overflow |
+
+Use `@media (max-width: 900px)` for all mobile overrides — never `768px`, `767px`, or any other value.
+
+---
+
+### SVG Charts
+
+See **Design System → Responsive SVG chart pattern** above for the full rule. Summary:
+
+- Measure `containerEl.clientWidth` → build SVG at that exact pixel size → attach `ResizeObserver` to re-render on width change (debounced 80ms)
+- Never use `width="100%"` or `preserveAspectRatio="none"` — they cause geometric distortion
+- Wrap in `<div class="pr-chart-scroll">` (`overflow-x:auto`) so narrow viewports scroll rather than overflow the page
+
+---
+
+### Tables
+
+Every data table must use this structure:
+
+```html
+<div class="table-wrap">   <!-- overflow-x:auto; -webkit-overflow-scrolling:touch -->
+  <table>...</table>
+</div>
+```
+
+Rules:
+- **No fixed pixel widths on `<td>` or `<th>`** — use `min-width` only when needed to prevent collapse
+- **Column priority on mobile**: wide tables must hide low-priority columns at ≤ 900px via `.hide-mobile { display:none }` on `<th>`/`<td>` pairs. Always keep: rank/position, name, primary stat. Hide: secondary stats, season totals that can be inferred
+- **Font size floor**: minimum `14px` for data cells, `12px` for badge/label text — never smaller
+- **Logo cells**: use a fixed `width:36px` column for logos so text columns can flex freely
+- **No `white-space:nowrap` on name columns** — team names are long; let them wrap or truncate with `text-overflow:ellipsis` + `overflow:hidden` + `max-width`
+- **Sticky header**: for tables taller than ~400px, add `position:sticky; top:0` to `<thead>` so column headers stay visible while scrolling
+
+---
+
+### Cards & Grids
+
+- **Never set a fixed pixel `width` on a card** — use `width:100%` with a `max-width` cap, or let the grid control sizing
+- **Multi-column grids collapse to single column on mobile**:
+
+```css
+/* Preferred — auto-collapses without a media query */
+.my-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* When column count must be exact, add a mobile override */
+.my-fixed-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+@media (max-width: 900px) {
+  .my-fixed-grid { grid-template-columns: 1fr; }
+}
+```
+
+- **Card padding**: use `clamp(1rem, 2vw, 1.5rem)` so cards breathe on desktop but stay compact on mobile
+- **Cards must never overflow their column** — if content is dynamic (e.g. a team name), use `overflow:hidden` + `text-overflow:ellipsis` rather than letting text bust out
+
+---
+
+### Brackets
+
+- Brackets are inherently wide — always wrap in a horizontal-scroll container:
+
+```html
+<div style="overflow-x:auto; -webkit-overflow-scrolling:touch; padding-bottom:8px;">
+  <div class="bracket-grid">...</div>
+</div>
+```
+
+- Set a `min-width` on `.bracket-grid` so columns don't collapse below readable size (e.g. `min-width:560px`)
+- Never try to reflow a bracket into vertical stacking on mobile — horizontal scroll is the correct UX for bracket structures
+
+---
+
+### JS-Rendered Elements (general rule)
+
+Any element whose dimensions or layout depend on data (row count, column count, label length) must follow the same principle as charts:
+
+1. **Never hardcode a pixel dimension** that corresponds to a data-driven size
+2. **Let CSS do the layout** — JS sets content, CSS controls sizing
+3. **If the element requires JS geometry** (SVG, canvas, positioned labels): measure the container first, build at that size, attach ResizeObserver
+
+---
+
+### Typography floors
+
+| Context | Minimum size |
+|---------|-------------|
+| Body / narrative text | 16px |
+| Table data cells | 14px |
+| Badge / label text | 12px |
+| Axis labels (SVG) | 12px |
+
+Never go below these values at any viewport width. If content doesn't fit, scroll — don't shrink text.
+
+---
+
+### Touch targets
+
+All interactive elements (buttons, links, picker options, table row links, legend items) must have a minimum tap target of **44×44px**. Use `padding` to enlarge the hit area without changing the visual size:
+
+```css
+.my-small-button {
+  padding: 10px 14px;   /* visual size stays small */
+  min-height: 44px;
+  min-width: 44px;
+}
+```
+
+---
+
+### Pre-ship checklist for any new element
+
+Before marking a feature complete, verify each item:
+
+- [ ] No fixed pixel width on any container that needs to flex
+- [ ] Table wrapped in `.table-wrap`; low-priority columns hidden on mobile
+- [ ] SVG chart measures `clientWidth`, uses ResizeObserver
+- [ ] Multi-column grid collapses to single column at ≤ 900px
+- [ ] No text below font-size floors
+- [ ] All interactive elements have 44px touch targets
+- [ ] No horizontal page overflow at 390px viewport width (the narrowest common phone)
 
 ## Manager Name Aliases
 Two managers have name variations across seasons — normalized in `js/utils.js`:
