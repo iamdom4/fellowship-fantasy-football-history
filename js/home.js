@@ -525,31 +525,44 @@
     return cols[Math.abs(h) % cols.length];
   }
 
+  function fmtPostDate(str) {
+    const d = new Date(str);
+    return isNaN(d) ? '' : d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+  }
+  function extractThumb(post) {
+    if (post.thumbnail && post.thumbnail.startsWith('http')) return post.thumbnail;
+    const m = (post.content || post.description || '').match(/<img[^>]+src=["']([^"']+)/i);
+    return m ? m[1] : '';
+  }
+
   fetch(API_URL)
     .then(r => r.json())
     .then(data => {
       if (data.status !== 'ok' || !data.items?.length) return;
-      const post    = data.items[0];
-      const date    = new Date(post.pubDate);
-      const dateStr = isNaN(date) ? '' : date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-      const excerpt = stripHtml(post.description || '').slice(0, 160) + '…';
-      const author  = post.author || '';
-      const color   = authorColor(author);
-      const initial = (author || '?')[0].toUpperCase();
+      const items    = data.items.slice(0, 4);
+      const featured = items[0];
+      const side     = items.slice(1);
+      const thumb    = extractThumb(featured);
+      const excerpt  = stripHtml(featured.description || '').slice(0, 200) + '…';
+
+      const sideHtml = side.map((p, i) => `
+        <a href="${p.link || '#'}" class="news-item" target="_blank" rel="noopener">
+          <div class="news-meta">${fmtPostDate(p.pubDate)}</div>
+          <div class="news-item-title">${p.title || ''}</div>
+        </a>
+        ${i < side.length - 1 ? '<div class="news-item-divider"></div>' : ''}
+      `).join('');
+
       blogEl.innerHTML = `
-        <a href="${post.link || '#'}" class="home-blog-card" target="_blank" rel="noopener">
-          <div class="home-blog-meta">${dateStr}</div>
-          <div class="home-blog-title">${post.title || 'Latest Post'}</div>
-          <div class="home-blog-excerpt">${excerpt}</div>
-          ${author ? `<div class="home-blog-author">
-            <span class="home-blog-avatar" style="background:${color}">${initial}</span>
-            <span class="home-blog-author-name">${author}</span>
-          </div>` : ''}
-        </a>
-        <a href="blog.html" class="home-blog-cta">
-          View all posts
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
+        <div class="news-grid">
+          <a href="${featured.link || '#'}" class="news-featured" target="_blank" rel="noopener">
+            ${thumb ? `<div class="news-thumb"><img src="${thumb}" alt="" loading="lazy"></div>` : ''}
+            <div class="news-meta">${fmtPostDate(featured.pubDate)}</div>
+            <div class="news-featured-title">${featured.title || 'Latest Post'}</div>
+            <div class="news-excerpt">${excerpt}</div>
+          </a>
+          <div class="news-sidebar">${sideHtml}</div>
+        </div>
       `;
     })
     .catch(() => {
