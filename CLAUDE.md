@@ -10,20 +10,63 @@
 - **`DESIGN.colors.*`** — hex values mirroring CSS variables. Use these in SVG `fill`/`stroke` attributes where `var(--css-var)` doesn't work.
 - **`DESIGN.tooltipStyle`** — shared CSS string for all chart hover tooltips. Never duplicate inline.
 
-### Responsive SVG chart pattern
-Every SVG chart must follow this pattern to work at all viewport sizes:
-```html
-<svg viewBox="0 0 W H"
-     width="100%"
-     height="H"
-     preserveAspectRatio="none"
-     style="display:block; min-width:${DESIGN.chart.minWidth}px;">
+### Responsive SVG chart pattern — THE ONLY CORRECT APPROACH
+
+**Never use `width="100%"` or `preserveAspectRatio="none"` on SVG charts.** These cause circles to stretch into ovals and coordinates to distort. The correct pattern:
+
+#### 1. Measure → Build → Re-render
+
+Every chart render function must:
+1. **Measure** the container's pixel width at call time: `const containerW = Math.max(DESIGN.chart.minWidth, containerEl.clientWidth || DESIGN.chart.minWidth);`
+2. **Build** the SVG at exactly that pixel size: `width="${totalW}" height="${totalH}"` — no viewBox scaling, no preserveAspectRatio
+3. **Cap** with `max-width:100%` so it never overflows: `style="display:block;min-width:${DESIGN.chart.minWidth}px;max-width:100%;"`
+
+```js
+function renderMyChart(containerEl, data) {
+  const C = DESIGN.chart, CLR = DESIGN.colors;
+  const containerW = Math.max(C.minWidth, containerEl.clientWidth || C.minWidth);
+  const totalH = /* fixed based on data rows */;
+  // ... build SVG paths at exact pixel coordinates ...
+  containerEl.innerHTML = `
+    <div class="pr-chart-scroll">
+      <svg width="${containerW}" height="${totalH}"
+           style="display:block;min-width:${C.minWidth}px;max-width:100%;">
+        ...
+      </svg>
+    </div>`;
+}
 ```
-- `width="100%"` — fills card/container at any width
-- `height="H"` fixed — Y axis (ranks) never distorts
-- `preserveAspectRatio="none"` — allows horizontal stretch only
-- `min-width` — triggers scroll wrapper below this threshold (mobile)
-- Wrap SVG in `<div style="overflow-x:auto; -webkit-overflow-scrolling:touch;">`
+
+#### 2. Attach ResizeObserver (required for every chart)
+
+After the initial render, attach a `ResizeObserver` so the chart re-renders proportionally whenever the container is resized (window resize, layout shift, sidebar open/close):
+
+```js
+// Initial render
+renderMyChart(containerEl, data);
+
+// Proportional re-render on resize (debounced)
+if (typeof ResizeObserver !== 'undefined') {
+  let roTimer = null;
+  const ro = new ResizeObserver(entries => {
+    const newW = entries[0].contentRect.width;
+    if (!newW) return;
+    clearTimeout(roTimer);
+    roTimer = setTimeout(() => renderMyChart(containerEl, data), 80);
+  });
+  ro.observe(containerEl);
+}
+```
+
+The 80ms debounce prevents excessive re-renders during a window drag. `ResizeObserver` is supported in all modern browsers — the `typeof` guard is a safety check only.
+
+#### Why this works / what to avoid
+
+| Approach | Result |
+|----------|--------|
+| `width="100%"` + `preserveAspectRatio="none"` | **WRONG** — circles become ovals, coordinates distort |
+| `viewBox` scaling | **WRONG** — same distortion problem |
+| Measure `clientWidth` + explicit pixel SVG + ResizeObserver | **CORRECT** — clean geometry at every size |
 
 ### Pages using `design.js`
 | Page | Script |
