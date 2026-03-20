@@ -3792,7 +3792,8 @@ body.sidebar-collapsed .sidebar-item.active {
 /* Table overrides */
 .lsc-table {
   font-size: var(--text-sm);
-  min-width: 900px; /* force horizontal scroll on mobile */
+  width: max-content; /* take natural column widths — overrides table { width:100% } */
+  min-width: 100%;    /* never narrower than the container on desktop */
 }
 .lsc-table thead th {
   text-align: center;
