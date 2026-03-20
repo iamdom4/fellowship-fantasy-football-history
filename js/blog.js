@@ -115,7 +115,7 @@
     })
     .then(data => {
       if (data.status !== 'ok') throw new Error('Feed error');
-      const defaultThumb  = data.feed && data.feed.image ? data.feed.image : '';
+      const defaultThumb  = 'The Fellowship 2 (Ring).svg';
       const archiveUrl    = data.feed && data.feed.link  ? data.feed.link  : '#';
       renderPosts(data.items.slice(0, 9), defaultThumb, archiveUrl);
     })
