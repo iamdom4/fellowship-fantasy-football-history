@@ -1092,6 +1092,18 @@
 
     renderHomePRTable(tableEl, year, currentWeek);
     renderHomePRChart(chartEl, year);
+
+    // Re-render chart on container resize (replicates Fantasy Genius proportional scaling)
+    if (typeof ResizeObserver !== 'undefined') {
+      let roTimer = null;
+      const ro = new ResizeObserver(entries => {
+        const newW = entries[0].contentRect.width;
+        if (!newW) return;
+        clearTimeout(roTimer);
+        roTimer = setTimeout(() => renderHomePRChart(chartEl, year), 80);
+      });
+      ro.observe(chartEl);
+    }
   })();
 
   // ── LUCKY WINS & UNLUCKY LOSSES ───────────────
