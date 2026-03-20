@@ -128,6 +128,7 @@ body {
   line-height: 1.6;
   min-height: 100vh;
   font-feature-settings: 'zero' 0;
+  overflow-x: hidden; /* propagates to viewport — prevents page-level horizontal scroll without clipping child scroll containers */
 }
 
 /* ── SKIP LINK ── */
@@ -3749,7 +3750,8 @@ body.sidebar-collapsed .sidebar-item.active {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 1rem;
+  flex-wrap: wrap;
+  gap: 0.6rem 1rem;
   margin-bottom: 1rem;
 }
 .lsc-section-header::after {
@@ -3975,6 +3977,7 @@ body.sidebar-collapsed .sidebar-item.active {
 .pr-home-grid > .widget-card {
   display: flex;
   flex-direction: column;
+  min-width: 0; /* allow grid item to shrink below content size */
 }
 @media (max-width: 900px) {
   .pr-home-grid { grid-template-columns: 1fr; }
