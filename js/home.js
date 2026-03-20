@@ -956,7 +956,8 @@
     const teamNames = Object.keys(teamSeries);
     const numTeams = teamNames.length, numWeeks = allWeeks.length;
     const C = DESIGN.chart, CLR = DESIGN.colors;
-    const M = C.margin;
+    // Override right margin to fit inline name labels (same pattern as powerRankings.js)
+    const M = Object.assign({}, C.margin, { right: 175 });
     // Measure the actual container width so the SVG is built at exactly that
     // size — no scaling, no preserveAspectRatio distortion, circles stay circles.
     const containerW = Math.max(C.minWidth, chartEl.clientWidth || C.minWidth);
@@ -978,7 +979,7 @@
       grid += `<line x1="${x}" y1="${M.top}" x2="${x}" y2="${(M.top+innerH).toFixed(2)}" stroke="${CLR.gridLineFaint}" stroke-width="1"/>`;
       grid += `<text x="${x}" y="${(M.top+innerH+26).toFixed(2)}" text-anchor="middle" fill="${CLR.textSecondary}" font-size="${C.weekLabelSize}" font-family="${C.fontFamily}" font-weight="${C.fontWeight}">Wk ${w}</text>`;
     }
-    let lines = '', dots = '';
+    let lines = '', dots = '', labels = '';
     teamNames.forEach((name, ti) => {
       const color = DESIGN.chartColors[ti % DESIGN.chartColors.length];
       const pts = teamSeries[name].map(d => ({ x: xScale(d.week), y: yScale(d.rank), week: d.week, rank: d.rank }));
@@ -987,11 +988,13 @@
       for (const p of pts) {
         dots += `<circle class="prc-dot" data-tid="${tid}" data-name="${name}" data-week="${p.week}" data-rank="${p.rank}" cx="${p.x.toFixed(2)}" cy="${p.y.toFixed(2)}" r="${C.dotRadius}" fill="${CLR.bgPrimary}" stroke="${color}" stroke-width="${C.dotStrokeWidth}"/>`;
       }
+      const last = pts[pts.length - 1];
+      labels += `<text class="prc-label" data-tid="${tid}" x="${(last.x + 14).toFixed(2)}" y="${last.y.toFixed(2)}" dominant-baseline="middle" fill="${color}" font-size="${C.nameLabelSize}" font-family="${C.fontFamily}" font-weight="${C.nameLabelWeight}" style="cursor:pointer;">${name}</text>`;
     });
     chartEl.innerHTML = `
       <div class="pr-chart-scroll">
         <svg id="prHomeChartSvg" viewBox="0 0 ${totalW} ${totalH}" width="${totalW}" height="${totalH}" xmlns="http://www.w3.org/2000/svg" style="display:block;min-width:${C.minWidth}px;max-width:100%;">
-          ${grid}${lines}${dots}
+          ${grid}${lines}${dots}${labels}
         </svg>
       </div>
       <div class="pr-chart-legend" id="prHomeLegend"></div>`;
@@ -1012,20 +1015,24 @@
     document.body.appendChild(tip);
     chartEl._prTip = tip;
     const svgEl = document.getElementById('prHomeChartSvg');
-    const allLines = svgEl.querySelectorAll('.prc-line');
-    const allDots  = svgEl.querySelectorAll('.prc-dot');
+    const allLines  = svgEl.querySelectorAll('.prc-line');
+    const allDots   = svgEl.querySelectorAll('.prc-dot');
+    const allLabels = svgEl.querySelectorAll('.prc-label');
     function hi(tid) {
-      allLines.forEach(el => { el.style.opacity = el.dataset.tid === tid ? '1' : '0.07'; el.style.strokeWidth = el.dataset.tid === tid ? '3' : String(C.lineWidthFaded); });
-      allDots.forEach(el  => { el.style.opacity = el.dataset.tid === tid ? '1' : '0.07'; });
+      allLines.forEach(el  => { el.style.opacity = el.dataset.tid === tid ? '1' : '0.07'; el.style.strokeWidth = el.dataset.tid === tid ? '3' : String(C.lineWidthFaded); });
+      allDots.forEach(el   => { el.style.opacity = el.dataset.tid === tid ? '1' : '0.07'; });
+      allLabels.forEach(el => { el.style.opacity = el.dataset.tid === tid ? '1' : '0.07'; });
       legendEl.querySelectorAll('.pr-legend-item').forEach(el => { el.style.opacity = el.dataset.tid === tid ? '1' : '0.2'; });
     }
     function lo() {
-      allLines.forEach(el => { el.style.opacity = '1'; el.style.strokeWidth = String(C.lineWidth); });
-      allDots.forEach(el  => { el.style.opacity = '1'; });
+      allLines.forEach(el  => { el.style.opacity = '1'; el.style.strokeWidth = String(C.lineWidth); });
+      allDots.forEach(el   => { el.style.opacity = '1'; });
+      allLabels.forEach(el => { el.style.opacity = '1'; });
       legendEl.querySelectorAll('.pr-legend-item').forEach(el => { el.style.opacity = '1'; });
       tip.style.opacity = '0';
     }
     allLines.forEach(el => { el.style.cursor = 'pointer'; el.addEventListener('mouseenter', () => hi(el.dataset.tid)); el.addEventListener('mouseleave', lo); });
+    allLabels.forEach(el => { el.style.cursor = 'pointer'; el.addEventListener('mouseenter', () => hi(el.dataset.tid)); el.addEventListener('mouseleave', lo); });
     legendEl.querySelectorAll('.pr-legend-item').forEach(el => { el.addEventListener('mouseenter', () => hi(el.dataset.tid)); el.addEventListener('mouseleave', lo); });
     allDots.forEach(el => {
       el.addEventListener('mouseenter', () => { hi(el.dataset.tid); tip.innerHTML = `<strong>${el.dataset.name}</strong><br>Week ${el.dataset.week} &mdash; Rank #${el.dataset.rank}`; tip.style.opacity = '1'; });
