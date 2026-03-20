@@ -3157,8 +3157,9 @@ body.sidebar-collapsed .sidebar-team-item[data-label]:hover::after {
 .news-thumb img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
+  padding: 1rem;
   transition: transform 0.3s ease;
 }
 .news-featured:hover .news-thumb img { transform: scale(1.03); }

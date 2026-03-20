@@ -542,7 +542,7 @@
       const items    = data.items.slice(0, 4);
       const featured = items[0];
       const side     = items.slice(1);
-      const thumb    = extractThumb(featured);
+      const thumb    = 'The Fellowship 2 (Ring).svg';
       const excerpt  = stripHtml(featured.description || '').slice(0, 200) + '…';
 
       const sideHtml = side.map((p, i) => `
