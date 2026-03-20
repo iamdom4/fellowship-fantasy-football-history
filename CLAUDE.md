@@ -17,6 +17,21 @@
 - **Never commit `.env`** — it contains ESPN session cookies
 - `.env` is covered by `.gitignore` but always double-check before pushing
 
+---
+
+## Responsive Design Requirements
+
+**Every UI change must work correctly on both desktop and mobile.**
+
+- Test layouts at both desktop (1440px) and mobile (≤ 900px) breakpoints
+- Use `@media (max-width: 900px)` for mobile overrides — this is the established breakpoint for this project
+- Multi-column grids (e.g. `.pr-home-grid`) must collapse to a single column on mobile
+- Tables with many columns should use horizontal scroll on mobile (`.table-wrap` with `overflow-x: auto`)
+- Touch targets must be at least 44×44px
+- Font sizes must remain readable at mobile widths — minimum 14px for data, 16px for body text
+- Avoid fixed pixel widths on elements that need to flex with the viewport
+- Cards and containers should use `width: 100%` + `max-width` rather than fixed widths
+
 ## Manager Name Aliases
 Two managers have name variations across seasons — normalized in `js/utils.js`:
 - `Alyssa Gilliam` → `Alyssa Mirto`
@@ -95,6 +110,7 @@ Page scripts are also wrapped in an IIFE but don't expose globals.
 - `Utils.buildTeamOwnerMap()` — `{ "2020_Sweet Victory": "Alyssa Mirto", ... }`
 - `Utils.getLogoMap()` — `{ owner: logo_url }` from ESPN CDN (populated after re-running fetch pipeline)
 - `Utils.getStreakMap()` — `{ owner: { type, length } }` from the most recent season
+- `Utils.getAragornCrownMap()` — `{ year: { owner, teamName } }` — the #1 regular-season seed (standing === 1) for each year
 - `Utils.fmt(n, decimals)` — number formatter, returns "—" for null/NaN
 - `Utils.fmtPct(w, l, t)` — win percentage string
 
@@ -170,11 +186,22 @@ Icons.star({ size: 16 })
 HTML wrapping patterns:
 ```html
 <!-- Standard icon wrap (42×42px rounded square) -->
-<div class="icon-wrap iw-gold">  <!-- iw-gold | iw-green | iw-red | iw-blue -->
+<div class="icon-wrap iw-gold">  <!-- iw-gold | iw-green | iw-red | iw-blue | iw-silver -->
 <div class="icon-wrap iw-gold icon-wrap-sm">  <!-- small: 32×32px -->
 
 <!-- Champion card trophy (54×54px circular) -->
 <div class="trophy-wrap">
+
+<!-- Aragorn Crown badge (silver) -->
+<span class="badge badge-silver">${Icons.aragornCrown({ size: 11 })}</span>
+```
+
+The `Icons` helper only accepts `size` and `cls` options — **not `style`**. To apply a color, set it on the wrapping element so `stroke="currentColor"` resolves correctly:
+```js
+// Correct — color on the wrapper
+`<span style="color:#b0bec5">${Icons.aragornCrown({ size: 16 })}</span>`
+// Wrong — style option is ignored
+Icons.aragornCrown({ size: 16, style: 'color:#b0bec5' })
 ```
 
 Zero emojis in HTML or JS — all replaced with SVG.
@@ -202,6 +229,7 @@ Zero emojis in HTML or JS — all replaced with SVG.
 - **Streak badges**: `.streak-badge.streak-win` (green) / `.streak-badge.streak-loss` (red)
 - **Week chart**: `.week-chart-card` → `.week-chart-tabs` + `.week-chart-svg` + `.week-chart-stats`
 - **Fonts**: Barlow Condensed (headings/labels/numbers) + Barlow (body) via Google Fonts `@import`
+- **Aragorn Crown (silver)**: `.iw-silver` (icon wrap) / `.badge-silver` (inline badge) — color `#b0bec5`
 
 ---
 
@@ -282,6 +310,21 @@ LEAGUE_DATA = {
   breakdown: { statKey: value, ... },
 }
 ```
+
+---
+
+## Awards
+
+### Championship Trophy
+- Awarded to the season champion (`season.champion` field)
+- Displayed with `Icons.trophy` in gold across standings, team profile, and records page
+
+### Aragorn Crown
+- Awarded to the team with `standing === 1` (best regular-season record) in each year
+- Determined via `Utils.getAragornCrownMap()` — returns `{ year: { owner, teamName } }`
+- Displayed in **silver** (`#b0bec5`) using `Icons.aragornCrown`
+- Shown on: standings table (all-time), team profile header + stat pill + season row, records page timeline, home page league standings row
+- ESPN has a mid-season clinch flag in its API but it is not currently in the data pipeline
 
 ---
 
