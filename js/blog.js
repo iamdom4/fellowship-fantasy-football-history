@@ -43,6 +43,13 @@
     container.innerHTML = `<div class="error-banner" role="alert"><p>${msg}</p></div>`;
   }
 
+  function extractFirstImg(html) {
+    const tmp = document.createElement('div');
+    tmp.innerHTML = html || '';
+    const img = tmp.querySelector('img[src]');
+    return img ? img.src : null;
+  }
+
   function renderPosts(items, defaultThumb, archiveUrl) {
     if (!items || items.length === 0) {
       showError('No posts found. Check back soon.');
@@ -61,6 +68,10 @@
       const link    = item.link || '#';
       const color   = authorColor(author);
       const initial = (author || '?')[0].toUpperCase();
+      const thumb   = item.thumbnail
+                   || (item.enclosure && (item.enclosure.link || item.enclosure.url))
+                   || extractFirstImg(item.content)
+                   || defaultThumb;
 
       const card = document.createElement('a');
       card.className = 'blog-card';
@@ -68,7 +79,7 @@
 
       card.innerHTML = `
         <div class="blog-thumb">
-          ${defaultThumb ? `<img src="${defaultThumb}" alt="" loading="lazy" />` : ''}
+          ${thumb ? `<img src="${thumb}" alt="" loading="lazy" />` : ''}
         </div>
         <div class="blog-card-body">
           <div class="blog-card-meta">

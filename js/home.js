@@ -538,6 +538,7 @@
   }
   function extractThumb(post) {
     if (post.thumbnail && post.thumbnail.startsWith('http')) return post.thumbnail;
+    if (post.enclosure && (post.enclosure.link || post.enclosure.url)) return post.enclosure.link || post.enclosure.url;
     const m = (post.content || post.description || '').match(/<img[^>]+src=["']([^"']+)/i);
     return m ? m[1] : '';
   }
@@ -898,7 +899,6 @@
         if (delta > 0) changeHtml = `<span class="change-up">&#9650;${delta}</span>`;
         else if (delta < 0) changeHtml = `<span class="change-down">&#9660;${Math.abs(delta)}</span>`;
       }
-      const ownerEnc = encodeURIComponent(Utils.shortOwner(t.owner));
       const logoUrl  = logoMap[t.owner] || '';
       const logoHtml = logoUrl
         ? `<img src="${logoUrl}" class="lsc-logo" alt="" loading="lazy" />`
@@ -906,7 +906,7 @@
       const games  = t.wins + t.losses;
       const pfpg   = games > 0 ? Utils.fmt(t.pf / games, 2) : '&mdash;';
       rows += `
-        <tr class="pr-row" data-owner="${ownerEnc}" style="cursor:pointer;" tabindex="0" role="link">
+        <tr class="pr-row">
           <td class="${rankClass}">${t.rank}</td>
           <td>
             <div class="lsc-team-cell">
@@ -939,11 +939,6 @@
           <tbody>${rows}</tbody>
         </table>
       </div>`;
-    tableEl.querySelectorAll('.pr-row').forEach(row => {
-      const nav = () => { window.location.href = `team.html?owner=${row.dataset.owner}`; };
-      row.addEventListener('click', nav);
-      row.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); nav(); } });
-    });
   }
 
   const PR_HOME_COLORS = ['#c9a227','#e07b7b','#7baee0','#7bcca0','#b39ddb','#e0a87b','#7bcfcb','#e07bb5','#d4c97a','#7bd4e0','#e09a7b','#a3c97b','#9db3cc','#c4a07b'];
@@ -962,24 +957,13 @@
     }
     const teamNames = Object.keys(teamSeries);
     const numTeams = teamNames.length, numWeeks = allWeeks.length;
-    const M = { top: 28, right: 130, bottom: 48, left: 54 };
-    const innerW = Math.max(380, numWeeks * 46);
-    const innerH = Math.max(360, numTeams * 50);
+    const M = { top: 28, right: 10, bottom: 48, left: 54 };
+    const innerW = Math.max(320, numWeeks * 44);
+    const innerH = Math.max(320, numTeams * 40);
     const totalW = innerW + M.left + M.right;
     const totalH = innerH + M.top + M.bottom;
     const xScale = w  => M.left + (allWeeks.indexOf(w) / (numWeeks - 1)) * innerW;
     const yScale = rk => M.top  + ((rk - 1) / (numTeams - 1)) * innerH;
-
-    // Split long labels to two lines at the word boundary closest to the midpoint
-    function wrapLabel(s) {
-      if (s.length <= 14) return [s];
-      const mid = Math.floor(s.length / 2);
-      let best = -1, bestDist = Infinity;
-      for (let i = 0; i < s.length; i++) {
-        if (s[i] === ' ') { const d = Math.abs(i - mid); if (d < bestDist) { bestDist = d; best = i; } }
-      }
-      return best === -1 ? [s] : [s.slice(0, best), s.slice(best + 1)];
-    }
 
     let grid = '';
     for (let r = 1; r <= numTeams; r++) {
@@ -992,32 +976,35 @@
       grid += `<line x1="${x}" y1="${M.top}" x2="${x}" y2="${(M.top+innerH).toFixed(2)}" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>`;
       grid += `<text x="${x}" y="${(M.top+innerH+26).toFixed(2)}" text-anchor="middle" fill="var(--text-secondary)" font-size="14" font-family="Barlow Condensed,sans-serif" font-weight="600">Wk ${w}</text>`;
     }
-    let lines = '', dots = '', labels = '';
+    let lines = '', dots = '';
     teamNames.forEach((name, ti) => {
       const color = PR_HOME_COLORS[ti % PR_HOME_COLORS.length];
       const pts = teamSeries[name].map(d => ({ x: xScale(d.week), y: yScale(d.rank), week: d.week, rank: d.rank }));
       const tid = String(ti);
       lines += `<path class="prc-line" data-tid="${tid}" d="${prMonotonePath(pts)}" stroke="${color}" stroke-width="2.5" fill="none" stroke-linecap="round"/>`;
       for (const p of pts) {
-        dots += `<circle class="prc-dot" data-tid="${tid}" data-name="${name}" data-week="${p.week}" data-rank="${p.rank}" cx="${p.x.toFixed(2)}" cy="${p.y.toFixed(2)}" r="6" fill="#070b12" stroke="${color}" stroke-width="2.5"/>`;
-      }
-      const last = pts[pts.length - 1];
-      const lx = (last.x + 14).toFixed(2);
-      const lns = wrapLabel(name);
-      if (lns.length === 1) {
-        labels += `<text class="prc-label" data-tid="${tid}" x="${lx}" y="${last.y.toFixed(2)}" dominant-baseline="middle" fill="${color}" font-size="14" font-family="Barlow Condensed,sans-serif" font-weight="700" style="cursor:pointer;">${lns[0]}</text>`;
-      } else {
-        labels += `<text class="prc-label" data-tid="${tid}" x="${lx}" y="${(last.y - 8).toFixed(2)}" dominant-baseline="hanging" fill="${color}" font-size="13" font-family="Barlow Condensed,sans-serif" font-weight="700" style="cursor:pointer;"><tspan x="${lx}" dy="0">${lns[0]}</tspan><tspan x="${lx}" dy="16">${lns[1]}</tspan></text>`;
+        dots += `<circle class="prc-dot" data-tid="${tid}" data-name="${name}" data-week="${p.week}" data-rank="${p.rank}" cx="${p.x.toFixed(2)}" cy="${p.y.toFixed(2)}" r="5" fill="#070b12" stroke="${color}" stroke-width="2.5"/>`;
       }
     });
     chartEl.innerHTML = `
-      <div class="section-title" style="margin-bottom:0.5rem;font-size:0.82rem;">${year} Season — Rank by Week</div>
-      <p style="font-size:0.78rem;color:var(--text-secondary);margin-bottom:0.75rem;">Hover a line or name to highlight that team's trajectory</p>
-      <div style="flex:1;min-height:320px;position:relative;">
-        <svg id="prHomeChartSvg" viewBox="0 0 ${totalW} ${totalH}" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="position:absolute;inset:0;width:100%;height:100%;">
-          ${grid}${lines}${dots}${labels}
+      <div class="pr-chart-scroll">
+        <svg id="prHomeChartSvg" viewBox="0 0 ${totalW} ${totalH}" width="${totalW}" height="${totalH}" xmlns="http://www.w3.org/2000/svg" style="display:block;">
+          ${grid}${lines}${dots}
         </svg>
-      </div>`;
+      </div>
+      <div class="pr-chart-legend" id="prHomeLegend"></div>`;
+
+    // Populate legend (order matches team series = final week ranking order)
+    const legendEl = chartEl.querySelector('#prHomeLegend');
+    teamNames.forEach((name, ti) => {
+      const color = PR_HOME_COLORS[ti % PR_HOME_COLORS.length];
+      const item = document.createElement('div');
+      item.className = 'pr-legend-item';
+      item.dataset.tid = String(ti);
+      item.innerHTML = `<span class="pr-legend-dot" style="background:${color}"></span><span class="pr-legend-name">${name}</span>`;
+      legendEl.appendChild(item);
+    });
+
     const tip = document.createElement('div');
     tip.style.cssText = 'position:fixed;background:#0d1421;border:1px solid rgba(201,162,39,0.35);border-radius:6px;padding:7px 12px;font-size:0.8rem;color:#e2e8f0;pointer-events:none;opacity:0;transition:opacity 0.12s;z-index:200;font-family:Barlow,sans-serif;white-space:nowrap;';
     document.body.appendChild(tip);
@@ -1025,20 +1012,19 @@
     const svgEl = document.getElementById('prHomeChartSvg');
     const allLines = svgEl.querySelectorAll('.prc-line');
     const allDots  = svgEl.querySelectorAll('.prc-dot');
-    const allLabels = svgEl.querySelectorAll('.prc-label');
     function hi(tid) {
-      allLines.forEach(el  => { el.style.opacity = el.dataset.tid === tid ? '1' : '0.07'; el.style.strokeWidth = el.dataset.tid === tid ? '3' : '1.5'; });
-      allDots.forEach(el   => { el.style.opacity = el.dataset.tid === tid ? '1' : '0.07'; });
-      allLabels.forEach(el => { el.style.opacity = el.dataset.tid === tid ? '1' : '0.15'; el.style.fontWeight = el.dataset.tid === tid ? '700' : '400'; });
+      allLines.forEach(el => { el.style.opacity = el.dataset.tid === tid ? '1' : '0.07'; el.style.strokeWidth = el.dataset.tid === tid ? '3' : '1.5'; });
+      allDots.forEach(el  => { el.style.opacity = el.dataset.tid === tid ? '1' : '0.07'; });
+      legendEl.querySelectorAll('.pr-legend-item').forEach(el => { el.style.opacity = el.dataset.tid === tid ? '1' : '0.2'; });
     }
     function lo() {
-      allLines.forEach(el  => { el.style.opacity = '1'; el.style.strokeWidth = '2.2'; });
-      allDots.forEach(el   => { el.style.opacity = '1'; });
-      allLabels.forEach(el => { el.style.opacity = '1'; el.style.fontWeight = '600'; });
+      allLines.forEach(el => { el.style.opacity = '1'; el.style.strokeWidth = '2.2'; });
+      allDots.forEach(el  => { el.style.opacity = '1'; });
+      legendEl.querySelectorAll('.pr-legend-item').forEach(el => { el.style.opacity = '1'; });
       tip.style.opacity = '0';
     }
     allLines.forEach(el => { el.style.cursor = 'pointer'; el.addEventListener('mouseenter', () => hi(el.dataset.tid)); el.addEventListener('mouseleave', lo); });
-    allLabels.forEach(el => { el.addEventListener('mouseenter', () => hi(el.dataset.tid)); el.addEventListener('mouseleave', lo); });
+    legendEl.querySelectorAll('.pr-legend-item').forEach(el => { el.addEventListener('mouseenter', () => hi(el.dataset.tid)); el.addEventListener('mouseleave', lo); });
     allDots.forEach(el => {
       el.addEventListener('mouseenter', () => { hi(el.dataset.tid); tip.innerHTML = `<strong>${el.dataset.name}</strong><br>Week ${el.dataset.week} &mdash; Rank #${el.dataset.rank}`; tip.style.opacity = '1'; });
       el.addEventListener('mousemove', e => { tip.style.left = (e.clientX + 14) + 'px'; tip.style.top = (e.clientY - 10) + 'px'; });
