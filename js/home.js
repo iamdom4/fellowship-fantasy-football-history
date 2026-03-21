@@ -1259,15 +1259,25 @@
     if (!containerEl) return;
     if (containerEl._bpTip) { containerEl._bpTip.remove(); containerEl._bpTip = null; }
     const CLR = DESIGN.colors;
-    const rowH = 46, padT = 28, padB = 36, padL = 168, padR = 28;
+    const rowH = 50, padT = 28, padB = 32, padL = 210, padR = 24;
+    const logoSize = 26, logoX = 6, textX = logoX + logoSize + 8;
     const totalH = padT + teamRows.length * rowH + padB;
-    const w = Math.max(420, containerEl.clientWidth || 420);
+    const w = Math.max(480, containerEl.clientWidth || 480);
     const innerW = w - padL - padR;
     const allVals = teamRows.flatMap(r => [r.stats.min, r.stats.max]);
     const gMin = Math.floor(Math.min(...allVals) / 10) * 10;
     const gMax = Math.ceil(Math.max(...allVals) / 10) * 10;
     const xS = v => padL + ((v - gMin) / (gMax - gMin)) * innerW;
     const step = (gMax - gMin) <= 60 ? 10 : 20;
+
+    // Clip paths: one per row (circular logo mask) + text area clip
+    let defs = '<defs>';
+    teamRows.forEach((_, i) => {
+      const cy = padT + i * rowH + rowH / 2;
+      defs += `<clipPath id="bpclip_${i}"><circle cx="${(logoX + logoSize/2).toFixed(1)}" cy="${cy}" r="${(logoSize/2).toFixed(1)}"/></clipPath>`;
+    });
+    defs += `<clipPath id="bptxtclip"><rect x="${textX}" y="0" width="${padL - textX - 8}" height="${totalH}"/></clipPath>`;
+    defs += '</defs>';
 
     let axis = '', grid = '', rows = '';
     for (let v = gMin; v <= gMax; v += step) {
@@ -1277,27 +1287,40 @@
     }
 
     teamRows.forEach((row, i) => {
-      const { stats, label, isTop } = row;
+      const { stats, label, teamName, logoUrl, isTop } = row;
       const cy = padT + i * rowH + rowH / 2;
       const x1 = xS(stats.min), x2 = xS(stats.max);
       const qx1 = xS(stats.q1), qx2 = xS(stats.q3);
       const mx = xS(stats.median);
-      const labelColor = isTop ? CLR.accentGold : CLR.textSecondary;
+      const nameColor = isTop ? CLR.accentGold : '#e2e8f0';
       const boxH = 14, capH = 8;
-      if (i % 2 === 0) rows += `<rect x="${padL}" y="${(cy - rowH/2).toFixed(1)}" width="${innerW}" height="${rowH}" fill="rgba(255,255,255,0.018)" rx="0"/>`;
+
+      if (i % 2 === 0) rows += `<rect x="0" y="${(cy - rowH/2).toFixed(1)}" width="${w}" height="${rowH}" fill="rgba(255,255,255,0.018)" rx="0"/>`;
+
+      // Logo circle
+      if (logoUrl) {
+        rows += `<image href="${logoUrl}" x="${logoX}" y="${(cy - logoSize/2).toFixed(1)}" width="${logoSize}" height="${logoSize}" clip-path="url(#bpclip_${i})" preserveAspectRatio="xMidYMid slice"/>`;
+      } else {
+        rows += `<circle cx="${(logoX + logoSize/2).toFixed(1)}" cy="${cy}" r="${(logoSize/2).toFixed(1)}" fill="${CLR.bgCard}"/>`;
+      }
+      rows += `<circle cx="${(logoX + logoSize/2).toFixed(1)}" cy="${cy}" r="${(logoSize/2).toFixed(1)}" fill="none" stroke="${CLR.border}" stroke-width="1"/>`;
+
+      // Team name (top) + owner short (bottom) — clipped to label area
+      rows += `<text x="${textX}" y="${(cy - 6).toFixed(1)}" dominant-baseline="middle" fill="${nameColor}" font-size="12" font-family="${DESIGN.chart.fontFamily}" font-weight="700" clip-path="url(#bptxtclip)">${teamName || label}</text>`;
+      rows += `<text x="${textX}" y="${(cy + 8).toFixed(1)}" dominant-baseline="middle" fill="${CLR.textMuted}" font-size="10" font-family="${DESIGN.chart.fontFamily}" clip-path="url(#bptxtclip)">${label}</text>`;
+
+      // Box plot
       rows += `<line x1="${x1.toFixed(1)}" y1="${cy}" x2="${x2.toFixed(1)}" y2="${cy}" stroke="${CLR.textSecondary}" stroke-width="1.5"/>`;
       rows += `<line x1="${x1.toFixed(1)}" y1="${(cy-capH/2).toFixed(1)}" x2="${x1.toFixed(1)}" y2="${(cy+capH/2).toFixed(1)}" stroke="${CLR.textSecondary}" stroke-width="1.5"/>`;
       rows += `<line x1="${x2.toFixed(1)}" y1="${(cy-capH/2).toFixed(1)}" x2="${x2.toFixed(1)}" y2="${(cy+capH/2).toFixed(1)}" stroke="${CLR.textSecondary}" stroke-width="1.5"/>`;
       rows += `<rect class="bp-box" data-i="${i}" x="${qx1.toFixed(1)}" y="${(cy-boxH/2).toFixed(1)}" width="${(qx2-qx1).toFixed(1)}" height="${boxH}" fill="#7baee0" rx="2"/>`;
       rows += `<line x1="${mx.toFixed(1)}" y1="${(cy-boxH/2-1).toFixed(1)}" x2="${mx.toFixed(1)}" y2="${(cy+boxH/2+1).toFixed(1)}" stroke="#fff" stroke-width="2"/>`;
-      rows += `<text x="${padL-10}" y="${(cy-5).toFixed(1)}" text-anchor="end" dominant-baseline="middle" fill="${labelColor}" font-size="13" font-family="${DESIGN.chart.fontFamily}" font-weight="600">${label}</text>`;
-      rows += `<text x="${padL-10}" y="${(cy+9).toFixed(1)}" text-anchor="end" dominant-baseline="middle" fill="${CLR.textMuted}" font-size="10" font-family="${DESIGN.chart.fontFamily}">${stats.median.toFixed(1)} med · ${stats.min.toFixed(0)}–${stats.max.toFixed(0)}</text>`;
     });
 
     containerEl.innerHTML = `
       <div class="pr-chart-scroll">
-        <svg width="${w}" height="${totalH}" style="display:block;max-width:100%;min-width:380px;">
-          ${grid}${axis}${rows}
+        <svg width="${w}" height="${totalH}" style="display:block;max-width:100%;min-width:420px;">
+          ${defs}${grid}${axis}${rows}
         </svg>
       </div>`;
 
@@ -1308,7 +1331,7 @@
     containerEl.querySelectorAll('.bp-box').forEach(el => {
       const row = teamRows[parseInt(el.dataset.i)];
       el.style.cursor = 'pointer';
-      el.addEventListener('mouseenter', () => { tip.innerHTML = `<strong>${row.label}</strong><br>Min: ${row.stats.min.toFixed(1)}<br>Q1: ${row.stats.q1.toFixed(1)}<br>Median: ${row.stats.median.toFixed(1)}<br>Q3: ${row.stats.q3.toFixed(1)}<br>Max: ${row.stats.max.toFixed(1)}<br>Games: ${row.stats.n}`; tip.style.opacity='1'; });
+      el.addEventListener('mouseenter', () => { tip.innerHTML = `<strong>${row.teamName || row.label}</strong><br>Min: ${row.stats.min.toFixed(1)}<br>Q1: ${row.stats.q1.toFixed(1)}<br>Median: ${row.stats.median.toFixed(1)}<br>Q3: ${row.stats.q3.toFixed(1)}<br>Max: ${row.stats.max.toFixed(1)}<br>Games: ${row.stats.n}`; tip.style.opacity='1'; });
       el.addEventListener('mousemove', e => { tip.style.left=(e.clientX+14)+'px'; tip.style.top=(e.clientY-10)+'px'; });
       el.addEventListener('mouseleave', () => { tip.style.opacity='0'; });
     });
@@ -1439,13 +1462,22 @@
     const regMs = latestMatchups.filter(m => m.matchup_type === 'NONE');
     if (!regMs.length) { el.innerHTML = '<div class="analytics-coming-soon">No regular season data</div>'; return; }
 
+    const logoMap = typeof TEAM_LOGOS !== 'undefined' ? TEAM_LOGOS : {};
+    const ownerTeamMap = {};
+    (latestSeason.teams || []).forEach(t => { ownerTeamMap[t.owner] = t.team_name; });
+
     const ownerScores = {};
     regMs.forEach(m => {
       (ownerScores[m.home_owner] = ownerScores[m.home_owner] || []).push(m.home_score);
       (ownerScores[m.away_owner] = ownerScores[m.away_owner] || []).push(m.away_score);
     });
     const teamRows = Object.entries(ownerScores)
-      .map(([owner, scores]) => ({ label: Utils.shortOwner(owner), stats: computeBoxStats(scores) }))
+      .map(([owner, scores]) => ({
+        label:    Utils.shortOwner(owner),
+        teamName: ownerTeamMap[owner] || Utils.shortOwner(owner),
+        logoUrl:  logoMap[owner] || '',
+        stats:    computeBoxStats(scores),
+      }))
       .filter(r => r.stats)
       .sort((a, b) => b.stats.median - a.stats.median)
       .map((r, i) => ({ ...r, isTop: i < 3 }));
@@ -1460,14 +1492,16 @@
     const allScores = regMs.flatMap(m => [m.home_score, m.away_score]);
 
     el.innerHTML = `
-      <div class="scoring-sub-title" style="margin-top:0.25rem;">Team Scoring Distribution
-        <span style="font-weight:400;text-transform:none;letter-spacing:0;margin-left:0.75rem;font-size:0.7rem;color:var(--text-muted);">Sorted by median · ${year} regular season</span>
-      </div>
-      <div class="widget-card" id="scoringTeamBox" style="padding:1rem 1.25rem;overflow:hidden;"></div>
-      <div class="bp-legend">
-        <div class="bp-legend-item"><div class="bp-legend-whisker"></div>Min / Max</div>
-        <div class="bp-legend-item"><div class="bp-legend-box"></div>25th – 75th Percentile</div>
-        <div class="bp-legend-item"><div style="width:2px;height:16px;background:#fff;border-radius:1px;"></div>Median</div>
+      <div class="widget-card" style="padding:1rem 1.25rem;overflow:hidden;">
+        <div class="scoring-sub-title" style="margin-bottom:0.5rem;">Team Scoring Distribution
+          <span style="font-weight:400;text-transform:none;letter-spacing:0;margin-left:0.75rem;font-size:0.7rem;color:var(--text-muted);">Sorted by median · ${year} regular season</span>
+        </div>
+        <div class="bp-legend" style="margin-bottom:0.5rem;">
+          <div class="bp-legend-item"><div class="bp-legend-whisker"></div>Min / Max</div>
+          <div class="bp-legend-item"><div class="bp-legend-box"></div>25th – 75th Percentile</div>
+          <div class="bp-legend-item"><div style="width:2px;height:16px;background:#fff;border-radius:1px;"></div>Median</div>
+        </div>
+        <div id="scoringTeamBoxChart"></div>
       </div>
       <div class="scoring-sub-grid">
         <div class="widget-card" style="padding:1rem 1.25rem;overflow:hidden;">
@@ -1482,7 +1516,7 @@
         </div>
       </div>`;
 
-    const teamBoxEl = document.getElementById('scoringTeamBox');
+    const teamBoxEl = document.getElementById('scoringTeamBoxChart');
     const histEl    = document.getElementById('scoringHistogram');
     const weeklyEl  = document.getElementById('scoringWeeklyBox');
 
