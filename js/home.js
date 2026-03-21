@@ -1282,7 +1282,7 @@
     let axis = '', grid = '', rows = '';
     for (let v = gMin; v <= gMax; v += step) {
       const x = xS(v).toFixed(1);
-      axis += `<text x="${x}" y="${padT - 8}" text-anchor="middle" fill="${CLR.textMuted}" font-size="11" font-family="${DESIGN.chart.fontFamily}">${v}</text>`;
+      axis += `<text x="${x}" y="${padT - 8}" text-anchor="middle" fill="#e2e8f0" font-size="13" font-family="${DESIGN.chart.fontFamily}" font-weight="600">${v}</text>`;
       grid += `<line x1="${x}" y1="${padT}" x2="${x}" y2="${(padT + teamRows.length * rowH).toFixed(1)}" stroke="${CLR.gridLine}" stroke-width="1"/>`;
     }
 
@@ -1346,11 +1346,11 @@
           `<span style="${gold ? `color:${CLR.accentGold};font-weight:700` : ''}">${val}</span></div>`;
         tip.innerHTML =
           `<strong style="display:block;margin-bottom:5px;font-size:0.85rem">${row.teamName || row.label}</strong>` +
-          row_('Min:', s.min.toFixed(1)) +
-          row_('25th:', s.q1.toFixed(1)) +
-          row_('Median:', s.median.toFixed(1), true) +
-          row_('75th:', s.q3.toFixed(1)) +
-          row_('Max:', s.max.toFixed(1)) +
+          row_('Min:', s.min.toFixed(2)) +
+          row_('25th:', s.q1.toFixed(2)) +
+          row_('Median:', s.median.toFixed(2), true) +
+          row_('75th:', s.q3.toFixed(2)) +
+          row_('Max:', s.max.toFixed(2)) +
           row_('Games:', s.n);
         tip.style.opacity = '1';
       });
