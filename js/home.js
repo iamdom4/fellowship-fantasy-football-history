@@ -537,12 +537,14 @@
     return Math.max(1, Math.ceil(words / 200));
   }
   function extractThumb(post) {
-    // Resolve URL — prefer thumbnail field, then enclosure, then first img in content
+    // Priority: enclosure > thumbnail > first img in content
+    // enclosure = post-specific featured image set by Beehiiv
+    // thumbnail = often a generic brand banner, not post-specific — lower priority
     let url = '';
-    if (post.thumbnail && post.thumbnail.startsWith('http')) {
-      url = post.thumbnail;
-    } else if (post.enclosure && (post.enclosure.link || post.enclosure.url)) {
+    if (post.enclosure && (post.enclosure.link || post.enclosure.url)) {
       url = post.enclosure.link || post.enclosure.url;
+    } else if (post.thumbnail && post.thumbnail.startsWith('http')) {
+      url = post.thumbnail;
     } else {
       // DOM-based parsing (same as blog.js) — more reliable than regex
       const tmp = document.createElement('div');
