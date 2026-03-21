@@ -1315,7 +1315,7 @@
       rows += `<line x1="${x1.toFixed(1)}" y1="${cy}" x2="${x2.toFixed(1)}" y2="${cy}" stroke="${CLR.textSecondary}" stroke-width="1.5"/>`;
       rows += `<line x1="${x1.toFixed(1)}" y1="${(cy-capH/2).toFixed(1)}" x2="${x1.toFixed(1)}" y2="${(cy+capH/2).toFixed(1)}" stroke="${CLR.textSecondary}" stroke-width="1.5"/>`;
       rows += `<line x1="${x2.toFixed(1)}" y1="${(cy-capH/2).toFixed(1)}" x2="${x2.toFixed(1)}" y2="${(cy+capH/2).toFixed(1)}" stroke="${CLR.textSecondary}" stroke-width="1.5"/>`;
-      rows += `<rect class="bp-box" data-i="${i}" x="${qx1.toFixed(1)}" y="${(cy-boxH/2).toFixed(1)}" width="${(qx2-qx1).toFixed(1)}" height="${boxH}" fill="rgba(201,162,39,0.55)" rx="2"/>`;
+      rows += `<rect class="bp-box" data-i="${i}" x="${qx1.toFixed(1)}" y="${(cy-boxH/2).toFixed(1)}" width="${(qx2-qx1).toFixed(1)}" height="${boxH}" fill="rgba(201,162,39,0.65)" rx="2"/>`;
       rows += `<line x1="${mx.toFixed(1)}" y1="${(cy-boxH/2-1).toFixed(1)}" x2="${mx.toFixed(1)}" y2="${(cy+boxH/2+1).toFixed(1)}" stroke="#fff" stroke-width="2.5"/>`;
 
       // Full-row hover target (transparent, on top)
