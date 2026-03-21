@@ -567,12 +567,16 @@
       const excerpt  = stripHtml(featured.description || '').slice(0, 350) + '…';
 
       const sideHtml = side.map((p, i) => {
-        const snip = stripHtml(p.description || '').slice(0, 100).trim();
+        const snip = stripHtml(p.description || '').slice(0, 80).trim();
+        const sThumb = extractThumb(p);
         return `
         <a href="${p.link || '#'}" class="news-item" target="_blank" rel="noopener">
-          <div class="news-meta">${fmtPostDate(p.pubDate)} <span class="news-read-time">&bull; ${readMins(p)} min read</span></div>
-          <div class="news-item-title">${p.title || ''}</div>
-          ${snip ? `<div class="news-item-excerpt">${snip}…</div>` : ''}
+          ${sThumb ? `<div class="news-item-thumb"><img src="${sThumb}" alt="" loading="lazy"></div>` : ''}
+          <div class="news-item-text">
+            <div class="news-meta">${fmtPostDate(p.pubDate)} <span class="news-read-time">&bull; ${readMins(p)} min read</span></div>
+            <div class="news-item-title">${p.title || ''}</div>
+            ${snip ? `<div class="news-item-excerpt">${snip}…</div>` : ''}
+          </div>
         </a>
         ${i < side.length - 1 ? '<div class="news-item-divider"></div>' : ''}`;
       }).join('');
