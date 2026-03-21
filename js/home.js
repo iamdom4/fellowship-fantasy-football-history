@@ -1315,8 +1315,8 @@
       rows += `<line x1="${x1.toFixed(1)}" y1="${cy}" x2="${x2.toFixed(1)}" y2="${cy}" stroke="${CLR.textSecondary}" stroke-width="1.5"/>`;
       rows += `<line x1="${x1.toFixed(1)}" y1="${(cy-capH/2).toFixed(1)}" x2="${x1.toFixed(1)}" y2="${(cy+capH/2).toFixed(1)}" stroke="${CLR.textSecondary}" stroke-width="1.5"/>`;
       rows += `<line x1="${x2.toFixed(1)}" y1="${(cy-capH/2).toFixed(1)}" x2="${x2.toFixed(1)}" y2="${(cy+capH/2).toFixed(1)}" stroke="${CLR.textSecondary}" stroke-width="1.5"/>`;
-      rows += `<rect class="bp-box" data-i="${i}" x="${qx1.toFixed(1)}" y="${(cy-boxH/2).toFixed(1)}" width="${(qx2-qx1).toFixed(1)}" height="${boxH}" fill="#F1FFFA" rx="2"/>`;
-      rows += `<line x1="${mx.toFixed(1)}" y1="${(cy-boxH/2-1).toFixed(1)}" x2="${mx.toFixed(1)}" y2="${(cy+boxH/2+1).toFixed(1)}" stroke="${CLR.accentGold}" stroke-width="2.5"/>`;
+      rows += `<rect class="bp-box" data-i="${i}" x="${qx1.toFixed(1)}" y="${(cy-boxH/2).toFixed(1)}" width="${(qx2-qx1).toFixed(1)}" height="${boxH}" fill="#c9a227" rx="2"/>`;
+      rows += `<line x1="${mx.toFixed(1)}" y1="${(cy-boxH/2-1).toFixed(1)}" x2="${mx.toFixed(1)}" y2="${(cy+boxH/2+1).toFixed(1)}" stroke="#fff" stroke-width="2.5"/>`;
 
       // Full-row hover target (transparent, on top)
       rows += `<rect class="bp-row" data-i="${i}" x="0" y="${(cy - rowH/2).toFixed(1)}" width="${w}" height="${rowH}" fill="transparent" style="cursor:pointer"/>`;
@@ -1342,12 +1342,12 @@
         const s = row.stats;
         tip.innerHTML =
           `<strong style="display:block;margin-bottom:4px">${row.teamName || row.label}</strong>` +
-          `<span style="color:${CLR.textMuted}">Min</span> ${s.min.toFixed(1)}` +
-          ` &nbsp;·&nbsp; <span style="color:${CLR.textMuted}">Q1</span> ${s.q1.toFixed(1)}` +
-          ` &nbsp;·&nbsp; <span style="color:${CLR.textMuted}">Med</span> <span style="color:${CLR.accentGold};font-weight:700">${s.median.toFixed(1)}</span>` +
-          ` &nbsp;·&nbsp; <span style="color:${CLR.textMuted}">Q3</span> ${s.q3.toFixed(1)}` +
-          ` &nbsp;·&nbsp; <span style="color:${CLR.textMuted}">Max</span> ${s.max.toFixed(1)}` +
-          ` &nbsp;·&nbsp; <span style="color:${CLR.textMuted}">Games</span> ${s.n}`;
+          `<span style="color:${CLR.textMuted}">Min:</span> ${s.min.toFixed(1)}` +
+          ` &nbsp;·&nbsp; <span style="color:${CLR.textMuted}">25th:</span> ${s.q1.toFixed(1)}` +
+          ` &nbsp;·&nbsp; <span style="color:${CLR.textMuted}">Median:</span> <span style="color:${CLR.accentGold};font-weight:700">${s.median.toFixed(1)}</span>` +
+          ` &nbsp;·&nbsp; <span style="color:${CLR.textMuted}">75th:</span> ${s.q3.toFixed(1)}` +
+          ` &nbsp;·&nbsp; <span style="color:${CLR.textMuted}">Max:</span> ${s.max.toFixed(1)}` +
+          ` &nbsp;·&nbsp; <span style="color:${CLR.textMuted}">Games:</span> ${s.n}`;
         tip.style.opacity = '1';
       });
       el.addEventListener('mousemove', e => { tip.style.left=(e.clientX+14)+'px'; tip.style.top=(e.clientY-10)+'px'; });
@@ -1520,7 +1520,7 @@
         <div class="bp-legend" style="margin-top:0.75rem;padding-top:0.75rem;border-top:1px solid var(--border);">
           <div class="bp-legend-item"><div class="bp-legend-whisker"></div>Min / Max</div>
           <div class="bp-legend-item"><div class="bp-legend-box"></div>25th – 75th Pct</div>
-          <div class="bp-legend-item"><div style="width:2px;height:16px;background:var(--accent-gold);border-radius:1px;"></div>Median</div>
+          <div class="bp-legend-item"><div style="width:2px;height:16px;background:#fff;border-radius:1px;"></div>Median</div>
         </div>
       </div>
       <div class="scoring-sub-grid">
