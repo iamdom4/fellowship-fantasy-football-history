@@ -1292,10 +1292,13 @@
       const x1 = xS(stats.min), x2 = xS(stats.max);
       const qx1 = xS(stats.q1), qx2 = xS(stats.q3);
       const mx = xS(stats.median);
-      const teamColor = DESIGN.chartColors[i % DESIGN.chartColors.length];
       const boxH = 14, capH = 8;
 
+      // Alternating band
       if (i % 2 === 0) rows += `<rect x="0" y="${(cy - rowH/2).toFixed(1)}" width="${w}" height="${rowH}" fill="rgba(255,255,255,0.018)" rx="0"/>`;
+
+      // Hover highlight rect (initially invisible, fades in via JS)
+      rows += `<rect class="bp-hl" data-i="${i}" x="0" y="${(cy - rowH/2).toFixed(1)}" width="${w}" height="${rowH}" fill="rgba(241,255,250,0.07)" opacity="0" style="transition:opacity 0.15s;pointer-events:none"/>`;
 
       // Logo circle
       if (logoUrl) {
@@ -1305,17 +1308,17 @@
       }
       rows += `<circle cx="${(logoX + logoSize/2).toFixed(1)}" cy="${cy}" r="${(logoSize/2).toFixed(1)}" fill="none" stroke="${CLR.border}" stroke-width="1"/>`;
 
-      // Team name — 16px bold, all white
+      // Team name — 16px bold, white
       rows += `<text x="${textX}" y="${cy}" dominant-baseline="middle" fill="#e2e8f0" font-size="16" font-family="${DESIGN.chart.fontFamily}" font-weight="700" clip-path="url(#bptxtclip)">${teamName || label}</text>`;
 
-      // Box plot — IQR box uses team's brand color
+      // Box plot — single brand color #F1FFFA across all rows
       rows += `<line x1="${x1.toFixed(1)}" y1="${cy}" x2="${x2.toFixed(1)}" y2="${cy}" stroke="${CLR.textSecondary}" stroke-width="1.5"/>`;
       rows += `<line x1="${x1.toFixed(1)}" y1="${(cy-capH/2).toFixed(1)}" x2="${x1.toFixed(1)}" y2="${(cy+capH/2).toFixed(1)}" stroke="${CLR.textSecondary}" stroke-width="1.5"/>`;
       rows += `<line x1="${x2.toFixed(1)}" y1="${(cy-capH/2).toFixed(1)}" x2="${x2.toFixed(1)}" y2="${(cy+capH/2).toFixed(1)}" stroke="${CLR.textSecondary}" stroke-width="1.5"/>`;
-      rows += `<rect class="bp-box" data-i="${i}" x="${qx1.toFixed(1)}" y="${(cy-boxH/2).toFixed(1)}" width="${(qx2-qx1).toFixed(1)}" height="${boxH}" fill="${teamColor}" rx="2"/>`;
-      rows += `<line x1="${mx.toFixed(1)}" y1="${(cy-boxH/2-1).toFixed(1)}" x2="${mx.toFixed(1)}" y2="${(cy+boxH/2+1).toFixed(1)}" stroke="#fff" stroke-width="2"/>`;
+      rows += `<rect class="bp-box" data-i="${i}" x="${qx1.toFixed(1)}" y="${(cy-boxH/2).toFixed(1)}" width="${(qx2-qx1).toFixed(1)}" height="${boxH}" fill="#F1FFFA" rx="2"/>`;
+      rows += `<line x1="${mx.toFixed(1)}" y1="${(cy-boxH/2-1).toFixed(1)}" x2="${mx.toFixed(1)}" y2="${(cy+boxH/2+1).toFixed(1)}" stroke="${CLR.accentGold}" stroke-width="2.5"/>`;
 
-      // Full-row hover target (on top of everything)
+      // Full-row hover target (transparent, on top)
       rows += `<rect class="bp-row" data-i="${i}" x="0" y="${(cy - rowH/2).toFixed(1)}" width="${w}" height="${rowH}" fill="transparent" style="cursor:pointer"/>`;
     });
 
@@ -1331,19 +1334,27 @@
     document.body.appendChild(tip);
     containerEl._bpTip = tip;
     containerEl.querySelectorAll('.bp-row').forEach(el => {
-      const row = teamRows[parseInt(el.dataset.i)];
+      const idx = parseInt(el.dataset.i);
+      const row = teamRows[idx];
+      const hl  = containerEl.querySelector(`.bp-hl[data-i="${idx}"]`);
       el.addEventListener('mouseenter', () => {
-        tip.innerHTML = `<strong style="font-size:0.85rem">${row.teamName || row.label}</strong><br>
-          <span style="color:${CLR.textMuted}">Min</span> ${row.stats.min.toFixed(1)} &nbsp;
-          <span style="color:${CLR.textMuted}">Q1</span> ${row.stats.q1.toFixed(1)}<br>
-          <span style="color:${CLR.textMuted}">Median</span> <span style="color:${CLR.accentGold};font-weight:700">${row.stats.median.toFixed(1)}</span><br>
-          <span style="color:${CLR.textMuted}">Q3</span> ${row.stats.q3.toFixed(1)} &nbsp;
-          <span style="color:${CLR.textMuted}">Max</span> ${row.stats.max.toFixed(1)}<br>
-          <span style="color:${CLR.textMuted}">Games</span> ${row.stats.n}`;
+        if (hl) hl.setAttribute('opacity', '1');
+        const s = row.stats;
+        tip.innerHTML =
+          `<strong style="display:block;margin-bottom:4px">${row.teamName || row.label}</strong>` +
+          `<span style="color:${CLR.textMuted}">Min</span> ${s.min.toFixed(1)}` +
+          ` &nbsp;·&nbsp; <span style="color:${CLR.textMuted}">Q1</span> ${s.q1.toFixed(1)}` +
+          ` &nbsp;·&nbsp; <span style="color:${CLR.textMuted}">Med</span> <span style="color:${CLR.accentGold};font-weight:700">${s.median.toFixed(1)}</span>` +
+          ` &nbsp;·&nbsp; <span style="color:${CLR.textMuted}">Q3</span> ${s.q3.toFixed(1)}` +
+          ` &nbsp;·&nbsp; <span style="color:${CLR.textMuted}">Max</span> ${s.max.toFixed(1)}` +
+          ` &nbsp;·&nbsp; <span style="color:${CLR.textMuted}">Games</span> ${s.n}`;
         tip.style.opacity = '1';
       });
       el.addEventListener('mousemove', e => { tip.style.left=(e.clientX+14)+'px'; tip.style.top=(e.clientY-10)+'px'; });
-      el.addEventListener('mouseleave', () => { tip.style.opacity='0'; });
+      el.addEventListener('mouseleave', () => {
+        if (hl) hl.setAttribute('opacity', '0');
+        tip.style.opacity = '0';
+      });
     });
   }
 
@@ -1509,7 +1520,7 @@
         <div class="bp-legend" style="margin-top:0.75rem;padding-top:0.75rem;border-top:1px solid var(--border);">
           <div class="bp-legend-item"><div class="bp-legend-whisker"></div>Min / Max</div>
           <div class="bp-legend-item"><div class="bp-legend-box"></div>25th – 75th Pct</div>
-          <div class="bp-legend-item"><div style="width:2px;height:16px;background:#fff;border-radius:1px;"></div>Median</div>
+          <div class="bp-legend-item"><div style="width:2px;height:16px;background:var(--accent-gold);border-radius:1px;"></div>Median</div>
         </div>
       </div>
       <div class="scoring-sub-grid">

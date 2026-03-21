@@ -4147,7 +4147,7 @@ body.sidebar-collapsed .sidebar-item.active {
 .bp-legend-box {
   width: 20px;
   height: 12px;
-  background: var(--accent-gold);
+  background: #F1FFFA;
   border-radius: 2px;
 }
 
