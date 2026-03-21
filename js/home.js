@@ -1243,4 +1243,300 @@
       </div>`;
   })();
 
+  // ── ANALYTICS SECTION ────────────────────────────────────────
+
+  function computeBoxStats(arr) {
+    const s = [...arr].filter(v => v != null && v > 0).sort((a, b) => a - b);
+    if (!s.length) return null;
+    const n = s.length;
+    const median = n % 2 === 1 ? s[Math.floor(n/2)] : (s[n/2-1]+s[n/2])/2;
+    const q1 = s[Math.floor(n/4)];
+    const q3 = s[Math.floor(n*3/4)];
+    return { min: s[0], q1, median, q3, max: s[n-1], n };
+  }
+
+  function renderHorizBoxPlots(containerEl, teamRows) {
+    if (!containerEl) return;
+    if (containerEl._bpTip) { containerEl._bpTip.remove(); containerEl._bpTip = null; }
+    const CLR = DESIGN.colors;
+    const rowH = 46, padT = 28, padB = 36, padL = 168, padR = 28;
+    const totalH = padT + teamRows.length * rowH + padB;
+    const w = Math.max(420, containerEl.clientWidth || 420);
+    const innerW = w - padL - padR;
+    const allVals = teamRows.flatMap(r => [r.stats.min, r.stats.max]);
+    const gMin = Math.floor(Math.min(...allVals) / 10) * 10;
+    const gMax = Math.ceil(Math.max(...allVals) / 10) * 10;
+    const xS = v => padL + ((v - gMin) / (gMax - gMin)) * innerW;
+    const step = (gMax - gMin) <= 60 ? 10 : 20;
+
+    let axis = '', grid = '', rows = '';
+    for (let v = gMin; v <= gMax; v += step) {
+      const x = xS(v).toFixed(1);
+      axis += `<text x="${x}" y="${padT - 8}" text-anchor="middle" fill="${CLR.textMuted}" font-size="11" font-family="${DESIGN.chart.fontFamily}">${v}</text>`;
+      grid += `<line x1="${x}" y1="${padT}" x2="${x}" y2="${(padT + teamRows.length * rowH).toFixed(1)}" stroke="${CLR.gridLine}" stroke-width="1"/>`;
+    }
+
+    teamRows.forEach((row, i) => {
+      const { stats, label, isTop } = row;
+      const cy = padT + i * rowH + rowH / 2;
+      const x1 = xS(stats.min), x2 = xS(stats.max);
+      const qx1 = xS(stats.q1), qx2 = xS(stats.q3);
+      const mx = xS(stats.median);
+      const labelColor = isTop ? CLR.accentGold : CLR.textSecondary;
+      const boxH = 14, capH = 8;
+      if (i % 2 === 0) rows += `<rect x="${padL}" y="${(cy - rowH/2).toFixed(1)}" width="${innerW}" height="${rowH}" fill="rgba(255,255,255,0.018)" rx="0"/>`;
+      rows += `<line x1="${x1.toFixed(1)}" y1="${cy}" x2="${x2.toFixed(1)}" y2="${cy}" stroke="${CLR.textSecondary}" stroke-width="1.5"/>`;
+      rows += `<line x1="${x1.toFixed(1)}" y1="${(cy-capH/2).toFixed(1)}" x2="${x1.toFixed(1)}" y2="${(cy+capH/2).toFixed(1)}" stroke="${CLR.textSecondary}" stroke-width="1.5"/>`;
+      rows += `<line x1="${x2.toFixed(1)}" y1="${(cy-capH/2).toFixed(1)}" x2="${x2.toFixed(1)}" y2="${(cy+capH/2).toFixed(1)}" stroke="${CLR.textSecondary}" stroke-width="1.5"/>`;
+      rows += `<rect class="bp-box" data-i="${i}" x="${qx1.toFixed(1)}" y="${(cy-boxH/2).toFixed(1)}" width="${(qx2-qx1).toFixed(1)}" height="${boxH}" fill="#7baee0" rx="2"/>`;
+      rows += `<line x1="${mx.toFixed(1)}" y1="${(cy-boxH/2-1).toFixed(1)}" x2="${mx.toFixed(1)}" y2="${(cy+boxH/2+1).toFixed(1)}" stroke="#fff" stroke-width="2"/>`;
+      rows += `<text x="${padL-10}" y="${(cy-5).toFixed(1)}" text-anchor="end" dominant-baseline="middle" fill="${labelColor}" font-size="13" font-family="${DESIGN.chart.fontFamily}" font-weight="600">${label}</text>`;
+      rows += `<text x="${padL-10}" y="${(cy+9).toFixed(1)}" text-anchor="end" dominant-baseline="middle" fill="${CLR.textMuted}" font-size="10" font-family="${DESIGN.chart.fontFamily}">${stats.median.toFixed(1)} med · ${stats.min.toFixed(0)}–${stats.max.toFixed(0)}</text>`;
+    });
+
+    containerEl.innerHTML = `
+      <div class="pr-chart-scroll">
+        <svg width="${w}" height="${totalH}" style="display:block;max-width:100%;min-width:380px;">
+          ${grid}${axis}${rows}
+        </svg>
+      </div>`;
+
+    const tip = document.createElement('div');
+    tip.style.cssText = DESIGN.tooltipStyle;
+    document.body.appendChild(tip);
+    containerEl._bpTip = tip;
+    containerEl.querySelectorAll('.bp-box').forEach(el => {
+      const row = teamRows[parseInt(el.dataset.i)];
+      el.style.cursor = 'pointer';
+      el.addEventListener('mouseenter', () => { tip.innerHTML = `<strong>${row.label}</strong><br>Min: ${row.stats.min.toFixed(1)}<br>Q1: ${row.stats.q1.toFixed(1)}<br>Median: ${row.stats.median.toFixed(1)}<br>Q3: ${row.stats.q3.toFixed(1)}<br>Max: ${row.stats.max.toFixed(1)}<br>Games: ${row.stats.n}`; tip.style.opacity='1'; });
+      el.addEventListener('mousemove', e => { tip.style.left=(e.clientX+14)+'px'; tip.style.top=(e.clientY-10)+'px'; });
+      el.addEventListener('mouseleave', () => { tip.style.opacity='0'; });
+    });
+  }
+
+  function renderHistogram(containerEl, allScores) {
+    if (!containerEl || !allScores.length) return;
+    if (containerEl._histTip) { containerEl._histTip.remove(); containerEl._histTip = null; }
+    const CLR = DESIGN.colors;
+    const sorted = [...allScores].sort((a, b) => a - b);
+    const n = sorted.length;
+    const p25 = sorted[Math.floor(n * 0.25)];
+    const median = n % 2 === 1 ? sorted[Math.floor(n/2)] : (sorted[n/2-1]+sorted[n/2])/2;
+    const p75 = sorted[Math.floor(n * 0.75)];
+    const bMin = Math.floor(Math.min(...sorted) / 10) * 10;
+    const bMax = Math.ceil(Math.max(...sorted) / 10) * 10;
+    const buckets = [];
+    for (let b = bMin; b < bMax; b += 10) {
+      buckets.push({ lo: b, hi: b+10, count: allScores.filter(s => s >= b && s < b+10).length });
+    }
+    const maxCount = Math.max(...buckets.map(b => b.count));
+    const padL = 40, padR = 12, padT = 12, padB = 32;
+    const w = Math.max(260, containerEl.clientWidth || 260);
+    const innerW = w - padL - padR;
+    const innerH = 150;
+    const totalH = padT + innerH + padB;
+    const barW = innerW / buckets.length;
+    const yS = v => padT + innerH - (v / maxCount) * innerH;
+
+    let bars = '', xAxis = '', yAxis = '';
+    buckets.forEach((b, i) => {
+      const x = (padL + (b.lo - bMin) / (bMax - bMin) * innerW).toFixed(1);
+      const bw = Math.max(1, barW - 1.5).toFixed(1);
+      const y = yS(b.count).toFixed(1);
+      const bh = (padT + innerH - parseFloat(y)).toFixed(1);
+      if (b.count > 0) bars += `<rect class="hist-bar" data-count="${b.count}" data-lo="${b.lo}" data-hi="${b.hi}" x="${x}" y="${y}" width="${bw}" height="${bh}" fill="#7baee0" opacity="0.8" rx="1"/>`;
+      if (i % 2 === 0 || buckets.length <= 10) xAxis += `<text x="${(parseFloat(x)+barW/2).toFixed(1)}" y="${totalH-4}" text-anchor="middle" fill="${CLR.textMuted}" font-size="9" font-family="${DESIGN.chart.fontFamily}">${b.lo}</text>`;
+    });
+    [0, Math.round(maxCount/2), maxCount].forEach(v => {
+      const y = yS(v).toFixed(1);
+      yAxis += `<text x="${padL-4}" y="${y}" text-anchor="end" dominant-baseline="middle" fill="${CLR.textMuted}" font-size="9" font-family="${DESIGN.chart.fontFamily}">${v}</text>`;
+      yAxis += `<line x1="${padL}" y1="${y}" x2="${(padL+innerW).toFixed(1)}" y2="${y}" stroke="${CLR.gridLine}" stroke-width="1"/>`;
+    });
+
+    const pill = (val, lbl) => `<div style="text-align:center;flex:1"><div style="font-family:${DESIGN.chart.fontFamily};font-size:0.62rem;color:${CLR.textMuted};letter-spacing:0.07em;text-transform:uppercase;margin-bottom:2px">${lbl}</div><div style="font-family:${DESIGN.chart.fontFamily};font-size:1.1rem;font-weight:700;color:${CLR.accentGold}">${val.toFixed(1)}</div></div>`;
+    containerEl.innerHTML = `
+      <div style="display:flex;gap:0.5rem;margin-bottom:0.75rem;">${pill(p25,'25th Pct')}${pill(median,'Median')}${pill(p75,'75th Pct')}</div>
+      <div class="pr-chart-scroll">
+        <svg width="${w}" height="${totalH}" style="display:block;max-width:100%;min-width:240px;">
+          ${yAxis}${bars}${xAxis}
+          <line x1="${padL}" y1="${padT}" x2="${padL}" y2="${(padT+innerH).toFixed(1)}" stroke="${CLR.textMuted}" stroke-width="1"/>
+          <line x1="${padL}" y1="${(padT+innerH).toFixed(1)}" x2="${(padL+innerW).toFixed(1)}" y2="${(padT+innerH).toFixed(1)}" stroke="${CLR.textMuted}" stroke-width="1"/>
+        </svg>
+      </div>`;
+
+    const tip = document.createElement('div');
+    tip.style.cssText = DESIGN.tooltipStyle;
+    document.body.appendChild(tip);
+    containerEl._histTip = tip;
+    containerEl.querySelectorAll('.hist-bar').forEach(el => {
+      el.style.cursor = 'pointer';
+      el.addEventListener('mouseenter', () => { el.setAttribute('opacity','1'); tip.innerHTML = `${el.dataset.lo}–${el.dataset.hi} pts<br><strong>${el.dataset.count} games</strong>`; tip.style.opacity='1'; });
+      el.addEventListener('mousemove', e => { tip.style.left=(e.clientX+14)+'px'; tip.style.top=(e.clientY-10)+'px'; });
+      el.addEventListener('mouseleave', () => { el.setAttribute('opacity','0.8'); tip.style.opacity='0'; });
+    });
+  }
+
+  function renderVertBoxPlots(containerEl, weekRows) {
+    if (!containerEl || !weekRows.length) return;
+    if (containerEl._vbpTip) { containerEl._vbpTip.remove(); containerEl._vbpTip = null; }
+    const CLR = DESIGN.colors;
+    const colW = 40, padL = 44, padR = 12, padT = 12, padB = 28;
+    const minW = padL + weekRows.length * colW + padR;
+    const w = Math.max(minW, containerEl.clientWidth || minW);
+    const totalH = 210;
+    const innerH = totalH - padT - padB;
+    const allVals = weekRows.flatMap(r => [r.stats.min, r.stats.max]);
+    const gMin = Math.floor(Math.min(...allVals) / 10) * 10;
+    const gMax = Math.ceil(Math.max(...allVals) / 10) * 10;
+    const yS = v => padT + innerH - ((v - gMin) / (gMax - gMin)) * innerH;
+    const cx = i => padL + i * colW + colW / 2;
+    const yStep = (gMax - gMin) <= 60 ? 10 : 20;
+
+    let yAxis = '', grid = '', cols = '';
+    for (let v = gMin; v <= gMax; v += yStep) {
+      const y = yS(v).toFixed(1);
+      yAxis += `<text x="${padL-5}" y="${y}" text-anchor="end" dominant-baseline="middle" fill="${CLR.textMuted}" font-size="9" font-family="${DESIGN.chart.fontFamily}">${v}</text>`;
+      grid += `<line x1="${padL}" y1="${y}" x2="${(padL + weekRows.length * colW).toFixed(1)}" y2="${y}" stroke="${CLR.gridLine}" stroke-width="1"/>`;
+    }
+
+    weekRows.forEach((row, i) => {
+      const { stats, week } = row;
+      const x = cx(i);
+      const y1 = yS(stats.min), y2 = yS(stats.max);
+      const qy1 = yS(stats.q3), qy2 = yS(stats.q1);
+      const my = yS(stats.median);
+      const boxW = 16, capW = 8;
+      cols += `<line x1="${x}" y1="${y1.toFixed(1)}" x2="${x}" y2="${y2.toFixed(1)}" stroke="${CLR.textSecondary}" stroke-width="1.5"/>`;
+      cols += `<line x1="${(x-capW/2).toFixed(1)}" y1="${y1.toFixed(1)}" x2="${(x+capW/2).toFixed(1)}" y2="${y1.toFixed(1)}" stroke="${CLR.textSecondary}" stroke-width="1.5"/>`;
+      cols += `<line x1="${(x-capW/2).toFixed(1)}" y1="${y2.toFixed(1)}" x2="${(x+capW/2).toFixed(1)}" y2="${y2.toFixed(1)}" stroke="${CLR.textSecondary}" stroke-width="1.5"/>`;
+      cols += `<rect class="vbp-box" data-i="${i}" x="${(x-boxW/2).toFixed(1)}" y="${qy1.toFixed(1)}" width="${boxW}" height="${(qy2-qy1).toFixed(1)}" fill="#7baee0" rx="2"/>`;
+      cols += `<line x1="${(x-boxW/2).toFixed(1)}" y1="${my.toFixed(1)}" x2="${(x+boxW/2).toFixed(1)}" y2="${my.toFixed(1)}" stroke="#fff" stroke-width="2"/>`;
+      cols += `<text x="${x}" y="${totalH-5}" text-anchor="middle" fill="${CLR.textMuted}" font-size="9" font-family="${DESIGN.chart.fontFamily}">W${week}</text>`;
+    });
+
+    containerEl.innerHTML = `
+      <div class="pr-chart-scroll">
+        <svg width="${Math.max(minW, w)}" height="${totalH}" style="display:block;max-width:100%;min-width:${minW}px;">
+          ${grid}${yAxis}${cols}
+        </svg>
+      </div>`;
+
+    const tip = document.createElement('div');
+    tip.style.cssText = DESIGN.tooltipStyle;
+    document.body.appendChild(tip);
+    containerEl._vbpTip = tip;
+    containerEl.querySelectorAll('.vbp-box').forEach(el => {
+      const row = weekRows[parseInt(el.dataset.i)];
+      el.style.cursor = 'pointer';
+      el.addEventListener('mouseenter', () => { tip.innerHTML = `<strong>Week ${row.week}</strong><br>Min: ${row.stats.min.toFixed(1)}<br>Q1: ${row.stats.q1.toFixed(1)}<br>Median: ${row.stats.median.toFixed(1)}<br>Q3: ${row.stats.q3.toFixed(1)}<br>Max: ${row.stats.max.toFixed(1)}`; tip.style.opacity='1'; });
+      el.addEventListener('mousemove', e => { tip.style.left=(e.clientX+14)+'px'; tip.style.top=(e.clientY-10)+'px'; });
+      el.addEventListener('mouseleave', () => { tip.style.opacity='0'; });
+    });
+  }
+
+  function renderScoringTab(el, year) {
+    if (!el) return;
+    const regMs = latestMatchups.filter(m => m.matchup_type === 'NONE');
+    if (!regMs.length) { el.innerHTML = '<div class="analytics-coming-soon">No regular season data</div>'; return; }
+
+    const ownerScores = {};
+    regMs.forEach(m => {
+      (ownerScores[m.home_owner] = ownerScores[m.home_owner] || []).push(m.home_score);
+      (ownerScores[m.away_owner] = ownerScores[m.away_owner] || []).push(m.away_score);
+    });
+    const teamRows = Object.entries(ownerScores)
+      .map(([owner, scores]) => ({ label: Utils.shortOwner(owner), stats: computeBoxStats(scores) }))
+      .filter(r => r.stats)
+      .sort((a, b) => b.stats.median - a.stats.median)
+      .map((r, i) => ({ ...r, isTop: i < 3 }));
+
+    const weekMap = {};
+    regMs.forEach(m => { (weekMap[m.week] = weekMap[m.week] || []).push(m.home_score, m.away_score); });
+    const weekRows = Object.keys(weekMap)
+      .map(w => ({ week: parseInt(w), stats: computeBoxStats(weekMap[w]) }))
+      .filter(r => r.stats)
+      .sort((a, b) => a.week - b.week);
+
+    const allScores = regMs.flatMap(m => [m.home_score, m.away_score]);
+
+    el.innerHTML = `
+      <div class="scoring-sub-title" style="margin-top:0.25rem;">Team Scoring Distribution
+        <span style="font-weight:400;text-transform:none;letter-spacing:0;margin-left:0.75rem;font-size:0.7rem;color:var(--text-muted);">Sorted by median · ${year} regular season</span>
+      </div>
+      <div class="widget-card" id="scoringTeamBox" style="padding:1rem 1.25rem;overflow:hidden;"></div>
+      <div class="bp-legend">
+        <div class="bp-legend-item"><div class="bp-legend-whisker"></div>Min / Max</div>
+        <div class="bp-legend-item"><div class="bp-legend-box"></div>25th – 75th Percentile</div>
+        <div class="bp-legend-item"><div style="width:2px;height:16px;background:#fff;border-radius:1px;"></div>Median</div>
+      </div>
+      <div class="scoring-sub-grid">
+        <div class="widget-card" style="padding:1rem 1.25rem;overflow:hidden;">
+          <div class="scoring-sub-title">League Score Distribution</div>
+          <div id="scoringHistogram"></div>
+        </div>
+        <div class="widget-card" style="padding:1rem 1.25rem;overflow:hidden;">
+          <div class="scoring-sub-title">Weekly Score Distribution
+            <span style="font-weight:400;text-transform:none;letter-spacing:0;margin-left:0.5rem;font-size:0.7rem;color:var(--text-muted);">Box plot per week</span>
+          </div>
+          <div id="scoringWeeklyBox"></div>
+        </div>
+      </div>`;
+
+    const teamBoxEl = document.getElementById('scoringTeamBox');
+    const histEl    = document.getElementById('scoringHistogram');
+    const weeklyEl  = document.getElementById('scoringWeeklyBox');
+
+    renderHorizBoxPlots(teamBoxEl, teamRows);
+    renderHistogram(histEl, allScores);
+    renderVertBoxPlots(weeklyEl, weekRows);
+
+    if (typeof ResizeObserver !== 'undefined') {
+      [
+        [teamBoxEl, () => renderHorizBoxPlots(teamBoxEl, teamRows)],
+        [histEl,    () => renderHistogram(histEl, allScores)],
+        [weeklyEl,  () => renderVertBoxPlots(weeklyEl, weekRows)],
+      ].forEach(([target, fn]) => {
+        let t = null;
+        const ro = new ResizeObserver(entries => {
+          if (!entries[0].contentRect.width) return;
+          clearTimeout(t); t = setTimeout(fn, 80);
+        });
+        ro.observe(target);
+      });
+    }
+  }
+
+  (function renderAnalyticsSection() {
+    const el = document.getElementById('analyticsSection');
+    if (!el) return;
+    el.innerHTML = `
+      <div class="pr-home-header">
+        <div class="section-title">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+          Analytics
+        </div>
+      </div>
+      <div class="analytics-tabs">
+        <div class="analytics-tab active" data-panel="analyticsScoring">Scoring</div>
+        <div class="analytics-tab" data-panel="analyticsPositional">Positional</div>
+        <div class="analytics-tab" data-panel="analyticsSimulations">Simulations</div>
+        <div class="analytics-tab" data-panel="analyticsSeason">Season</div>
+      </div>
+      <div class="analytics-panel active" id="analyticsScoring"></div>
+      <div class="analytics-panel" id="analyticsPositional"><div class="analytics-coming-soon">Coming Soon</div></div>
+      <div class="analytics-panel" id="analyticsSimulations"><div class="analytics-coming-soon">Coming Soon</div></div>
+      <div class="analytics-panel" id="analyticsSeason"><div class="analytics-coming-soon">Coming Soon</div></div>`;
+
+    el.querySelectorAll('.analytics-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        el.querySelectorAll('.analytics-tab').forEach(t => t.classList.remove('active'));
+        el.querySelectorAll('.analytics-panel').forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById(tab.dataset.panel).classList.add('active');
+      });
+    });
+
+    renderScoringTab(document.getElementById('analyticsScoring'), latestYear);
+  })();
+
 })();

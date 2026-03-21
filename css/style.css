@@ -4066,3 +4066,95 @@ body.sidebar-collapsed .sidebar-item.active {
 @media (max-width: 900px) {
   .lucky-legend { flex-direction: column; gap: 0.25rem; }
 }
+
+/* ── Analytics Section ─────────────────────────────────────── */
+
+.analytics-tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 1.5rem;
+}
+.analytics-tab {
+  padding: 0.6rem 1.4rem;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: color 0.15s, border-color 0.15s;
+  user-select: none;
+}
+.analytics-tab:hover { color: var(--text-primary); }
+.analytics-tab.active {
+  color: var(--accent-gold);
+  border-bottom-color: var(--accent-gold);
+}
+.analytics-panel { display: none; }
+.analytics-panel.active { display: block; }
+.analytics-coming-soon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  color: var(--text-muted);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Box plot legend */
+.bp-legend {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  margin-top: 0.75rem;
+  padding-top: 0.25rem;
+  flex-wrap: wrap;
+}
+.bp-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+.bp-legend-whisker {
+  width: 24px;
+  height: 2px;
+  background: var(--text-secondary);
+}
+.bp-legend-box {
+  width: 20px;
+  height: 12px;
+  background: #7baee0;
+  border-radius: 2px;
+}
+
+/* Scoring sub-section layout */
+.scoring-sub-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.scoring-sub-title {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+}
+@media (max-width: 900px) {
+  .analytics-tab { padding: 0.5rem 0.85rem; font-size: 0.7rem; }
+  .scoring-sub-grid { grid-template-columns: 1fr; }
+}
