@@ -1259,8 +1259,8 @@
     if (!containerEl) return;
     if (containerEl._bpTip) { containerEl._bpTip.remove(); containerEl._bpTip = null; }
     const CLR = DESIGN.colors;
-    const rowH = 50, padT = 28, padB = 32, padL = 210, padR = 24;
-    const logoSize = 26, logoX = 6, textX = logoX + logoSize + 8;
+    const rowH = 50, padT = 28, padB = 32, padL = 220, padR = 24;
+    const logoSize = 28, logoX = 6, textX = logoX + logoSize + 8;
     const totalH = padT + teamRows.length * rowH + padB;
     const w = Math.max(480, containerEl.clientWidth || 480);
     const innerW = w - padL - padR;
@@ -1305,9 +1305,8 @@
       }
       rows += `<circle cx="${(logoX + logoSize/2).toFixed(1)}" cy="${cy}" r="${(logoSize/2).toFixed(1)}" fill="none" stroke="${CLR.border}" stroke-width="1"/>`;
 
-      // Team name (top) + owner short (bottom) — clipped to label area
-      rows += `<text x="${textX}" y="${(cy - 6).toFixed(1)}" dominant-baseline="middle" fill="${nameColor}" font-size="12" font-family="${DESIGN.chart.fontFamily}" font-weight="700" clip-path="url(#bptxtclip)">${teamName || label}</text>`;
-      rows += `<text x="${textX}" y="${(cy + 8).toFixed(1)}" dominant-baseline="middle" fill="${CLR.textMuted}" font-size="10" font-family="${DESIGN.chart.fontFamily}" clip-path="url(#bptxtclip)">${label}</text>`;
+      // Team name — centered in row, 14px bold matching lsc-tname
+      rows += `<text x="${textX}" y="${cy}" dominant-baseline="middle" fill="${nameColor}" font-size="14" font-family="${DESIGN.chart.fontFamily}" font-weight="700" clip-path="url(#bptxtclip)">${teamName || label}</text>`;
 
       // Box plot
       rows += `<line x1="${x1.toFixed(1)}" y1="${cy}" x2="${x2.toFixed(1)}" y2="${cy}" stroke="${CLR.textSecondary}" stroke-width="1.5"/>`;
@@ -1315,6 +1314,9 @@
       rows += `<line x1="${x2.toFixed(1)}" y1="${(cy-capH/2).toFixed(1)}" x2="${x2.toFixed(1)}" y2="${(cy+capH/2).toFixed(1)}" stroke="${CLR.textSecondary}" stroke-width="1.5"/>`;
       rows += `<rect class="bp-box" data-i="${i}" x="${qx1.toFixed(1)}" y="${(cy-boxH/2).toFixed(1)}" width="${(qx2-qx1).toFixed(1)}" height="${boxH}" fill="#7baee0" rx="2"/>`;
       rows += `<line x1="${mx.toFixed(1)}" y1="${(cy-boxH/2-1).toFixed(1)}" x2="${mx.toFixed(1)}" y2="${(cy+boxH/2+1).toFixed(1)}" stroke="#fff" stroke-width="2"/>`;
+
+      // Full-row hover target (on top of everything)
+      rows += `<rect class="bp-row" data-i="${i}" x="0" y="${(cy - rowH/2).toFixed(1)}" width="${w}" height="${rowH}" fill="transparent" style="cursor:pointer"/>`;
     });
 
     containerEl.innerHTML = `
@@ -1328,10 +1330,18 @@
     tip.style.cssText = DESIGN.tooltipStyle;
     document.body.appendChild(tip);
     containerEl._bpTip = tip;
-    containerEl.querySelectorAll('.bp-box').forEach(el => {
+    containerEl.querySelectorAll('.bp-row').forEach(el => {
       const row = teamRows[parseInt(el.dataset.i)];
-      el.style.cursor = 'pointer';
-      el.addEventListener('mouseenter', () => { tip.innerHTML = `<strong>${row.teamName || row.label}</strong><br>Min: ${row.stats.min.toFixed(1)}<br>Q1: ${row.stats.q1.toFixed(1)}<br>Median: ${row.stats.median.toFixed(1)}<br>Q3: ${row.stats.q3.toFixed(1)}<br>Max: ${row.stats.max.toFixed(1)}<br>Games: ${row.stats.n}`; tip.style.opacity='1'; });
+      el.addEventListener('mouseenter', () => {
+        tip.innerHTML = `<strong style="font-size:0.85rem">${row.teamName || row.label}</strong><br>
+          <span style="color:${CLR.textMuted}">Min</span> ${row.stats.min.toFixed(1)} &nbsp;
+          <span style="color:${CLR.textMuted}">Q1</span> ${row.stats.q1.toFixed(1)}<br>
+          <span style="color:${CLR.textMuted}">Median</span> <span style="color:${CLR.accentGold};font-weight:700">${row.stats.median.toFixed(1)}</span><br>
+          <span style="color:${CLR.textMuted}">Q3</span> ${row.stats.q3.toFixed(1)} &nbsp;
+          <span style="color:${CLR.textMuted}">Max</span> ${row.stats.max.toFixed(1)}<br>
+          <span style="color:${CLR.textMuted}">Games</span> ${row.stats.n}`;
+        tip.style.opacity = '1';
+      });
       el.addEventListener('mousemove', e => { tip.style.left=(e.clientX+14)+'px'; tip.style.top=(e.clientY-10)+'px'; });
       el.addEventListener('mouseleave', () => { tip.style.opacity='0'; });
     });
