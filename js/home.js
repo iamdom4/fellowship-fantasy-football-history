@@ -1287,12 +1287,12 @@
     }
 
     teamRows.forEach((row, i) => {
-      const { stats, label, teamName, logoUrl, isTop } = row;
+      const { stats, label, teamName, logoUrl } = row;
       const cy = padT + i * rowH + rowH / 2;
       const x1 = xS(stats.min), x2 = xS(stats.max);
       const qx1 = xS(stats.q1), qx2 = xS(stats.q3);
       const mx = xS(stats.median);
-      const nameColor = isTop ? CLR.accentGold : '#e2e8f0';
+      const teamColor = DESIGN.chartColors[i % DESIGN.chartColors.length];
       const boxH = 14, capH = 8;
 
       if (i % 2 === 0) rows += `<rect x="0" y="${(cy - rowH/2).toFixed(1)}" width="${w}" height="${rowH}" fill="rgba(255,255,255,0.018)" rx="0"/>`;
@@ -1305,14 +1305,14 @@
       }
       rows += `<circle cx="${(logoX + logoSize/2).toFixed(1)}" cy="${cy}" r="${(logoSize/2).toFixed(1)}" fill="none" stroke="${CLR.border}" stroke-width="1"/>`;
 
-      // Team name — centered in row, 14px bold matching lsc-tname
-      rows += `<text x="${textX}" y="${cy}" dominant-baseline="middle" fill="${nameColor}" font-size="14" font-family="${DESIGN.chart.fontFamily}" font-weight="700" clip-path="url(#bptxtclip)">${teamName || label}</text>`;
+      // Team name — 16px bold, all white
+      rows += `<text x="${textX}" y="${cy}" dominant-baseline="middle" fill="#e2e8f0" font-size="16" font-family="${DESIGN.chart.fontFamily}" font-weight="700" clip-path="url(#bptxtclip)">${teamName || label}</text>`;
 
-      // Box plot
+      // Box plot — IQR box uses team's brand color
       rows += `<line x1="${x1.toFixed(1)}" y1="${cy}" x2="${x2.toFixed(1)}" y2="${cy}" stroke="${CLR.textSecondary}" stroke-width="1.5"/>`;
       rows += `<line x1="${x1.toFixed(1)}" y1="${(cy-capH/2).toFixed(1)}" x2="${x1.toFixed(1)}" y2="${(cy+capH/2).toFixed(1)}" stroke="${CLR.textSecondary}" stroke-width="1.5"/>`;
       rows += `<line x1="${x2.toFixed(1)}" y1="${(cy-capH/2).toFixed(1)}" x2="${x2.toFixed(1)}" y2="${(cy+capH/2).toFixed(1)}" stroke="${CLR.textSecondary}" stroke-width="1.5"/>`;
-      rows += `<rect class="bp-box" data-i="${i}" x="${qx1.toFixed(1)}" y="${(cy-boxH/2).toFixed(1)}" width="${(qx2-qx1).toFixed(1)}" height="${boxH}" fill="#7baee0" rx="2"/>`;
+      rows += `<rect class="bp-box" data-i="${i}" x="${qx1.toFixed(1)}" y="${(cy-boxH/2).toFixed(1)}" width="${(qx2-qx1).toFixed(1)}" height="${boxH}" fill="${teamColor}" rx="2"/>`;
       rows += `<line x1="${mx.toFixed(1)}" y1="${(cy-boxH/2-1).toFixed(1)}" x2="${mx.toFixed(1)}" y2="${(cy+boxH/2+1).toFixed(1)}" stroke="#fff" stroke-width="2"/>`;
 
       // Full-row hover target (on top of everything)
@@ -1489,8 +1489,7 @@
         stats:    computeBoxStats(scores),
       }))
       .filter(r => r.stats)
-      .sort((a, b) => b.stats.median - a.stats.median)
-      .map((r, i) => ({ ...r, isTop: i < 3 }));
+      .sort((a, b) => b.stats.median - a.stats.median);
 
     const weekMap = {};
     regMs.forEach(m => { (weekMap[m.week] = weekMap[m.week] || []).push(m.home_score, m.away_score); });
@@ -1503,15 +1502,15 @@
 
     el.innerHTML = `
       <div class="widget-card" style="padding:1rem 1.25rem;overflow:hidden;">
-        <div class="scoring-sub-title" style="margin-bottom:0.5rem;">Team Scoring Distribution
+        <div class="scoring-sub-title" style="margin-bottom:0.75rem;">Team Scoring Distribution
           <span style="font-weight:400;text-transform:none;letter-spacing:0;margin-left:0.75rem;font-size:0.7rem;color:var(--text-muted);">Sorted by median · ${year} regular season</span>
         </div>
-        <div class="bp-legend" style="margin-bottom:0.5rem;">
+        <div id="scoringTeamBoxChart"></div>
+        <div class="bp-legend" style="margin-top:0.75rem;padding-top:0.75rem;border-top:1px solid var(--border);">
           <div class="bp-legend-item"><div class="bp-legend-whisker"></div>Min / Max</div>
-          <div class="bp-legend-item"><div class="bp-legend-box"></div>25th – 75th Percentile</div>
+          <div class="bp-legend-item"><div class="bp-legend-box"></div>25th – 75th Pct</div>
           <div class="bp-legend-item"><div style="width:2px;height:16px;background:#fff;border-radius:1px;"></div>Median</div>
         </div>
-        <div id="scoringTeamBoxChart"></div>
       </div>
       <div class="scoring-sub-grid">
         <div class="widget-card" style="padding:1rem 1.25rem;overflow:hidden;">
