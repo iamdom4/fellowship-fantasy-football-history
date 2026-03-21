@@ -1506,37 +1506,20 @@
     }
   }
 
-  (function renderAnalyticsSection() {
-    const el = document.getElementById('analyticsSection');
-    if (!el) return;
-    el.innerHTML = `
-      <div class="pr-home-header">
-        <div class="section-title">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
-          Analytics
-        </div>
-      </div>
-      <div class="analytics-tabs">
-        <div class="analytics-tab active" data-panel="analyticsScoring">Scoring</div>
-        <div class="analytics-tab" data-panel="analyticsPositional">Positional</div>
-        <div class="analytics-tab" data-panel="analyticsSimulations">Simulations</div>
-        <div class="analytics-tab" data-panel="analyticsSeason">Season</div>
-      </div>
-      <div class="analytics-panel active" id="analyticsScoring"></div>
-      <div class="analytics-panel" id="analyticsPositional"><div class="analytics-coming-soon">Coming Soon</div></div>
-      <div class="analytics-panel" id="analyticsSimulations"><div class="analytics-coming-soon">Coming Soon</div></div>
-      <div class="analytics-panel" id="analyticsSeason"><div class="analytics-coming-soon">Coming Soon</div></div>`;
+  (function initHomePageNav() {
+    const nav = document.getElementById('homePageNav');
+    if (!nav) return;
 
-    el.querySelectorAll('.analytics-tab').forEach(tab => {
+    nav.querySelectorAll('.home-page-tab').forEach(tab => {
       tab.addEventListener('click', () => {
-        el.querySelectorAll('.analytics-tab').forEach(t => t.classList.remove('active'));
-        el.querySelectorAll('.analytics-panel').forEach(p => p.classList.remove('active'));
+        nav.querySelectorAll('.home-page-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.home-page-panel').forEach(p => p.classList.remove('active'));
         tab.classList.add('active');
         document.getElementById(tab.dataset.panel).classList.add('active');
       });
     });
 
-    renderScoringTab(document.getElementById('analyticsScoring'), latestYear);
+    renderScoringTab(document.getElementById('scoringPanelContent'), latestYear);
   })();
 
 })();

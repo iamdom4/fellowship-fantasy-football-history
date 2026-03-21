@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Fellowship of the League</title>
-  <link rel="stylesheet" href="css/style.css?v=100" />
+  <link rel="stylesheet" href="css/style.css?v=101" />
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -224,68 +224,91 @@
       </div>
     </div>
 
-    <!-- ANALYTICS (Scoring / Positional / Simulations / Season) -->
-    <div class="section-block" id="analyticsSection"></div>
-
-    <!-- LEAGUE STANDINGS TABLE -->
-    <div class="section-block">
-      <div class="lsc-section-header">
-        <div class="section-title">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-          League Standings
-        </div>
-        <div class="lsc-filter-group" id="lscFilterBtns" role="group" aria-label="Filter standings">
-          <button class="lsc-filter-btn active" data-filter="regular">Regular Season</button>
-          <button class="lsc-filter-btn" data-filter="playoffs">Playoffs</button>
-          <button class="lsc-filter-btn" data-filter="all">All</button>
-        </div>
-      </div>
-      <div class="table-wrap">
-        <table id="lscTable" class="lsc-table">
-          <thead>
-            <tr>
-              <th scope="col" class="lsc-th-rank lsc-sortable" data-sort="rank">Rank <span class="lsc-sort">↕</span></th>
-              <th scope="col" class="lsc-th-team">Team</th>
-              <th scope="col" class="lsc-th-po" title="Currently in playoff position"><span class="lsc-po-text">Playoffs</span></th>
-              <th scope="col" class="lsc-sortable" data-sort="record">Record <span class="lsc-sort">↕</span></th>
-              <th scope="col" class="lsc-sortable" data-sort="powerRecord" title="Round-robin record vs all teams each week">Power Record <span class="lsc-sort">↕</span></th>
-              <th scope="col" class="lsc-sortable" data-sort="vsMedian" title="Record vs weekly median score">vs. Median <span class="lsc-sort">↕</span></th>
-              <th scope="col" class="lsc-sortable" data-sort="combined" title="Actual wins + median wins combined">Games + Median <span class="lsc-sort">↕</span></th>
-              <th scope="col" class="lsc-sortable num" data-sort="pf">PF <span class="lsc-sort">↕</span></th>
-              <th scope="col" class="lsc-sortable num" data-sort="pa">PA <span class="lsc-sort">↕</span></th>
-              <th scope="col" class="lsc-sortable num" data-sort="maxPf" title="Maximum possible points (optimal lineup each week)">Max PF <span class="lsc-sort">↕</span></th>
-              <th scope="col" class="lsc-sortable num" data-sort="mgmtPct" title="Management %: Actual PF ÷ Max PF — how optimally a team started their lineup">Mgmt % <span class="lsc-sort">↕</span></th>
-            </tr>
-          </thead>
-          <tbody id="lscTbody"></tbody>
-        </table>
-      </div>
+    <!-- HOME PAGE SECTION NAV -->
+    <div class="home-page-nav-bar" id="homePageNav">
+      <button class="home-page-tab active" data-panel="homePanelContent">Home</button>
+      <button class="home-page-tab" data-panel="scoringPanelContent">Scoring</button>
+      <button class="home-page-tab" data-panel="positionalPanelContent">Positional</button>
+      <button class="home-page-tab" data-panel="simulationsPanelContent">Simulations</button>
     </div>
 
-    <!-- POWER RANKINGS -->
-    <div class="section-block">
-      <div class="pr-home-header">
-        <div class="section-title">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg>
-          Power Rankings
-        </div>
-        <div class="pr-picker-group">
-          <div class="pr-picker" id="prHomeWeekPicker">
-            <button class="pr-picker-btn" id="prHomeWeekPickerBtn" aria-haspopup="listbox" aria-expanded="false" aria-label="Select week">
-              <span id="prHomeWeekPickerVal">—</span>
-              <svg class="pr-picker-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
-            </button>
-            <div class="pr-picker-panel" id="prHomeWeekPickerPanel" role="listbox" aria-label="Select week" hidden></div>
+    <!-- HOME PANEL: League Standings, Power Rankings, Lucky Wins -->
+    <div id="homePanelContent" class="home-page-panel active">
+
+      <!-- LEAGUE STANDINGS TABLE -->
+      <div class="section-block">
+        <div class="lsc-section-header">
+          <div class="section-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            League Standings
+          </div>
+          <div class="lsc-filter-group" id="lscFilterBtns" role="group" aria-label="Filter standings">
+            <button class="lsc-filter-btn active" data-filter="regular">Regular Season</button>
+            <button class="lsc-filter-btn" data-filter="playoffs">Playoffs</button>
+            <button class="lsc-filter-btn" data-filter="all">All</button>
           </div>
         </div>
+        <div class="table-wrap">
+          <table id="lscTable" class="lsc-table">
+            <thead>
+              <tr>
+                <th scope="col" class="lsc-th-rank lsc-sortable" data-sort="rank">Rank <span class="lsc-sort">↕</span></th>
+                <th scope="col" class="lsc-th-team">Team</th>
+                <th scope="col" class="lsc-th-po" title="Currently in playoff position"><span class="lsc-po-text">Playoffs</span></th>
+                <th scope="col" class="lsc-sortable" data-sort="record">Record <span class="lsc-sort">↕</span></th>
+                <th scope="col" class="lsc-sortable" data-sort="powerRecord" title="Round-robin record vs all teams each week">Power Record <span class="lsc-sort">↕</span></th>
+                <th scope="col" class="lsc-sortable" data-sort="vsMedian" title="Record vs weekly median score">vs. Median <span class="lsc-sort">↕</span></th>
+                <th scope="col" class="lsc-sortable" data-sort="combined" title="Actual wins + median wins combined">Games + Median <span class="lsc-sort">↕</span></th>
+                <th scope="col" class="lsc-sortable num" data-sort="pf">PF <span class="lsc-sort">↕</span></th>
+                <th scope="col" class="lsc-sortable num" data-sort="pa">PA <span class="lsc-sort">↕</span></th>
+                <th scope="col" class="lsc-sortable num" data-sort="maxPf" title="Maximum possible points (optimal lineup each week)">Max PF <span class="lsc-sort">↕</span></th>
+                <th scope="col" class="lsc-sortable num" data-sort="mgmtPct" title="Management %: Actual PF ÷ Max PF — how optimally a team started their lineup">Mgmt % <span class="lsc-sort">↕</span></th>
+              </tr>
+            </thead>
+            <tbody id="lscTbody"></tbody>
+          </table>
+        </div>
       </div>
-      <div id="prHomeTable"><div class="loading"><div class="spinner"></div></div></div>
-      <div class="widget-card" id="prHomeChart" style="margin-top:1.5rem;"><div class="loading"><div class="spinner"></div></div></div>
+
+      <!-- POWER RANKINGS -->
+      <div class="section-block">
+        <div class="pr-home-header">
+          <div class="section-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg>
+            Power Rankings
+          </div>
+          <div class="pr-picker-group">
+            <div class="pr-picker" id="prHomeWeekPicker">
+              <button class="pr-picker-btn" id="prHomeWeekPickerBtn" aria-haspopup="listbox" aria-expanded="false" aria-label="Select week">
+                <span id="prHomeWeekPickerVal">—</span>
+                <svg class="pr-picker-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+              </button>
+              <div class="pr-picker-panel" id="prHomeWeekPickerPanel" role="listbox" aria-label="Select week" hidden></div>
+            </div>
+          </div>
+        </div>
+        <div id="prHomeTable"><div class="loading"><div class="spinner"></div></div></div>
+        <div class="widget-card" id="prHomeChart" style="margin-top:1.5rem;"><div class="loading"><div class="spinner"></div></div></div>
+      </div>
+
+      <!-- LUCKY WINS & UNLUCKY LOSSES -->
+      <div class="section-block" id="luckySection">
+        <div class="loading"><div class="spinner"></div></div>
+      </div>
+
+    </div><!-- /#homePanelContent -->
+
+    <!-- SCORING PANEL -->
+    <div id="scoringPanelContent" class="home-page-panel"></div>
+
+    <!-- POSITIONAL PANEL -->
+    <div id="positionalPanelContent" class="home-page-panel">
+      <div class="analytics-coming-soon">Coming Soon</div>
     </div>
 
-    <!-- LUCKY WINS & UNLUCKY LOSSES -->
-    <div class="section-block" id="luckySection">
-      <div class="loading"><div class="spinner"></div></div>
+    <!-- SIMULATIONS PANEL -->
+    <div id="simulationsPanelContent" class="home-page-panel">
+      <div class="analytics-coming-soon">Coming Soon</div>
     </div>
 
   </div>
@@ -300,7 +323,7 @@
   <script src="js/logoData.js?v=15"></script>
   <script src="js/icons.js?v=18"></script>
   <script src="js/design.js?v=1"></script>
-  <script src="js/home.js?v=86"></script>
+  <script src="js/home.js?v=87"></script>
   <script src="js/nav.js?v=26"></script>
 </body>
 </html>

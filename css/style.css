@@ -4067,35 +4067,48 @@ body.sidebar-collapsed .sidebar-item.active {
   .lucky-legend { flex-direction: column; gap: 0.25rem; }
 }
 
-/* ── Analytics Section ─────────────────────────────────────── */
+/* ── Home Page Section Nav ──────────────────────────────────── */
 
-.analytics-tabs {
+.home-page-nav-bar {
   display: flex;
-  gap: 0;
-  border-bottom: 1px solid var(--border);
-  margin-bottom: 1.5rem;
+  width: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 4px;
+  gap: 4px;
+  margin-bottom: 2rem;
 }
-.analytics-tab {
-  padding: 0.6rem 1.4rem;
+.home-page-tab {
+  flex: 1;
+  padding: 0.65rem 1rem;
   font-family: var(--font-display);
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-secondary);
+  background: transparent;
+  border: none;
+  border-radius: 7px;
   cursor: pointer;
-  border-bottom: 2px solid transparent;
-  margin-bottom: -1px;
-  transition: color 0.15s, border-color 0.15s;
+  transition: color 0.15s, background 0.15s;
+  min-height: 44px;
   user-select: none;
 }
-.analytics-tab:hover { color: var(--text-primary); }
-.analytics-tab.active {
-  color: var(--accent-gold);
-  border-bottom-color: var(--accent-gold);
+.home-page-tab:hover {
+  color: var(--text-primary);
+  background: rgba(255,255,255,0.04);
 }
-.analytics-panel { display: none; }
-.analytics-panel.active { display: block; }
+.home-page-tab.active {
+  color: var(--accent-gold);
+  background: rgba(201,162,39,0.12);
+}
+.home-page-panel { display: none; }
+.home-page-panel.active { display: block; }
+
+/* ── Analytics Section ─────────────────────────────────────── */
+
 .analytics-coming-soon {
   display: flex;
   align-items: center;
@@ -4155,6 +4168,6 @@ body.sidebar-collapsed .sidebar-item.active {
   margin-bottom: 0.75rem;
 }
 @media (max-width: 900px) {
-  .analytics-tab { padding: 0.5rem 0.85rem; font-size: 0.7rem; }
+  .home-page-tab { font-size: 0.7rem; padding: 0.55rem 0.5rem; }
   .scoring-sub-grid { grid-template-columns: 1fr; }
 }
