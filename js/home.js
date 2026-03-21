@@ -1292,7 +1292,7 @@
       const x1 = xS(stats.min), x2 = xS(stats.max);
       const qx1 = xS(stats.q1), qx2 = xS(stats.q3);
       const mx = xS(stats.median);
-      const boxH = 14, capH = 8;
+      const boxH = 24, capH = 10;
 
       // Alternating band
       if (i % 2 === 0) rows += `<rect x="0" y="${(cy - rowH/2).toFixed(1)}" width="${w}" height="${rowH}" fill="rgba(255,255,255,0.018)" rx="0"/>`;
@@ -1340,14 +1340,18 @@
       el.addEventListener('mouseenter', () => {
         if (hl) hl.setAttribute('opacity', '1');
         const s = row.stats;
+        const row_ = (lbl, val, gold) =>
+          `<div style="display:flex;justify-content:space-between;gap:1.5rem;line-height:1.7">` +
+          `<span style="color:${CLR.textMuted}">${lbl}</span>` +
+          `<span style="${gold ? `color:${CLR.accentGold};font-weight:700` : ''}">${val}</span></div>`;
         tip.innerHTML =
-          `<strong style="display:block;margin-bottom:4px">${row.teamName || row.label}</strong>` +
-          `<span style="color:${CLR.textMuted}">Min:</span> ${s.min.toFixed(1)}` +
-          ` &nbsp;·&nbsp; <span style="color:${CLR.textMuted}">25th:</span> ${s.q1.toFixed(1)}` +
-          ` &nbsp;·&nbsp; <span style="color:${CLR.textMuted}">Median:</span> <span style="color:${CLR.accentGold};font-weight:700">${s.median.toFixed(1)}</span>` +
-          ` &nbsp;·&nbsp; <span style="color:${CLR.textMuted}">75th:</span> ${s.q3.toFixed(1)}` +
-          ` &nbsp;·&nbsp; <span style="color:${CLR.textMuted}">Max:</span> ${s.max.toFixed(1)}` +
-          ` &nbsp;·&nbsp; <span style="color:${CLR.textMuted}">Games:</span> ${s.n}`;
+          `<strong style="display:block;margin-bottom:5px;font-size:0.85rem">${row.teamName || row.label}</strong>` +
+          row_('Min:', s.min.toFixed(1)) +
+          row_('25th:', s.q1.toFixed(1)) +
+          row_('Median:', s.median.toFixed(1), true) +
+          row_('75th:', s.q3.toFixed(1)) +
+          row_('Max:', s.max.toFixed(1)) +
+          row_('Games:', s.n);
         tip.style.opacity = '1';
       });
       el.addEventListener('mousemove', e => { tip.style.left=(e.clientX+14)+'px'; tip.style.top=(e.clientY-10)+'px'; });
