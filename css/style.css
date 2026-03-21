@@ -4171,3 +4171,73 @@ body.sidebar-collapsed .sidebar-item.active {
   .home-page-tab { font-size: 0.7rem; padding: 0.55rem 0.5rem; }
   .scoring-sub-grid { grid-template-columns: 1fr; }
 }
+
+/* ── Positional Strength Table ──────────────────────────────────────────── */
+/* inherits lsc-table base styles — only positional overrides here */
+.pos-table td { border-bottom: 1px solid rgba(255,255,255,0.04); }
+.pos-table tr { cursor: pointer; }
+.pos-table tr:hover td { filter: brightness(1.15); }
+
+.pos-cell {
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: center; padding: 0.55rem 0.75rem;
+}
+.pos-rank { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; line-height: 1; }
+.pos-pts  { font-family: var(--font-display); font-size: 0.68rem; color: rgba(255,255,255,0.55); margin-top: 2px; }
+
+/* Percentile backgrounds */
+.pos-top25 { background: rgba(22, 90, 55, 0.65); }
+.pos-top50 { background: rgba(20, 55, 100, 0.65); }
+.pos-top75 { background: rgba(110, 60, 10, 0.65); }
+.pos-bot25 { background: rgba(100, 20, 20, 0.65); }
+
+/* Rank number colors */
+.pos-top25 .pos-rank { color: #4ade80; }
+.pos-top50 .pos-rank { color: #60a5fa; }
+.pos-top75 .pos-rank { color: #fbbf24; }
+.pos-bot25 .pos-rank { color: #f87171; }
+
+/* Show/Hide Charts button */
+.pos-charts-btn {
+  font-family: var(--font-display); font-size: 0.72rem; font-weight: 700;
+  letter-spacing: 0.07em; text-transform: uppercase; padding: 0.4rem 0.9rem;
+  border: 1px solid var(--border); border-radius: 6px; background: var(--bg-card);
+  color: var(--text-secondary); cursor: pointer; transition: color 0.15s, border-color 0.15s;
+}
+.pos-charts-btn.active { color: var(--accent-gold); border-color: var(--accent-gold); }
+
+/* Legend */
+.pos-legend { display: flex; gap: 1.25rem; align-items: center; margin-top: 0.75rem; flex-wrap: wrap; }
+.pos-legend-item { display: flex; align-items: center; gap: 0.4rem; font-family: var(--font-display); font-size: 0.7rem; color: var(--text-secondary); font-weight: 600; }
+.pos-legend-swatch { width: 14px; height: 14px; border-radius: 3px; }
+
+/* Inline spider cell */
+.pos-spider-cell { padding: 0.25rem 0.5rem; text-align: center; vertical-align: middle; }
+
+/* Modal */
+.pos-modal-overlay {
+  position: fixed; inset: 0; z-index: 500;
+  background: rgba(7,11,18,0.85); backdrop-filter: blur(6px);
+  display: flex; align-items: center; justify-content: center;
+}
+.pos-modal-card {
+  background: var(--bg-card); border: 1px solid rgba(201,162,39,0.3);
+  border-radius: 12px; padding: 1.75rem 2rem; max-width: 580px; width: 92%; position: relative;
+}
+.pos-modal-title {
+  font-family: var(--font-display); font-size: 1.25rem; font-weight: 700;
+  color: var(--text-primary); margin-bottom: 1.25rem;
+  display: flex; align-items: center; gap: 0.75rem;
+}
+.pos-modal-close {
+  position: absolute; top: 0.75rem; right: 0.75rem; background: none;
+  border: 1px solid var(--border); border-radius: 50%; width: 28px; height: 28px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; color: var(--text-secondary); font-size: 1rem; line-height: 1;
+}
+.pos-modal-close:hover { color: var(--text-primary); border-color: var(--text-secondary); }
+
+@media (max-width: 900px) {
+  .pos-charts-btn { display: none; }
+  .pos-spider-cell { display: none; }
+}

@@ -1580,4 +1580,237 @@
     renderScoringTab(document.getElementById('scoringPanelContent'), latestYear);
   })();
 
+  // ── Positional Strength helpers ────────────────────────────────────────────
+
+  function getPercentileClass(rank, n) {
+    const pct = rank / n;
+    if (pct <= 0.25) return 'pos-top25';
+    if (pct <= 0.50) return 'pos-top50';
+    if (pct <= 0.75) return 'pos-top75';
+    return 'pos-bot25';
+  }
+
+  function drawSpiderSVG(ranks, n, size) {
+    const POSITIONS = ['QB','RB','WR','TE','FLEX','DST','K'];
+    const POS_LABELS = { QB:'QB', RB:'RB', WR:'WR', TE:'TE', FLEX:'FLEX', DST:'D/ST', K:'K' };
+    const cx = size / 2, cy = size / 2;
+    const r  = size * 0.36;  // radius of outer ring
+    const labelR = size * 0.46;
+
+    // N axes: QB at top (−90°), then clockwise
+    const step = 360 / POSITIONS.length;
+    const angles = POSITIONS.map((_, i) => (i * step - 90) * Math.PI / 180);
+
+    function pt(frac, idx) {
+      return [cx + frac * r * Math.cos(angles[idx]), cy + frac * r * Math.sin(angles[idx])];
+    }
+
+    // Concentric reference rings
+    let rings = '';
+    for (let ring = 1; ring <= 5; ring++) {
+      const frac = ring / 5;
+      const pts = POSITIONS.map((_, i) => pt(frac, i)).map(p => p.join(',')).join(' ');
+      rings += `<polygon points="${pts}" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>`;
+    }
+
+    // Axis lines + labels
+    let axes = '';
+    POSITIONS.forEach((pos, i) => {
+      const [x2, y2] = pt(1, i);
+      axes += `<line x1="${cx}" y1="${cy}" x2="${x2}" y2="${y2}" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>`;
+      const [lx, ly] = [cx + labelR * Math.cos(angles[i]), cy + labelR * Math.sin(angles[i])];
+      const anchor = Math.cos(angles[i]) > 0.1 ? 'start' : Math.cos(angles[i]) < -0.1 ? 'end' : 'middle';
+      axes += `<text x="${lx}" y="${ly}" text-anchor="${anchor}" dominant-baseline="central"
+        font-family="Barlow Condensed,sans-serif" font-size="${size < 130 ? 9 : size < 200 ? 11 : 14}" font-weight="700"
+        fill="#8b9aad">${POS_LABELS[pos]}</text>`;
+    });
+
+    // Team polygon
+    const polyPts = POSITIONS.map((pos, i) => {
+      const rank = (ranks[pos] || n);
+      const frac = (n - rank + 1) / n;
+      return pt(frac, i).join(',');
+    }).join(' ');
+
+    return `<svg width="${size}" height="${size}" style="overflow:visible">
+      ${rings}${axes}
+      <polygon points="${polyPts}" fill="rgba(76,201,240,0.2)" stroke="#4cc9f0" stroke-width="1.5"/>
+      ${POSITIONS.map((pos, i) => {
+        const rank = (ranks[pos] || n);
+        const frac = (n - rank + 1) / n;
+        const [px, py] = pt(frac, i);
+        return `<circle cx="${px}" cy="${py}" r="3" fill="#4cc9f0"/>`;
+      }).join('')}
+    </svg>`;
+  }
+
+  function showPosModal(row, n) {
+    const POSITIONS = ['QB','RB','WR','TE','FLEX','DST','K'];
+    const POS_LABELS = { QB:'QB', RB:'RB', WR:'WR', TE:'TE', FLEX:'FLEX', DST:'D/ST', K:'K' };
+
+    const overlay = document.createElement('div');
+    overlay.className = 'pos-modal-overlay';
+
+    const ranks = {};
+    POSITIONS.forEach(p => { ranks[p] = row.posData[p]?.rank || n; });
+
+    const rankRows = POSITIONS.map(p => {
+      const d = row.posData[p] || { rank: n, pts: 0 };
+      const cls = getPercentileClass(d.rank, n);
+      const colorMap = { 'pos-top25': '#4ade80', 'pos-top50': '#60a5fa', 'pos-top75': '#fbbf24', 'pos-bot25': '#f87171' };
+      return `<div style="display:flex;justify-content:space-between;align-items:center;padding:0.55rem 0;border-bottom:1px solid rgba(255,255,255,0.06)">
+        <span style="font-family:Barlow Condensed,sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.07em;color:#8b9aad;text-transform:uppercase">${POS_LABELS[p]}</span>
+        <span style="display:flex;align-items:center;gap:1rem">
+          <span style="font-family:Barlow Condensed,sans-serif;font-size:0.95rem;color:rgba(255,255,255,0.5)">${d.pts.toFixed(2)} pts</span>
+          <span style="font-family:Barlow Condensed,sans-serif;font-size:1.3rem;font-weight:800;min-width:2.2rem;text-align:right;color:${colorMap[cls]}">${d.rank}</span>
+        </span>
+      </div>`;
+    }).join('');
+
+    const logoHtml = row.logoUrl
+      ? `<img src="${row.logoUrl}" alt="" style="width:40px;height:40px;border-radius:50%;object-fit:cover;border:1px solid rgba(255,255,255,0.15)">`
+      : '';
+
+    overlay.innerHTML = `<div class="pos-modal-card">
+      <button class="pos-modal-close">✕</button>
+      <div class="pos-modal-title">${logoHtml}<span>${row.teamName}</span></div>
+      <div style="display:flex;justify-content:center;margin-bottom:1.25rem">${drawSpiderSVG(ranks, n, 360)}</div>
+      <div>${rankRows}</div>
+    </div>`;
+
+    document.body.appendChild(overlay);
+
+    const dismiss = () => overlay.remove();
+    overlay.querySelector('.pos-modal-close').addEventListener('click', dismiss);
+    overlay.addEventListener('click', e => { if (e.target === overlay) dismiss(); });
+  }
+
+  // ── renderPositionalSection IIFE ──────────────────────────────────────────
+  (function renderPositionalSection() {
+    const el = document.getElementById('positionalPanelContent');
+    if (!el) return;
+
+    const ps = (LEAGUE_DATA[latestYear] || {}).positional_strength;
+    if (!ps) {
+      el.innerHTML = '<div class="analytics-coming-soon">Run data pipeline to enable positional data</div>';
+      return;
+    }
+
+    const POSITIONS = ['QB','RB','WR','TE','FLEX','DST','K'];
+    const POS_LABELS = { QB:'QB', RB:'RB', WR:'WR', TE:'TE', FLEX:'FLEX', DST:'D/ST', K:'K' };
+    const logoMap = typeof TEAM_LOGOS !== 'undefined' ? TEAM_LOGOS : {};
+    const ownerTeamMap = {};
+    (latestSeason.teams || []).forEach(t => { ownerTeamMap[t.owner] = t.team_name; });
+
+    let teamRows = Object.entries(ps).map(([owner, posData]) => ({
+      owner,
+      teamName: ownerTeamMap[owner] || Utils.shortOwner(owner),
+      logoUrl: logoMap[owner] || '',
+      posData,
+      avgRank: POSITIONS.reduce((s, p) => s + (posData[p]?.rank || 99), 0) / POSITIONS.length,
+    })).sort((a, b) => a.avgRank - b.avgRank);
+
+    const n = teamRows.length;
+    let sortCol = null, sortDir = 1, showCharts = false;
+
+    function render() {
+      // Sort
+      const rows = [...teamRows].sort((a, b) => {
+        if (!sortCol) return a.avgRank - b.avgRank;
+        const ra = a.posData[sortCol]?.rank || 99;
+        const rb = b.posData[sortCol]?.rank || 99;
+        return sortDir * (ra - rb);
+      });
+
+      const sortArrow = p => {
+        const sym = sortCol !== p ? '↕' : (sortDir === 1 ? '↑' : '↓');
+        return `<span class="lsc-sort" style="font-size:1em;opacity:${sortCol===p?1:0.55}">${sym}</span>`;
+      };
+
+      const colStyle = 'width:100px;min-width:96px;border-left:1px solid var(--border)';
+      const chartTh  = showCharts ? `<th style="cursor:default;width:120px;min-width:120px;white-space:nowrap;font-family:var(--font-display);font-size:0.75rem;color:var(--text-secondary);padding:0.6rem 0.75rem;border-bottom:1px solid var(--border);border-left:1px solid var(--border)">Chart</th>` : '';
+      const headers  = POSITIONS.map(p =>
+        `<th class="lsc-sortable${sortCol === p ? ' lsc-sorted' : ''}" data-col="${p}" style="${colStyle}">${POS_LABELS[p]} ${sortArrow(p)}</th>`
+      ).join('');
+
+      const bodyRows = rows.map(row => {
+        const logoHtml = row.logoUrl
+          ? `<img class="lsc-logo" src="${row.logoUrl}" alt="" loading="lazy">`
+          : `<div class="lsc-logo-ph"></div>`;
+
+        const posCells = POSITIONS.map(p => {
+          const d = row.posData[p] || { rank: n, pts: 0 };
+          const cls = getPercentileClass(d.rank, n);
+          return `<td style="padding:0;height:1px;width:100px;min-width:96px;border-left:1px solid var(--border)"><div class="pos-cell ${cls}" style="height:100%"><span class="pos-rank">${d.rank}</span><span class="pos-pts">${d.pts.toFixed(2)}</span></div></td>`;
+        }).join('');
+
+        const chartCell = showCharts
+          ? `<td class="pos-spider-cell" style="padding:0;height:1px;width:120px;min-width:120px;border-left:1px solid var(--border)"><div style="height:100%;display:flex;align-items:center;justify-content:center;padding:0.25rem 0.4rem">${drawSpiderSVG(
+              Object.fromEntries(POSITIONS.map(p => [p, row.posData[p]?.rank || n])),
+              n, 90)}</div></td>`
+          : '';
+
+        return `<tr>
+          <td style="padding:0;height:1px;white-space:nowrap">
+            <div class="lsc-team-cell" style="height:100%;padding:0.4rem 0.75rem;box-sizing:border-box">
+              ${logoHtml}
+              <div class="lsc-team-info">
+                <span class="lsc-tname">${row.teamName}</span>
+              </div>
+            </div>
+          </td>
+          ${posCells}
+          ${chartCell}
+        </tr>`;
+      }).join('');
+
+      const chartsLabel = showCharts ? 'Hide Charts' : 'Show Charts';
+
+      el.innerHTML = `<div class="section-card" style="padding:1.25rem 1.5rem">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem">
+          <h3 class="section-title" style="margin:0">Positional Strength Rankings</h3>
+          <button class="pos-charts-btn${showCharts ? ' active' : ''}" id="posChartsBtn">${chartsLabel}</button>
+        </div>
+        <div class="table-wrap">
+          <table class="lsc-table pos-table" style="table-layout:fixed;width:100%">
+            <thead><tr>
+              <th class="lsc-th-team" style="text-align:left;width:200px;min-width:160px">Team</th>
+              ${headers}
+              ${chartTh}
+            </tr></thead>
+            <tbody>${bodyRows}</tbody>
+          </table>
+        </div>
+        <div class="pos-legend">
+          <div class="pos-legend-item"><div class="pos-legend-swatch" style="background:rgba(22,90,55,0.65)"></div>Top 25%</div>
+          <div class="pos-legend-item"><div class="pos-legend-swatch" style="background:rgba(20,55,100,0.65)"></div>Top 50%</div>
+          <div class="pos-legend-item"><div class="pos-legend-swatch" style="background:rgba(110,60,10,0.65)"></div>Top 75%</div>
+          <div class="pos-legend-item"><div class="pos-legend-swatch" style="background:rgba(100,20,20,0.65)"></div>Bottom 25%</div>
+        </div>
+      </div>`;
+
+      // Wire sort headers
+      el.querySelectorAll('.pos-table th[data-col]').forEach(th => {
+        th.addEventListener('click', () => {
+          const col = th.dataset.col;
+          if (sortCol === col) { sortDir *= -1; }
+          else { sortCol = col; sortDir = 1; }
+          render();
+        });
+      });
+
+      // Wire Show/Hide Charts
+      const btn = el.querySelector('#posChartsBtn');
+      if (btn) btn.addEventListener('click', () => { showCharts = !showCharts; render(); });
+
+      // Wire row clicks → modal
+      el.querySelectorAll('.pos-table tbody tr').forEach((tr, i) => {
+        const row = rows[i];
+        tr.addEventListener('click', () => showPosModal(row, n));
+      });
+    }
+
+    render();
+  })();
+
 })();
